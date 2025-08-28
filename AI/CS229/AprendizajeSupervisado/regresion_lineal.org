@@ -9,7 +9,6 @@ Para hacer más interesante nuestro ejemplo de las casas, consideremos un conjun
 más rico, en el que también conocemos el número de cuartos en cada casa:
 
 | Área $(pies^2)$ | #cuartos | Precio (1000$) |
-| :-------------: | :------: | :------------: |
 | 2104            | 3        | 400            |
 | 1600            | 3        | 330            |
 | 2400            | 3        | 369            |
@@ -59,14 +58,13 @@ Para implementar el algoritmo, debemos calcular cuál es el término de derivada
 derecho. Primero hagamos el caso en el que tenemos un solo ejemplo de entrenamiento $(x,y)$, de 
 modo que podemos ignorar la definición de $J$ como una suma. Tenemos:
 
-$$
   \begin{align*}
     \frac{\partial}{\partial \theta_j} J(\theta) &= \frac{\partial}{\partial \theta_j} \frac{1}{2} (h_\theta)(x) - y)^2 \\
     &= 2 \cdot \frac{1}{2} (h_\theta(x) - y) \cdot \frac{\partial}{\partial \theta_j} (h_\theta(x)-y)\\
     &= (h_\theta(x) - y) \cdot \frac{\partial}{\partial \theta_j} \left( \sum_{i=0}^d \theta_i x_i - y \right) \\
     &= (h_\theta(x) - y)x_j
   \end{align*}
-$$
+
 De modo que, para un sólo ejemplo de entrenamiento, esto nos da la regla de actualización:
 $$\theta_j := \theta_j + \alpha (y^{(i))} - h_\theta (x^{(i))})) x_j^{(i)}.$$
 A esta regla se le conoce como la regla de actualización *LMS* (Least Mean Squares) o la regla 

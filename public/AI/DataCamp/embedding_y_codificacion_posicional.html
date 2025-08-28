@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-08-28 Thu 10:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Embedding y Codificación Posicional</title>
+<meta name="author" content="Mou" />
+<meta name="generator" content="Org Mode" />
+<link rel='stylesheet' href='./style.css' />
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a href="/index.html">🏠 Home</a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-item dropdown">
+      <a href="#" class="dropbtn">🤖 AI</a>
+      <div class="dropdown-content">
+        <a href="/AI/index.html">📋 Resumen</a>
+        <div class="dropdown-submenu">
+          <a href="#" class="submenu-btn">📚 CS229 ▶</a>
+          <div class="submenu-content">
+            <a href="/AI/CS229/index.html">📋 Resumen</a>
+            <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+            <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
+          </div>
+        </div>
+        <div class="dropdown-submenu">
+          <a href="#" class="submenu-btn">🏗️ DataCamp ▶</a>
+          <div class="submenu-content">
+            <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+            <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+            <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-item dropdown">
+      <a href="#" class="dropbtn">🔬 HoTT</a>
+      <div class="dropdown-content">
+        <a href="/HoTT/index.html">📋 Resumen</a>
+        <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+        <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+      </div>
+    </div>
+  </div>
+</nav>
+</div>
+<div id="content" class="content">
+<h1 class="title">Embedding y Codificación Posicional</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgcb0e5b8">1. Embeddings</a>
+<ul>
+<li><a href="#org44fd6ed">1.1. Creando embeddings</a></li>
+</ul>
+</li>
+<li><a href="#org0023a8f">2. Positional encoding</a>
+<ul>
+<li><a href="#org2ab4cac">2.1. Creando positional encodings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+La arquitectura de Transformer empieza embebiendo secuencias como vectores y luego
+codificando la posición de cada token en la secuencia para que los tokens se puedan 
+procesar en paralelo.
+</p>
+
+<ul class="org-ul">
+<li><i>Embedding</i>: Tokens \(\rightarrow\) embedding vector</li>
+<li><b>Positional encoding</b>: Token position + embedding vector \(\rightarrow\)
+positional encoding</li>
+</ul>
+
+<p>
+Cada token tiene un ID único en el vocabulario del modelo, cuando los embebemos usando la 
+capa de embedding obtenemos un embedding vector. A la longitud de este vector se le conoce 
+como el número de dimensiones o dimensionalidad.
+</p>
+<div id="outline-container-orgcb0e5b8" class="outline-2">
+<h2 id="orgcb0e5b8"><span class="section-number-2">1.</span> Embeddings</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-python">import torch 
+import math 
+import torch.nn as nn
+
+class InputEmbeddings(nn.Module):
+  def __init__(self, vocab_size: int, d_model: int) -&gt; None:
+    super().__init__()
+    self.d_model = d_model 
+    self.vocab_size = vocab_size 
+    self.embedding = nn.Embedding(vocab_size, d_model)
+
+  def forward(self, x):
+    return self.embedding(x) * math.sqrt(self.d_model)
+
+print("InputEmbeddings class defined successfully")
+</pre>
+</div>
+
+<pre class="example">
+InputEmbeddings class defined successfully
+</pre>
+
+
+<ul class="org-ul">
+<li><b>Práctica estándar</b>: Escalar por \(\sqrt{d_{model}}\) que asegura que los tokens
+token embeddings no sobrecargan o son sobrecargado por los position embeddings.</li>
+</ul>
+</div>
+<div id="outline-container-org44fd6ed" class="outline-3">
+<h3 id="org44fd6ed"><span class="section-number-3">1.1.</span> Creando embeddings</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+<pre class="src src-python">embedding_layer = InputEmbeddings(vocab_size=10_000, d_model=512)
+embedded_output = embedding_layer(torch.tensor([[1, 2, 3, 4], [5, 6, 7, 8]]))
+print(f"Embedded output shape: {embedded_output.shape}")
+print(f"First few values: {embedded_output[0, 0, :5]}")
+</pre>
+</div>
+
+<pre class="example">
+Embedded output shape: torch.Size([2, 4, 512])
+First few values: tensor([ 10.6290,  -5.0488, -52.0221,  21.3537,  21.9466],
+       grad_fn=&lt;SliceBackward0&gt;)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0023a8f" class="outline-2">
+<h2 id="org0023a8f"><span class="section-number-2">2.</span> Positional encoding</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Codifica la posición de cada token en la secuencia en un positional embedding y los añade 
+a los token embeddings para capturar la posición. Generalmente estos embeddings tienen las 
+mismas dimensiones para facilitar las operaciones. Estos positional embeddings se generan 
+utilizando una ecuación que usa la posición del token y las funciones seno y coseno. El 
+seno se usa para valores de embedding pares y el coseno para impares. 
+</p>
+
+<p>
+Para un token en cierta posición, su positional embedding vector se puede calcular a partir
+de estas funciones:
+\[ 
+  PE_{(pos, 2i)} = \sin\left( \frac{pos}{10000^{2i/d_{model}}} \right) ~~~
+  PE_{(pos, 2i + 1)} = \cos\left( \frac{pos}{10000^{2i/d_{model}}} \right)
+\]
+Donde \(i\) es el número de valor.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">class PositionalEncoding(nn.Module):
+  def __init__(self, d_model, max_seq_length):
+    super().__init__()
+
+    pe = torch.zeros(max_seq_length, d_model)
+    position = torch.arange(0, max_seq_length, dtype=torch.float).unsqueeze(1)
+    div_term = torch.exp(torch.arange(0, d_model, 2, dtype=torch.float)) * -(math.log(10000.0) / d_model)
+
+    pe[:, 0::2] = torch.sin(position * div_term)
+    pe[:, 1::2] = torch.cos(position * div_term)
+
+    self.register_buffer('pe', pe.unsqueeze(0))
+
+  def forward(self, x):
+    return x + self.pe[:, :x.size(1)]  # Fixed: should be + not *
+
+print("PositionalEncoding class defined successfully")
+</pre>
+</div>
+
+<pre class="example">
+PositionalEncoding class defined successfully
+</pre>
+</div>
+<div id="outline-container-org2ab4cac" class="outline-3">
+<h3 id="org2ab4cac"><span class="section-number-3">2.1.</span> Creando positional encodings</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-python">pos_encoding_layer = PositionalEncoding(d_model=512, max_seq_length=4)
+pos_encoded_output = pos_encoding_layer(embedded_output)
+print(f"Positional encoded output shape: {pos_encoded_output.shape}")
+print(f"Added positional encoding successfully")
+</pre>
+</div>
+
+<pre class="example">
+Positional encoded output shape: torch.Size([2, 4, 512])
+Added positional encoding successfully
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

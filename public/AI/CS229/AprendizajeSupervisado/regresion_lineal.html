@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-08-28 Thu 10:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Regresión lineal</title>
+<meta name="author" content="Mou" />
+<meta name="generator" content="Org Mode" />
+<link rel='stylesheet' href='./style.css' />
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a href="/index.html">🏠 Home</a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-item dropdown">
+      <a href="#" class="dropbtn">🤖 AI</a>
+      <div class="dropdown-content">
+        <a href="/AI/index.html">📋 Resumen</a>
+        <div class="dropdown-submenu">
+          <a href="#" class="submenu-btn">📚 CS229 ▶</a>
+          <div class="submenu-content">
+            <a href="/AI/CS229/index.html">📋 Resumen</a>
+            <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+            <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
+          </div>
+        </div>
+        <div class="dropdown-submenu">
+          <a href="#" class="submenu-btn">🏗️ DataCamp ▶</a>
+          <div class="submenu-content">
+            <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+            <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+            <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-item dropdown">
+      <a href="#" class="dropbtn">🔬 HoTT</a>
+      <div class="dropdown-content">
+        <a href="/HoTT/index.html">📋 Resumen</a>
+        <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+        <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+      </div>
+    </div>
+  </div>
+</nav>
+</div>
+<div id="content" class="content">
+<h1 class="title">Regresión lineal</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org0d7fe4f">1. El algoritmo LMS</a></li>
+</ul>
+</div>
+</div>
+<p>
+Para hacer más interesante nuestro ejemplo de las casas, consideremos un conjunto de datos
+más rico, en el que también conocemos el número de cuartos en cada casa:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Área \((pies^2)\)</td>
+<td class="org-right">#cuartos</td>
+<td class="org-right">Precio (1000$)</td>
+</tr>
+
+<tr>
+<td class="org-right">2104</td>
+<td class="org-right">3</td>
+<td class="org-right">400</td>
+</tr>
+
+<tr>
+<td class="org-right">1600</td>
+<td class="org-right">3</td>
+<td class="org-right">330</td>
+</tr>
+
+<tr>
+<td class="org-right">2400</td>
+<td class="org-right">3</td>
+<td class="org-right">369</td>
+</tr>
+
+<tr>
+<td class="org-right">1416</td>
+<td class="org-right">2</td>
+<td class="org-right">232</td>
+</tr>
+
+<tr>
+<td class="org-right">3000</td>
+<td class="org-right">4</td>
+<td class="org-right">540</td>
+</tr>
+
+<tr>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-right">\(\vdots\)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Aquí, las \(x\)'s son vectores de dos dimensiones en \(\mathbb{R}^2\). Por ejemplo, \(x_1^{(i)}\)
+es el área de la $i$-ésima casa en el conjunto de entrenamiento y \(x_2^{(i)}\) el número 
+de cuartos.
+</p>
+
+<p>
+Para realizar el aprendizaje supervisado, debemos decidir cómo vamos a representar las 
+funciones/hipótesis \(h\) en una computadora. Una elección inicial, digamos donde 
+aproximamos a \(y\) como una función lineal de \(x\):
+\[h_\theta = \theta_0 + \theta_1 x + \theta_2 x_2.\]
+</p>
+
+<p>
+Aquí, las \(\theta_i\)'s son los <b>parámetros</b> (también llamados <b>pesos</b>) que parametrizan
+el espacio de funciones lineal que mapean a \(\mathcal{X}\) en \(\mathcal{Y}\).
+Cuando no haya peligro de confusión, dejamos de lado el sub-índice \(\theta\) y escribimos 
+simplemente \(h(x)\). Para simplificar la notación, tomamos la convención de hacer \(x_0 = 1\)
+(este es el término de <b>intercepto</b>), de modo que 
+\[h(x) = \sum_{i=0}^{d} \theta_i x_i = \theta^T x, \]
+donde en el lado derecho estamos viendo a \(\theta\) y a \(x\) como vectores y donde \(d\) es el
+número de variables de entrada (características) sin contar a \(x_0\).
+</p>
+
+<p>
+Ahora, dado un conjunto de entrenamiento, ¿cómo escogemos (aprendemos) los parámetros \(\theta\)?
+Un método razonable sería hacer a \(h(x)\) cercano a \(y\), al menos para los ejemplos de entrenamiento
+que tenemos. Para formalizar esto, definiremos una función que mide, para cada valor de las 
+\(\theta\)'s, qué tan cercanas están las \(h(x^{(i)})\)'s a las \(y^{(i)}\)'s correspondientes. 
+Definimos la <b>función de costo</b>:
+\[ J(\theta) = \frac{1}{2} \sum_{i = 1}^n \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2. \]
+A esta función de costo se le conoce como la función de costo de los mínimos cuadrados y da lugar 
+al modelo de regresión usual de <b>mínimos cuadrados</b>.
+</p>
+<div id="outline-container-org0d7fe4f" class="outline-2">
+<h2 id="org0d7fe4f"><span class="section-number-2">1.</span> El algoritmo LMS</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Queremos escoger a \(\theta\) de tal manera que se minimice \(J(\theta)\). Para hacer esto, usaremos 
+un algoritmo de búsqueda que empieza con una suposición inicial para \(\theta\) y luego cambia 
+repetidamente su valor para hacer a \(J(\theta)\) cada vez más pequeña. Específicamente, consideremos
+el algoritmo del <b>descenso gradiente</b>, que comienza con una suposición inicial \(\theta\), y 
+aplica repetidamente la siguiente actualización:
+\[\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)\]
+</p>
+
+<p>
+Aquí, \(\alpha\) es llamada la <b>tasa de aprendizaje</b>. Este es un algoritmo muy natural que toma 
+repetidamente un paso en la dirección de máximo decrecimiento de \(J\).
+</p>
+
+<p>
+Para implementar el algoritmo, debemos calcular cuál es el término de derivada parcial en el lado 
+derecho. Primero hagamos el caso en el que tenemos un solo ejemplo de entrenamiento \((x,y)\), de 
+modo que podemos ignorar la definición de \(J\) como una suma. Tenemos:
+</p>
+
+\begin{align*}
+  \frac{\partial}{\partial \theta_j} J(\theta) &= \frac{\partial}{\partial \theta_j} \frac{1}{2} (h_\theta)(x) - y)^2 \\
+  &= 2 \cdot \frac{1}{2} (h_\theta(x) - y) \cdot \frac{\partial}{\partial \theta_j} (h_\theta(x)-y)\\
+  &= (h_\theta(x) - y) \cdot \frac{\partial}{\partial \theta_j} \left( \sum_{i=0}^d \theta_i x_i - y \right) \\
+  &= (h_\theta(x) - y)x_j
+\end{align*}
+
+<p>
+De modo que, para un sólo ejemplo de entrenamiento, esto nos da la regla de actualización:
+\[\theta_j := \theta_j + \alpha (y^{(i))} - h_\theta (x^{(i))})) x_j^{(i)}.\]
+A esta regla se le conoce como la regla de actualización <b>LMS</b> (Least Mean Squares) o la regla 
+de aprendizaje <b>Widrow-Hoff</b>. Esta regla tiene varias propiedades que parecen naturales e
+intuitivas. Por ejemplo, la magnitud de la actualización es proporcional al término de 
+<b>error</b> \((y^{(i))} - h_\theta(x^{(i)})\); por lo tanto, si encontramos un ejemplo de 
+entrenamiento en el que nuestra predicción es casi exacta, el parámetro se actualiza por 
+una cantidad pequeña y, por el contrario, si el error es grande, se actualiza por una 
+cantidad mayor.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
