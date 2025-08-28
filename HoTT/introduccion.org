@@ -1,0 +1,107 @@
+#+TITLE: Introducción
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+OPTIONS: toc:2 num:t
+#+EXPORT_FILE_NAME: introduccion
+#+STARTUP: overview
+
+** Background 
+*** Intuisionistic Type Theory
+- Basado en el trabajo de Per Martin-Löf
+- Análisis y expansión del programa de intuicionsimo de Brouwer
+
+Hay una teoría base de la teoría de tipos y algunas extensiones:
+
+- ITT (Intentional Type Theory): Punto de partida
+- ETT (Extensional Type Theory): Adición de la reflexividad de la igualdad y unicidad de 
+  pruebas de identidad. (Inspirado por el trabajo de Bishop, teoría de conjuntos 
+  constructiva). Aquí los tipos son conjuntos
+- HoTT (Homotopy Type Theory): Adición de los higher inductive types y el axioma de
+  univalencia. Aquí los tipos son espacios (un tanto abstractos). Las pruebas son relevantes
+  y estableceremos que las pruebas de relaciones están enlazadas con las trayectorias en los
+  espacios
+  
+*** El programa de Brouwer (Constructivismo) 
+- La matemática es una actividad humana (social)
+  - El lenguaje para comunicar ideas matemáticas 
+- La facultad humana fundamental es el concepto de algoritmo para realizar una construcción
+  como hacían los Griegos
+- Las pruebas son una forma de construcción 
+  - Relevancia de las demostraciones, las demostraciones son objetos matemáticos que podemos
+  manipular como cualquier otro (ésta es la distinción radical)
+
+Hilbert se oponía al programa de Brouwer y estaba equivocado. No hay oposición entre 
+la teoría de tipos y los patrones de la matemática. Una de las cosas centrales es 
+la libertad axiomática del constructivismo. Menos suposiciones llevan a resultados más 
+fuertes, en particular, la ley del tercio excluso, no es que el principio sea falso, solo 
+que no es necesario afirmarlo. 
+
+*** Sintético vs. Analítico (Lawvere)
+En la teoría homotópica de tipos el acercamiento es sintético, a diferencia del camino 
+usual, que es analítico. Este acercamiento es lo que hace funcionar a la teoría 
+homotópica de tipos.
+
+** ¿Qué es la teoría de tipos?
+La teoría de tipos es un análisis y codificación del programa de Brouwer. 
+Especialmente con insights en la teoría de la demostración.
+
+Hay una noción de tipo, que clasifica cuales son las construcciones válidas.
+Para decir cuáles son los tipos aceptables tenemos reglas:
+
+- Reglas de introducción: cómo crear una construcción 
+- Reglas de eliminación: cómo eliminar una construcción
+
+Tenemos una forma de enlazar las reglas de introducción con las reglas de eliminación, 
+el principio de inversión (principio de conservación de pruebas): El eliminador es, por lo 
+menos, post-inverso al introductor, sólo podemos sacar lo que hemos introducido.
+
+Las reglas de introducción nos dicen qué son las construcciones y las reglas de eliminación 
+nos dicen cómo computar. 
+
+La intención es que esto sea suficiente para englobar toda la actividad matemática, en 
+particular, las formas de las pruebas.
+
+La teoría de tipos es la teoría unificada de la computación. Es lo que son los lenguajes 
+de programación.
+
+** Lógica intuicionista (Lógica como si importaran las personas)
+Hay dos juicios principales:
+
+1. ~A Prop~: A es una proposición
+2. ~A True~: A es una proposición verdadera (tiene una demostración)
+
+No esperamos que cada proposición pueda ser demostrada o refutada (hay problemas abiertos).
+
+*** Fragmento negativo 
+**** Proposición trivialmente verdadera
+$$\begin{align*}
+  &\frac{}{\top ~ Prop} ~ (\top-Formation)\\\\
+  &\frac{}{\top ~ True} ~ (\top-introduction)
+\end{align*}$$
+
+No hay regla de eliminación.
+
+**** Conjunción 
+$$\begin{align*}
+  &\frac{A ~ Prop ~~~ B ~ Prop}{A \land B ~ Prop} ~ (\land-Formation)\\\\
+  &\frac{A ~ True ~~~ B ~ True}{A \land B ~ True} ~ (\land-Introduction)
+\end{align*}$$
+
+Para $\land$ sí hay reglas de eliminación
+$$
+  \frac{A \land B ~ True}{A ~ True} ~ (\land-Elimination_1) ~~~~~~
+  \frac{A \land B ~ True}{B ~ True} ~ (\land-Elimination_2)
+$$
+
+*** Implicación 
+$$\begin{align*}
+  &\frac{A ~ Prop ~~~ B ~ Prop}{ A \supset B ~ Prop} ~ (\supset-Formation)\\\\
+  &\frac{A ~ True \vdash B ~ True}{A \supset B ~ True} ~ (\supset-Introduction)
+\end{align*}$$
+
+Aquí $\vdash$ significa vinculación lógica, no necesariamente implicación lógica.
+
+También hay reglas de eliminación
+$$
+  \frac{A \supset B ~ True ~~~ A ~ True}{B ~ True} ~ (\supset-Elimination)
+$$

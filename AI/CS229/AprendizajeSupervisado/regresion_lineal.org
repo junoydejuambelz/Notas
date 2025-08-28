@@ -1,0 +1,78 @@
+#+TITLE: Regresión lineal
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+OPTIONS: toc:2 num:t
+#+EXPORT_FILE_NAME: regresion_lineal
+#+STARTUP: overview
+
+Para hacer más interesante nuestro ejemplo de las casas, consideremos un conjunto de datos
+más rico, en el que también conocemos el número de cuartos en cada casa:
+
+| Área $(pies^2)$ | #cuartos | Precio (1000$) |
+| :-------------: | :------: | :------------: |
+| 2104            | 3        | 400            |
+| 1600            | 3        | 330            |
+| 2400            | 3        | 369            |
+| 1416            | 2        | 232            |
+| 3000            | 4        | 540            |
+| $\vdots$        | $\vdots$ | $\vdots$       |
+
+Aquí, las $x$'s son vectores de dos dimensiones en $\mathbb{R}^2$. Por ejemplo, $x_1^{(i)}$
+es el área de la $i$-ésima casa en el conjunto de entrenamiento y $x_2^{(i)}$ el número 
+de cuartos.
+
+Para realizar el aprendizaje supervisado, debemos decidir cómo vamos a representar las 
+funciones/hipótesis $h$ en una computadora. Una elección inicial, digamos donde 
+aproximamos a $y$ como una función lineal de $x$:
+$$h_\theta = \theta_0 + \theta_1 x + \theta_2 x_2.$$
+
+Aquí, las $\theta_i$'s son los *parámetros* (también llamados *pesos*) que parametrizan
+el espacio de funciones lineal que mapean a $\mathcal{X}$ en $\mathcal{Y}$.
+Cuando no haya peligro de confusión, dejamos de lado el sub-índice $\theta$ y escribimos 
+simplemente $h(x)$. Para simplificar la notación, tomamos la convención de hacer $x_0 = 1$
+(este es el término de *intercepto*), de modo que 
+$$h(x) = \sum_{i=0}^{d} \theta_i x_i = \theta^T x, $$
+donde en el lado derecho estamos viendo a $\theta$ y a $x$ como vectores y donde $d$ es el
+número de variables de entrada (características) sin contar a $x_0$.
+
+Ahora, dado un conjunto de entrenamiento, ¿cómo escogemos (aprendemos) los parámetros $\theta$?
+Un método razonable sería hacer a $h(x)$ cercano a $y$, al menos para los ejemplos de entrenamiento
+que tenemos. Para formalizar esto, definiremos una función que mide, para cada valor de las 
+$\theta$'s, qué tan cercanas están las $h(x^{(i)})$'s a las $y^{(i)}$'s correspondientes. 
+Definimos la *función de costo*:
+$$ J(\theta) = \frac{1}{2} \sum_{i = 1}^n \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2. $$
+A esta función de costo se le conoce como la función de costo de los mínimos cuadrados y da lugar 
+al modelo de regresión usual de *mínimos cuadrados*.
+
+** El algoritmo LMS
+Queremos escoger a $\theta$ de tal manera que se minimice $J(\theta)$. Para hacer esto, usaremos 
+un algoritmo de búsqueda que empieza con una suposición inicial para $\theta$ y luego cambia 
+repetidamente su valor para hacer a $J(\theta)$ cada vez más pequeña. Específicamente, consideremos
+el algoritmo del *descenso gradiente*, que comienza con una suposición inicial $\theta$, y 
+aplica repetidamente la siguiente actualización:
+$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+
+Aquí, $\alpha$ es llamada la *tasa de aprendizaje*. Este es un algoritmo muy natural que toma 
+repetidamente un paso en la dirección de máximo decrecimiento de $J$.
+
+Para implementar el algoritmo, debemos calcular cuál es el término de derivada parcial en el lado 
+derecho. Primero hagamos el caso en el que tenemos un solo ejemplo de entrenamiento $(x,y)$, de 
+modo que podemos ignorar la definición de $J$ como una suma. Tenemos:
+
+$$
+  \begin{align*}
+    \frac{\partial}{\partial \theta_j} J(\theta) &= \frac{\partial}{\partial \theta_j} \frac{1}{2} (h_\theta)(x) - y)^2 \\
+    &= 2 \cdot \frac{1}{2} (h_\theta(x) - y) \cdot \frac{\partial}{\partial \theta_j} (h_\theta(x)-y)\\
+    &= (h_\theta(x) - y) \cdot \frac{\partial}{\partial \theta_j} \left( \sum_{i=0}^d \theta_i x_i - y \right) \\
+    &= (h_\theta(x) - y)x_j
+  \end{align*}
+$$
+De modo que, para un sólo ejemplo de entrenamiento, esto nos da la regla de actualización:
+$$\theta_j := \theta_j + \alpha (y^{(i))} - h_\theta (x^{(i))})) x_j^{(i)}.$$
+A esta regla se le conoce como la regla de actualización *LMS* (Least Mean Squares) o la regla 
+de aprendizaje *Widrow-Hoff*. Esta regla tiene varias propiedades que parecen naturales e
+intuitivas. Por ejemplo, la magnitud de la actualización es proporcional al término de 
+*error* $(y^{(i))} - h_\theta(x^{(i)})$; por lo tanto, si encontramos un ejemplo de 
+entrenamiento en el que nuestra predicción es casi exacta, el parámetro se actualiza por 
+una cantidad pequeña y, por el contrario, si el error es grande, se actualiza por una 
+cantidad mayor.

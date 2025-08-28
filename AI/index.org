@@ -1,0 +1,30 @@
+#+TITLE: Notas de IA
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+OPTIONS: toc:2 num:t
+#+EXPORT_FILE_NAME: index
+#+STARTUP: overview
+
+* Bienvenido a mis Notas de IA
+
+Esta es una colección completa de mis notas de estudio sobre inteligencia artificial, cubriendo fundamentos de aprendizaje automático y temas avanzados de aprendizaje profundo.
+
+** CS229 - Aprendizaje Automático
+
+Curso CS229 de Stanford cubriendo conceptos fundamentales de aprendizaje automático:
+
+- [[file:CS229/index.org][Resumen del Curso]] - Introducción y estructura del curso
+- [[file:CS229/AprendizajeSupervisado/aprendizaje_supervisado.org][Aprendizaje Supervisado]] - Conceptos centrales de aprendizaje supervisado
+- [[file:CS229/AprendizajeSupervisado/regresion_lineal.org][Regresión Lineal]] - Fundamentos matemáticos de regresión lineal
+
+** DataCamp - Transformers con PyTorch
+
+Arquitectura avanzada de transformers e implementación:
+
+- [[file:DataCamp/index.org][Resumen del Curso]] - Introducción al curso de Transformers
+- [[file:DataCamp/desglosando_el_transformer.org][Desglosando el Transformer]] - Análisis profundo de la arquitectura
+- [[file:DataCamp/embedding_y_codificacion_posicional.org][Embedding y Codificación Posicional]] - Componentes centrales del transformer
+
+** Navegación
+
+Usa los enlaces para acceder rápidamente a diferentes secciones. Cada tema principal tiene sus propios enlaces directos al contenido específico.

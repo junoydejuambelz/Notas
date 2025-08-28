@@ -1,0 +1,16 @@
+#+TITLE: DataCamp: Transformers with PyTorch
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+OPTIONS: toc:2 num:t
+#+EXPORT_FILE_NAME: index
+#+STARTUP: overview
+
+* Bienvenido a mis notas
+
+Esta es una colección de mis notas de estudio para el curso de DataCamp de Transformers 
+with PyTorch
+
+** Notas
+
+- [[file:./desglosando_el_transformer.org][Desglosando el Transformer]]
+- [[file:./embedding_y_codificacion_posicional.org][Embedding y Codificación Posicional]]

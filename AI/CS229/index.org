@@ -1,0 +1,13 @@
+#+TITLE: Notas CS229
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+OPTIONS: toc:2 num:t
+#+EXPORT_FILE_NAME: index
+#+STARTUP: overview
+
+* Bienvenido a mis notas
+
+Esta es una colección de mis notas de estudio para el curso CS229 de Stanford.
+
+** Capítulos
+- [[file:AprendizajeSupervisado/aprendizaje_supervisado.org][Aprendizaje supervisado]]

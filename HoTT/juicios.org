@@ -1,0 +1,148 @@
+#+TITLE: Juicios
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+OPTIONS: toc:2 num:t
+#+EXPORT_FILE_NAME: juicios
+#+STARTUP: overview
+
+Tenemos los siguientes juicios
+
+** El fragmento negativo
+
+*** Juicios atómicos
+- ~A Prop~
+- ~A True~
+
+*** Juicios compuestos (Juicios hipotéticos)
+
+$$\underbrace{A_1 ~ True, \ldots A_n ~ True}_{Suposiciones} \vdash \underbrace{A ~ True}_{Conclusión}$$
+
+Es como un mapeo, las suposiciones son las entradas y la consecuencia la salida.
+
+*** ¿Qué es la vinculación lógica?
+**** Propiedades estructurales
+1. $$A ~ True \vdash A ~ True ~~~ (Reflexividad)$$
+2. $$ \frac{\Gamma_1 \vdash A ~ True ~~~ \Gamma_2, A ~ True \vdash B ~ True}{\Gamma_1, \Gamma_2 \vdash B ~ True} ~~~ (Transitividad)$$
+3. $$ \frac{\Gamma \vdash A ~ True}{\Gamma, B ~ True \vdash A ~ True} ~~~ (Debilitamiento)$$
+4. $$\frac{\Gamma, A ~ True, A ~ True \vdash B ~ True}{\Gamma, A ~ True \vdash B ~ True} ~~~ (Contracción)$$
+4. $$ \frac{\Gamma \vdash A ~ True}{\pi \cdot \Gamma \vdash A ~ True} ~~~ (Intercambio)$$ 
+
+**** Formulación orientada al orden
+Definamos $A \leq B$ donde $A, B ~ Prop$ por $A ~ True \vdash B ~ True$.
+
+1. Esta relación es un pre-orden, es reflexiva y transitiva.
+2. Tenemos "meets" dadas por la conjunción $A \land B \leq A$ y $A \land B \leq B$, 
+  además, si $C \leq A$ y $C \leq B$, entonces $C \leq A \land B$. (Ser un "meet" 
+  es lo mismo que ser un producto, desde la perspectiva categórica)
+3. Tenemos un elemento final $A \leq \top$
+4. Tenemos exponenciales: $B^A (A \supset B)$, $A \land (A \supset B) \leq B$ y 
+  si $A \land C \leq B$, entonces $C \leq A \supset B$. 
+
+En pocas palabras, tenemos una semi-retícula inferior.
+
+** Lógica proposicional intuicionista (IPL)
+*** Proposición trivialmente verdadera 
+**** Formación
+$$
+  \frac{}{\top ~ Prop} ~ (\top-Formation)
+$$
+
+**** Introducción 
+$$
+  \frac{}{\top ~ True} ~ (\top-Introduction)
+$$
+
+*** Conjunción 
+**** Formación
+$$
+  \frac{A ~ Prop ~~~ B ~ Prop}{A \land B ~ Prop} ~ (\land-Formation)
+$$
+
+**** Introducción
+$$
+  \frac{A ~ True ~~~ B True}{A \land B ~ True} ~ (\land-Introduction)
+$$
+
+**** Eliminación
+$$
+  \frac{A \land B ~ True}{A ~ True} ~ (\land-Elimination_1)
+$$
+
+$$
+  \frac{A \land B ~ True}{B ~ True} ~ (\land-Elimination_2)
+$$
+
+*** Implicación
+**** Formación 
+$$
+  \frac{A ~ Prop ~~~ B ~ Prop}{A \supset B ~ Prop} ~ (\supset-Formation)
+$$
+
+**** Introducción 
+$$
+  \frac{A ~ True \vdash B ~ True}{A \supset B} ~ (\supset-Introduction)
+$$
+A esta regla se le llama deducción natural
+
+**** Eliminación 
+$$
+  \frac{A \supset B ~ True ~~~ A ~ True}{\vdash B ~ True} ~ (\supset-Elimination)
+$$
+
+** El fragmento positivo
+
+*** Proposición trivialmente false
+**** Formación 
+$$
+  \frac{}{\bot ~ False}~ (\bot-Formation)
+$$
+
+**** Eliminación
+$$
+  \frac{\bot ~ True}{A ~ True}(\bot-Elimination)
+$$
+
+*** Disyunción 
+**** Formación 
+$$
+  \frac{A ~ Prop ~~~ B ~ Prop}{A \lor B ~ Prop} (\lor_Formation)
+$$
+
+**** Introducción 
+$$
+  \frac{A ~ True}{A \lor B ~ True} ~ (\lor-Introduction_1)
+$$
+
+$$
+  \frac{B ~ True}{A \lor B ~ True} ~ (\lor-Introduction_2)
+$$
+
+**** Eliminación
+$$
+  \frac{A \lor B True ~~~ A True \vdash C ~ True ~~~ B ~ True \vdash C ~ True}{C ~ True} ~ (\lor-Elimination)
+$$
+
+**** Formulación orientada al orden 
+
+1. Hay un objeto inicial $\bot \leq A$
+2. Hay joins $A \leq A \lor B$ y $B \leq A \lor B$ y, además, si $C \leq A$ y 
+  $C \leq B$, entonces $C \leq A \lor B$ (Ser un "join" es lo mismo que ser un 
+  co-producto, desde la perspectiva categórica)
+
+Esto, junto con lo que teníamos antes, nos da la estructura de un álgebra de Heyting.
+Definidas de esta forma, toda álgebra de Heyting es *distributiva*.
+
+***** Hints 
+1. Hay que usar exponenciales.
+2. Usar el lema de Yoneda $a \leq b$ si y sólo si, para cada $x$, $x \leq a$ entonces 
+  $x \leq b$.
+
+**** Negación 
+Primero, definimos $\lnot A := A \supset \bot$.
+
+***** Checar 
+$\lnot A$ es la $C$ más grande inconsistente con $A$, es decir, $A \land \lnot A \leq \bot$ y, si $A \land C \leq \bot$ entonces $C \leq \lnot A$.
+
+**** Complemento $\left(\overline{A}\right)$
+$A \lor \overline{A} \simeq \top$, i.e., $\top \leq A \lor \overline{A}$ y, si 
+$\top \leq A \lor C$ entonces $\overline{A} \leq C$

@@ -1,0 +1,65 @@
+#+TITLE: Desglosando el Transformer
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+OPTIONS: toc:2 num:t
+#+EXPORT_FILE_NAME: desglosando_el_transformer
+#+STARTUP: overview
+
+** El artículo que lo cambió todo 
+- Attention is all you need (Ashish Vaswani)
+  - Mecanismos de atención 
+  - Modelado de texto optimizado
+  - Usado en los Large Language Models (LLMs)
+La arquitectura Transformer está formada por dos bloques, el bloque encoder y el bloque 
+decoder
+
+*** Bloque encoder
+- Multiples capas idénticas 
+- *Lee* y *procesa* el input
+- Genera representaciones numéricas ricas en contexto 
+- Usa *self-attention* y *feed-forward networks*
+
+*** Bloque decoder 
+- Secuencia input codificada $\rightarrow$ secuencia output
+
+*** Positional encoding
+- Codifica la posición de cada token en la secuencia 
+- El orden es crucial para modelar secuencias
+
+*** Mecanismos de atención 
+- Presta atención a los tokens importantes y sus relaciones 
+- Mejora la generación de texto 
+
+**** Self-attention
+- Le asigna pesos a los tokens 
+- Captura dependencias a largo rango 
+**** Multi-head attention 
+- Parte el input en múltiples *heads*
+- Las heads capturas patrones distintos, creando representaciones más ricas
+*** Position-wide feed-forward networks 
+- Neural Networks (NNs) simples que aplican transformaciones 
+- Cada token es transformado de manera independiente
+- Independiente de la posición
+
+** Transformers en PyTorch
+PyTorch nos provee de una clase de alto nivel en ~torch.nn~ para definir arquitecturas. 
+Toma cuatro parámetros principales:
+
+- ~d_model~: Dimensión de los inputs del modelo 
+- ~nheads~: Número de attention heads 
+- ~num_encoder_layers~: Número de capas del encoder 
+- ~num_decoder_layers~: Número de capas del decoder
+
+#+BEGIN_SRC python :results output :exports both
+import torch.nn as nn
+
+model = nn.Transformer(
+  d_model=512,
+  nhead=8,
+  num_encoder_layers=6,
+  num_decoder_layers=6
+)
+
+print(model)
+#+END_SRC
+

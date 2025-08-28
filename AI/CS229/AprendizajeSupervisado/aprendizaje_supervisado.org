@@ -1,0 +1,51 @@
+#+TITLE: Aprendizaje supervisado
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+OPTIONS: toc:2 num:t
+#+EXPORT_FILE_NAME: aprendizaje_supervisado
+#+STARTUP: overview
+
+Comencemos hablando de algunos ejemplos de problemas de aprendizaje supervisado. Supongamos
+que tenemos un conjunto de datos dando las áreas y precios de 47 casas en Portland, Oregon.
+
+| Área ($pies^2$) | Precio (1000$) |
+|                 |                |
+|            2104 |            400 |
+|            1600 |            330 |
+|            2400 |            369 |
+|            1416 |            232 |
+|            3000 |            340 |
+|        $\vdots$ |       $\vdots$ |
+
+Podemos graficar estos datos:
+
+[[file:./Imagenes/grafica_casas.jpg]]
+
+Dados datos como estos, ¿cómo podemos predecir los precios de otras casas en el mismo
+lugar, como una función de su tamaño? 
+
+Para establecer notación para el futuro, usaremos $x^{(i)}$ para denotar las variables de 
+entrada (tamaño en este ejemplo), también llamadas *características* de entrada,
+y $y^{(i)}$ para denotar la variable de salida u *objetivo* que estamos intentando
+predecir (precio).
+Un par $(x^{(i)}, y^{(i)})$ es llamado un *ejemplo de entrenamiento*, y el conjunto
+de datos que usaremos para aprender (una lista de $n$-ejemplos de entrenamiento), es llamado un *conjunto de entrenamiento*. Notemos que el super-índice no es más que 
+notación para enumerar el conjunto de entrenamiento, y no tiene nada que ver con la 
+potenciación. También usaremos $\mathcal{X}$ para denotar el espacio de valores de entrada 
+y $\mathcal{Y}$ para el espacio de valores de salida. En este ejemplo, 
+$\mathcal{X} = \mathcal{Y} = \mathbb{R}$.
+
+Nuestro objetivo es, dado un conjunto de entrenamiento, conseguir una función 
+$h : \mathcal{X} \to \mathcal{Y}$ de tal manera que $h(x)$ sea un buen predictor para el 
+valor de $y$ correspondiente. Por razones históricas, esta función es llamada una 
+*hipótesis*. Visto pictoricamente, el proceso es el siguiente:
+
+[[file:./Imagenes/proceso.jpg]]
+
+Cuando la variable que estamos intentando predecir es continua, como al intentar obtener 
+el precio en el ejemplo de las casas, le llamamos al problema de aprendizaje un problema de
+*regresión*. Cuando $y$ sólo puede tomar una cantidad discreta de valores, le llamamos 
+un problema de *clasificación*.
+
+** Notas
+- [[file:./regresion_lineal.org][Regresión lineal]]

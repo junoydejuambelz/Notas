@@ -1,0 +1,25 @@
+#+TITLE: Mis Notas - Org Mode
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+OPTIONS: toc:2 num:t
+#+EXPORT_FILE_NAME: index
+#+STARTUP: overview
+
+* Bienvenido a mis Notas
+
+Esta es mi colección de notas sobre distintos temas.
+
+** Secciones Principales
+
+*** [[file:AI/index.org][Inteligencia Artificial]]
+Notas sobre inteligencia artificial:
+- CS229 - Aprendizaje Automático de Stanford
+- DataCamp - Transformers con PyTorch
+
+*** [[file:HoTT/index.org][Homotopy Type Theory]]
+Notas de estudio sobre teoría homotópica de tipos:
+- Introducción a la teoría de tipos
+- Juicios y lógica intuicionista
+
+** Navegación
+Usa los enlaces para acceder directamente a cada sección de notas.

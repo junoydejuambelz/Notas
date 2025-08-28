@@ -1,0 +1,95 @@
+#+TITLE: Embedding y Codificación Posicional
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+OPTIONS: toc:2 num:t
+#+EXPORT_FILE_NAME: embedding_y_codificacion_posicional
+#+STARTUP: overview
+
+La arquitectura de Transformer empieza embebiendo secuencias como vectores y luego
+codificando la posición de cada token en la secuencia para que los tokens se puedan 
+procesar en paralelo.
+
+- /Embedding/: Tokens $\rightarrow$ embedding vector 
+- *Positional encoding*: Token position + embedding vector $\rightarrow$
+  positional encoding
+
+Cada token tiene un ID único en el vocabulario del modelo, cuando los embebemos usando la 
+capa de embedding obtenemos un embedding vector. A la longitud de este vector se le conoce 
+como el número de dimensiones o dimensionalidad.
+
+** Embeddings
+
+#+BEGIN_SRC python :results output :exports both
+import torch 
+import math 
+import torch.nn as nn
+
+class InputEmbeddings(nn.Module):
+  def __init__(self, vocab_size: int, d_model: int) -> None:
+    super().__init__()
+    self.d_model = d_model 
+    self.vocab_size = vocab_size 
+    self.embedding = nn.Embedding(vocab_size, d_model)
+  
+  def forward(self, x):
+    return self.embedding(x) * math.sqrt(self.d_model)
+
+print("InputEmbeddings class defined successfully")
+#+END_SRC
+
+- *Práctica estándar*: Escalar por $\sqrt{d_{model}}$ que asegura que los tokens
+  token embeddings no sobrecargan o son sobrecargado por los position embeddings.
+ 
+*** Creando embeddings 
+#+BEGIN_SRC python :results output :exports both
+embedding_layer = InputEmbeddings(vocab_size=10_000, d_model=512)
+embedded_output = embedding_layer(torch.tensor([[1, 2, 3, 4], [5, 6, 7, 8]]))
+print(f"Embedded output shape: {embedded_output.shape}")
+print(f"First few values: {embedded_output[0, 0, :5]}")
+#+END_SRC
+
+
+** Positional encoding 
+Codifica la posición de cada token en la secuencia en un positional embedding y los añade 
+a los token embeddings para capturar la posición. Generalmente estos embeddings tienen las 
+mismas dimensiones para facilitar las operaciones. Estos positional embeddings se generan 
+utilizando una ecuación que usa la posición del token y las funciones seno y coseno. El 
+seno se usa para valores de embedding pares y el coseno para impares. 
+
+Para un token en cierta posición, su positional embedding vector se puede calcular a partir
+de estas funciones:
+$$ 
+  PE_{(pos, 2i)} = \sin\left( \frac{pos}{10000^{2i/d_{model}}} \right) ~~~
+  PE_{(pos, 2i + 1)} = \cos\left( \frac{pos}{10000^{2i/d_{model}}} \right)
+$$
+Donde $i$ es el número de valor.
+
+#+BEGIN_SRC python :results output :exports both
+class PositionalEncoding(nn.Module):
+  def __init__(self, d_model, max_seq_length):
+    super().__init__()
+
+    pe = torch.zeros(max_seq_length, d_model)
+    position = torch.arange(0, max_seq_length, dtype=torch.float).unsqueeze(1)
+    div_term = torch.exp(torch.arange(0, d_model, 2, dtype=torch.float)) * -(math.log(10000.0) / d_model)
+
+    pe[:, 0::2] = torch.sin(position * div_term)
+    pe[:, 1::2] = torch.cos(position * div_term)
+    
+    self.register_buffer('pe', pe.unsqueeze(0))
+
+  def forward(self, x):
+    return x + self.pe[:, :x.size(1)]  # Fixed: should be + not *
+
+print("PositionalEncoding class defined successfully")
+#+END_SRC
+
+
+*** Creando positional encodings
+#+BEGIN_SRC python :results output :exports both
+pos_encoding_layer = PositionalEncoding(d_model=512, max_seq_length=4)
+pos_encoded_output = pos_encoding_layer(embedded_output)
+print(f"Positional encoded output shape: {pos_encoded_output.shape}")
+print(f"Added positional encoding successfully")
+#+END_SRC
+
