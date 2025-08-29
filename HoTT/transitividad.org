@@ -1,0 +1,10 @@
+#+TITLE: Transitividad
+#+author: Emilio Junoy
+#+DATE: [2025-08-28]
+#+EXPORT_FILE_NAME: transitividad
+#+STARTUP: overview
+
+
+**** @@html:<b>@@ Afirmación @@html:</b>@@
+@@html:<em>@@ En la lógica intuicionista no todas las instancias del tercio excluso son
+demostrables @@html:</em>@@

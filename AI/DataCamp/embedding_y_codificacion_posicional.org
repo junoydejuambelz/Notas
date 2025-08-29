@@ -1,7 +1,7 @@
 #+TITLE: Embedding y Codificación Posicional
 #+AUTHOR: Mou
 #+DATE: [2025-08-28]
-#+OPTIONS: toc:2 num:t
+
 #+EXPORT_FILE_NAME: embedding_y_codificacion_posicional
 #+STARTUP: overview
 
@@ -19,7 +19,7 @@ como el número de dimensiones o dimensionalidad.
 
 ** Embeddings
 
-#+BEGIN_SRC python :results output :exports both
+#+BEGIN_SRC python :results output :session one :exports both
 import torch 
 import math 
 import torch.nn as nn
@@ -37,16 +37,24 @@ class InputEmbeddings(nn.Module):
 print("InputEmbeddings class defined successfully")
 #+END_SRC
 
+#+RESULTS:
+: InputEmbeddings class defined successfully
+
 - *Práctica estándar*: Escalar por $\sqrt{d_{model}}$ que asegura que los tokens
   token embeddings no sobrecargan o son sobrecargado por los position embeddings.
  
 *** Creando embeddings 
-#+BEGIN_SRC python :results output :exports both
+#+BEGIN_SRC python :results output :session one :exports both
 embedding_layer = InputEmbeddings(vocab_size=10_000, d_model=512)
 embedded_output = embedding_layer(torch.tensor([[1, 2, 3, 4], [5, 6, 7, 8]]))
 print(f"Embedded output shape: {embedded_output.shape}")
 print(f"First few values: {embedded_output[0, 0, :5]}")
 #+END_SRC
+
+#+RESULTS:
+: Embedded output shape: torch.Size([2, 4, 512])
+: First few values: tensor([ 19.0000, -23.7979, -31.2923, -20.1540, -24.6136],
+:        grad_fn=<SliceBackward0>)
 
 
 ** Positional encoding 
@@ -64,7 +72,7 @@ $$
 $$
 Donde $i$ es el número de valor.
 
-#+BEGIN_SRC python :results output :exports both
+#+BEGIN_SRC python :results output :session one :exports both
 class PositionalEncoding(nn.Module):
   def __init__(self, d_model, max_seq_length):
     super().__init__()
@@ -84,12 +92,19 @@ class PositionalEncoding(nn.Module):
 print("PositionalEncoding class defined successfully")
 #+END_SRC
 
+#+RESULTS:
+: PositionalEncoding class defined successfully
+
 
 *** Creando positional encodings
-#+BEGIN_SRC python :results output :exports both
+#+BEGIN_SRC python :results output :session one :exports both
 pos_encoding_layer = PositionalEncoding(d_model=512, max_seq_length=4)
 pos_encoded_output = pos_encoding_layer(embedded_output)
 print(f"Positional encoded output shape: {pos_encoded_output.shape}")
 print(f"Added positional encoding successfully")
 #+END_SRC
+
+#+RESULTS:
+: Positional encoded output shape: torch.Size([2, 4, 512])
+: Added positional encoding successfully
 

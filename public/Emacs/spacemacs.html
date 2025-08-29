@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-08-29 Fri 13:00 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Archivo de Configuración .spacemacs</title>
+<meta name="generator" content="Org Mode" />
+<link rel='stylesheet' href='/style.css' />
+</head>
+<body>
+<div id="preamble" class="status">
+<nav class="navbar">
+  <div class="navbar-brand">
+  <a href="/index.html">🏠 Home</a>
+  </div>
+  <div class="navbar-menu">
+  <div class="navbar-item dropdown">
+  <a href="#" class="dropbtn">🤖 AI</a>
+  <div class="dropdown-content">
+  <a href="/AI/index.html">📋 Resumen</a>
+  <div class="dropdown-submenu">
+  <a href="#" class="submenu-btn">📚 CS229</a>
+  <div class="submenu-content">
+  <a href="/AI/CS229/index.html">📋 Resumen</a>
+  <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+  <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
+  </div>
+  </div>
+  <div class="dropdown-submenu">
+  <a href="#" class="submenu-btn">🏗️ DataCamp</a>
+  <div class="submenu-content">
+  <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+  <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+  <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="navbar-item dropdown">
+  <a href="#" class="dropbtn">🔬 HoTT</a>
+  <div class="dropdown-content">
+  <a href="/HoTT/index.html">📋 Resumen</a>
+  <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+  <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+  <a href="HoTT/transitividad.html">🔛 Transitividad </a>
+  </div>
+  </div>
+  <div class="navbar-item">
+  <a href="/Emacs/index.html">⚙️ Emacs Config</a>
+  </div>
+  </div>
+  </nav>
+</div>
+<div id="content" class="content">
+<h1 class="title">Archivo de Configuración .spacemacs</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org83197a8">1. Configuración de Spacemacs</a>
+<ul>
+<li><a href="#orga73c624">1.1. Estructura General</a></li>
+<li><a href="#org1ce40e5">1.2. Configuración Completa</a></li>
+<li><a href="#org9778882">1.3. Aspectos Destacados de la Configuración</a>
+<ul>
+<li><a href="#org92fc60d">1.3.1. Temas Utilizados</a></li>
+<li><a href="#org1e07f62">1.3.2. Configuraciones Personalizadas</a></li>
+<li><a href="#org9cbd4d8">1.3.3. Edición y Comportamiento</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org83197a8" class="outline-2">
+<h2 id="org83197a8"><span class="section-number-2">1.</span> Configuración de Spacemacs</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Este es mi archivo de configuración de Spacemacs (<code>~/.spacemacs</code>) que define toda la configuración personalizada de mi entorno de desarrollo.
+</p>
+</div>
+<div id="outline-container-orga73c624" class="outline-3">
+<h3 id="orga73c624"><span class="section-number-3">1.1.</span> Estructura General</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+El archivo está dividido en cuatro funciones principales:
+</p>
+<ol class="org-ol">
+<li><code>dotspacemacs/layers</code> - Configuración de capas y paquetes</li>
+<li><code>dotspacemacs/init</code> - Inicialización y configuraciones generales</li>
+<li><code>dotspacemacs/user-config</code> - Configuraciones personalizadas del usuario</li>
+<li><code>dotspacemacs/emacs-custom-settings</code> - Configuraciones automáticas de Emacs</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org1ce40e5" class="outline-3">
+<h3 id="org1ce40e5"><span class="section-number-3">1.2.</span> Configuración Completa</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">-*- mode: emacs-lisp; lexical-binding: t -*-
+</span><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">This file is loaded by Spacemacs at startup.
+</span><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">It must be stored in your home directory.
+</span>
+(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">dotspacemacs/layers</span> ()
+  <span style="font-style: italic;">"Layer configuration:
+This function should only modify configuration layer settings."</span>
+  (<span style="font-weight: bold;">setq-default</span>
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Base distribution to use. This is a layer contained in the directory
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">+distribution</span><span style="font-weight: bold; font-style: italic;">'. For now available distributions are `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">spacemacs-base</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">or `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">spacemacs</span><span style="font-weight: bold; font-style: italic;">'. (default 'spacemacs)
+</span>   dotspacemacs-distribution 'spacemacs
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Lazy installation of layers (i.e. layers are installed only when a file
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">with a supported type is opened). Possible values are `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">all</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">unused</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">nil</span><span style="font-weight: bold; font-style: italic;">'. `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">unused</span><span style="font-weight: bold; font-style: italic;">' will lazy install only unused layers (i.e. layers
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">not listed in variable `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">dotspacemacs-configuration-layers</span><span style="font-weight: bold; font-style: italic;">'), `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">all</span><span style="font-weight: bold; font-style: italic;">' will
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">lazy install any layer that support lazy installation even the layers
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">listed in `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">dotspacemacs-configuration-layers</span><span style="font-weight: bold; font-style: italic;">'. `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">nil</span><span style="font-weight: bold; font-style: italic;">' disable the lazy
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">installation feature and you have to explicitly list a layer in the
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">variable `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">dotspacemacs-configuration-layers</span><span style="font-weight: bold; font-style: italic;">' to install it.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default 'unused)
+</span>   dotspacemacs-enable-lazy-installation 'unused
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil then Spacemacs will ask for confirmation before installing
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">a layer lazily. (default t)
+</span>   dotspacemacs-ask-for-lazy-installation t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">List of additional paths where to look for configuration layers.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Paths must have a trailing slash (i.e. "~/.mycontribs/")
+</span>   dotspacemacs-configuration-layer-path '()
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">List of configuration layers to load.
+</span>   dotspacemacs-configuration-layers
+   '(shell-scripts
+     <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">----------------------------------------------------------------
+</span>     <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Example of useful layers you may want to use right away.
+</span>     <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Uncomment some layer names and press `SPC f e R' (Vim style) or
+</span>     <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`M-m f e R' (Emacs style) to install them.
+</span>     <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">----------------------------------------------------------------
+</span>     auto-completion
+     better-defaults
+     emacs-lisp
+     git
+     helm
+     lsp
+     markdown
+     multiple-cursors
+     org
+     (shell <span style="font-weight: bold;">:variables</span>
+            shell-default-shell 'vterm
+            shell-default-height 15
+            shell-default-position 'bottom)
+     spell-checking
+     syntax-checking
+     themes-megapack
+     helm
+     <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">version-control
+</span>     treemacs)
+
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">List of additional packages that will be installed without being wrapped
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">in a layer (generally the packages are installed only and should still be
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">loaded using load/require/use-package in the user-config section below in
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">this file). If you need some configuration for these packages, then
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">consider creating a layer. You can also put the configuration in
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">dotspacemacs/user-config</span><span style="font-weight: bold; font-style: italic;">'. To use a local version of a package, use the
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">:location</span><span style="font-weight: bold; font-style: italic;">' property: '(your-package :location "~/path/to/your-package/")
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Also include the dependencies as they will not be resolved automatically.
+</span>   dotspacemacs-additional-packages '(ob-d2
+                                      simple-httpd)
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">A list of packages that cannot be updated.
+</span>   dotspacemacs-frozen-packages '()
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">A list of packages that will not be installed and loaded.
+</span>   dotspacemacs-excluded-packages '()
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Defines the behaviour of Spacemacs when installing packages.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Possible values are `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">used-only</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">used-but-keep-unused</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">all</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">used-only</span><span style="font-weight: bold; font-style: italic;">' installs only explicitly used packages and deletes any unused
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">packages as well as their unused dependencies. `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">used-but-keep-unused</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">installs only the used packages but won't delete unused ones. `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">all</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">installs *all* packages supported by Spacemacs and never uninstalls them.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default is `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">used-only</span><span style="font-weight: bold; font-style: italic;">')
+</span>   dotspacemacs-install-packages 'used-only))
+
+(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">dotspacemacs/init</span> ()
+  <span style="font-style: italic;">"Initialization:
+This function is called at the very beginning of Spacemacs startup,
+before layer configuration.
+It should only modify the values of Spacemacs settings."</span>
+  <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">This setq-default sexp is an exhaustive list of all the supported
+</span>  <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">spacemacs settings.
+</span>  (<span style="font-weight: bold;">setq-default</span>
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Maximum allowed time in seconds to contact an ELPA repository.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default 5)
+</span>   dotspacemacs-elpa-timeout 5
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Set `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">gc-cons-threshold</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">gc-cons-percentage</span><span style="font-weight: bold; font-style: italic;">' when startup finishes.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">This is an advanced option and should not be changed unless you suspect
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">performance issues due to garbage collection operations.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default '(100000000 0.1))
+</span>   dotspacemacs-gc-cons '(100000000 0.1)
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Set `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">read-process-output-max</span><span style="font-weight: bold; font-style: italic;">' when startup finishes.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">This defines how much data is read from a foreign process.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Setting this &gt;= 1 MB should increase performance for lsp servers
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">in emacs 27.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default (* 1024 1024))
+</span>   dotspacemacs-read-process-output-max (* 1024 1024)
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil then Spacelpa repository is the primary source to install
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">a locked version of packages. If nil then Spacemacs will install the
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">latest version of packages from MELPA. Spacelpa is currently in
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">experimental state please use only for testing purposes.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-use-spacelpa nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil then verify the signature for downloaded Spacelpa archives.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default t)
+</span>   dotspacemacs-verify-spacelpa-archives t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil then spacemacs will check for updates at startup
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">when the current branch is not `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">develop</span><span style="font-weight: bold; font-style: italic;">'. Note that checking for
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">new versions works via git commands, thus it calls GitHub services
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">whenever you start Emacs. (default nil)
+</span>   dotspacemacs-check-for-update nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil, a form that evaluates to a package directory. For example, to
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">use different package directories for different Emacs versions, set this
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">to `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">emacs-version</span><span style="font-weight: bold; font-style: italic;">'. (default 'emacs-version)
+</span>   dotspacemacs-elpa-subdirectory 'emacs-version
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">One of `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">vim</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">emacs</span><span style="font-weight: bold; font-style: italic;">' or `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">hybrid</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">hybrid</span><span style="font-weight: bold; font-style: italic;">' is like `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">vim</span><span style="font-weight: bold; font-style: italic;">' except that `insert state' is replaced by the
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`hybrid state' with `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">emacs</span><span style="font-weight: bold; font-style: italic;">' key bindings. The value can also be a list
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">with `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">:variables</span><span style="font-weight: bold; font-style: italic;">' keyword (similar to layers). Check the editing styles
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">section of the documentation for details on available variables.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default 'vim)
+</span>   dotspacemacs-editing-style 'vim
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil show the version string in the Spacemacs buffer. It will
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">appear as (spacemacs version)@(emacs version)
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default t)
+</span>   dotspacemacs-startup-buffer-show-version t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Specify the startup banner. Default value is `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">official</span><span style="font-weight: bold; font-style: italic;">', it displays
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">the official spacemacs logo. An integer value is the index of text
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">banner, `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">random</span><span style="font-weight: bold; font-style: italic;">' chooses a random text banner in `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">core/banners</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">directory. A string value must be a path to an image format supported
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">by your Emacs build.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If the value is nil then no banner is displayed. (default 'official)
+</span>   dotspacemacs-startup-banner 'official
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Scale factor controls the scaling (size) of the startup banner. Default
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">value is `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">auto</span><span style="font-weight: bold; font-style: italic;">' for scaling the logo automatically to fit all buffer
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">contents, to a maximum of the full image height and a minimum of 3 line
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">heights. If set to a number (int or float) it is used as a constant
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">scaling factor for the default logo size.
+</span>   dotspacemacs-startup-banner-scale 'auto
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">List of items to show in startup buffer or an association list of
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">the form `(list-type . list-size)`. If nil then it is disabled.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Possible values for list-type are:
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">recents</span><span style="font-weight: bold; font-style: italic;">' `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">recents-by-project</span><span style="font-weight: bold; font-style: italic;">' `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">bookmarks</span><span style="font-weight: bold; font-style: italic;">' `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">projects</span><span style="font-weight: bold; font-style: italic;">' `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">agenda</span><span style="font-weight: bold; font-style: italic;">' `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">todos</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">List sizes may be nil, in which case
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">spacemacs-buffer-startup-lists-length</span><span style="font-weight: bold; font-style: italic;">' takes effect.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">The exceptional case is `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">recents-by-project</span><span style="font-weight: bold; font-style: italic;">', where list-type must be a
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">pair of numbers, e.g. `(recents-by-project . (7 .  5))', where the first
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">number is the project limit and the second the limit on the recent files
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">within a project.
+</span>   dotspacemacs-startup-lists '((recents . 5)
+                                (projects . 7))
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">True if the home buffer should respond to resize events. (default t)
+</span>   dotspacemacs-startup-buffer-responsive t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Show numbers before the startup list lines. (default t)
+</span>   dotspacemacs-show-startup-list-numbers t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">The minimum delay in seconds between number key presses. (default 0.4)
+</span>   dotspacemacs-startup-buffer-multi-digit-delay 0.4
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil, show file icons for entries and headings on Spacemacs home buffer.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">This has no effect in terminal or if "nerd-icons" package or the font
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">is not installed. (default nil)
+</span>   dotspacemacs-startup-buffer-show-icons nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Default major mode for a new empty buffer. Possible values are mode
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">names such as `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">text-mode</span><span style="font-weight: bold; font-style: italic;">'; and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">nil</span><span style="font-weight: bold; font-style: italic;">' to use Fundamental mode.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">text-mode</span><span style="font-weight: bold; font-style: italic;">')
+</span>   dotspacemacs-new-empty-buffer-major-mode 'text-mode
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Default major mode of the scratch buffer (default `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">text-mode</span><span style="font-weight: bold; font-style: italic;">')
+</span>   dotspacemacs-scratch-mode 'text-mode
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil, *scratch* buffer will be persistent. Things you write down in
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">*scratch* buffer will be saved and restored automatically.
+</span>   dotspacemacs-scratch-buffer-persistent nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil, `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">kill-buffer</span><span style="font-weight: bold; font-style: italic;">' on *scratch* buffer
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">will bury it instead of killing.
+</span>   dotspacemacs-scratch-buffer-unkillable nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Initial message in the scratch buffer, such as "Welcome to Spacemacs!"
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-initial-scratch-message nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">List of themes, the first of the list is loaded when spacemacs starts.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Press `SPC T n' to cycle to the next theme in the list (works great
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">with 2 themes variants, one dark and one light). A theme from external
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">package can be defined with `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">:package</span><span style="font-weight: bold; font-style: italic;">', or a theme can be defined with
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">:location</span><span style="font-weight: bold; font-style: italic;">' to download the theme package, refer the themes section in
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">DOCUMENTATION.org for the full theme specifications.
+</span>   dotspacemacs-themes '(doom-gruvbox
+                         doom-nord
+                         spacemacs-dark
+                         spacemacs-light
+                         )
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Set the theme for the Spaceline. Supported themes are `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">spacemacs</span><span style="font-weight: bold; font-style: italic;">',
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">all-the-icons</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">custom</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">doom</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">vim-powerline</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">vanilla</span><span style="font-weight: bold; font-style: italic;">'. The
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">first three are spaceline themes. `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">doom</span><span style="font-weight: bold; font-style: italic;">' is the doom-emacs mode-line.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">vanilla</span><span style="font-weight: bold; font-style: italic;">' is default Emacs mode-line. `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">custom</span><span style="font-weight: bold; font-style: italic;">' is a user defined themes,
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">refer to the DOCUMENTATION.org for more info on how to create your own
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">spaceline theme. Value can be a symbol or list with additional properties.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default '(spacemacs :separator wave :separator-scale 1.5))
+</span>   dotspacemacs-mode-line-theme '(spacemacs <span style="font-weight: bold;">:separator</span> wave <span style="font-weight: bold;">:separator-scale</span> 1.5)
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil the cursor color matches the state color in GUI Emacs.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default t)
+</span>   dotspacemacs-colorize-cursor-according-to-state t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Default font or prioritized list of fonts. This setting has no effect when
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">running Emacs in terminal. The font set here will be used for default and
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">fixed-pitch faces. The `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">:size</span><span style="font-weight: bold; font-style: italic;">' can be specified as
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">a non-negative integer (pixel size), or a floating-point (point size).
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Point size is recommended, because it's device independent. (default 10.0)
+</span>   dotspacemacs-default-font '(<span style="font-style: italic;">"Source Code Pro"</span>
+                               <span style="font-weight: bold;">:size</span> 10.0
+                               <span style="font-weight: bold;">:weight</span> normal
+                               <span style="font-weight: bold;">:width</span> normal)
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Default icons font, it can be `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">all-the-icons</span><span style="font-weight: bold; font-style: italic;">' or `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">nerd-icons</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   dotspacemacs-default-icons-font 'all-the-icons
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">The leader key (default "SPC")
+</span>   dotspacemacs-leader-key <span style="font-style: italic;">"SPC"</span>
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">The key used for Emacs commands `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">M-x</span><span style="font-weight: bold; font-style: italic;">' (after pressing on the leader key).
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default "SPC")
+</span>   dotspacemacs-emacs-command-key <span style="font-style: italic;">"SPC"</span>
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">The key used for Vim Ex commands (default ":")
+</span>   dotspacemacs-ex-command-key <span style="font-style: italic;">":"</span>
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">The leader key accessible in `emacs state' and `insert state'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default "M-m")
+</span>   dotspacemacs-emacs-leader-key <span style="font-style: italic;">"M-m"</span>
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Major mode leader key is a shortcut key which is the equivalent of
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">pressing `&lt;leader&gt; m`. Set it to `nil` to disable it. (default ",")
+</span>   dotspacemacs-major-mode-leader-key <span style="font-style: italic;">","</span>
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Major mode leader key accessible in `emacs state' and `insert state'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default "C-M-m" for terminal mode, "M-&lt;return&gt;" for GUI mode).
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Thus M-RET should work as leader key in both GUI and terminal modes.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">C-M-m also should work in terminal mode, but not in GUI mode.
+</span>   dotspacemacs-major-mode-emacs-leader-key (<span style="font-weight: bold;">if</span> window-system <span style="font-style: italic;">"M-&lt;return&gt;"</span> <span style="font-style: italic;">"C-M-m"</span>)
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">These variables control whether separate commands are bound in the GUI to
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">the key pairs `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">C-i</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">TAB</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">C-m</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">RET</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Setting it to a non-nil value, allows for separate commands under `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">C-i</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">and TAB or `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">C-m</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">RET</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">In the terminal, these pairs are generally indistinguishable, so this only
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">works in the GUI. (default nil)
+</span>   dotspacemacs-distinguish-gui-tab nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Name of the default layout (default "Default")
+</span>   dotspacemacs-default-layout-name <span style="font-style: italic;">"Default"</span>
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil the default layout name is displayed in the mode-line.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-display-default-layout nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil then the last auto saved layouts are resumed automatically upon
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">start. (default nil)
+</span>   dotspacemacs-auto-resume-layouts nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil, auto-generate layout name when creating new layouts. Only has
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">effect when using the "jump to layout by number" commands. (default nil)
+</span>   dotspacemacs-auto-generate-layout-names nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Size (in MB) above which spacemacs will prompt to open the large file
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">literally to avoid performance issues. Opening a file literally means that
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">no major mode or minor modes are active. (default is 1)
+</span>   dotspacemacs-large-file-size 1
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Location where to auto-save files. Possible values are `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">original</span><span style="font-weight: bold; font-style: italic;">' to
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">auto-save the file in-place, `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">cache</span><span style="font-weight: bold; font-style: italic;">' to auto-save the file to another
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">file stored in the cache directory and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">nil</span><span style="font-weight: bold; font-style: italic;">' to disable auto-saving.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default 'cache)
+</span>   dotspacemacs-auto-save-file-location 'cache
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Maximum number of rollback slots to keep in the cache. (default 5)
+</span>   dotspacemacs-max-rollback-slots 5
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil, the paste transient-state is enabled. While enabled, after you
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">paste something, pressing `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">C-j</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">C-k</span><span style="font-weight: bold; font-style: italic;">' several times cycles through the
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">elements in the `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">kill-ring</span><span style="font-weight: bold; font-style: italic;">'. (default nil)
+</span>   dotspacemacs-enable-paste-transient-state nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Which-key delay in seconds. The which-key buffer is the popup listing
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">the commands bound to the current keystroke sequence. (default 0.4)
+</span>   dotspacemacs-which-key-delay 0.4
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Which-key frame position. Possible values are `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">right</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">bottom</span><span style="font-weight: bold; font-style: italic;">' and
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">right-then-bottom</span><span style="font-weight: bold; font-style: italic;">'. right-then-bottom tries to display the frame to the
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">right; if there is insufficient space it displays it at the bottom.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">It is also possible to use a posframe with the following cons cell
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`(posframe . position)' where position can be one of `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">center</span><span style="font-weight: bold; font-style: italic;">',
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">top-center</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">bottom-center</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">top-left-corner</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">top-right-corner</span><span style="font-weight: bold; font-style: italic;">',
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">top-right-corner</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">bottom-left-corner</span><span style="font-weight: bold; font-style: italic;">' or `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">bottom-right-corner</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default 'bottom)
+</span>   dotspacemacs-which-key-position 'bottom
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Control where `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">switch-to-buffer</span><span style="font-weight: bold; font-style: italic;">' displays the buffer. If nil,
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">switch-to-buffer</span><span style="font-weight: bold; font-style: italic;">' displays the buffer in the current window even if
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">another same-purpose window is available. If non-nil, `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">switch-to-buffer</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">displays the buffer in a same-purpose window even if the buffer can be
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">displayed in the current window. (default nil)
+</span>   dotspacemacs-switch-to-buffer-prefers-purpose nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Whether side windows (such as those created by treemacs or neotree)
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">are kept or minimized by `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">spacemacs/toggle-maximize-window</span><span style="font-weight: bold; font-style: italic;">' (SPC w m).
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default t)
+</span>   dotspacemacs-maximize-window-keep-side-windows t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If nil, no load-hints enabled. If t, enable the `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">load-hints</span><span style="font-weight: bold; font-style: italic;">' which will
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">put the most likely path on the top of `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">load-path</span><span style="font-weight: bold; font-style: italic;">' to reduce walking
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">through the whole `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">load-path</span><span style="font-weight: bold; font-style: italic;">'. It's an experimental feature to speedup
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Spacemacs on Windows. Refer the FAQ.org "load-hints" session for details.
+</span>   dotspacemacs-enable-load-hints nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If t, enable the `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">package-quickstart</span><span style="font-weight: bold; font-style: italic;">' feature to avoid full package
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">loading, otherwise no `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">package-quickstart</span><span style="font-weight: bold; font-style: italic;">' attemption (default nil).
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Refer the FAQ.org "package-quickstart" section for details.
+</span>   dotspacemacs-enable-package-quickstart nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil a progress bar is displayed when spacemacs is loading. This
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">may increase the boot time on some systems and emacs builds, set it to
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">nil to boost the loading time. (default t)
+</span>   dotspacemacs-loading-progress-bar t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil the frame is fullscreen when Emacs starts up. (default nil)
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(Emacs 24.4+ only)
+</span>   dotspacemacs-fullscreen-at-startup nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">spacemacs/toggle-fullscreen</span><span style="font-weight: bold; font-style: italic;">' will not use native fullscreen.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Use to disable fullscreen animations in OSX. (default nil)
+</span>   dotspacemacs-fullscreen-use-non-native nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil the frame is maximized when Emacs starts up.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Takes effect only if `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">dotspacemacs-fullscreen-at-startup</span><span style="font-weight: bold; font-style: italic;">' is nil.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default t) (Emacs 24.4+ only)
+</span>   dotspacemacs-maximized-at-startup t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil the frame is undecorated when Emacs starts up. Combine this
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">variable with `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">dotspacemacs-maximized-at-startup</span><span style="font-weight: bold; font-style: italic;">' to obtain fullscreen
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">without external boxes. Also disables the internal border. (default nil)
+</span>   dotspacemacs-undecorated-at-startup nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">A value from the range (0..100), in increasing opacity, which describes
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">the transparency level of a frame when it's active or selected.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Transparency can be toggled through `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">toggle-transparency</span><span style="font-weight: bold; font-style: italic;">'. (default 90)
+</span>   dotspacemacs-active-transparency 90
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">A value from the range (0..100), in increasing opacity, which describes
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">the transparency level of a frame when it's inactive or deselected.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Transparency can be toggled through `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">toggle-transparency</span><span style="font-weight: bold; font-style: italic;">'. (default 90)
+</span>   dotspacemacs-inactive-transparency 90
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">A value from the range (0..100), in increasing opacity, which describes the
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">transparency level of a frame background when it's active or selected. Transparency
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">can be toggled through `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">toggle-background-transparency</span><span style="font-weight: bold; font-style: italic;">'. (default 90)
+</span>   dotspacemacs-background-transparency 90
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil show the titles of transient states. (default t)
+</span>   dotspacemacs-show-transient-state-title t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil show the color guide hint for transient state keys. (default t)
+</span>   dotspacemacs-show-transient-state-color-guide t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil unicode symbols are displayed in the mode line.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If you use Emacs as a daemon and wants unicode characters only in GUI set
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">the value to quoted `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">display-graphic-p</span><span style="font-weight: bold; font-style: italic;">'. (default t)
+</span>   dotspacemacs-mode-line-unicode-symbols t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil smooth scrolling (native-scrolling) is enabled. Smooth
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">scrolling overrides the default behavior of Emacs which recenters point
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">when it reaches the top or bottom of the screen. (default t)
+</span>   dotspacemacs-smooth-scrolling t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Show the scroll bar while scrolling. The auto hide time can be configured
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">by setting this variable to a number. (default t)
+</span>   dotspacemacs-scroll-bar-while-scrolling t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Control line numbers activation.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If set to `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">t</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">relative</span><span style="font-weight: bold; font-style: italic;">' or `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">visual</span><span style="font-weight: bold; font-style: italic;">' then line numbers are enabled in all
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">prog-mode</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">text-mode</span><span style="font-weight: bold; font-style: italic;">' derivatives. If set to `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">relative</span><span style="font-weight: bold; font-style: italic;">', line
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">numbers are relative. If set to `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">visual</span><span style="font-weight: bold; font-style: italic;">', line numbers are also relative,
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">but only visual lines are counted. For example, folded lines will not be
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">counted and wrapped lines are counted as multiple lines.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">This variable can also be set to a property list for finer control:
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">'(:relative nil
+</span>   <span style="font-weight: bold; font-style: italic;">;;   </span><span style="font-weight: bold; font-style: italic;">:visual nil
+</span>   <span style="font-weight: bold; font-style: italic;">;;   </span><span style="font-weight: bold; font-style: italic;">:disabled-for-modes dired-mode
+</span>   <span style="font-weight: bold; font-style: italic;">;;                       </span><span style="font-weight: bold; font-style: italic;">doc-view-mode
+</span>   <span style="font-weight: bold; font-style: italic;">;;                       </span><span style="font-weight: bold; font-style: italic;">markdown-mode
+</span>   <span style="font-weight: bold; font-style: italic;">;;                       </span><span style="font-weight: bold; font-style: italic;">org-mode
+</span>   <span style="font-weight: bold; font-style: italic;">;;                       </span><span style="font-weight: bold; font-style: italic;">pdf-view-mode
+</span>   <span style="font-weight: bold; font-style: italic;">;;                       </span><span style="font-weight: bold; font-style: italic;">text-mode
+</span>   <span style="font-weight: bold; font-style: italic;">;;   </span><span style="font-weight: bold; font-style: italic;">:size-limit-kb 1000)
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">When used in a plist, `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">visual</span><span style="font-weight: bold; font-style: italic;">' takes precedence over `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">relative</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-line-numbers nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Code folding method. Possible values are `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">evil</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">origami</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">vimish</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default 'evil)
+</span>   dotspacemacs-folding-method 'evil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">dotspacemacs-activate-smartparens-mode</span><span style="font-weight: bold; font-style: italic;">' is also non-nil,
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">smartparens-strict-mode</span><span style="font-weight: bold; font-style: italic;">' will be enabled in programming modes.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-smartparens-strict-mode nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil smartparens-mode will be enabled in programming modes.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default t)
+</span>   dotspacemacs-activate-smartparens-mode t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil pressing the closing parenthesis `)' key in insert mode passes
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">over any automatically added closing parenthesis, bracket, quote, etc...
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">This can be temporary disabled by pressing `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">C-q</span><span style="font-weight: bold; font-style: italic;">' before `)'. (default nil)
+</span>   dotspacemacs-smart-closing-parenthesis nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Select a scope to highlight delimiters. Possible values are `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">any</span><span style="font-weight: bold; font-style: italic;">',
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">current</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">all</span><span style="font-weight: bold; font-style: italic;">' or `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">nil</span><span style="font-weight: bold; font-style: italic;">'. Default is `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">all</span><span style="font-weight: bold; font-style: italic;">' (highlight any scope and
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">emphasis the current one). (default 'all)
+</span>   dotspacemacs-highlight-delimiters 'all
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil, start an Emacs server if one is not already running.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-enable-server nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Set the emacs server socket location.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If nil, uses whatever the Emacs default is, otherwise a directory path
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">like \"~/.emacs.d/server\". It has no effect if
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">dotspacemacs-enable-server</span><span style="font-weight: bold; font-style: italic;">' is nil.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-server-socket-dir nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil, advise quit functions to keep server open when quitting.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-persistent-server nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">List of search tool executable names. Spacemacs uses the first installed
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">tool of the list. Supported tools are `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">rg</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">ag</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">pt</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">ack</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">grep</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default '("rg" "ag" "pt" "ack" "grep"))
+</span>   dotspacemacs-search-tools '(<span style="font-style: italic;">"rg"</span> <span style="font-style: italic;">"ag"</span> <span style="font-style: italic;">"pt"</span> <span style="font-style: italic;">"ack"</span> <span style="font-style: italic;">"grep"</span>)
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">The backend used for undo/redo functionality. Possible values are
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">undo-fu</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">undo-redo</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">undo-tree</span><span style="font-weight: bold; font-style: italic;">' see also `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">evil-undo-system</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Note that saved undo history does not get transferred when changing
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">your undo system. The default is currently `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">undo-fu</span><span style="font-weight: bold; font-style: italic;">' as `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">undo-tree</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">is not maintained anymore and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">undo-redo</span><span style="font-weight: bold; font-style: italic;">' is very basic."
+</span>   dotspacemacs-undo-system 'undo-fu
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Format specification for setting the frame title.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%a - the `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">abbreviated-file-name</span><span style="font-weight: bold; font-style: italic;">', or `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">buffer-name</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%t - `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">projectile-project-name</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%I - `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">invocation-name</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%S - `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">system-name</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%U - contents of $USER
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%b - buffer name
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%f - visited file name
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%F - frame name
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%s - process status
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%p - percent of buffer above top of window, or Top, Bot or All
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%P - percent of buffer above bottom of window, perhaps plus Top, or Bot or All
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%m - mode name
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%n - Narrow if appropriate
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%z - mnemonics of buffer, terminal, and keyboard coding systems
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">%Z - like %z, but including the end-of-line format
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If nil then Spacemacs uses default `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">frame-title-format</span><span style="font-weight: bold; font-style: italic;">' to avoid
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">performance issues, instead of calculating the frame title by
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">spacemacs/title-prepare</span><span style="font-weight: bold; font-style: italic;">' all the time.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default "%I@%S")
+</span>   dotspacemacs-frame-title-format <span style="font-style: italic;">"%I@%S"</span>
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Format specification for setting the icon title format
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil - same as frame-title-format)
+</span>   dotspacemacs-icon-title-format nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Color highlight trailing whitespace in all prog-mode and text-mode derived
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">modes such as c++-mode, python-mode, emacs-lisp, html-mode, rst-mode etc.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default t)
+</span>   dotspacemacs-show-trailing-whitespace t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Delete whitespace while saving buffer. Possible values are `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">all</span><span style="font-weight: bold; font-style: italic;">'
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">to aggressively delete empty line and long sequences of whitespace,
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">trailing</span><span style="font-weight: bold; font-style: italic;">' to delete only the whitespace at end of lines, `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">changed</span><span style="font-weight: bold; font-style: italic;">' to
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">delete only whitespace for changed lines or `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">nil</span><span style="font-weight: bold; font-style: italic;">' to disable cleanup.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">The variable `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">global-spacemacs-whitespace-cleanup-modes</span><span style="font-weight: bold; font-style: italic;">' controls
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">which major modes have whitespace cleanup enabled or disabled
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">by default.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-whitespace-cleanup nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil activate `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">clean-aindent-mode</span><span style="font-weight: bold; font-style: italic;">' which tries to correct
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">virtual indentation of simple modes. This can interfere with mode specific
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">indent handling like has been reported for `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">go-mode</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If it does deactivate it here.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default t)
+</span>   dotspacemacs-use-clean-aindent-mode t
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Accept SPC as y for prompts if non-nil. (default nil)
+</span>   dotspacemacs-use-SPC-as-y nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil shift your number row to match the entered keyboard layout
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(only in insert state). Currently supported keyboard layouts are:
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">qwerty-us</span><span style="font-weight: bold; font-style: italic;">', `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">qwertz-de</span><span style="font-weight: bold; font-style: italic;">' and `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">querty-ca-fr</span><span style="font-weight: bold; font-style: italic;">'.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">New layouts can be added in `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">spacemacs-editing</span><span style="font-weight: bold; font-style: italic;">' layer.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-swap-number-row nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Either nil or a number of seconds. If non-nil zone out after the specified
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">number of seconds. (default nil)
+</span>   dotspacemacs-zone-out-when-idle nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Run `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">spacemacs/prettify-org-buffer</span><span style="font-weight: bold; font-style: italic;">' when
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">visiting README.org files of Spacemacs.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">(default nil)
+</span>   dotspacemacs-pretty-docs nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If nil the home buffer shows the full path of agenda items
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">and todos. If non-nil only the file name is shown.
+</span>   dotspacemacs-home-shorten-agenda-source nil
+
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If non-nil then byte-compile some of Spacemacs files.
+</span>   dotspacemacs-byte-compile nil))
+
+(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">dotspacemacs/user-env</span> ()
+  <span style="font-style: italic;">"Environment variables setup.
+This function defines the environment variables for your Emacs session. By
+default it calls `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">spacemacs/load-spacemacs-env</span><span style="font-style: italic;">' which loads the environment
+variables declared in `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">~/.spacemacs.env</span><span style="font-style: italic;">' or `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">~/.spacemacs.d/.spacemacs.env</span><span style="font-style: italic;">'.
+See the header of this file for more information."</span>
+  (spacemacs/load-spacemacs-env)
+  )
+
+(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">dotspacemacs/user-init</span> ()
+  <span style="font-style: italic;">"Initialization for user code:
+This function is called immediately after `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">dotspacemacs/init</span><span style="font-style: italic;">', before layer
+configuration.
+It is mostly for variables that should be set before packages are loaded.
+If you are unsure, try setting them in `</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">dotspacemacs/user-config</span><span style="font-style: italic;">' first."</span>
+  )
+
+(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">dotspacemacs/user-config</span> ()
+  <span style="font-style: italic;">"Configuration for user code:
+This function is called at the very end of Spacemacs startup, after layer
+configuration.
+Put your configuration code here, except for variables that should be set
+before packages are loaded."</span>
+
+  (<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">copy-to-clipboard-osc52</span> (text <span style="font-weight: bold; text-decoration: underline;">&amp;optional</span> push)
+    <span style="font-style: italic;">"Copy TEXT to clipboard using OSC 52 escape sequence."</span>
+    (<span style="font-weight: bold;">let</span> ((b64-text (base64-encode-string text t)))
+      (send-string-to-terminal (concat <span style="font-style: italic;">"\e]52;c;"</span> b64-text <span style="font-style: italic;">"\a"</span>))))
+  (<span style="font-weight: bold;">setq</span> interprogram-cut-function 'copy-to-clipboard-osc52)
+
+
+  (<span style="font-weight: bold;">setq</span> ispell-program-name <span style="font-style: italic;">"hunspell"</span>)
+  (<span style="font-weight: bold;">setq</span> ispell-dictionary <span style="font-style: italic;">"en_US,es_MX"</span>)
+  (<span style="font-weight: bold;">setq</span> ispell-hunspell-dictionary-alist
+        '((<span style="font-style: italic;">"en_US,es_MX"</span> <span style="font-style: italic;">"[[:alpha:]]"</span> <span style="font-style: italic;">"[</span><span style="font-style: italic;">^</span><span style="font-style: italic;">[:alpha:]]"</span> <span style="font-style: italic;">"[']"</span> nil (<span style="font-style: italic;">"-d"</span> <span style="font-style: italic;">"en_US,es_MX"</span>)
+           nil utf-8)))
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((d2 . t)
+     (python . t))
+   )
+  (<span style="font-weight: bold;">setq</span> org-src-fontify-natively t)
+  (<span style="font-weight: bold;">setq</span> org-src-tab-acts-natively t)
+  )
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Do not write anything past this comment. This is where Emacs will
+</span><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">auto-generate custom variable definitions.
+</span>(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">dotspacemacs/emacs-custom-settings</span> ()
+  <span style="font-style: italic;">"Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."</span>
+  (custom-set-variables
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">custom-set-variables was added by Custom.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If you edit it by hand, you could mess it up, so be careful.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Your init file should contain only one such instance.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If there is more than one, they won't work right.
+</span>   '(package-selected-packages
+     '(a ace-link add-node-modules-path afternoon-theme aggressive-indent
+         alect-themes alert all-the-icons ample-theme ample-zen-theme
+         anti-zenburn-theme apropospriate-theme auto-compile auto-highlight-symbol
+         auto-yasnippet autothemer avy-jump-helm-line badwolf-theme
+         birds-of-paradise-plus-theme bubbleberry-theme busybee-theme
+         centered-cursor-mode cherry-blossom-theme chocolate-theme
+         clean-aindent-mode closql clues-theme code-review
+         color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow
+         column-enforce-mode company company-web cond-let counsel counsel-css
+         cyberpunk-theme dakrone-theme darkmine-theme darkokai-theme
+         darktooth-theme deferred define-word devdocs diminish dired-quick-sort
+         disable-mouse django-theme doom-themes dotenv-mode dracula-theme
+         drag-stuff dumb-jump eat edit-indirect ef-themes elisp-def elisp-demos
+         elisp-slime-nav emacsql emmet-mode emojify emr esh-help
+         eshell-prompt-extras eshell-z espresso-theme eval-sexp-fu evil-anzu
+         evil-args evil-cleverparens evil-collection evil-easymotion evil-escape
+         evil-evilified-state evil-exchange evil-goggles evil-iedit-state
+         evil-indent-plus evil-lion evil-lisp-state evil-matchit evil-mc
+         evil-nerd-commenter evil-numbers evil-org evil-surround evil-textobj-line
+         evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar
+         exotica-theme expand-region eyebrowse eziam-themes fancy-battery
+         farmhouse-themes flatland-theme flatui-theme flycheck flycheck-elsa
+         flycheck-package flycheck-pos-tip flyspell-correct flyspell-correct-helm
+         forge gandalf-theme gh-md ghub git-link git-messenger git-modes
+         git-timemachine gitignore-templates gntp gnuplot golden-ratio
+         google-translate gotham-theme grandshell-theme gruber-darker-theme
+         gruvbox-theme haml-mode hc-zenburn-theme helm-ag helm-c-yasnippet
+         helm-comint helm-company helm-css-scss helm-descbinds helm-git-grep
+         helm-ls-git helm-lsp helm-make helm-mode-manager helm-org helm-org-rifle
+         helm-projectile helm-purpose helm-swoop helm-themes helm-xref helm-z
+         hemisu-theme heroku-theme hide-comnt highlight-indentation
+         highlight-numbers highlight-parentheses hl-todo holy-mode htmlize
+         httpcode hungry-delete hybrid-mode impatient-mode indent-guide info+
+         inkpot-theme inspector ir-black-theme ivy jazz-theme jbeans-theme
+         kaolin-themes light-soap-theme link-hint llama log4e lorem-ipsum lsp-mode
+         lsp-origami lsp-treemacs lsp-ui lush-theme macrostep madhat2r-theme magit
+         magit-section markdown-mode markdown-toc material-theme minimal-theme
+         modus-themes moe-theme molokai-theme monochrome-theme monokai-theme
+         multi-line multi-term multi-vterm mustang-theme mwim nameless
+         naquadah-theme noctilux-theme ob-d2 ob-ipython obsidian-theme
+         occidental-theme oldlace-theme omtose-phellack-themes open-junk-file
+         org-category-capture org-cliplink org-contrib org-download org-mime
+         org-pomodoro org-present org-project-capture org-projectile org-rich-yank
+         org-superstar organic-green-theme orgit orgit-forge origami overseer
+         package-lint page-break-lines paradox password-generator pcre2el
+         phoenix-dark-mono-theme phoenix-dark-pink-theme planet-theme popwin
+         pos-tip prettier-js professional-theme pug-mode purple-haze-theme
+         quarto-mode quickrun railscasts-theme rainbow-delimiters rebecca-theme
+         restart-emacs reverse-theme sass-mode scss-mode seti-theme shell-pop
+         simple-httpd slim-mode smeargle smyx-theme soft-charcoal-theme
+         soft-morning-theme soft-stone-theme solarized-theme soothe-theme
+         space-doc spacegray-theme spaceline spacemacs-purpose-popwin
+         spacemacs-whitespace-cleanup string-edit-at-point string-inflection
+         subatomic-theme subatomic256-theme sublime-themes sunny-day-theme swiper
+         symbol-overlay symon tagedit tango-2-theme tango-plus-theme
+         tangotango-theme tao-theme term-cursor terminal-here toc-org toxi-theme
+         transient treemacs-evil treemacs-icons-dired treemacs-magit
+         treemacs-persp treemacs-projectile treepy twilight-anti-bright-theme
+         twilight-bright-theme twilight-theme ujelly-theme underwater-theme
+         undo-fu undo-fu-session unfill uuidgen vi-tilde-fringe
+         volatile-highlights vterm vundo web-beautify web-completion-data web-mode
+         wgrep white-sand-theme winum with-editor writeroom-mode ws-butler yaml
+         yasnippet yasnippet-snippets zen-and-art-theme zenburn-theme
+         zonokai-emacs)))
+  (custom-set-faces
+   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">custom-set-faces was added by Custom.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If you edit it by hand, you could mess it up, so be careful.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Your init file should contain only one such instance.
+</span>   <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">If there is more than one, they won't work right.
+</span>   '(default ((t (<span style="font-weight: bold;">:background</span> nil)))))
+  )
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9778882" class="outline-3">
+<h3 id="org9778882"><span class="section-number-3">1.3.</span> Aspectos Destacados de la Configuración</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org92fc60d" class="outline-4">
+<h4 id="org92fc60d"><span class="section-number-4">1.3.1.</span> Temas Utilizados</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li><code>doom-gruvbox</code> (tema principal)</li>
+<li><code>doom-nord</code></li>
+<li><code>spacemacs-dark</code></li>
+<li><code>spacemacs-light</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1e07f62" class="outline-4">
+<h4 id="org1e07f62"><span class="section-number-4">1.3.2.</span> Configuraciones Personalizadas</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ul class="org-ul">
+<li><b><b>Clipboard OSC52</b></b>: Función personalizada para copiar al portapapeles usando secuencias de escape OSC 52</li>
+<li><b><b>Diccionarios</b></b>: Configurado para inglés y español mexicano con Hunspell</li>
+<li><b><b>Org-babel</b></b>: Soporte para diagramas D2 y Python en bloques de código</li>
+<li><b><b>Terminal</b></b>: Configurado para usar vterm como terminal por defecto</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9cbd4d8" class="outline-4">
+<h4 id="org9cbd4d8"><span class="section-number-4">1.3.3.</span> Edición y Comportamiento</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<ul class="org-ul">
+<li>Estilo de edición: Vim</li>
+<li>Fuente: Source Code Pro, tamaño 10.0</li>
+<li>Arranque maximizado</li>
+<li>Transparencia: 90%</li>
+<li>Limpieza automática de espacios en blanco deshabilitada</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

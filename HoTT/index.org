@@ -1,7 +1,6 @@
 #+TITLE: Notas HoTT
 #+AUTHOR: Mou
 #+DATE: [2025-08-28]
-#+OPTIONS: toc:2 num:t
 #+EXPORT_FILE_NAME: index
 #+STARTUP: overview
 
@@ -13,3 +12,4 @@ Esta es una colección de mis notas de estudio para el curso de Homotopy Type Th
 
 - [[file:./introduccion.org][Introducción]]
 - [[file:./juicios.org][Juicios]]
+- [[./transitividad.org][Transitividad]]

@@ -1,7 +1,7 @@
 #+TITLE: Aprendizaje supervisado
 #+AUTHOR: Mou
 #+DATE: [2025-08-28]
-#+OPTIONS: toc:2 num:t
+
 #+EXPORT_FILE_NAME: aprendizaje_supervisado
 #+STARTUP: overview
 

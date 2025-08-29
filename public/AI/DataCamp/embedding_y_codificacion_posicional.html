@@ -3,87 +3,80 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-08-28 Thu 10:11 -->
+<!-- 2025-08-29 Fri 13:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Embedding y Codificación Posicional</title>
-<meta name="author" content="Mou" />
 <meta name="generator" content="Org Mode" />
-<link rel='stylesheet' href='./style.css' />
+<link rel='stylesheet' href='/style.css' />
 <script>
   window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
+  tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']],
+  displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  processEscapes: true,
+  processEnvironments: true,
+  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
+  },
+  loader: {
+  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
+  },
+  options: {
+  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
   };
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+  <script>
+  MathJax.startup.defaultReady();
+  </script>
 </head>
 <body>
 <div id="preamble" class="status">
 <nav class="navbar">
   <div class="navbar-brand">
-    <a href="/index.html">🏠 Home</a>
+  <a href="/index.html">🏠 Home</a>
   </div>
   <div class="navbar-menu">
-    <div class="navbar-item dropdown">
-      <a href="#" class="dropbtn">🤖 AI</a>
-      <div class="dropdown-content">
-        <a href="/AI/index.html">📋 Resumen</a>
-        <div class="dropdown-submenu">
-          <a href="#" class="submenu-btn">📚 CS229 ▶</a>
-          <div class="submenu-content">
-            <a href="/AI/CS229/index.html">📋 Resumen</a>
-            <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
-            <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
-          </div>
-        </div>
-        <div class="dropdown-submenu">
-          <a href="#" class="submenu-btn">🏗️ DataCamp ▶</a>
-          <div class="submenu-content">
-            <a href="/AI/DataCamp/index.html">📋 Resumen</a>
-            <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
-            <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="navbar-item dropdown">
-      <a href="#" class="dropbtn">🔬 HoTT</a>
-      <div class="dropdown-content">
-        <a href="/HoTT/index.html">📋 Resumen</a>
-        <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-        <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-      </div>
-    </div>
+  <div class="navbar-item dropdown">
+  <a href="#" class="dropbtn">🤖 AI</a>
+  <div class="dropdown-content">
+  <a href="/AI/index.html">📋 Resumen</a>
+  <div class="dropdown-submenu">
+  <a href="#" class="submenu-btn">📚 CS229</a>
+  <div class="submenu-content">
+  <a href="/AI/CS229/index.html">📋 Resumen</a>
+  <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+  <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
   </div>
-</nav>
+  </div>
+  <div class="dropdown-submenu">
+  <a href="#" class="submenu-btn">🏗️ DataCamp</a>
+  <div class="submenu-content">
+  <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+  <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+  <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="navbar-item dropdown">
+  <a href="#" class="dropbtn">🔬 HoTT</a>
+  <div class="dropdown-content">
+  <a href="/HoTT/index.html">📋 Resumen</a>
+  <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+  <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+  <a href="HoTT/transitividad.html">🔛 Transitividad </a>
+  </div>
+  </div>
+  <div class="navbar-item">
+  <a href="/Emacs/index.html">⚙️ Emacs Config</a>
+  </div>
+  </div>
+  </nav>
 </div>
 <div id="content" class="content">
 <h1 class="title">Embedding y Codificación Posicional</h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orgcb0e5b8">1. Embeddings</a>
-<ul>
-<li><a href="#org44fd6ed">1.1. Creando embeddings</a></li>
-</ul>
-</li>
-<li><a href="#org0023a8f">2. Positional encoding</a>
-<ul>
-<li><a href="#org2ab4cac">2.1. Creando positional encodings</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 <p>
 La arquitectura de Transformer empieza embebiendo secuencias como vectores y luego
 codificando la posición de cada token en la secuencia para que los tokens se puedan 
@@ -101,25 +94,25 @@ Cada token tiene un ID único en el vocabulario del modelo, cuando los embebemos
 capa de embedding obtenemos un embedding vector. A la longitud de este vector se le conoce 
 como el número de dimensiones o dimensionalidad.
 </p>
-<div id="outline-container-orgcb0e5b8" class="outline-2">
-<h2 id="orgcb0e5b8"><span class="section-number-2">1.</span> Embeddings</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org6f8b555" class="outline-2">
+<h2 id="org6f8b555">Embeddings</h2>
+<div class="outline-text-2" id="text-org6f8b555">
 <div class="org-src-container">
-<pre class="src src-python">import torch 
-import math 
-import torch.nn as nn
+<pre class="src src-python"><span style="font-weight: bold;">import</span> torch 
+<span style="font-weight: bold;">import</span> math 
+<span style="font-weight: bold;">import</span> torch.nn <span style="font-weight: bold;">as</span> nn
 
-class InputEmbeddings(nn.Module):
-  def __init__(self, vocab_size: int, d_model: int) -&gt; None:
-    super().__init__()
-    self.d_model = d_model 
-    self.vocab_size = vocab_size 
-    self.embedding = nn.Embedding(vocab_size, d_model)
+<span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">InputEmbeddings</span>(nn.Module):
+  <span style="font-weight: bold;">def</span> <span style="font-weight: bold;">__init__</span>(<span style="font-weight: bold;">self</span>, vocab_size: <span style="font-weight: bold;">int</span>, d_model: <span style="font-weight: bold;">int</span>) -&gt; <span style="font-weight: bold; text-decoration: underline;">None</span>:
+    <span style="font-weight: bold;">super</span>().__init__()
+    <span style="font-weight: bold;">self</span>.<span style="font-weight: bold; font-style: italic;">d_model</span> = d_model 
+    <span style="font-weight: bold;">self</span>.<span style="font-weight: bold; font-style: italic;">vocab_size</span> = vocab_size 
+    <span style="font-weight: bold;">self</span>.<span style="font-weight: bold; font-style: italic;">embedding</span> = nn.Embedding(vocab_size, d_model)
 
-  def forward(self, x):
-    return self.embedding(x) * math.sqrt(self.d_model)
+  <span style="font-weight: bold;">def</span> <span style="font-weight: bold;">forward</span>(<span style="font-weight: bold;">self</span>, x):
+    <span style="font-weight: bold;">return</span> <span style="font-weight: bold;">self</span>.embedding(x) * math.sqrt(<span style="font-weight: bold;">self</span>.d_model)
 
-print("InputEmbeddings class defined successfully")
+<span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"InputEmbeddings class defined successfully"</span>)
 </pre>
 </div>
 
@@ -133,28 +126,28 @@ InputEmbeddings class defined successfully
 token embeddings no sobrecargan o son sobrecargado por los position embeddings.</li>
 </ul>
 </div>
-<div id="outline-container-org44fd6ed" class="outline-3">
-<h3 id="org44fd6ed"><span class="section-number-3">1.1.</span> Creando embeddings</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org82bbf53" class="outline-3">
+<h3 id="org82bbf53">Creando embeddings</h3>
+<div class="outline-text-3" id="text-org82bbf53">
 <div class="org-src-container">
-<pre class="src src-python">embedding_layer = InputEmbeddings(vocab_size=10_000, d_model=512)
-embedded_output = embedding_layer(torch.tensor([[1, 2, 3, 4], [5, 6, 7, 8]]))
-print(f"Embedded output shape: {embedded_output.shape}")
-print(f"First few values: {embedded_output[0, 0, :5]}")
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">embedding_layer</span> = InputEmbeddings(vocab_size=10_000, d_model=512)
+<span style="font-weight: bold; font-style: italic;">embedded_output</span> = embedding_layer(torch.tensor([[1, 2, 3, 4], [5, 6, 7, 8]]))
+<span style="font-weight: bold;">print</span>(f<span style="font-style: italic;">"Embedded output shape: </span>{embedded_output.shape}<span style="font-style: italic;">"</span>)
+<span style="font-weight: bold;">print</span>(f<span style="font-style: italic;">"First few values: </span>{embedded_output[0, 0, :5]}<span style="font-style: italic;">"</span>)
 </pre>
 </div>
 
 <pre class="example">
 Embedded output shape: torch.Size([2, 4, 512])
-First few values: tensor([ 10.6290,  -5.0488, -52.0221,  21.3537,  21.9466],
+First few values: tensor([ -7.5252,   9.7952,  32.7087,  18.8122, -11.1241],
        grad_fn=&lt;SliceBackward0&gt;)
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org0023a8f" class="outline-2">
-<h2 id="org0023a8f"><span class="section-number-2">2.</span> Positional encoding</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org75d0daf" class="outline-2">
+<h2 id="org75d0daf">Positional encoding</h2>
+<div class="outline-text-2" id="text-org75d0daf">
 <p>
 Codifica la posición de cada token en la secuencia en un positional embedding y los añade 
 a los token embeddings para capturar la posición. Generalmente estos embeddings tienen las 
@@ -174,23 +167,23 @@ Donde \(i\) es el número de valor.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python">class PositionalEncoding(nn.Module):
-  def __init__(self, d_model, max_seq_length):
-    super().__init__()
+<pre class="src src-python"><span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">PositionalEncoding</span>(nn.Module):
+  <span style="font-weight: bold;">def</span> <span style="font-weight: bold;">__init__</span>(<span style="font-weight: bold;">self</span>, d_model, max_seq_length):
+    <span style="font-weight: bold;">super</span>().__init__()
 
-    pe = torch.zeros(max_seq_length, d_model)
-    position = torch.arange(0, max_seq_length, dtype=torch.float).unsqueeze(1)
-    div_term = torch.exp(torch.arange(0, d_model, 2, dtype=torch.float)) * -(math.log(10000.0) / d_model)
+    <span style="font-weight: bold; font-style: italic;">pe</span> = torch.zeros(max_seq_length, d_model)
+    <span style="font-weight: bold; font-style: italic;">position</span> = torch.arange(0, max_seq_length, dtype=torch.<span style="font-weight: bold;">float</span>).unsqueeze(1)
+    <span style="font-weight: bold; font-style: italic;">div_term</span> = torch.exp(torch.arange(0, d_model, 2, dtype=torch.<span style="font-weight: bold;">float</span>)) * -(math.log(10000.0) / d_model)
 
-    pe[:, 0::2] = torch.sin(position * div_term)
-    pe[:, 1::2] = torch.cos(position * div_term)
+    <span style="font-weight: bold; font-style: italic;">pe</span>[:, 0::2] = torch.sin(position * div_term)
+    <span style="font-weight: bold; font-style: italic;">pe</span>[:, 1::2] = torch.cos(position * div_term)
 
-    self.register_buffer('pe', pe.unsqueeze(0))
+    <span style="font-weight: bold;">self</span>.register_buffer(<span style="font-style: italic;">'pe'</span>, pe.unsqueeze(0))
 
-  def forward(self, x):
-    return x + self.pe[:, :x.size(1)]  # Fixed: should be + not *
-
-print("PositionalEncoding class defined successfully")
+  <span style="font-weight: bold;">def</span> <span style="font-weight: bold;">forward</span>(<span style="font-weight: bold;">self</span>, x):
+    <span style="font-weight: bold;">return</span> x + <span style="font-weight: bold;">self</span>.pe[:, :x.size(1)]  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Fixed: should be + not *
+</span>
+<span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"PositionalEncoding class defined successfully"</span>)
 </pre>
 </div>
 
@@ -198,14 +191,14 @@ print("PositionalEncoding class defined successfully")
 PositionalEncoding class defined successfully
 </pre>
 </div>
-<div id="outline-container-org2ab4cac" class="outline-3">
-<h3 id="org2ab4cac"><span class="section-number-3">2.1.</span> Creando positional encodings</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-orgae2fbd2" class="outline-3">
+<h3 id="orgae2fbd2">Creando positional encodings</h3>
+<div class="outline-text-3" id="text-orgae2fbd2">
 <div class="org-src-container">
-<pre class="src src-python">pos_encoding_layer = PositionalEncoding(d_model=512, max_seq_length=4)
-pos_encoded_output = pos_encoding_layer(embedded_output)
-print(f"Positional encoded output shape: {pos_encoded_output.shape}")
-print(f"Added positional encoding successfully")
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">pos_encoding_layer</span> = PositionalEncoding(d_model=512, max_seq_length=4)
+<span style="font-weight: bold; font-style: italic;">pos_encoded_output</span> = pos_encoding_layer(embedded_output)
+<span style="font-weight: bold;">print</span>(f<span style="font-style: italic;">"Positional encoded output shape: </span>{pos_encoded_output.shape}<span style="font-style: italic;">"</span>)
+<span style="font-weight: bold;">print</span>(f<span style="font-style: italic;">"Added positional encoding successfully"</span>)
 </pre>
 </div>
 

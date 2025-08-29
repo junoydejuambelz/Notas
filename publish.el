@@ -5,6 +5,17 @@
 
 ;;; Code:
 
+(require 'package)
+(setq package-user-dir (expand-file-name "./.packages"))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
+
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(package-install 'htmlize)
+
 (require 'ox-publish)
 (require 'ob-python)
 
@@ -52,41 +63,45 @@
   "Generate HTML preamble with navbar."
   "<nav class=\"navbar\">
   <div class=\"navbar-brand\">
-    <a href=\"/index.html\">🏠 Home</a>
+  <a href=\"/index.html\">🏠 Home</a>
   </div>
   <div class=\"navbar-menu\">
-    <div class=\"navbar-item dropdown\">
-      <a href=\"#\" class=\"dropbtn\">🤖 AI</a>
-      <div class=\"dropdown-content\">
-        <a href=\"/AI/index.html\">📋 Resumen</a>
-        <div class=\"dropdown-submenu\">
-          <a href=\"#\" class=\"submenu-btn\">📚 CS229 ▶</a>
-          <div class=\"submenu-content\">
-            <a href=\"/AI/CS229/index.html\">📋 Resumen</a>
-            <a href=\"/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html\">🎯 Aprendizaje Supervisado</a>
-            <a href=\"/AI/CS229/AprendizajeSupervisado/regresion_lineal.html\">📈 Regresión Lineal</a>
-          </div>
-        </div>
-        <div class=\"dropdown-submenu\">
-          <a href=\"#\" class=\"submenu-btn\">🏗️ DataCamp ▶</a>
-          <div class=\"submenu-content\">
-            <a href=\"/AI/DataCamp/index.html\">📋 Resumen</a>
-            <a href=\"/AI/DataCamp/desglosando_el_transformer.html\">🔍 Desglosando el Transformer</a>
-            <a href=\"/AI/DataCamp/embedding_y_codificacion_posicional.html\">🔗 Embedding y Codificación Posicional</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class=\"navbar-item dropdown\">
-      <a href=\"#\" class=\"dropbtn\">🔬 HoTT</a>
-      <div class=\"dropdown-content\">
-        <a href=\"/HoTT/index.html\">📋 Resumen</a>
-        <a href=\"/HoTT/introduccion.html\">🚀 Introducción</a>
-        <a href=\"/HoTT/juicios.html\">⚖️ Juicios</a>
-      </div>
-    </div>
+  <div class=\"navbar-item dropdown\">
+  <a href=\"#\" class=\"dropbtn\">🤖 AI</a>
+  <div class=\"dropdown-content\">
+  <a href=\"/AI/index.html\">📋 Resumen</a>
+  <div class=\"dropdown-submenu\">
+  <a href=\"#\" class=\"submenu-btn\">📚 CS229</a>
+  <div class=\"submenu-content\">
+  <a href=\"/AI/CS229/index.html\">📋 Resumen</a>
+  <a href=\"/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html\">🎯 Aprendizaje Supervisado</a>
+  <a href=\"/AI/CS229/AprendizajeSupervisado/regresion_lineal.html\">📈 Regresión Lineal</a>
   </div>
-</nav>")
+  </div>
+  <div class=\"dropdown-submenu\">
+  <a href=\"#\" class=\"submenu-btn\">🏗️ DataCamp</a>
+  <div class=\"submenu-content\">
+  <a href=\"/AI/DataCamp/index.html\">📋 Resumen</a>
+  <a href=\"/AI/DataCamp/desglosando_el_transformer.html\">🔍 Desglosando el Transformer</a>
+  <a href=\"/AI/DataCamp/embedding_y_codificacion_posicional.html\">🔗 Embedding y Codificación Posicional</a>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class=\"navbar-item dropdown\">
+  <a href=\"#\" class=\"dropbtn\">🔬 HoTT</a>
+  <div class=\"dropdown-content\">
+  <a href=\"/HoTT/index.html\">📋 Resumen</a>
+  <a href=\"/HoTT/introduccion.html\">🚀 Introducción</a>
+  <a href=\"/HoTT/juicios.html\">⚖️ Juicios</a>
+  <a href=\"HoTT/transitividad.html\">🔛 Transitividad </a>
+  </div>
+  </div>
+  <div class=\"navbar-item\">
+  <a href=\"/Emacs/index.html\">⚙️ Emacs Config</a>
+  </div>
+  </div>
+  </nav>")
 
 (setq org-publish-project-alist
       '(
@@ -103,16 +118,16 @@
          :sitemap-filename "sitemap.html"
          :sitemap-title "Mis Notas"
          :sitemap-sort-files anti-chronologically
-         :with-author t
-         :with-date t
-         :with-toc t
-         :section-numbers t
+         :with-author nil
+         :with-date nil
+         :with-toc nil
+         :section-numbers nil
          :html-validation-link nil
          :html-head-include-default-style nil
          :html-preamble my-org-html-preamble
          :html-postamble nil
          :babel-evaluate t
-         :html-head-extra "<link rel='stylesheet' href='./style.css' />")
+         :html-head-extra "<link rel='stylesheet' href='/style.css' />")
 
         ;; Static files (images, etc.)
         ("notes-static"
@@ -120,6 +135,7 @@
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf"
          :publishing-directory "/home/mou/Desktop/Notas/public/"
          :recursive t
+         :exclude "Emacs/emacs\\.d/"
          :publishing-function org-publish-attachment)
 
         ;; Combined project
@@ -142,17 +158,24 @@
 (setq org-html-mathjax-template
       "<script>
   window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-      displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
+  tex: {
+  inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+  displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
+  processEscapes: true,
+  processEnvironments: true,
+  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
+  },
+  loader: {
+  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
+  },
+  options: {
+  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
   };
-</script>
-<script src=\"%PATH\"></script>")
+  </script>
+  <script src=\"%PATH\"></script>
+  <script>
+  MathJax.startup.defaultReady();
+  </script>")
 
 (org-publish-all t)
