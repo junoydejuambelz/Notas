@@ -3,7 +3,6 @@
 #+DATE: [2025-08-28]
 #+EXPORT_FILE_NAME: juicios
 #+STARTUP: overview
-
 Tenemos los siguientes juicios
 
 ** El fragmento negativo

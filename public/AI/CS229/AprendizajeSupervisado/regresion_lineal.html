@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-08-29 Fri 13:00 -->
+<!-- 2025-09-01 Mon 14:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Regresión lineal</title>
@@ -77,6 +77,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Regresión lineal</h1>
+<div id="outline-container-org096f9d8" class="outline-2">
+<h2 id="org096f9d8">Regresión lineal</h2>
+<div class="outline-text-2" id="text-org096f9d8">
 <p>
 Para hacer más interesante nuestro ejemplo de las casas, consideremos un conjunto de datos
 más rico, en el que también conocemos el número de cuartos en cada casa:
@@ -171,9 +174,10 @@ Definimos la <b>función de costo</b>:
 A esta función de costo se le conoce como la función de costo de los mínimos cuadrados y da lugar 
 al modelo de regresión usual de <b>mínimos cuadrados</b>.
 </p>
-<div id="outline-container-org5ce800e" class="outline-2">
-<h2 id="org5ce800e">El algoritmo LMS</h2>
-<div class="outline-text-2" id="text-org5ce800e">
+</div>
+<div id="outline-container-org6b3e5bf" class="outline-3">
+<h3 id="org6b3e5bf">El algoritmo LMS</h3>
+<div class="outline-text-3" id="text-org6b3e5bf">
 <p>
 Queremos escoger a \(\theta\) de tal manera que se minimice \(J(\theta)\). Para hacer esto, usaremos 
 un algoritmo de búsqueda que empieza con una suposición inicial para \(\theta\) y luego cambia 
@@ -212,6 +216,63 @@ entrenamiento en el que nuestra predicción es casi exacta, el parámetro se act
 una cantidad pequeña y, por el contrario, si el error es grande, se actualiza por una 
 cantidad mayor.
 </p>
+
+<p>
+Hemos derivado la regla <b>LMS</b> para cuando hay sólo un ejemplo de entrenamiento. Hay dos
+maneras de modificar este método para un conjunto de entrenamiento de más de un ejemplo.
+El primero es reemplazarlo por el siguiente método:
+</p>
+<ul class="org-ul">
+<li>Repetir hasta que haya convergencia
+\[
+        \theta_j := \theta_j + \alpha \sum_{i=1}^n (y^{(i)} - h_\theta(x^{(i)}))x_j^{(i)}, \text{ para cada }j
+  \]
+Agrupando las coordenadas en un vector de actualización \( \theta \), podemos escribir
+esto de manera más sucinta:
+\[
+        \theta := \theta + \alpha \sum_{i=1}^n (y^{(i)} - h_\theta (x^{(i)}))x^{(i)}
+  \]</li>
+</ul>
+
+<p>
+Se puede verificar que la cantidad en la suma en la regla de actualización de arriba no
+es más que \( \partial J(\theta)/ \partial \theta_j \). De modo que esto es simplemente
+descenso gradiente sobre la función de costo original \( J \).
+Este método se fija en cada ejemplo de todo el conjunto de entrenamiento en cada paso, y
+es llamado <b>descenso gradiente en grupos</b>. Notemos que, mientras que el descenso gradiente
+puede ser susceptible a mínimos locales, el problema de optimización que hemos planteado
+aquí para regresión lineal tiene óptimos globales y ninguno otro local, de modo que el
+descenso gradiente siempre converge (asumiendo que la tasa de aprendizaje \(\alpha\)
+no es muy grande) al mínimo global.
+</p>
+
+<p>
+Hay otra alternativa al descenso gradiente en grupos que también funciona muy bien.
+Consideremos el siguiente algoritmo:
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org65af800" class="outline-2">
+<h2 id="org65af800">Las ecuaciones normales</h2>
+<div class="outline-text-2" id="text-org65af800">
+<p>
+El descenso gradiente nos da una forma de minimizar a \(J\). Veamos una segunda manera de
+hacer esto, esta vez haciendo la minimización de forma explícita, sin recurrir a un
+un algoritmo iterativo. En este método, minimizaremos \(J\) tomando explícitamente
+las derivadas con respecto de las \(\theta_j\)'s, e igualándolas a cero. Para permitir
+que escribamos esto sin tener que escribir un montón de álgebra, introduzcamos un poco de
+notación.
+</p>
+</div>
+<div id="outline-container-orga6af8b1" class="outline-3">
+<h3 id="orga6af8b1">Derivadas matriciales</h3>
+<div class="outline-text-3" id="text-orga6af8b1">
+<p>
+Para una función \( f: \mathbb{R}^{n \times d} \to \mathbb{R} \) que mapea las matrices de
+\(n \times d\) a \(\mathbb{R}\)
+</p>
+</div>
 </div>
 </div>
 </div>

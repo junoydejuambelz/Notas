@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-08-29 Fri 13:00 -->
+<!-- 2025-09-01 Mon 14:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Embedding y Codificación Posicional</title>
@@ -94,9 +94,9 @@ Cada token tiene un ID único en el vocabulario del modelo, cuando los embebemos
 capa de embedding obtenemos un embedding vector. A la longitud de este vector se le conoce 
 como el número de dimensiones o dimensionalidad.
 </p>
-<div id="outline-container-org6f8b555" class="outline-2">
-<h2 id="org6f8b555">Embeddings</h2>
-<div class="outline-text-2" id="text-org6f8b555">
+<div id="outline-container-org1ad0f04" class="outline-2">
+<h2 id="org1ad0f04">Embeddings</h2>
+<div class="outline-text-2" id="text-org1ad0f04">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> torch 
 <span style="font-weight: bold;">import</span> math 
@@ -126,9 +126,9 @@ InputEmbeddings class defined successfully
 token embeddings no sobrecargan o son sobrecargado por los position embeddings.</li>
 </ul>
 </div>
-<div id="outline-container-org82bbf53" class="outline-3">
-<h3 id="org82bbf53">Creando embeddings</h3>
-<div class="outline-text-3" id="text-org82bbf53">
+<div id="outline-container-orgf028bc2" class="outline-3">
+<h3 id="orgf028bc2">Creando embeddings</h3>
+<div class="outline-text-3" id="text-orgf028bc2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">embedding_layer</span> = InputEmbeddings(vocab_size=10_000, d_model=512)
 <span style="font-weight: bold; font-style: italic;">embedded_output</span> = embedding_layer(torch.tensor([[1, 2, 3, 4], [5, 6, 7, 8]]))
@@ -139,15 +139,15 @@ token embeddings no sobrecargan o son sobrecargado por los position embeddings.<
 
 <pre class="example">
 Embedded output shape: torch.Size([2, 4, 512])
-First few values: tensor([ -7.5252,   9.7952,  32.7087,  18.8122, -11.1241],
+First few values: tensor([ 16.6946,   2.6989,   2.3230, -11.9937,  14.5662],
        grad_fn=&lt;SliceBackward0&gt;)
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org75d0daf" class="outline-2">
-<h2 id="org75d0daf">Positional encoding</h2>
-<div class="outline-text-2" id="text-org75d0daf">
+<div id="outline-container-org0723958" class="outline-2">
+<h2 id="org0723958">Positional encoding</h2>
+<div class="outline-text-2" id="text-org0723958">
 <p>
 Codifica la posición de cada token en la secuencia en un positional embedding y los añade 
 a los token embeddings para capturar la posición. Generalmente estos embeddings tienen las 
@@ -191,9 +191,9 @@ Donde \(i\) es el número de valor.
 PositionalEncoding class defined successfully
 </pre>
 </div>
-<div id="outline-container-orgae2fbd2" class="outline-3">
-<h3 id="orgae2fbd2">Creando positional encodings</h3>
-<div class="outline-text-3" id="text-orgae2fbd2">
+<div id="outline-container-orgb02539e" class="outline-3">
+<h3 id="orgb02539e">Creando positional encodings</h3>
+<div class="outline-text-3" id="text-orgb02539e">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">pos_encoding_layer</span> = PositionalEncoding(d_model=512, max_seq_length=4)
 <span style="font-weight: bold; font-style: italic;">pos_encoded_output</span> = pos_encoding_layer(embedded_output)
