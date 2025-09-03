@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-09-02 Tue 19:43 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pensamiento algorítmico</title>
+<meta name="generator" content="Org Mode" />
+<link rel='stylesheet' href='/style.css' />
+<script>
+  window.MathJax = {
+  tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']],
+  displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  processEscapes: true,
+  processEnvironments: true,
+  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
+  },
+  loader: {
+  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
+  },
+  options: {
+  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+  };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+  <script>
+  MathJax.startup.defaultReady();
+  </script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/index.html">🏠 Home</a>
+        </div>
+        <div class="navbar-menu">
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🖥️ Computación</a>
+                        <div class="dropdown-content">
+                                <a href="/Computacion/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">⚙️ Algoritmos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Computacion/Algoritmos/index.html">📋 Resumen</a>
+                                                <a href="/Computacion/Algoritmos/pensamiento.html">🧠 Pensamiento algorítmico</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🤖 AI</a>
+                        <div class="dropdown-content">
+                                <a href="/AI/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">📚 CS229</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/CS229/index.html">📋 Resumen</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
+                                        </div>
+                                </div>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🏗️ DataCamp</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+                                                <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+                                                <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔬 HoTT</a>
+                        <div class="dropdown-content">
+                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                <a href="HoTT/transitividad.html">🔛 Transitividad </a>
+                        </div>
+                </div>
+                <div class="navbar-item">
+                        <a href="/Emacs/index.html">⚙️ Emacs Config</a>
+                </div>
+        </div>
+  </nav>
+</div>
+<div id="content" class="content">
+<h1 class="title">Pensamiento algorítmico</h1>
+<div id="outline-container-org9e70fc3" class="outline-2">
+<h2 id="org9e70fc3">Peak finder</h2>
+<div class="outline-text-2" id="text-org9e70fc3">
+</div>
+<div id="outline-container-org4cded83" class="outline-3">
+<h3 id="org4cded83">Versión uni-dimensional</h3>
+<div class="outline-text-3" id="text-org4cded83">
+<p>
+Un "peak" en un arreglo uni-dimensional es un elemento que es mayor o igual que los dos
+elementos contiguos, en el caso de un borde, un "peak" es mayor o igual que el único número
+contiguo.
+</p>
+
+<p>
+El problema consiste en encontrar un peak, si es que existe.
+</p>
+</div>
+<div id="outline-container-org4c3f9e5" class="outline-4">
+<h4 id="org4c3f9e5">Algoritmo inicial</h4>
+<div class="outline-text-4" id="text-org4c3f9e5">
+<p>
+El algoritmo más directo es empezar por la izquierda elemento por elemento y verificar
+si cada número es un "peak". Este algoritmo tendría una complejidad \(\theta(n)\) (en el
+peor de lo casos), donde \(\theta(n)\) denota que la complejidad es del orden de \(n\), nos da
+una cota superior y una cota inferior, a diferencia de \(O\) que es sólo una cota superior.
+</p>
+</div>
+</div>
+<div id="outline-container-org1204416" class="outline-4">
+<h4 id="org1204416">Algoritmo mejorado (divide and conquer)</h4>
+<div class="outline-text-4" id="text-org1204416">
+<p>
+Empezamos por el elemento de la mitad y repetimos los siguientes pasos en orden:
+</p>
+
+<ol class="org-ol">
+<li>Si \(a[n/2] < a[n/2-1]\) entonces buscamos el pico en el lado izquierdo.</li>
+<li>Si \(a[n/2] < a[n/2 + 1]\) entonces buscamos el pico en el lado derecho.</li>
+<li>De otro modo, encontramos el pico.</li>
+</ol>
+
+<p>
+Si denotamos \(T(n\) al "trabajo" del algoritmo sobre la entrada \(n\), entonces podemos
+escribir
+\[
+        T(n) = T(n/2) + \theta(1)
+\]
+Donde \(\theta(1)\) corresponde a las dos comparaciones que hacemos (potencialmente) al verificar
+si el número es menor que sus elmenetos contiguos. Más explicado: cuando ejecutamos el
+algoritmo en un input de tamaño \(n\) lo que hacemos es hacer, a lo más, dos verificaciones
+y luego ejecutar el algoritmo en un input de tamaño \(n/2\), de modo que se mantiene la
+relación recursiva.
+</p>
+
+<p>
+En el caso base, tenemos que \(T(1) = 1\) y, por tanto:
+</p>
+\begin{align*}
+        T(n) &= T(n/2) + \theta(1) \\
+             &= T(n/4) + \theta(1) + \theta(1) \\
+             &= \ldots \\
+             &= \log_2(n)\cdot\theta(1)
+\end{align*}
+<p>
+Así, el algoritmo tiene una complejidad de \(\theta(\log_2(n))\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfa44dd5" class="outline-3">
+<h3 id="orgfa44dd5">Versión bi-dimensional</h3>
+<div class="outline-text-3" id="text-orgfa44dd5">
+<p>
+Un "peak" en un arreglo bi-dimensional de \(n \times m\) es una montaña, es un número que es mayor
+o igual a los números que están arriba, abajo a la izquierda y a la derecha.
+</p>
+</div>
+<div id="outline-container-orgad4823f" class="outline-4">
+<h4 id="orgad4823f">Algoritmo inicial (Algoritmo de ascenso codicioso)</h4>
+<div class="outline-text-4" id="text-orgad4823f">
+<p>
+Empezamos con una posición y dirección inicial (diagamos el centro y la izquierda). Si
+el número a la izquierda es mayor, nos empezamos a mover a la izquierda hasta encontrar
+un pico o topar con pared, si topamos con pared, siempre rotamos nuestro vector de dirección
+por un ángulo recto en sentido anti-horario. Si el número de la izquierda es menor, nos
+movemos hacia la derecha y repetimos lo mismo que antes.
+</p>
+
+<p>
+En el peor de los casos, podríamos recorrer todo el arreglo, lo que nos dejaría con una
+complejidad de peor escenario de \(\theta(n \cdot m)\) y, en el caso en que \(n = m\), \(\theta(n^2)\).
+</p>
+</div>
+</div>
+<div id="outline-container-org24691b3" class="outline-4">
+<h4 id="org24691b3">Algoritmo mejorado (pero no funcional)</h4>
+<div class="outline-text-4" id="text-org24691b3">
+<p>
+Escogemos la columna de la mitad \(j = m/2\) y encontramos un pico uni-dimensional en
+\((i,j)\). Luego usamos \((i,j)\) para encontrar un pico uni-dimensional en el renglón
+\(i\).
+<b>WA-WA, el algoritmo sería eficiente, pero no funciona, podría suceder que no haya un pico
+bi-dimensional en el renglón \(i\)</b>.
+</p>
+</div>
+</div>
+<div id="outline-container-org8197a49" class="outline-4">
+<h4 id="org8197a49">Algoritmo mejorado (y funcional)</h4>
+<div class="outline-text-4" id="text-org8197a49">
+<p>
+Escogemos la columna \(j = m/2\) y encontramos el máximo global en la columna \(j\) en
+\((i,j)\). Comparamos \((i, j-1)\), \((i, j)\) y \((i, j+1)\) y esocgemos las columnas
+de la izquierda si el de la izquierda es más grande y lo mismo con la derecha y repetimos.
+Si ninguna de estas dos condiciones se cumple, encontramos el pico bi-dimensional.
+</p>
+
+<p>
+De esta manera, el nuevo problema tiene la mitad de columnas. Cuando tenemos una sola
+columna, sólo hay que encontrar el máximo global.
+</p>
+
+<p>
+La relación de recurrencia es \(T(n,m) = T(n, m/2) + \theta(n)\) y, sabiendo que\(T(n,1) = \theta(n)\)
+obtenemos que \(T(n,m) = \theta(n \log_2(m))\).
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

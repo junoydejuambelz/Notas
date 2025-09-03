@@ -62,45 +62,58 @@
 (defun my-org-html-preamble (plist)
   "Generate HTML preamble with navbar."
   "<nav class=\"navbar\">
-  <div class=\"navbar-brand\">
-  <a href=\"/index.html\">🏠 Home</a>
-  </div>
-  <div class=\"navbar-menu\">
-  <div class=\"navbar-item dropdown\">
-  <a href=\"#\" class=\"dropbtn\">🤖 AI</a>
-  <div class=\"dropdown-content\">
-  <a href=\"/AI/index.html\">📋 Resumen</a>
-  <div class=\"dropdown-submenu\">
-  <a href=\"#\" class=\"submenu-btn\">📚 CS229</a>
-  <div class=\"submenu-content\">
-  <a href=\"/AI/CS229/index.html\">📋 Resumen</a>
-  <a href=\"/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html\">🎯 Aprendizaje Supervisado</a>
-  <a href=\"/AI/CS229/AprendizajeSupervisado/regresion_lineal.html\">📈 Regresión Lineal</a>
-  </div>
-  </div>
-  <div class=\"dropdown-submenu\">
-  <a href=\"#\" class=\"submenu-btn\">🏗️ DataCamp</a>
-  <div class=\"submenu-content\">
-  <a href=\"/AI/DataCamp/index.html\">📋 Resumen</a>
-  <a href=\"/AI/DataCamp/desglosando_el_transformer.html\">🔍 Desglosando el Transformer</a>
-  <a href=\"/AI/DataCamp/embedding_y_codificacion_posicional.html\">🔗 Embedding y Codificación Posicional</a>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div class=\"navbar-item dropdown\">
-  <a href=\"#\" class=\"dropbtn\">🔬 HoTT</a>
-  <div class=\"dropdown-content\">
-  <a href=\"/HoTT/index.html\">📋 Resumen</a>
-  <a href=\"/HoTT/introduccion.html\">🚀 Introducción</a>
-  <a href=\"/HoTT/juicios.html\">⚖️ Juicios</a>
-  <a href=\"HoTT/transitividad.html\">🔛 Transitividad </a>
-  </div>
-  </div>
-  <div class=\"navbar-item\">
-  <a href=\"/Emacs/index.html\">⚙️ Emacs Config</a>
-  </div>
-  </div>
+        <div class=\"navbar-brand\">
+            <a href=\"/index.html\">🏠 Home</a>
+        </div>
+        <div class=\"navbar-menu\">
+                <div class=\"navbar-item dropdown\">
+                        <a href=\"#\" class=\"dropbtn\">🖥️ Computación</a>
+                        <div class=\"dropdown-content\">
+                                <a href=\"/Computacion/index.html\">📋 Resumen</a>
+                                <div class=\"dropdown-submenu\">
+                                        <a href=\"#\" class=\"submenu-btn\">⚙️ Algoritmos</a>
+                                        <div class=\"submenu-content\">
+                                                <a href=\"/Computacion/Algoritmos/index.html\">📋 Resumen</a>
+                                                <a href=\"/Computacion/Algoritmos/pensamiento.html\">🧠 Pensamiento algorítmico</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class=\"navbar-item dropdown\">
+                        <a href=\"#\" class=\"dropbtn\">🤖 AI</a>
+                        <div class=\"dropdown-content\">
+                                <a href=\"/AI/index.html\">📋 Resumen</a>
+                                <div class=\"dropdown-submenu\">
+                                        <a href=\"#\" class=\"submenu-btn\">📚 CS229</a>
+                                        <div class=\"submenu-content\">
+                                                <a href=\"/AI/CS229/index.html\">📋 Resumen</a>
+                                                <a href=\"/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html\">🎯 Aprendizaje Supervisado</a>
+                                                <a href=\"/AI/CS229/AprendizajeSupervisado/regresion_lineal.html\">📈 Regresión Lineal</a>
+                                        </div>
+                                </div>
+                                <div class=\"dropdown-submenu\">
+                                        <a href=\"#\" class=\"submenu-btn\">🏗️ DataCamp</a>
+                                        <div class=\"submenu-content\">
+                                                <a href=\"/AI/DataCamp/index.html\">📋 Resumen</a>
+                                                <a href=\"/AI/DataCamp/desglosando_el_transformer.html\">🔍 Desglosando el Transformer</a>
+                                                <a href=\"/AI/DataCamp/embedding_y_codificacion_posicional.html\">🔗 Embedding y Codificación Posicional</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class=\"navbar-item dropdown\">
+                        <a href=\"#\" class=\"dropbtn\">🔬 HoTT</a>
+                        <div class=\"dropdown-content\">
+                                <a href=\"/HoTT/index.html\">📋 Resumen</a>
+                                <a href=\"/HoTT/introduccion.html\">🚀 Introducción</a>
+                                <a href=\"/HoTT/juicios.html\">⚖️ Juicios</a>
+                                <a href=\"HoTT/transitividad.html\">🔛 Transitividad </a>
+                        </div>
+                </div>
+                <div class=\"navbar-item\">
+                        <a href=\"/Emacs/index.html\">⚙️ Emacs Config</a>
+                </div>
+        </div>
   </nav>")
 
 (setq org-publish-project-alist

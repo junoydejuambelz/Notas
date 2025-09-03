@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-01 Mon 14:33 -->
+<!-- 2025-09-02 Tue 19:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Transitividad</title>
@@ -34,52 +34,65 @@
 <body>
 <div id="preamble" class="status">
 <nav class="navbar">
-  <div class="navbar-brand">
-  <a href="/index.html">🏠 Home</a>
-  </div>
-  <div class="navbar-menu">
-  <div class="navbar-item dropdown">
-  <a href="#" class="dropbtn">🤖 AI</a>
-  <div class="dropdown-content">
-  <a href="/AI/index.html">📋 Resumen</a>
-  <div class="dropdown-submenu">
-  <a href="#" class="submenu-btn">📚 CS229</a>
-  <div class="submenu-content">
-  <a href="/AI/CS229/index.html">📋 Resumen</a>
-  <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
-  <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
-  </div>
-  </div>
-  <div class="dropdown-submenu">
-  <a href="#" class="submenu-btn">🏗️ DataCamp</a>
-  <div class="submenu-content">
-  <a href="/AI/DataCamp/index.html">📋 Resumen</a>
-  <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
-  <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div class="navbar-item dropdown">
-  <a href="#" class="dropbtn">🔬 HoTT</a>
-  <div class="dropdown-content">
-  <a href="/HoTT/index.html">📋 Resumen</a>
-  <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-  <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-  <a href="HoTT/transitividad.html">🔛 Transitividad </a>
-  </div>
-  </div>
-  <div class="navbar-item">
-  <a href="/Emacs/index.html">⚙️ Emacs Config</a>
-  </div>
-  </div>
+        <div class="navbar-brand">
+            <a href="/index.html">🏠 Home</a>
+        </div>
+        <div class="navbar-menu">
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🖥️ Computación</a>
+                        <div class="dropdown-content">
+                                <a href="/Computacion/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">⚙️ Algoritmos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Computacion/Algoritmos/index.html">📋 Resumen</a>
+                                                <a href="/Computacion/Algoritmos/pensamiento.html">🧠 Pensamiento algorítmico</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🤖 AI</a>
+                        <div class="dropdown-content">
+                                <a href="/AI/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">📚 CS229</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/CS229/index.html">📋 Resumen</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
+                                        </div>
+                                </div>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🏗️ DataCamp</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+                                                <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+                                                <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔬 HoTT</a>
+                        <div class="dropdown-content">
+                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                <a href="HoTT/transitividad.html">🔛 Transitividad </a>
+                        </div>
+                </div>
+                <div class="navbar-item">
+                        <a href="/Emacs/index.html">⚙️ Emacs Config</a>
+                </div>
+        </div>
   </nav>
 </div>
 <div id="content" class="content">
 <h1 class="title">Transitividad</h1>
-<div id="outline-container-orge03fe4f" class="outline-2">
-<h2 id="orge03fe4f">Álgebras de Heyting</h2>
-<div class="outline-text-2" id="text-orge03fe4f">
+<div id="outline-container-org34def7e" class="outline-2">
+<h2 id="org34def7e">Álgebras de Heyting</h2>
+<div class="outline-text-2" id="text-org34def7e">
 <p>
 Un álgebra de Heyting es una retícula (pre-orden con todos los "meets" y "joins" finitos,
 es decir, máximas cotas inferiores y mínimas cotas superiores) que tiene exponenciales.
@@ -91,9 +104,9 @@ En un álgebra de Heyting podemos definir la negación de \(A\) como
 Es decir, la \(C\) más grande que es inconsistente con \(A\).
 </p>
 </div>
-<div id="outline-container-org1f6e5c7" class="outline-3">
-<h3 id="org1f6e5c7">Observaciones</h3>
-<div class="outline-text-3" id="text-org1f6e5c7">
+<div id="outline-container-org7c13b6a" class="outline-3">
+<h3 id="org7c13b6a">Observaciones</h3>
+<div class="outline-text-3" id="text-org7c13b6a">
 <ul class="org-ul">
 <li>Toda álgebra de Heyting es distributiva.</li>
 <li>Toda álgebra Booleana tiene exponenciales
@@ -104,26 +117,26 @@ Es decir, la \(C\) más grande que es inconsistente con \(A\).
 </div>
 </div>
 </div>
-<div id="outline-container-orgb2783b4" class="outline-2">
-<h2 id="orgb2783b4">Álgebras Booleana</h2>
-<div class="outline-text-2" id="text-orgb2783b4">
+<div id="outline-container-org8d44d95" class="outline-2">
+<h2 id="org8d44d95">Álgebras Booleana</h2>
+<div class="outline-text-2" id="text-org8d44d95">
 <p>
 Un álgebra Booleana es una retícula complementada (\(\overline{A}\) es la \(C\) más pequeña
 tal que \(A \lor C \geq \top\)) y distributiva.
 </p>
 </div>
-<div id="outline-container-org0dda383" class="outline-3">
-<h3 id="org0dda383">Afirmación</h3>
-<div class="outline-text-3" id="text-org0dda383">
+<div id="outline-container-org25c979f" class="outline-3">
+<h3 id="org25c979f">Afirmación</h3>
+<div class="outline-text-3" id="text-org25c979f">
 <p>
 <em> En la lógica intuicionista no todas las instancias del tercio excluso son
 demostrables </em> <br>
 En general, no podemos esperar que para cada \( A \) que \( A \lor \lnot A ~ True \).
 </p>
 </div>
-<div id="outline-container-orgdc40b8a" class="outline-4">
-<h4 id="orgdc40b8a">Idea (Propiedad de la disyunción) </b> <br></h4>
-<div class="outline-text-4" id="text-orgdc40b8a">
+<div id="outline-container-org8210c28" class="outline-4">
+<h4 id="org8210c28">Idea (Propiedad de la disyunción) </b> <br></h4>
+<div class="outline-text-4" id="text-org8210c28">
 <p>
 Si podemos mostrar que \( A \lor B ~ True\) entonces podemos mostrar \(A ~ True\) o
 \(B ~ True\).
@@ -131,9 +144,9 @@ Si podemos mostrar que \( A \lor B ~ True\) entonces podemos mostrar \(A ~ True\
 </div>
 </div>
 </div>
-<div id="outline-container-org6e293be" class="outline-3">
-<h3 id="org6e293be">Afirmación (Continuación)</h3>
-<div class="outline-text-3" id="text-org6e293be">
+<div id="outline-container-orgeffcc14" class="outline-3">
+<h3 id="orgeffcc14">Afirmación (Continuación)</h3>
+<div class="outline-text-3" id="text-orgeffcc14">
 <p>
 Por lo tanto, si eso fuera cierto, para cada \(A\) tendríamos \(A ~ True\) o
 \(A ~ False\), lo cual es refutable. Basta pensar en un problema abierto de la matemática.
@@ -141,13 +154,13 @@ Por lo tanto, si eso fuera cierto, para cada \(A\) tendríamos \(A ~ True\) o
 </div>
 </div>
 </div>
-<div id="outline-container-org1c3adc6" class="outline-2">
-<h2 id="org1c3adc6">IPL (Lógica Proposicional Intuicionista) desde la teoría de la demostración</h2>
-<div class="outline-text-2" id="text-org1c3adc6">
+<div id="outline-container-org6b99674" class="outline-2">
+<h2 id="org6b99674">IPL (Lógica Proposicional Intuicionista) desde la teoría de la demostración</h2>
+<div class="outline-text-2" id="text-org6b99674">
 </div>
-<div id="outline-container-orgf8f9147" class="outline-4">
-<h4 id="orgf8f9147">Afirmación</h4>
-<div class="outline-text-4" id="text-orgf8f9147">
+<div id="outline-container-orgdaea18f" class="outline-4">
+<h4 id="orgdaea18f">Afirmación</h4>
+<div class="outline-text-4" id="text-orgdaea18f">
 <p>
 En la lógica proposicional intuicionista, no todas las instancias de la ley del tercio excluso son
 demostrables, es decir, no es cierto que para cada \(A\), \(A \lor \lnot A ~ True\).
@@ -161,16 +174,16 @@ dar una prueba o una refutación de \(A\), lo cual no siempre sucede, basta pens
 </p>
 </div>
 </div>
-<div id="outline-container-orgc44e53b" class="outline-4">
-<h4 id="orgc44e53b">Definición</h4>
-<div class="outline-text-4" id="text-orgc44e53b">
+<div id="outline-container-org9837132" class="outline-4">
+<h4 id="org9837132">Definición</h4>
+<div class="outline-text-4" id="text-org9837132">
 <p>
 \(A ~ Prop\) es decidible si \(A \lor \lnot A ~ True\)
 </p>
 </div>
-<div id="outline-container-orgf3edf78" class="outline-5">
-<h5 id="orgf3edf78">Ejemplos</h5>
-<div class="outline-text-5" id="text-orgf3edf78">
+<div id="outline-container-orga46a6da" class="outline-5">
+<h5 id="orga46a6da">Ejemplos</h5>
+<div class="outline-text-5" id="text-orga46a6da">
 <ul class="org-ul">
 <li>Si \(A = \top\), entonces \(A\) es decidible.</li>
 <li>Si \(A = \bot\), entonces \(A\) es decidible.</li>
@@ -178,24 +191,24 @@ dar una prueba o una refutación de \(A\), lo cual no siempre sucede, basta pens
 </div>
 </div>
 </div>
-<div id="outline-container-orgbf0231a" class="outline-4">
-<h4 id="orgbf0231a">Definición</h4>
-<div class="outline-text-4" id="text-orgbf0231a">
+<div id="outline-container-org082f986" class="outline-4">
+<h4 id="org082f986">Definición</h4>
+<div class="outline-text-4" id="text-org082f986">
 <p>
 \(A ~ Prop\) es estable si y sólo si \(\lnot(\lnot A) \supset \top ~ True\)
 </p>
 </div>
 </div>
-<div id="outline-container-org20afc43" class="outline-4">
-<h4 id="org20afc43">Afirmación</h4>
-<div class="outline-text-4" id="text-org20afc43">
+<div id="outline-container-org6c927d2" class="outline-4">
+<h4 id="org6c927d2">Afirmación</h4>
+<div class="outline-text-4" id="text-org6c927d2">
 <p>
 Para cada \(A\), \(\lnot (\lnot (A \lor \lnot A))\), es decir, la ley del tercio excluso no es refutable.
 </p>
 </div>
-<div id="outline-container-org0157ed3" class="outline-5">
-<h5 id="org0157ed3">Demostración</h5>
-<div class="outline-text-5" id="text-org0157ed3">
+<div id="outline-container-orge409d42" class="outline-5">
+<h5 id="orge409d42">Demostración</h5>
+<div class="outline-text-5" id="text-orge409d42">
 <p>
 Supongamos, en busca de una contradicción, que \(\lnot(A\lor\lnot A)\).
 Es suficiente probar \(A \lor \lnot A\) y, para esto, es suficiente que probemos \(\lnot A\).
@@ -205,13 +218,37 @@ supuesto.
 </div>
 </div>
 </div>
-<div id="outline-container-org511fdfb" class="outline-4">
-<h4 id="org511fdfb">Corolario</h4>
-<div class="outline-text-4" id="text-org511fdfb">
+<div id="outline-container-org5dfca43" class="outline-4">
+<h4 id="org5dfca43">Corolario</h4>
+<div class="outline-text-4" id="text-org5dfca43">
 <p>
 No toda proposición es estable.
 </p>
 </div>
+</div>
+<div id="outline-container-org986aae3" class="outline-3">
+<h3 id="org986aae3">¿Cómo probamos la propiedad de la disyunción en IPL?</h3>
+<div class="outline-text-3" id="text-org986aae3">
+<p>
+Interpretamos las reglas que habíamos dado de IPL como una definición inductiva de la implicación lógica.
+</p>
+</div>
+<div id="outline-container-org765babe" class="outline-4">
+<h4 id="org765babe">Teorema</h4>
+<div class="outline-text-4" id="text-org765babe">
+<p>
+Si \( \emptyset \vdash A \lor B ~ True\), entonces \(\emptyset \vdash A ~ True\) o \(\emptyset \vdash B ~ True\).
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org6698218" class="outline-2">
+<h2 id="org6698218">La idea de Gentzen (principio de inversión)</h2>
+<div class="outline-text-2" id="text-org6698218">
+<p>
+<code>elim</code> es post-inverso a <code>intro</code>.
+</p>
 </div>
 </div>
 </div>

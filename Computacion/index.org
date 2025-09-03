@@ -1,0 +1,11 @@
+#+TITLE: Notas computación
+#+AUTHOR: Mou
+#+DATE:  [2025-09-02]
+#+EXPORT_FILE_NAME: index
+#+STARTUP: overfiew
+
+* Bienvenido a mis notas
+Esta es una colección de mis notas sobre ciencias de la computación
+
+** Temas
+- [[file:./Algoritmos/index.org][Algoritmos]]

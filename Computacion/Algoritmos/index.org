@@ -1,0 +1,11 @@
+#+TITLE: Notas Algoritmos
+#+AUTHOR: Mou
+#+DATE: [2025-09-02]
+#+EXPORT_FILE_NAME: index
+#+STARTUP: overview
+
+* Bienvenido a mis notas
+Esta es una colección de mis notas de estudio sobre algoritmos
+
+** Notas
+- [[file:./pensamiento.org][Pensamiento algorítmico]]

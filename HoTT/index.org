@@ -5,7 +5,6 @@
 #+STARTUP: overview
 
 * Bienvenido a mis notas
-
 Esta es una colección de mis notas de estudio para el curso de Homotopy Type Theory
 
 ** Notas

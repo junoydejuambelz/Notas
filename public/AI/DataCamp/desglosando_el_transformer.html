@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-01 Mon 14:33 -->
+<!-- 2025-09-02 Tue 19:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Desglosando el Transformer</title>
@@ -34,52 +34,65 @@
 <body>
 <div id="preamble" class="status">
 <nav class="navbar">
-  <div class="navbar-brand">
-  <a href="/index.html">🏠 Home</a>
-  </div>
-  <div class="navbar-menu">
-  <div class="navbar-item dropdown">
-  <a href="#" class="dropbtn">🤖 AI</a>
-  <div class="dropdown-content">
-  <a href="/AI/index.html">📋 Resumen</a>
-  <div class="dropdown-submenu">
-  <a href="#" class="submenu-btn">📚 CS229</a>
-  <div class="submenu-content">
-  <a href="/AI/CS229/index.html">📋 Resumen</a>
-  <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
-  <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
-  </div>
-  </div>
-  <div class="dropdown-submenu">
-  <a href="#" class="submenu-btn">🏗️ DataCamp</a>
-  <div class="submenu-content">
-  <a href="/AI/DataCamp/index.html">📋 Resumen</a>
-  <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
-  <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div class="navbar-item dropdown">
-  <a href="#" class="dropbtn">🔬 HoTT</a>
-  <div class="dropdown-content">
-  <a href="/HoTT/index.html">📋 Resumen</a>
-  <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-  <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-  <a href="HoTT/transitividad.html">🔛 Transitividad </a>
-  </div>
-  </div>
-  <div class="navbar-item">
-  <a href="/Emacs/index.html">⚙️ Emacs Config</a>
-  </div>
-  </div>
+        <div class="navbar-brand">
+            <a href="/index.html">🏠 Home</a>
+        </div>
+        <div class="navbar-menu">
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🖥️ Computación</a>
+                        <div class="dropdown-content">
+                                <a href="/Computacion/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">⚙️ Algoritmos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Computacion/Algoritmos/index.html">📋 Resumen</a>
+                                                <a href="/Computacion/Algoritmos/pensamiento.html">🧠 Pensamiento algorítmico</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🤖 AI</a>
+                        <div class="dropdown-content">
+                                <a href="/AI/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">📚 CS229</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/CS229/index.html">📋 Resumen</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
+                                        </div>
+                                </div>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🏗️ DataCamp</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+                                                <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+                                                <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔬 HoTT</a>
+                        <div class="dropdown-content">
+                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                <a href="HoTT/transitividad.html">🔛 Transitividad </a>
+                        </div>
+                </div>
+                <div class="navbar-item">
+                        <a href="/Emacs/index.html">⚙️ Emacs Config</a>
+                </div>
+        </div>
   </nav>
 </div>
 <div id="content" class="content">
 <h1 class="title">Desglosando el Transformer</h1>
-<div id="outline-container-org384952c" class="outline-2">
-<h2 id="org384952c">El artículo que lo cambió todo</h2>
-<div class="outline-text-2" id="text-org384952c">
+<div id="outline-container-orga03aebb" class="outline-2">
+<h2 id="orga03aebb">El artículo que lo cambió todo</h2>
+<div class="outline-text-2" id="text-orga03aebb">
 <ul class="org-ul">
 <li>Attention is all you need (Ashish Vaswani)
 <ul class="org-ul">
@@ -93,9 +106,9 @@ La arquitectura Transformer está formada por dos bloques, el bloque encoder y e
 decoder
 </p>
 </div>
-<div id="outline-container-org59b0a4b" class="outline-3">
-<h3 id="org59b0a4b">Bloque encoder</h3>
-<div class="outline-text-3" id="text-org59b0a4b">
+<div id="outline-container-org407da37" class="outline-3">
+<h3 id="org407da37">Bloque encoder</h3>
+<div class="outline-text-3" id="text-org407da37">
 <ul class="org-ul">
 <li>Multiples capas idénticas</li>
 <li><b>Lee</b> y <b>procesa</b> el input</li>
@@ -104,43 +117,43 @@ decoder
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd88a1b2" class="outline-3">
-<h3 id="orgd88a1b2">Bloque decoder</h3>
-<div class="outline-text-3" id="text-orgd88a1b2">
+<div id="outline-container-org9216aa6" class="outline-3">
+<h3 id="org9216aa6">Bloque decoder</h3>
+<div class="outline-text-3" id="text-org9216aa6">
 <ul class="org-ul">
 <li>Secuencia input codificada \(\rightarrow\) secuencia output</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7cbd289" class="outline-3">
-<h3 id="org7cbd289">Positional encoding</h3>
-<div class="outline-text-3" id="text-org7cbd289">
+<div id="outline-container-org376dc76" class="outline-3">
+<h3 id="org376dc76">Positional encoding</h3>
+<div class="outline-text-3" id="text-org376dc76">
 <ul class="org-ul">
 <li>Codifica la posición de cada token en la secuencia</li>
 <li>El orden es crucial para modelar secuencias</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdc0a3b4" class="outline-3">
-<h3 id="orgdc0a3b4">Mecanismos de atención</h3>
-<div class="outline-text-3" id="text-orgdc0a3b4">
+<div id="outline-container-orgb7cd889" class="outline-3">
+<h3 id="orgb7cd889">Mecanismos de atención</h3>
+<div class="outline-text-3" id="text-orgb7cd889">
 <ul class="org-ul">
 <li>Presta atención a los tokens importantes y sus relaciones</li>
 <li>Mejora la generación de texto</li>
 </ul>
 </div>
-<div id="outline-container-org8f58638" class="outline-4">
-<h4 id="org8f58638">Self-attention</h4>
-<div class="outline-text-4" id="text-org8f58638">
+<div id="outline-container-org9df70ec" class="outline-4">
+<h4 id="org9df70ec">Self-attention</h4>
+<div class="outline-text-4" id="text-org9df70ec">
 <ul class="org-ul">
 <li>Le asigna pesos a los tokens</li>
 <li>Captura dependencias a largo rango</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org796fa3e" class="outline-4">
-<h4 id="org796fa3e">Multi-head attention</h4>
-<div class="outline-text-4" id="text-org796fa3e">
+<div id="outline-container-orgcebee4d" class="outline-4">
+<h4 id="orgcebee4d">Multi-head attention</h4>
+<div class="outline-text-4" id="text-orgcebee4d">
 <ul class="org-ul">
 <li>Parte el input en múltiples <b>heads</b></li>
 <li>Las heads capturas patrones distintos, creando representaciones más ricas</li>
@@ -148,9 +161,9 @@ decoder
 </div>
 </div>
 </div>
-<div id="outline-container-orgc89b4de" class="outline-3">
-<h3 id="orgc89b4de">Position-wide feed-forward networks</h3>
-<div class="outline-text-3" id="text-orgc89b4de">
+<div id="outline-container-org301c108" class="outline-3">
+<h3 id="org301c108">Position-wide feed-forward networks</h3>
+<div class="outline-text-3" id="text-org301c108">
 <ul class="org-ul">
 <li>Neural Networks (NNs) simples que aplican transformaciones</li>
 <li>Cada token es transformado de manera independiente</li>
@@ -159,9 +172,9 @@ decoder
 </div>
 </div>
 </div>
-<div id="outline-container-orgf0b6f21" class="outline-2">
-<h2 id="orgf0b6f21">Transformers en PyTorch</h2>
-<div class="outline-text-2" id="text-orgf0b6f21">
+<div id="outline-container-orgc1bf748" class="outline-2">
+<h2 id="orgc1bf748">Transformers en PyTorch</h2>
+<div class="outline-text-2" id="text-orgc1bf748">
 <p>
 PyTorch nos provee de una clase de alto nivel en <code>torch.nn</code> para definir arquitecturas. 
 Toma cuatro parámetros principales:
@@ -187,52 +200,6 @@ Toma cuatro parámetros principales:
 <span style="font-weight: bold;">print</span>(model)
 </pre>
 </div>
-
-<pre class="example" id="org560d0dd">
-/home/mou/.pyenv/versions/3.11.13/lib/python3.11/site-packages/torch/nn/modules/transformer.py:375: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
-  warnings.warn(
-Transformer(
-  (encoder): TransformerEncoder(
-    (layers): ModuleList(
-      (0-5): 6 x TransformerEncoderLayer(
-        (self_attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-        )
-        (linear1): Linear(in_features=512, out_features=2048, bias=True)
-        (dropout): Dropout(p=0.1, inplace=False)
-        (linear2): Linear(in_features=2048, out_features=512, bias=True)
-        (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-        (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-        (dropout1): Dropout(p=0.1, inplace=False)
-        (dropout2): Dropout(p=0.1, inplace=False)
-      )
-    )
-    (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-  )
-  (decoder): TransformerDecoder(
-    (layers): ModuleList(
-      (0-5): 6 x TransformerDecoderLayer(
-        (self_attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-        )
-        (multihead_attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-        )
-        (linear1): Linear(in_features=512, out_features=2048, bias=True)
-        (dropout): Dropout(p=0.1, inplace=False)
-        (linear2): Linear(in_features=2048, out_features=512, bias=True)
-        (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-        (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-        (norm3): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-        (dropout1): Dropout(p=0.1, inplace=False)
-        (dropout2): Dropout(p=0.1, inplace=False)
-        (dropout3): Dropout(p=0.1, inplace=False)
-      )
-    )
-    (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-  )
-)
-</pre>
 </div>
 </div>
 </div>

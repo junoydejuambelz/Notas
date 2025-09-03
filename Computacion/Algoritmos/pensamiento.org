@@ -1,0 +1,79 @@
+#+TITLE: Pensamiento algorítmico
+#+AUTHOR: mou
+#+DATE: [2025-09-02]
+#+EXPORT_FILE_NAME: pensamiento
+#+STARTUP: overview
+
+* Peak finder
+** Versión uni-dimensional
+Un "peak" en un arreglo uni-dimensional es un elemento que es mayor o igual que los dos
+elementos contiguos, en el caso de un borde, un "peak" es mayor o igual que el único número
+contiguo.
+
+El problema consiste en encontrar un peak, si es que existe.
+
+*** Algoritmo inicial
+El algoritmo más directo es empezar por la izquierda elemento por elemento y verificar
+si cada número es un "peak". Este algoritmo tendría una complejidad \(\theta(n)\) (en el
+peor de lo casos), donde \(\theta(n)\) denota que la complejidad es del orden de \(n\), nos da
+una cota superior y una cota inferior, a diferencia de \(O\) que es sólo una cota superior.
+
+*** Algoritmo mejorado (divide and conquer)
+Empezamos por el elemento de la mitad y repetimos los siguientes pasos en orden:
+
+1. Si \(a[n/2] < a[n/2-1]\) entonces buscamos el pico en el lado izquierdo.
+2. Si \(a[n/2] < a[n/2 + 1]\) entonces buscamos el pico en el lado derecho.
+3. De otro modo, encontramos el pico.
+
+Si denotamos \(T(n\) al "trabajo" del algoritmo sobre la entrada \(n\), entonces podemos
+escribir
+\[
+        T(n) = T(n/2) + \theta(1)
+\]
+Donde \(\theta(1)\) corresponde a las dos comparaciones que hacemos (potencialmente) al verificar
+si el número es menor que sus elmenetos contiguos. Más explicado: cuando ejecutamos el
+algoritmo en un input de tamaño \(n\) lo que hacemos es hacer, a lo más, dos verificaciones
+y luego ejecutar el algoritmo en un input de tamaño \(n/2\), de modo que se mantiene la
+relación recursiva.
+
+En el caso base, tenemos que \(T(1) = 1\) y, por tanto:
+\begin{align*}
+        T(n) &= T(n/2) + \theta(1) \\
+             &= T(n/4) + \theta(1) + \theta(1) \\
+             &= \ldots \\
+             &= \log_2(n)\cdot\theta(1)
+\end{align*}
+Así, el algoritmo tiene una complejidad de \(\theta(\log_2(n))\).
+
+** Versión bi-dimensional
+Un "peak" en un arreglo bi-dimensional de \(n \times m\) es una montaña, es un número que es mayor
+o igual a los números que están arriba, abajo a la izquierda y a la derecha.
+
+*** Algoritmo inicial (Algoritmo de ascenso codicioso)
+Empezamos con una posición y dirección inicial (diagamos el centro y la izquierda). Si
+el número a la izquierda es mayor, nos empezamos a mover a la izquierda hasta encontrar
+un pico o topar con pared, si topamos con pared, siempre rotamos nuestro vector de dirección
+por un ángulo recto en sentido anti-horario. Si el número de la izquierda es menor, nos
+movemos hacia la derecha y repetimos lo mismo que antes.
+
+En el peor de los casos, podríamos recorrer todo el arreglo, lo que nos dejaría con una
+complejidad de peor escenario de \(\theta(n \cdot m)\) y, en el caso en que \(n = m\), \(\theta(n^2)\).
+
+*** Algoritmo mejorado (pero no funcional)
+Escogemos la columna de la mitad \(j = m/2\) y encontramos un pico uni-dimensional en
+\((i,j)\). Luego usamos \((i,j)\) para encontrar un pico uni-dimensional en el renglón
+\(i\).
+*WA-WA, el algoritmo sería eficiente, pero no funciona, podría suceder que no haya un pico
+bi-dimensional en el renglón \(i\)*.
+
+*** Algoritmo mejorado (y funcional)
+Escogemos la columna \(j = m/2\) y encontramos el máximo global en la columna \(j\) en
+\((i,j)\). Comparamos \((i, j-1)\), \((i, j)\) y \((i, j+1)\) y esocgemos las columnas
+de la izquierda si el de la izquierda es más grande y lo mismo con la derecha y repetimos.
+Si ninguna de estas dos condiciones se cumple, encontramos el pico bi-dimensional.
+
+De esta manera, el nuevo problema tiene la mitad de columnas. Cuando tenemos una sola
+columna, sólo hay que encontrar el máximo global.
+
+La relación de recurrencia es \(T(n,m) = T(n, m/2) + \theta(n)\) y, sabiendo que\(T(n,1) = \theta(n)\)
+obtenemos que \(T(n,m) = \theta(n \log_2(m))\).

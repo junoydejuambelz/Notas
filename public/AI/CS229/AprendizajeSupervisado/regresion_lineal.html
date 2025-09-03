@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-01 Mon 14:33 -->
+<!-- 2025-09-02 Tue 19:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Regresión lineal</title>
@@ -34,52 +34,65 @@
 <body>
 <div id="preamble" class="status">
 <nav class="navbar">
-  <div class="navbar-brand">
-  <a href="/index.html">🏠 Home</a>
-  </div>
-  <div class="navbar-menu">
-  <div class="navbar-item dropdown">
-  <a href="#" class="dropbtn">🤖 AI</a>
-  <div class="dropdown-content">
-  <a href="/AI/index.html">📋 Resumen</a>
-  <div class="dropdown-submenu">
-  <a href="#" class="submenu-btn">📚 CS229</a>
-  <div class="submenu-content">
-  <a href="/AI/CS229/index.html">📋 Resumen</a>
-  <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
-  <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
-  </div>
-  </div>
-  <div class="dropdown-submenu">
-  <a href="#" class="submenu-btn">🏗️ DataCamp</a>
-  <div class="submenu-content">
-  <a href="/AI/DataCamp/index.html">📋 Resumen</a>
-  <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
-  <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div class="navbar-item dropdown">
-  <a href="#" class="dropbtn">🔬 HoTT</a>
-  <div class="dropdown-content">
-  <a href="/HoTT/index.html">📋 Resumen</a>
-  <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-  <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-  <a href="HoTT/transitividad.html">🔛 Transitividad </a>
-  </div>
-  </div>
-  <div class="navbar-item">
-  <a href="/Emacs/index.html">⚙️ Emacs Config</a>
-  </div>
-  </div>
+        <div class="navbar-brand">
+            <a href="/index.html">🏠 Home</a>
+        </div>
+        <div class="navbar-menu">
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🖥️ Computación</a>
+                        <div class="dropdown-content">
+                                <a href="/Computacion/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">⚙️ Algoritmos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Computacion/Algoritmos/index.html">📋 Resumen</a>
+                                                <a href="/Computacion/Algoritmos/pensamiento.html">🧠 Pensamiento algorítmico</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🤖 AI</a>
+                        <div class="dropdown-content">
+                                <a href="/AI/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">📚 CS229</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/CS229/index.html">📋 Resumen</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
+                                        </div>
+                                </div>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🏗️ DataCamp</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+                                                <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+                                                <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔬 HoTT</a>
+                        <div class="dropdown-content">
+                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                <a href="HoTT/transitividad.html">🔛 Transitividad </a>
+                        </div>
+                </div>
+                <div class="navbar-item">
+                        <a href="/Emacs/index.html">⚙️ Emacs Config</a>
+                </div>
+        </div>
   </nav>
 </div>
 <div id="content" class="content">
 <h1 class="title">Regresión lineal</h1>
-<div id="outline-container-org096f9d8" class="outline-2">
-<h2 id="org096f9d8">Regresión lineal</h2>
-<div class="outline-text-2" id="text-org096f9d8">
+<div id="outline-container-org034a046" class="outline-2">
+<h2 id="org034a046">Regresión lineal</h2>
+<div class="outline-text-2" id="text-org034a046">
 <p>
 Para hacer más interesante nuestro ejemplo de las casas, consideremos un conjunto de datos
 más rico, en el que también conocemos el número de cuartos en cada casa:
@@ -175,9 +188,9 @@ A esta función de costo se le conoce como la función de costo de los mínimos 
 al modelo de regresión usual de <b>mínimos cuadrados</b>.
 </p>
 </div>
-<div id="outline-container-org6b3e5bf" class="outline-3">
-<h3 id="org6b3e5bf">El algoritmo LMS</h3>
-<div class="outline-text-3" id="text-org6b3e5bf">
+<div id="outline-container-orga0a907b" class="outline-3">
+<h3 id="orga0a907b">El algoritmo LMS</h3>
+<div class="outline-text-3" id="text-orga0a907b">
 <p>
 Queremos escoger a \(\theta\) de tal manera que se minimice \(J(\theta)\). Para hacer esto, usaremos 
 un algoritmo de búsqueda que empieza con una suposición inicial para \(\theta\) y luego cambia 
@@ -253,9 +266,9 @@ Consideremos el siguiente algoritmo:
 </div>
 </div>
 </div>
-<div id="outline-container-org65af800" class="outline-2">
-<h2 id="org65af800">Las ecuaciones normales</h2>
-<div class="outline-text-2" id="text-org65af800">
+<div id="outline-container-org93d8087" class="outline-2">
+<h2 id="org93d8087">Las ecuaciones normales</h2>
+<div class="outline-text-2" id="text-org93d8087">
 <p>
 El descenso gradiente nos da una forma de minimizar a \(J\). Veamos una segunda manera de
 hacer esto, esta vez haciendo la minimización de forma explícita, sin recurrir a un
@@ -265,9 +278,9 @@ que escribamos esto sin tener que escribir un montón de álgebra, introduzcamos
 notación.
 </p>
 </div>
-<div id="outline-container-orga6af8b1" class="outline-3">
-<h3 id="orga6af8b1">Derivadas matriciales</h3>
-<div class="outline-text-3" id="text-orga6af8b1">
+<div id="outline-container-org927838e" class="outline-3">
+<h3 id="org927838e">Derivadas matriciales</h3>
+<div class="outline-text-3" id="text-org927838e">
 <p>
 Para una función \( f: \mathbb{R}^{n \times d} \to \mathbb{R} \) que mapea las matrices de
 \(n \times d\) a \(\mathbb{R}\)
