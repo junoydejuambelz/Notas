@@ -6,30 +6,9 @@
 <!-- 2025-09-14 Sun 12:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Desglosando el Transformer</title>
+<title>Index</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
-<script>
-  window.MathJax = {
-  tex: {
-  inlineMath: [['$', '$'], ['\\(', '\\)']],
-  displayMath: [['$$', '$$'], ['\\[', '\\]']],
-  processEscapes: true,
-  processEnvironments: true,
-  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
-  },
-  loader: {
-  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
-  },
-  options: {
-  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-  }
-  };
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-  <script>
-  MathJax.startup.defaultReady();
-  </script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -100,116 +79,20 @@
   </nav>
 </div>
 <div id="content" class="content">
-<h1 class="title">Desglosando el Transformer</h1>
-<div id="outline-container-orgd9d8709" class="outline-2">
-<h2 id="orgd9d8709">El artículo que lo cambió todo</h2>
-<div class="outline-text-2" id="text-orgd9d8709">
-<ul class="org-ul">
-<li>Attention is all you need (Ashish Vaswani)
-<ul class="org-ul">
-<li>Mecanismos de atención</li>
-<li>Modelado de texto optimizado</li>
-<li>Usado en los Large Language Models (LLMs)</li>
-</ul></li>
-</ul>
+<h1 class="title">Index</h1>
+<div id="outline-container-org0238965" class="outline-2">
+<h2 id="org0238965">Bienvenido a mis notas</h2>
+<div class="outline-text-2" id="text-org0238965">
 <p>
-La arquitectura Transformer está formada por dos bloques, el bloque encoder y el bloque 
-decoder
+Esta es una colección de mis notas de estudio del libro Proofs and Types
 </p>
 </div>
-<div id="outline-container-org478a1a3" class="outline-3">
-<h3 id="org478a1a3">Bloque encoder</h3>
-<div class="outline-text-3" id="text-org478a1a3">
+<div id="outline-container-orgf539175" class="outline-3">
+<h3 id="orgf539175">Notas</h3>
+<div class="outline-text-3" id="text-orgf539175">
 <ul class="org-ul">
-<li>Multiples capas idénticas</li>
-<li><b>Lee</b> y <b>procesa</b> el input</li>
-<li>Genera representaciones numéricas ricas en contexto</li>
-<li>Usa <b>self-attention</b> y <b>feed-forward networks</b></li>
+<li><a href="./sentido.html">Sentido, denotación y semántica</a></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org5291370" class="outline-3">
-<h3 id="org5291370">Bloque decoder</h3>
-<div class="outline-text-3" id="text-org5291370">
-<ul class="org-ul">
-<li>Secuencia input codificada \(\rightarrow\) secuencia output</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgc182860" class="outline-3">
-<h3 id="orgc182860">Positional encoding</h3>
-<div class="outline-text-3" id="text-orgc182860">
-<ul class="org-ul">
-<li>Codifica la posición de cada token en la secuencia</li>
-<li>El orden es crucial para modelar secuencias</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgd701672" class="outline-3">
-<h3 id="orgd701672">Mecanismos de atención</h3>
-<div class="outline-text-3" id="text-orgd701672">
-<ul class="org-ul">
-<li>Presta atención a los tokens importantes y sus relaciones</li>
-<li>Mejora la generación de texto</li>
-</ul>
-</div>
-<div id="outline-container-orgd4f826c" class="outline-4">
-<h4 id="orgd4f826c">Self-attention</h4>
-<div class="outline-text-4" id="text-orgd4f826c">
-<ul class="org-ul">
-<li>Le asigna pesos a los tokens</li>
-<li>Captura dependencias a largo rango</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org9ae015b" class="outline-4">
-<h4 id="org9ae015b">Multi-head attention</h4>
-<div class="outline-text-4" id="text-org9ae015b">
-<ul class="org-ul">
-<li>Parte el input en múltiples <b>heads</b></li>
-<li>Las heads capturas patrones distintos, creando representaciones más ricas</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org72a2f6a" class="outline-3">
-<h3 id="org72a2f6a">Position-wide feed-forward networks</h3>
-<div class="outline-text-3" id="text-org72a2f6a">
-<ul class="org-ul">
-<li>Neural Networks (NNs) simples que aplican transformaciones</li>
-<li>Cada token es transformado de manera independiente</li>
-<li>Independiente de la posición</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org9fac289" class="outline-2">
-<h2 id="org9fac289">Transformers en PyTorch</h2>
-<div class="outline-text-2" id="text-org9fac289">
-<p>
-PyTorch nos provee de una clase de alto nivel en <code>torch.nn</code> para definir arquitecturas. 
-Toma cuatro parámetros principales:
-</p>
-
-<ul class="org-ul">
-<li><code>d_model</code>: Dimensión de los inputs del modelo</li>
-<li><code>nheads</code>: Número de attention heads</li>
-<li><code>num_encoder_layers</code>: Número de capas del encoder</li>
-<li><code>num_decoder_layers</code>: Número de capas del decoder</li>
-</ul>
-
-<div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold;">import</span> torch.nn <span style="font-weight: bold;">as</span> nn
-
-<span style="font-weight: bold; font-style: italic;">model</span> = nn.Transformer(
-  d_model=512,
-  nhead=8,
-  num_encoder_layers=6,
-  num_decoder_layers=6
-)
-
-<span style="font-weight: bold;">print</span>(model)
-</pre>
 </div>
 </div>
 </div>

@@ -1,0 +1,34 @@
+#+title: Igualdad
+#+Author: mou
+
+
+* Principio de inversión de Gentzen (Reglas \(\beta\))
+Nos dan la dinámica de las pruebas (las pruebas son programas)
+** Conjunción \((\land)\)
+- \[ fst \langle M, N \rangle \equiv  M  \]
+- \[ snd \langle M, N \rangle \equiv N \]
+** Implicación \((\supset)\)
+\[ (\lambda x. M)(N) \equiv [N/x]M \]
+** Disyunción \((\lor)\)
+- \[ \underline{case} ( inl(M), x. P, y. Q  ) \equiv [M/x]P \]
+- \[ \underline{case}(inr(M), x.P, y.Q) \equiv [M/y]Q \]
+* Principio de unicidad de Gentzen (Reglas \( \eta \))
+** Proposición trivialmente verdadera
+\[ \frac{\Gamma \vdash M: \top}{\Gamma \vdash M \equiv \langle \rangle: \top} \]
+
+** Conjunción
+\[ \frac{\Gamma \vdash M : A \land B}{\Gamma \vdash M \equiv \langle fst(M), snd(M) \rangle: A \land B} \]
+
+** Implicación
+\[ \frac{\Gamma \vdash M: A \supset B}{\Gamma \vdash M \equiv \lambda x. (M(x)): A \supset B} \]
+
+** Disyunción
+\[ \frac{\Gamma \vdash M: A \lor B ~~~ \Gamma, z: A \lor B \vdash P: C }{ \Gamma \vdash [M/z]P \equiv \underline{case}(M,x.[inl(x)/z]P, y. [inr(y)/z]P) } \]
+*** Caso especial (\( P \) es solo \(z\))
+\[ M \equiv \underline{case}(M, x.inl(x), y.inr(y)) \]
+
+*** Diagrama
+#+attr_html: :width 300px
+[[file:Categorías/swappy-20250912_100918.png]]
+
+Aquí, \( \{ P, Q \} \approx \underline{case}(\_, x.P, y.Q)\)

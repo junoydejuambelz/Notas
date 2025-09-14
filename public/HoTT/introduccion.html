@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-02 Tue 19:43 -->
+<!-- 2025-09-14 Sun 12:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Introducción</title>
@@ -79,24 +79,35 @@
                                 <a href="/HoTT/index.html">📋 Resumen</a>
                                 <a href="/HoTT/introduccion.html">🚀 Introducción</a>
                                 <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="HoTT/transitividad.html">🔛 Transitividad </a>
+                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
                         </div>
                 </div>
-                <div class="navbar-item">
-                        <a href="/Emacs/index.html">⚙️ Emacs Config</a>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔤 Tipos</a>
+                        <div class="dropdown-content">
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/ProofsAndTypes/index.html">📋 Resumen </a>
+                                                <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
+                                        </div>
+                                </div>
+                        </div>
                 </div>
         </div>
   </nav>
 </div>
 <div id="content" class="content">
 <h1 class="title">Introducción</h1>
-<div id="outline-container-orge092e35" class="outline-2">
-<h2 id="orge092e35">Background</h2>
-<div class="outline-text-2" id="text-orge092e35">
+<div id="outline-container-orgc94d526" class="outline-2">
+<h2 id="orgc94d526">Background</h2>
+<div class="outline-text-2" id="text-orgc94d526">
 </div>
-<div id="outline-container-org8ad7950" class="outline-3">
-<h3 id="org8ad7950">Intuisionistic Type Theory</h3>
-<div class="outline-text-3" id="text-org8ad7950">
+<div id="outline-container-orga479ecb" class="outline-3">
+<h3 id="orga479ecb">Intuisionistic Type Theory</h3>
+<div class="outline-text-3" id="text-orga479ecb">
 <ul class="org-ul">
 <li>Basado en el trabajo de Per Martin-Löf</li>
 <li>Análisis y expansión del programa de intuicionsimo de Brouwer</li>
@@ -118,9 +129,9 @@ espacios</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc0d0986" class="outline-3">
-<h3 id="orgc0d0986">El programa de Brouwer (Constructivismo)</h3>
-<div class="outline-text-3" id="text-orgc0d0986">
+<div id="outline-container-orgb0a6bf1" class="outline-3">
+<h3 id="orgb0a6bf1">El programa de Brouwer (Constructivismo)</h3>
+<div class="outline-text-3" id="text-orgb0a6bf1">
 <ul class="org-ul">
 <li>La matemática es una actividad humana (social)
 <ul class="org-ul">
@@ -148,9 +159,9 @@ que no es necesario afirmarlo.
 </p>
 </div>
 </div>
-<div id="outline-container-org07c998b" class="outline-3">
-<h3 id="org07c998b">Sintético vs. Analítico (Lawvere)</h3>
-<div class="outline-text-3" id="text-org07c998b">
+<div id="outline-container-org36e9858" class="outline-3">
+<h3 id="org36e9858">Sintético vs. Analítico (Lawvere)</h3>
+<div class="outline-text-3" id="text-org36e9858">
 <p>
 En la teoría homotópica de tipos el acercamiento es sintético, a diferencia del camino 
 usual, que es analítico. Este acercamiento es lo que hace funcionar a la teoría 
@@ -159,9 +170,9 @@ homotópica de tipos.
 </div>
 </div>
 </div>
-<div id="outline-container-org32cd77e" class="outline-2">
-<h2 id="org32cd77e">¿Qué es la teoría de tipos?</h2>
-<div class="outline-text-2" id="text-org32cd77e">
+<div id="outline-container-org75b9782" class="outline-2">
+<h2 id="org75b9782">¿Qué es la teoría de tipos?</h2>
+<div class="outline-text-2" id="text-org75b9782">
 <p>
 La teoría de tipos es un análisis y codificación del programa de Brouwer. 
 Especialmente con insights en la teoría de la demostración.
@@ -199,9 +210,9 @@ de programación.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb8eab13" class="outline-2">
-<h2 id="orgb8eab13">Lógica intuicionista (Lógica como si importaran las personas)</h2>
-<div class="outline-text-2" id="text-orgb8eab13">
+<div id="outline-container-org7767ff3" class="outline-2">
+<h2 id="org7767ff3">Lógica intuicionista (Lógica como si importaran las personas)</h2>
+<div class="outline-text-2" id="text-org7767ff3">
 <p>
 Hay dos juicios principales:
 </p>
@@ -215,13 +226,13 @@ Hay dos juicios principales:
 No esperamos que cada proposición pueda ser demostrada o refutada (hay problemas abiertos).
 </p>
 </div>
-<div id="outline-container-org1ddf55b" class="outline-3">
-<h3 id="org1ddf55b">Fragmento negativo</h3>
-<div class="outline-text-3" id="text-org1ddf55b">
+<div id="outline-container-org37a41c9" class="outline-3">
+<h3 id="org37a41c9">Fragmento negativo</h3>
+<div class="outline-text-3" id="text-org37a41c9">
 </div>
-<div id="outline-container-org5c22a36" class="outline-4">
-<h4 id="org5c22a36">Proposición trivialmente verdadera</h4>
-<div class="outline-text-4" id="text-org5c22a36">
+<div id="outline-container-orgc9333e0" class="outline-4">
+<h4 id="orgc9333e0">Proposición trivialmente verdadera</h4>
+<div class="outline-text-4" id="text-orgc9333e0">
 <p>
 \[\begin{align*}
   &\frac{}{\top ~ Prop} ~ (\top-Formation)\\\\
@@ -234,9 +245,9 @@ No hay regla de eliminación.
 </p>
 </div>
 </div>
-<div id="outline-container-org16d353c" class="outline-4">
-<h4 id="org16d353c">Conjunción</h4>
-<div class="outline-text-4" id="text-org16d353c">
+<div id="outline-container-orgb251eb8" class="outline-4">
+<h4 id="orgb251eb8">Conjunción</h4>
+<div class="outline-text-4" id="text-orgb251eb8">
 <p>
 \[\begin{align*}
   &\frac{A ~ Prop ~~~ B ~ Prop}{A \land B ~ Prop} ~ (\land-Formation)\\\\
@@ -254,9 +265,9 @@ Para \(\land\) sí hay reglas de eliminación
 </div>
 </div>
 </div>
-<div id="outline-container-org44aeb05" class="outline-3">
-<h3 id="org44aeb05">Implicación</h3>
-<div class="outline-text-3" id="text-org44aeb05">
+<div id="outline-container-orgdfea63c" class="outline-3">
+<h3 id="orgdfea63c">Implicación</h3>
+<div class="outline-text-3" id="text-orgdfea63c">
 <p>
 \[\begin{align*}
   &\frac{A ~ Prop ~~~ B ~ Prop}{ A \supset B ~ Prop} ~ (\supset-Formation)\\\\

@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-09-14 Sun 12:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sentido</title>
+<meta name="generator" content="Org Mode" />
+<link rel='stylesheet' href='/style.css' />
+<script>
+  window.MathJax = {
+  tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']],
+  displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  processEscapes: true,
+  processEnvironments: true,
+  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
+  },
+  loader: {
+  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
+  },
+  options: {
+  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+  };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+  <script>
+  MathJax.startup.defaultReady();
+  </script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/index.html">🏠 Home</a>
+        </div>
+        <div class="navbar-menu">
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🖥️ Computación</a>
+                        <div class="dropdown-content">
+                                <a href="/Computacion/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">⚙️ Algoritmos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Computacion/Algoritmos/index.html">📋 Resumen</a>
+                                                <a href="/Computacion/Algoritmos/pensamiento.html">🧠 Pensamiento algorítmico</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🤖 AI</a>
+                        <div class="dropdown-content">
+                                <a href="/AI/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">📚 CS229</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/CS229/index.html">📋 Resumen</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
+                                        </div>
+                                </div>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🏗️ DataCamp</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+                                                <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+                                                <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔬 HoTT</a>
+                        <div class="dropdown-content">
+                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔤 Tipos</a>
+                        <div class="dropdown-content">
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/ProofsAndTypes/index.html">📋 Resumen </a>
+                                                <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+  </nav>
+</div>
+<div id="content" class="content">
+<h1 class="title">Sentido</h1>
+<div id="outline-container-orgb68c5c5" class="outline-2">
+<h2 id="orgb68c5c5">Sentido y denotación en la lógica</h2>
+<div class="outline-text-2" id="text-orgb68c5c5">
+<p>
+Empecemos con un ejemplo. Hay un procedimiento estándar para la multiplicación, que, para las entradas
+\(27\) y \(37\) da como resultado \(999\). ¿Qué podemos decir sobre esto?
+</p>
+
+<p>
+Un primer intento es decir que tenemos una igualdad
+\[ 27 \times 37 = 999 \]
+Esta igualdad hace sentido en la matemática usual diciendo que los dos lados <b>denotan</b> al mismo número entero
+y que la \(\times\) es una <b>función</b> en el sentido Cantoriano de una gráfica.
+</p>
+
+<p>
+Este es el aspecto denotacional, que es, sin duda, correcto, pero deja de lado el aspecto esencial:
+</p>
+
+<p>
+Hay un proceso <b>computacional</b> que muestra que las denotaciones son iguales. Es un abuso decir que
+\(27 \times 37\) <b>es igual</b> a \(999\), pues si las sod cosas que tenemos fueran la <b>misma</b> cosa, nunca sentiríamos la
+necesidad de establecer su igualdad. Concretamente, hacemos la <b>pregunta</b> \(27 \times 37\) y obtenemos una <b>respuesta</b>
+\(999\). Las dos expresiones tienen <b>sentidos</b> diferentes y debemos <b>hacer</b> algo (dar una demostración o un
+cálculo) para mostrar que estos dos <b>sentidos</b> tienen la misma <b>denotación</b>.
+</p>
+
+<p>
+En cuanto a \(\times\), es incorrecto decir que esta es una función (como una gráfica) pues la computadora en la
+que se carga el programa no tiene espacio para una gráfica infinita. Así que debemos concluir la presencia
+de una dinámica <b>finitista</b> relacionada a esta cuestión del sentido.
+</p>
+
+<p>
+Mientras que la denotación fue modelada en una etapa muy temprana, el sentido ha sido desplazado hacia la
+<b>subjetividad</b>, con el resultado de que el tratamiento matemático actual del sentido está más o menos reducido
+a la manipulación <b>sintáctica</b>. Esto no es <b>a priori</b> la esencia del sujeto, y podemos esperar que en las
+siguientes décadas se encuentre un tratamiento de la computación que combine las ventajas de la
+semántica denotacional (claridad matemática) con las de la sintaxis (dinámica finitista). Este
+libro se asienta sobre la tradición que está basada en el estado actual de las cosas: en la dicotomía
+entre la <b>denotación estática, infinita</b> y el <b>sentido dinámico, finito</b>, el lado denotacional está mucho más
+desarrollado que el otro.
+</p>
+
+<p>
+Así, una de las distinciones más fundamentales en la lógica es la hecha por Frege: dado un enunciado \(A\),
+hay dos maneras de verlo:
+</p>
+<ul class="org-ul">
+<li>como una secuencia de <b>instrucciones</b>, que determinan su <b>sentido</b>, por ejemplo, \(A \lor B\) significa "\(A\) o
+\(B\)", etc..</li>
+<li><p>
+como el <b>resultado ideal</b> encontrado por estas operaciones: esto es su denotación.
+</p>
+
+<p>
+La "Denotación", en oposición a la "notación" es lo que es <b>denotado</b>, no lo que <b>denota</b>. Por ejemplo, la
+denotación de un enunciado lógico es <b>v</b> (verdadero) o <b>f</b> (falso), y la denotación de \(A \lor B\) se puede
+obtener de las denotaciones de \(A\) y de \(B\) mediante la tabla de verdad para la disyunción.
+</p></li>
+</ul>
+
+<p>
+Dos enunciados que tienen el mismo sentido tienen la misma denotación, eso es obvio; pero dos enunciados con
+la misma denotación raramente tienen el mismo sentido. Por ejemplo, tomemos una equivalencia matemática
+complicada \(A \iff B\). Los dos enunciados tienen la misma denotación (son verdaderas al mismo tiempo) pero
+seguramente no tienen el mismo sentido, si no, ¿cuál sería el sentido de mostrar la equivalencia?
+</p>
+
+<p>
+Este ejemplo nos permite introducir algunas asociaciones de ideas:
+</p>
+<ul class="org-ul">
+<li>sentido, sintaxis, demostraciones;</li>
+<li><p>
+denotación, veracidad, semántica, operaciones algebráicas.
+</p>
+
+<p>
+Esta es la dicotomía fundamental de la lógica. Habiendo dicho esto, los dos lados dificilmente juegan
+papeles simétricos.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org94047a6" class="outline-2">
+<h2 id="org94047a6">La tradición algebráica</h2>
+<div class="outline-text-2" id="text-org94047a6">
+<p>
+Esta tradición (que comenzó con Boole un buen tiempo antes que Frege) está basada en la aplicación
+radical de la navaja de Ockham: simplemente desechamos el sentido y consideramos únicamente la denotación.
+La justificación de esta mutilación lógica es su lado operacional: ¡funciona!
+</p>
+
+<p>
+El punto de inflexión que estableció la predominancia de esta tradición fue el teorema de Löwenheim de
+\(1916\). Hoy en día, uno puede ver a la Teoría de Modelos como el resultado de esta elección epistemológica
+que es muy vieja. De hecho, considerando la lógica desde el punto de vista de la denotación, i.e., el
+<b>resultado</b> de las operaciones, descubrimos una clase peculiar de álgebra, pero una que nos permite
+investigar las operaciones poco familiares al álgebra tradicional. En particular, es posible esquivar
+la limitante a las -podríamos decir- variedades <b>ecuacionales</b>, y considerar estructuras <b>definibles</b>.
+Así, la Teoría de Modelos rejuvenece las ideas y métodos del álgebra de una manera muchas veces fructífera.
+</p>
+</div>
+</div>
+<div id="outline-container-org8dcf1d5" class="outline-2">
+<h2 id="org8dcf1d5">La tradición sintáctica</h2>
+<div class="outline-text-2" id="text-org8dcf1d5">
+<p>
+Por otro lado, es imposible decir "olvidemos completamente la denotación y concentrémonos en el sentido",
+por la simple razón de que el sentido contiene la denotación, al menos implícitamente. De modo que no es
+un tema de simetría. De hecho, dificilmente hay un punto de vista sintáctico unificado, pues nunca hemos
+sido capaces de dar un significado operacional a este <b>sentido</b> misterioso. La única realidad tangible
+sobre el sentido es la forma en la que está escrito, el formalismo; pero el formalismo se mantiene como
+un objeto de estudio que no se nos acomoda, sin estructura real, un pedazo de <b>camembert suave</b>.
+</p>
+
+<p>
+¿Esto significa que el acercamiento puramente sintáctico no tienen nada que decir que valga la pena?
+Por supuesto que no, y el famoso teorema de Gentzen de \(1934\) muestra que la lógica posee algunas simetrías
+profundas a nivel sintáctico (expresado por <b>corte-eliminación</b>). Sin embargo, estas simetrías son hechas
+borrosas por las imperfecciones de la sintaxis. Poniéndolo de otra manera, no son simetrías de sintaxis,
+sino de sentido. Para obtener algo mejor, debemos expresarlas como propiedades de sintaxis y el resultado
+no es muy bonito.
+</p>
+
+<p>
+Recapitulando nuestra opinión sobre esta tradición, siempre está en busca de sus conceptos fundamentales,
+es decir, una distinción operacional entre sentido y sintaxis. Poniéndolo más concretamente, busca encontrar
+<b>invariantes</b> geométricos de la sintaxis: ahí es donde se encuentra el sentido.
+</p>
+
+<p>
+La tradición llamada "sintáctica" -por falta de un título más noble- nunca llegó al nivel de su rival. En
+años recientes, la tradición sintáctica no era de notarse y, sin duda, habría desaparecido en una o dos
+décadas más, por falta de una metodología. El desastre fue esquivado por la ciencia de la computación -el
+gran manipulador de sintaxis- que dio algunos problemas teóricos importantes.
+</p>
+
+
+<p>
+Algunos de estos problemas (como las preguntas de la complejidad algorítmica) parecen requerir más la letra
+que el espíritu de la lógica. Por otra parte, todos los problemas que conciernen a la correctud y modularidad
+de los programas apelas de manera profunda a la tradición sintáctica, a la <b>teoría de la demostración</b>.
+Somos llevados a la revisión de la teoría de la demostración, de la mano del teorema fundamental de Herbrand
+que data de \(1930\). Esta revisión alumbra con una nueva luz esas áreas que se pensaban fijas, y donde la
+rutina prevaleció por mucho tiempo.
+</p>
+
+<p>
+En el intercambio entre la tradición lógica y la ciencia de la computación uno puede esperar nuevos lenguajes
+y nuevas máquinas del lado computacional. Pero del lado de la lógica uno puede al menos esperar profundizar
+en la base conceptual que durante tanto tiempo fue ignorada.
+</p>
+</div>
+</div>
+<div id="outline-container-org9d57bde" class="outline-2">
+<h2 id="org9d57bde">Dos tradiciones semánticas</h2>
+<div class="outline-text-2" id="text-org9d57bde">
+</div>
+<div id="outline-container-orgcc6324d" class="outline-3">
+<h3 id="orgcc6324d">Tarski</h3>
+<div class="outline-text-3" id="text-orgcc6324d">
+<p>
+Esta tradición se distingue por su trivialidad: el conectivo "\(\lor\)" es traducido como "o", y así. Esta
+interpretación no nos dice nada particularmente importante sobre los conectivos lógicos: su aparente
+falta de ambición es su razón para su operacionalidad. Sólo nos interesa la denotación, <b>v</b> o <b>f</b> de
+un enunciado (cerrado) de la sintaxis.
+</p>
+<ol class="org-ol">
+<li>Para enunciados atómicos, asumimos que la denotación es conocida, por ejemplo:
+<ul class="org-ul">
+<li>\(3 + 2 = 5\) tiene la denotación <b>v</b>.
+\(3 + 3 = 5\) tiene la denotación <b>f</b>.</li>
+</ul></li>
+<li><p>
+Las denotaciones de las expresiones \(A \land B, A \lor B, A \supset B\) y \(\lnot A\) se obtienen mediante una tabla de
+verdad:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\(A\)</td>
+<td class="org-left">\(B\)</td>
+<td class="org-left">\(A \land B\)</td>
+<td class="org-left">\(A \lor B\)</td>
+<td class="org-left">\( A \supset B\)</td>
+<td class="org-left">\(\lnot A\)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>v</b></td>
+<td class="org-left"><b>v</b></td>
+<td class="org-left"><b>v</b></td>
+<td class="org-left"><b>v</b></td>
+<td class="org-left"><b>v</b></td>
+<td class="org-left"><b>f</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>f</b></td>
+<td class="org-left"><b>v</b></td>
+<td class="org-left"><b>f</b></td>
+<td class="org-left"><b>v</b></td>
+<td class="org-left"><b>v</b></td>
+<td class="org-left"><b>v</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>v</b></td>
+<td class="org-left"><b>f</b></td>
+<td class="org-left"><b>f</b></td>
+<td class="org-left"><b>v</b></td>
+<td class="org-left"><b>f</b></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>f</b></td>
+<td class="org-left"><b>f</b></td>
+<td class="org-left"><b>f</b></td>
+<td class="org-left"><b>f</b></td>
+<td class="org-left"><b>v</b></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+La denotación de \(\forall \xi. A\) es <b>v</b> si y sólo si <b>para cada</b> \(a\) en el dominio de interpretación, \(A[a/\xi]\) es <b>v</b>.
+De igual manera, \(\exists \xi. A\) es <b>v</b> si y sólo si \(A[a/\xi]\) es <b>v</b> para alguna \(a\).
+</p>
+
+<p>
+De nueva cuenta, esta definición no dice mucho desde el punto de vista de la lógica, pero es adecuada
+para este propósito. El desarrollo de la Teoría de Modelos nos muestra esto.
+</p></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org36b25c8" class="outline-3">
+<h3 id="org36b25c8">Heyting</h3>
+<div class="outline-text-3" id="text-org36b25c8">
+<p>
+La idea de Heyting es menos conocida, pero es difícil imaginar una mayor disparidad entre la genialidad
+de la idea original y la mediocridad de su desarrollo subsecuente. La mira es extremadamente ambiciosa:
+no modelar la <b>denotación</b>, sino las <b>demostraciones</b>.
+</p>
+
+<p>
+En lugar de preguntarnos, "¿cuándo es verdadero un enunciado \(A\)?", nos preguntamos
+"¿qué es una demostración de \(A\)?". Por <b>demostración</b> no nos referimos a la transcripción formal sintáctica,
+si no al objeto inherente del cual la transcripción hace meramente una sombra. Tomamos el punto de
+vista de que lo que <b>escribimos</b> como una demostración es meramente la descripción de algo que es
+<b>en sí mismo</b> un proceso. Nuestra respuesta a nuestra pregunta extremadamente ambiciosa nu puede ser
+simplemente un <b>sistema formal</b>.
+</p>
+<ol class="org-ol">
+<li>Para los enunciados atómicos, suponemos que sabemos intrínsecamente qué es una demostración; por
+ejemplo, el cálculo a papel y lápiz sirve como prueba de que "\(27 \times 37 = 999\)".</li>
+<li>Una prueba de \(A \land B\) es un par \((p, q)\) que consiste de una prueba \(p\) de \(A\) y una prueba \(q\) de \(B\).</li>
+<li>Una prueba de \(A \lor B\) es un par \(i, p\) con:
+<ul class="org-ul">
+<li>\(i = 0\), y una prueba \(p\) de \(A\), o</li>
+<li>\(i = 1\), y una prueba \(p\) de \(B\).</li>
+</ul></li>
+<li>Una prueba de \(A \supset B\) es una función \(f\), que manda una prueba \(p\) de \(A\) a una prueba \(f(p)\)  de \(B\).</li>
+<li>En general, la negación \(\lnot A \) es tratada como \(A \supset \bot\) donde \(\bot\) es un enunciado que no admite una
+demostración</li>
+<li>Una prueba de \(\forall \xi. A\) es una función \(f\) que manda cada punto \(a\) del dominio de definición a
+una prueba \(f(a)\) de \(A[a/\xi]\).</li>
+<li><p>
+Una prueba de \(\exists \xi. A\) es un par \((a, p)\) donde \(a\) es un punto en el dominio de definición y \(p\) es una prueba
+de \(A[a/\xi]\).
+</p>
+
+<p>
+Por ejemplo, el enunciado \(A \supset A\) se prueba por la función identidad, que le asocia a cada prueba \(p\)
+de \(A\), la misma prueba. Por otra parte, ¿cómo podemos mostrar \(A \lor \lnot A\)? Deberíamos ser capaces de
+encontrar ya sea una prueba de \(A\) o una de \(\lnot A\) y esto no es posible en general. La semántica de
+Heyting, entonces, corresponde a otra lógica, la lógica <b>intuicionista</b> de Brouwer, que encontraremos
+después.
+</p>
+
+<p>
+Sin lugar a dudas, la semántica de Heyting es muy original: no interpreta los conectivos lógicos por
+sí mismos, sino sus construcciones abstractas. Ahora podemos ver que estas construcciones no son más que
+programas tipados. Pero los expertos en el área han visto algo muy distinto, un acercamiento funcional
+a las matemáticas. En otras palabras, la semántica de las demostraciones expresarían la esencia de las
+matemáticas.
+</p>
+
+<p>
+Por un lado tenemos la tradición de Tarski, que se común y honesta ("\(\lor\)" significa "o", "&forall;" significa
+"para todo"), sin mucha pretensión. Tampoco tiene un prospecto fundacional, pues para su fundamento,
+uno tiene que dar una explicación en términos de algo más primitivo, que también necesita su propio
+fundamento. La tradición de Heyting es original, pero fundamentalmente tiene los mismos problemas -los
+teoremas de incompletitud de Gödel nos lo aseguran. Si buscamos explicar \(A\) por el hecho de demostrar
+\(A\), nos topamos con el hecho de que la demostración usa cuantificadores dos veces (para \(\supset\) y
+\(\forall\)). Más aún, en el caso de \(\supset\), uno no puede decir que el dominio de definición de \(f\) esté bien entendido.
+</p>
+
+<p>
+Volveremos a la idea de Heyting cuando trabajemos sobre el isomorfismo de Curry-Howard. Esto nos permite
+hacer uso de una idea que podría tener aplicaciones espectaculares en el futuro.
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

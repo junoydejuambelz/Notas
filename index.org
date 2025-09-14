@@ -19,9 +19,10 @@ Notas sobre inteligencia artificial:
 Notas de estudio sobre teoría homotópica de tipos:
 - Introducción a la teoría de tipos
 - Juicios y lógica intuicionista
-
-*** [[file:Emacs/index.org][Configuración de Emacs]]
-Configuración personal de Emacs usando Spacemacs
-
+- Transitividad
+- Exponenciales
+- Igualdad
+*** [[file:./Tipos/index.org][Teoría de tipos]]
+- Sentido, denotación y semántica
 ** Navegación
 Usa los enlaces para acceder directamente a cada sección de notas.

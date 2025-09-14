@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-02 Tue 19:43 -->
+<!-- 2025-09-14 Sun 12:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Regresión lineal</title>
@@ -79,20 +79,31 @@
                                 <a href="/HoTT/index.html">📋 Resumen</a>
                                 <a href="/HoTT/introduccion.html">🚀 Introducción</a>
                                 <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="HoTT/transitividad.html">🔛 Transitividad </a>
+                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
                         </div>
                 </div>
-                <div class="navbar-item">
-                        <a href="/Emacs/index.html">⚙️ Emacs Config</a>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔤 Tipos</a>
+                        <div class="dropdown-content">
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/ProofsAndTypes/index.html">📋 Resumen </a>
+                                                <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
+                                        </div>
+                                </div>
+                        </div>
                 </div>
         </div>
   </nav>
 </div>
 <div id="content" class="content">
 <h1 class="title">Regresión lineal</h1>
-<div id="outline-container-org034a046" class="outline-2">
-<h2 id="org034a046">Regresión lineal</h2>
-<div class="outline-text-2" id="text-org034a046">
+<div id="outline-container-org1cfea22" class="outline-2">
+<h2 id="org1cfea22">Regresión lineal</h2>
+<div class="outline-text-2" id="text-org1cfea22">
 <p>
 Para hacer más interesante nuestro ejemplo de las casas, consideremos un conjunto de datos
 más rico, en el que también conocemos el número de cuartos en cada casa:
@@ -188,9 +199,9 @@ A esta función de costo se le conoce como la función de costo de los mínimos 
 al modelo de regresión usual de <b>mínimos cuadrados</b>.
 </p>
 </div>
-<div id="outline-container-orga0a907b" class="outline-3">
-<h3 id="orga0a907b">El algoritmo LMS</h3>
-<div class="outline-text-3" id="text-orga0a907b">
+<div id="outline-container-orgd3aa089" class="outline-3">
+<h3 id="orgd3aa089">El algoritmo LMS</h3>
+<div class="outline-text-3" id="text-orgd3aa089">
 <p>
 Queremos escoger a \(\theta\) de tal manera que se minimice \(J(\theta)\). Para hacer esto, usaremos 
 un algoritmo de búsqueda que empieza con una suposición inicial para \(\theta\) y luego cambia 
@@ -266,9 +277,9 @@ Consideremos el siguiente algoritmo:
 </div>
 </div>
 </div>
-<div id="outline-container-org93d8087" class="outline-2">
-<h2 id="org93d8087">Las ecuaciones normales</h2>
-<div class="outline-text-2" id="text-org93d8087">
+<div id="outline-container-org20aed3a" class="outline-2">
+<h2 id="org20aed3a">Las ecuaciones normales</h2>
+<div class="outline-text-2" id="text-org20aed3a">
 <p>
 El descenso gradiente nos da una forma de minimizar a \(J\). Veamos una segunda manera de
 hacer esto, esta vez haciendo la minimización de forma explícita, sin recurrir a un
@@ -278,9 +289,9 @@ que escribamos esto sin tener que escribir un montón de álgebra, introduzcamos
 notación.
 </p>
 </div>
-<div id="outline-container-org927838e" class="outline-3">
-<h3 id="org927838e">Derivadas matriciales</h3>
-<div class="outline-text-3" id="text-org927838e">
+<div id="outline-container-org6350ed2" class="outline-3">
+<h3 id="org6350ed2">Derivadas matriciales</h3>
+<div class="outline-text-3" id="text-org6350ed2">
 <p>
 Para una función \( f: \mathbb{R}^{n \times d} \to \mathbb{R} \) que mapea las matrices de
 \(n \times d\) a \(\mathbb{R}\)

@@ -1,0 +1,176 @@
+#+title: Sentido
+#+author: mou
+#+date: <2025-09-12 Fri>
+#+export_file_name: sentido
+#+startup: overview
+
+* Sentido y denotación en la lógica
+Empecemos con un ejemplo. Hay un procedimiento estándar para la multiplicación, que, para las entradas
+\(27\) y \(37\) da como resultado \(999\). ¿Qué podemos decir sobre esto?
+
+Un primer intento es decir que tenemos una igualdad
+\[ 27 \times 37 = 999 \]
+Esta igualdad hace sentido en la matemática usual diciendo que los dos lados *denotan* al mismo número entero
+y que la \(\times\) es una *función* en el sentido Cantoriano de una gráfica.
+
+Este es el aspecto denotacional, que es, sin duda, correcto, pero deja de lado el aspecto esencial:
+
+Hay un proceso *computacional* que muestra que las denotaciones son iguales. Es un abuso decir que
+\(27 \times 37\) *es igual* a \(999\), pues si las sod cosas que tenemos fueran la *misma* cosa, nunca sentiríamos la
+necesidad de establecer su igualdad. Concretamente, hacemos la *pregunta* \(27 \times 37\) y obtenemos una *respuesta*
+\(999\). Las dos expresiones tienen *sentidos* diferentes y debemos *hacer* algo (dar una demostración o un
+cálculo) para mostrar que estos dos *sentidos* tienen la misma *denotación*.
+
+En cuanto a \(\times\), es incorrecto decir que esta es una función (como una gráfica) pues la computadora en la
+que se carga el programa no tiene espacio para una gráfica infinita. Así que debemos concluir la presencia
+de una dinámica *finitista* relacionada a esta cuestión del sentido.
+
+Mientras que la denotación fue modelada en una etapa muy temprana, el sentido ha sido desplazado hacia la
+*subjetividad*, con el resultado de que el tratamiento matemático actual del sentido está más o menos reducido
+a la manipulación *sintáctica*. Esto no es *a priori* la esencia del sujeto, y podemos esperar que en las
+siguientes décadas se encuentre un tratamiento de la computación que combine las ventajas de la
+semántica denotacional (claridad matemática) con las de la sintaxis (dinámica finitista). Este
+libro se asienta sobre la tradición que está basada en el estado actual de las cosas: en la dicotomía
+entre la *denotación estática, infinita* y el *sentido dinámico, finito*, el lado denotacional está mucho más
+desarrollado que el otro.
+
+Así, una de las distinciones más fundamentales en la lógica es la hecha por Frege: dado un enunciado \(A\),
+hay dos maneras de verlo:
+- como una secuencia de *instrucciones*, que determinan su *sentido*, por ejemplo, \(A \lor B\) significa "\(A\) o
+  \(B\)", etc..
+- como el *resultado ideal* encontrado por estas operaciones: esto es su denotación.
+
+  La "Denotación", en oposición a la "notación" es lo que es *denotado*, no lo que *denota*. Por ejemplo, la
+  denotación de un enunciado lógico es *v* (verdadero) o *f* (falso), y la denotación de \(A \lor B\) se puede
+  obtener de las denotaciones de \(A\) y de \(B\) mediante la tabla de verdad para la disyunción.
+
+Dos enunciados que tienen el mismo sentido tienen la misma denotación, eso es obvio; pero dos enunciados con
+la misma denotación raramente tienen el mismo sentido. Por ejemplo, tomemos una equivalencia matemática
+complicada \(A \iff B\). Los dos enunciados tienen la misma denotación (son verdaderas al mismo tiempo) pero
+seguramente no tienen el mismo sentido, si no, ¿cuál sería el sentido de mostrar la equivalencia?
+
+Este ejemplo nos permite introducir algunas asociaciones de ideas:
+- sentido, sintaxis, demostraciones;
+- denotación, veracidad, semántica, operaciones algebráicas.
+
+  Esta es la dicotomía fundamental de la lógica. Habiendo dicho esto, los dos lados dificilmente juegan
+  papeles simétricos.
+
+* La tradición algebráica
+Esta tradición (que comenzó con Boole un buen tiempo antes que Frege) está basada en la aplicación
+radical de la navaja de Ockham: simplemente desechamos el sentido y consideramos únicamente la denotación.
+La justificación de esta mutilación lógica es su lado operacional: ¡funciona!
+
+El punto de inflexión que estableció la predominancia de esta tradición fue el teorema de Löwenheim de
+\(1916\). Hoy en día, uno puede ver a la Teoría de Modelos como el resultado de esta elección epistemológica
+que es muy vieja. De hecho, considerando la lógica desde el punto de vista de la denotación, i.e., el
+*resultado* de las operaciones, descubrimos una clase peculiar de álgebra, pero una que nos permite
+investigar las operaciones poco familiares al álgebra tradicional. En particular, es posible esquivar
+la limitante a las -podríamos decir- variedades *ecuacionales*, y considerar estructuras *definibles*.
+Así, la Teoría de Modelos rejuvenece las ideas y métodos del álgebra de una manera muchas veces fructífera.
+
+* La tradición sintáctica
+Por otro lado, es imposible decir "olvidemos completamente la denotación y concentrémonos en el sentido",
+por la simple razón de que el sentido contiene la denotación, al menos implícitamente. De modo que no es
+un tema de simetría. De hecho, dificilmente hay un punto de vista sintáctico unificado, pues nunca hemos
+sido capaces de dar un significado operacional a este *sentido* misterioso. La única realidad tangible
+sobre el sentido es la forma en la que está escrito, el formalismo; pero el formalismo se mantiene como
+un objeto de estudio que no se nos acomoda, sin estructura real, un pedazo de *camembert suave*.
+
+¿Esto significa que el acercamiento puramente sintáctico no tienen nada que decir que valga la pena?
+Por supuesto que no, y el famoso teorema de Gentzen de \(1934\) muestra que la lógica posee algunas simetrías
+profundas a nivel sintáctico (expresado por *corte-eliminación*). Sin embargo, estas simetrías son hechas
+borrosas por las imperfecciones de la sintaxis. Poniéndolo de otra manera, no son simetrías de sintaxis,
+sino de sentido. Para obtener algo mejor, debemos expresarlas como propiedades de sintaxis y el resultado
+no es muy bonito.
+
+Recapitulando nuestra opinión sobre esta tradición, siempre está en busca de sus conceptos fundamentales,
+es decir, una distinción operacional entre sentido y sintaxis. Poniéndolo más concretamente, busca encontrar
+*invariantes* geométricos de la sintaxis: ahí es donde se encuentra el sentido.
+
+La tradición llamada "sintáctica" -por falta de un título más noble- nunca llegó al nivel de su rival. En
+años recientes, la tradición sintáctica no era de notarse y, sin duda, habría desaparecido en una o dos
+décadas más, por falta de una metodología. El desastre fue esquivado por la ciencia de la computación -el
+gran manipulador de sintaxis- que dio algunos problemas teóricos importantes.
+
+
+Algunos de estos problemas (como las preguntas de la complejidad algorítmica) parecen requerir más la letra
+que el espíritu de la lógica. Por otra parte, todos los problemas que conciernen a la correctud y modularidad
+de los programas apelas de manera profunda a la tradición sintáctica, a la *teoría de la demostración*.
+Somos llevados a la revisión de la teoría de la demostración, de la mano del teorema fundamental de Herbrand
+que data de \(1930\). Esta revisión alumbra con una nueva luz esas áreas que se pensaban fijas, y donde la
+rutina prevaleció por mucho tiempo.
+
+En el intercambio entre la tradición lógica y la ciencia de la computación uno puede esperar nuevos lenguajes
+y nuevas máquinas del lado computacional. Pero del lado de la lógica uno puede al menos esperar profundizar
+en la base conceptual que durante tanto tiempo fue ignorada.
+
+* Dos tradiciones semánticas
+** Tarski
+Esta tradición se distingue por su trivialidad: el conectivo "\(\lor\)" es traducido como "o", y así. Esta
+interpretación no nos dice nada particularmente importante sobre los conectivos lógicos: su aparente
+falta de ambición es su razón para su operacionalidad. Sólo nos interesa la denotación, *v* o *f* de
+un enunciado (cerrado) de la sintaxis.
+1. Para enunciados atómicos, asumimos que la denotación es conocida, por ejemplo:
+   - \(3 + 2 = 5\) tiene la denotación *v*.
+     \(3 + 3 = 5\) tiene la denotación *f*.
+2. Las denotaciones de las expresiones \(A \land B, A \lor B, A \supset B\) y \(\lnot A\) se obtienen mediante una tabla de
+   verdad:
+    | \(A\) | \(B\) | \(A \land B\) | \(A \lor B\) | \( A \supset B\) | \(\lnot A\) |
+    | *v*     | *v*     | *v*         | *v*         | *v*          | *f*           |
+    | *f*     | *v*     | *f*         | *v*         | *v*          | *v*           |
+    | *v*     | *f*     | *f*         | *v*         | *f*          |             |
+    | *f*     | *f*     | *f*         | *f*         | *v*        |             |
+3. La denotación de \(\forall \xi. A\) es *v* si y sólo si *para cada* \(a\) en el dominio de interpretación, \(A[a/\xi]\) es *v*.
+   De igual manera, \(\exists \xi. A\) es *v* si y sólo si \(A[a/\xi]\) es *v* para alguna \(a\).
+
+   De nueva cuenta, esta definición no dice mucho desde el punto de vista de la lógica, pero es adecuada
+   para este propósito. El desarrollo de la Teoría de Modelos nos muestra esto.
+
+** Heyting
+La idea de Heyting es menos conocida, pero es difícil imaginar una mayor disparidad entre la genialidad
+de la idea original y la mediocridad de su desarrollo subsecuente. La mira es extremadamente ambiciosa:
+no modelar la *denotación*, sino las *demostraciones*.
+
+En lugar de preguntarnos, "¿cuándo es verdadero un enunciado \(A\)?", nos preguntamos
+"¿qué es una demostración de \(A\)?". Por *demostración* no nos referimos a la transcripción formal sintáctica,
+si no al objeto inherente del cual la transcripción hace meramente una sombra. Tomamos el punto de
+vista de que lo que *escribimos* como una demostración es meramente la descripción de algo que es
+*en sí mismo* un proceso. Nuestra respuesta a nuestra pregunta extremadamente ambiciosa nu puede ser
+simplemente un *sistema formal*.
+1. Para los enunciados atómicos, suponemos que sabemos intrínsecamente qué es una demostración; por
+   ejemplo, el cálculo a papel y lápiz sirve como prueba de que "\(27 \times 37 = 999\)".
+2. Una prueba de \(A \land B\) es un par \((p, q)\) que consiste de una prueba \(p\) de \(A\) y una prueba \(q\) de \(B\).
+3. Una prueba de \(A \lor B\) es un par \(i, p\) con:
+   - \(i = 0\), y una prueba \(p\) de \(A\), o
+   - \(i = 1\), y una prueba \(p\) de \(B\).
+4. Una prueba de \(A \supset B\) es una función \(f\), que manda una prueba \(p\) de \(A\) a una prueba \(f(p)\)  de \(B\).
+5. En general, la negación \(\lnot A \) es tratada como \(A \supset \bot\) donde \(\bot\) es un enunciado que no admite una
+    demostración
+6. Una prueba de \(\forall \xi. A\) es una función \(f\) que manda cada punto \(a\) del dominio de definición a
+   una prueba \(f(a)\) de \(A[a/\xi]\).
+7. Una prueba de \(\exists \xi. A\) es un par \((a, p)\) donde \(a\) es un punto en el dominio de definición y \(p\) es una prueba
+   de \(A[a/\xi]\).
+
+   Por ejemplo, el enunciado \(A \supset A\) se prueba por la función identidad, que le asocia a cada prueba \(p\)
+   de \(A\), la misma prueba. Por otra parte, ¿cómo podemos mostrar \(A \lor \lnot A\)? Deberíamos ser capaces de
+   encontrar ya sea una prueba de \(A\) o una de \(\lnot A\) y esto no es posible en general. La semántica de
+   Heyting, entonces, corresponde a otra lógica, la lógica *intuicionista* de Brouwer, que encontraremos
+   después.
+
+   Sin lugar a dudas, la semántica de Heyting es muy original: no interpreta los conectivos lógicos por
+   sí mismos, sino sus construcciones abstractas. Ahora podemos ver que estas construcciones no son más que
+   programas tipados. Pero los expertos en el área han visto algo muy distinto, un acercamiento funcional
+   a las matemáticas. En otras palabras, la semántica de las demostraciones expresarían la esencia de las
+   matemáticas.
+
+   Por un lado tenemos la tradición de Tarski, que se común y honesta ("\(\lor\)" significa "o", "\forall" significa
+   "para todo"), sin mucha pretensión. Tampoco tiene un prospecto fundacional, pues para su fundamento,
+   uno tiene que dar una explicación en términos de algo más primitivo, que también necesita su propio
+   fundamento. La tradición de Heyting es original, pero fundamentalmente tiene los mismos problemas -los
+   teoremas de incompletitud de Gödel nos lo aseguran. Si buscamos explicar \(A\) por el hecho de demostrar
+   \(A\), nos topamos con el hecho de que la demostración usa cuantificadores dos veces (para \(\supset\) y
+   \(\forall\)). Más aún, en el caso de \(\supset\), uno no puede decir que el dominio de definición de \(f\) esté bien entendido.
+
+   Volveremos a la idea de Heyting cuando trabajemos sobre el isomorfismo de Curry-Howard. Esto nos permite
+   hacer uso de una idea que podría tener aplicaciones espectaculares en el futuro.

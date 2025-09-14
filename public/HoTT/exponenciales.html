@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-09-14 Sun 12:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Exponenciales</title>
+<meta name="generator" content="Org Mode" />
+<link rel='stylesheet' href='/style.css' />
+<script>
+  window.MathJax = {
+  tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']],
+  displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  processEscapes: true,
+  processEnvironments: true,
+  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
+  },
+  loader: {
+  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
+  },
+  options: {
+  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+  };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+  <script>
+  MathJax.startup.defaultReady();
+  </script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/index.html">🏠 Home</a>
+        </div>
+        <div class="navbar-menu">
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🖥️ Computación</a>
+                        <div class="dropdown-content">
+                                <a href="/Computacion/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">⚙️ Algoritmos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Computacion/Algoritmos/index.html">📋 Resumen</a>
+                                                <a href="/Computacion/Algoritmos/pensamiento.html">🧠 Pensamiento algorítmico</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🤖 AI</a>
+                        <div class="dropdown-content">
+                                <a href="/AI/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">📚 CS229</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/CS229/index.html">📋 Resumen</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
+                                        </div>
+                                </div>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🏗️ DataCamp</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+                                                <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+                                                <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔬 HoTT</a>
+                        <div class="dropdown-content">
+                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔤 Tipos</a>
+                        <div class="dropdown-content">
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/ProofsAndTypes/index.html">📋 Resumen </a>
+                                                <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+  </nav>
+</div>
+<div id="content" class="content">
+<h1 class="title">Exponenciales</h1>
+<div id="outline-container-org971aae7" class="outline-2">
+<h2 id="org971aae7">Términos de pruebas</h2>
+<div class="outline-text-2" id="text-org971aae7">
+</div>
+<div id="outline-container-org1e1b386" class="outline-3">
+<h3 id="org1e1b386">Reglas estructurales</h3>
+<div class="outline-text-3" id="text-org1e1b386">
+</div>
+<div id="outline-container-orgef79eb9" class="outline-4">
+<h4 id="orgef79eb9">Regla de introducción de variables</h4>
+<div class="outline-text-4" id="text-orgef79eb9">
+<p>
+\[
+        \Gamma, x: A, \Gamma' \vdash x: A
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-org6a0243f" class="outline-4">
+<h4 id="org6a0243f">Relga de substitución</h4>
+<div class="outline-text-4" id="text-org6a0243f">
+<p>
+\[
+        \frac{\Gamma, x: A, \Gamma' \vdash N: B ~~~ \Gamma \vdash M: A}{\Gamma, \Gamma' \vdash [M|_x]N: B}
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-org1b3e587" class="outline-4">
+<h4 id="org1b3e587">Regla de debilitamiento</h4>
+<div class="outline-text-4" id="text-org1b3e587">
+<p>
+\[
+        \frac{\Gamma \vdash M: A}{\Gamma, \Gamma' \vdash M: A}
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-org5c29764" class="outline-4">
+<h4 id="org5c29764">Regla de contracción</h4>
+<div class="outline-text-4" id="text-org5c29764">
+<p>
+\[
+        \frac{\Gamma, x: A, y: A, \Gamma' \vdash N: B}{\Gamma, z: A, \Gamma' \vdash [z, z/x,y]N: B}
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-org186197e" class="outline-4">
+<h4 id="org186197e">Regla de intercambio</h4>
+<div class="outline-text-4" id="text-org186197e">
+<p>
+\[
+        \frac{\Gamma, x: A, y: B, \Gamma' \vdash N: C}{\Gamma, y: B, x: A, \Gamma' \vdash N: C}
+\]
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4469aff" class="outline-3">
+<h3 id="org4469aff">Conectivos lógicos</h3>
+<div class="outline-text-3" id="text-org4469aff">
+</div>
+<div id="outline-container-org2f58a61" class="outline-4">
+<h4 id="org2f58a61">Proposición trivialmente verdadera</h4>
+<div class="outline-text-4" id="text-org2f58a61">
+<p>
+\[
+        \frac{~}{\Gamma \vdash <>: \top} ~ (\top-Introducci\acute{o}n)
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-orga63ff04" class="outline-4">
+<h4 id="orga63ff04">Conjunción</h4>
+<div class="outline-text-4" id="text-orga63ff04">
+</div>
+<div id="outline-container-org9006646" class="outline-5">
+<h5 id="org9006646">Introducción</h5>
+<div class="outline-text-5" id="text-org9006646">
+<p>
+\[
+        \frac{\Gamma  \vdash M: A ~~~ \Gamma \vdash N: B}{\Gamma \vdash \langle M, N \rangle: A \land B} ~ (\land-Introducci\acute{o}n)
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-org364120c" class="outline-5">
+<h5 id="org364120c">Eliminación</h5>
+<div class="outline-text-5" id="text-org364120c">
+<p>
+\[
+        \frac{\Gamma \vdash M: A \land B}{\Gamma \vdash fst(M): A} ~ (\land-Eliminaci\acute{o}n_1) ~~~
+        \frac{\Gamma \vdash M: A \land B}{\Gamma \vdash snd(M): B} ~ (\land-Eliminaci\acute{o}n_2)
+\]
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8894b63" class="outline-4">
+<h4 id="org8894b63">Implicación</h4>
+<div class="outline-text-4" id="text-org8894b63">
+</div>
+<div id="outline-container-org79e0b57" class="outline-5">
+<h5 id="org79e0b57">Introducción</h5>
+<div class="outline-text-5" id="text-org79e0b57">
+<p>
+\[
+        \frac{\Gamma, x: A \vdash M: B}{\Gamma \vdash \lambda x.M: A \supset B} ~ (\supset-Introducci\acute{o}n)
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-org4ad7759" class="outline-5">
+<h5 id="org4ad7759">Eliminación</h5>
+<div class="outline-text-5" id="text-org4ad7759">
+<p>
+\[
+        \frac{\Gamma \vdash M: A \supset B ~~~ \Gamma \vdash N: A}{\Gamma \vdash M(N): B} ~ (\supset-Eliminaci\acute{o}n)
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org62dd796" class="outline-2">
+<h2 id="org62dd796">Igualdad definicional</h2>
+<div class="outline-text-2" id="text-org62dd796">
+<p>
+La igualdad definicional es la mínima congruencia (relación de equivalencia, que es compatible con los
+operadoes, i.e., se preserva la igualdad definicional) que es cerrada bajo las siguientes reglas
+(reglas \(\beta\)):
+</p>
+
+<ul class="org-ul">
+<li>\[
+        \frac{\Gamma \vdash M: A ~~~ \Gamma \vdash N: B}{\Gamma \vdash fst(\langle M, N \rangle) \equiv M: A} ~ (\beta \land_1)
+  \]</li>
+<li>\[
+        \frac{\Gamma \vdash M: A ~~~ \Gamma \vdash N: B}{\Gamma \vdash snd(\langle M, N \rangle) \equiv N: B} ~ (\beta \land_2)
+  \]</li>
+<li>\[
+        \frac{\Gamma, x: A \Gamma \vdash M: B ~~~ \Gamma \vdash N: A}{\Gamma \vdash (\lambda x.M)(N) \equiv [N|_x]M: B} ~ (\beta \supset)
+  \]</li>
+</ul>
+</div>
+<div id="outline-container-orgd80d7d6" class="outline-3">
+<h3 id="orgd80d7d6">Principios de unicidad de Gentzen (reglas \(\eta\))</h3>
+<div class="outline-text-3" id="text-orgd80d7d6">
+<ul class="org-ul">
+<li>\[
+        \frac{\Gamma \vdash M: \top}{\Gamma \vdash M \equiv \langle \rangle: \top} ~ (\eta \top)
+  \]</li>
+<li>\[
+        \frac{\Gamma \vdash M : A \land B}{\Gamma \vdash M \equiv \langle fst(M), snd(M) \rangle: A \land B} ~ (\eta \land)
+  \]</li>
+<li>\[
+        \frac{\Gamma \vdash M: A \supset B}{\Gamma \vdash M \equiv \lambda x.M x: A \supset B} ~ (\eta \supset)
+  \]</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org366a375" class="outline-2">
+<h2 id="org366a375">Proposiciones como tipos (La gran correspondencia)</h2>
+<div class="outline-text-2" id="text-org366a375">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Proposición</td>
+<td class="org-left">Tipo</td>
+<td class="org-left">Categorías</td>
+<td class="org-left">Álgebras de Heyting</td>
+</tr>
+
+<tr>
+<td class="org-left">\( \top \)</td>
+<td class="org-left">1</td>
+<td class="org-left">Objeto final</td>
+<td class="org-left">Meets</td>
+</tr>
+
+<tr>
+<td class="org-left">\( A \land B \)</td>
+<td class="org-left">\( A \times B \)</td>
+<td class="org-left">Producto</td>
+<td class="org-left">Meets</td>
+</tr>
+
+<tr>
+<td class="org-left">\( A \supset B \)</td>
+<td class="org-left">\( A \to B\)</td>
+<td class="org-left">Exponencial</td>
+<td class="org-left">Exponencial</td>
+</tr>
+
+<tr>
+<td class="org-left">\( \bot \)</td>
+<td class="org-left">\( 0 \)</td>
+<td class="org-left">Objeto inicial</td>
+<td class="org-left">Joins</td>
+</tr>
+
+<tr>
+<td class="org-left">\( A \lor B \)</td>
+<td class="org-left">\( A + B\)</td>
+<td class="org-left">Coproducto</td>
+<td class="org-left">Joins</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org6c52f1d" class="outline-2">
+<h2 id="org6c52f1d">Categorías</h2>
+<div class="outline-text-2" id="text-org6c52f1d">
+</div>
+<div id="outline-container-org9084f8b" class="outline-3">
+<h3 id="org9084f8b">Objeto terminal</h3>
+<div class="outline-text-3" id="text-org9084f8b">
+<p>
+Un obejto terminal \(1\) es un objeto en una categoría tal que para cada otro objeto \(A\) existe un
+único morfismo \( \langle \rangle: A \to 1 \), siendo más claros:
+</p>
+<ol class="org-ol">
+<li>\(\langle \rangle: A \to 1\) (existe un morfismo)</li>
+<li>\( \frac{M: A \to 1}{M = \langle \rangle: 1} \) (el morfismo es único)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org796ad9d" class="outline-3">
+<h3 id="org796ad9d">Productos</h3>
+<div class="outline-text-3" id="text-org796ad9d">
+<p>
+Un producto \(A \times B\) de dos objetos \(A\) y \(B\) es un objeto en una categoría con dos
+morfismos \(fst: A \times B \to A\) y \(snd: A \times B \to B\) tal que para cada otro objeto \(C\) con
+morfismos \( M: C \to A \) y \(N: C \to B\) existe un único morfismo \( \langle M, N \rangle : C \to A \times B\) tal
+que \(fst \circ \langle M, N \rangle = M: D \to A\) y \(snd \circ \langle M, N \rangle = N: D \to B \), es decir, que el siguiente diagrama
+conmute
+</p>
+
+
+<div id="org1b1e0e3" class="figure">
+<p><img src="Categorías/_20250911_171757screenshot.png" alt="_20250911_171757screenshot.png" width="300px" />
+</p>
+</div>
+
+<p>
+Y, la unicidad es lo mismo que lo siguiente:
+</p>
+
+<p>
+\[
+        \frac{P: D \to A \times B  ~~~ fst \circ P = M ~~~ snd \circ P = N}{P = \langle M, N \rangle : D \to A \times B}
+\]
+Otra manera de escribir esto es:
+</p>
+<ul class="org-ul">
+<li>\(\langle fst, snd \rangle = id\)</li>
+<li>\(\langle M, N \rangle \circ P = \langle M \circ P, N \circ P \rangle\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdf88742" class="outline-3">
+<h3 id="orgdf88742">Exponenciales</h3>
+<div class="outline-text-3" id="text-orgdf88742">
+<p>
+Un objeto \(B^A\) y un morfismo \(ap: B^A \times A \to B\) en una categoría es una exponencial para
+\(B\) y \(A\) si, para cada objeto \(C\) y cada morfismo \(h: C \times A \to B\) existe un único morfismo
+\(\lambda(h): C \to B^A\) tal que \( ap \circ (\lambda(h) \times id_A) = \langle \lambda(h) \circ fst, snd \rangle = h \)
+es decir, el siguiente diagrama conmuta
+</p>
+
+
+<div id="org39ba1e3" class="figure">
+<p><img src="Categorías/swappy-20250911_180042.png" alt="swappy-20250911_180042.png" width="300px" />
+</p>
+</div>
+
+<p>
+Y, la unicidad es lo mismo que lo siguiente
+\[
+        \frac{ap \circ (g \times id_A) = h}{g = \lambda(h)}
+\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

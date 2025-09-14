@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-02 Tue 19:43 -->
+<!-- 2025-09-14 Sun 12:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Transitividad</title>
@@ -79,20 +79,31 @@
                                 <a href="/HoTT/index.html">📋 Resumen</a>
                                 <a href="/HoTT/introduccion.html">🚀 Introducción</a>
                                 <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="HoTT/transitividad.html">🔛 Transitividad </a>
+                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
                         </div>
                 </div>
-                <div class="navbar-item">
-                        <a href="/Emacs/index.html">⚙️ Emacs Config</a>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔤 Tipos</a>
+                        <div class="dropdown-content">
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/ProofsAndTypes/index.html">📋 Resumen </a>
+                                                <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
+                                        </div>
+                                </div>
+                        </div>
                 </div>
         </div>
   </nav>
 </div>
 <div id="content" class="content">
 <h1 class="title">Transitividad</h1>
-<div id="outline-container-org34def7e" class="outline-2">
-<h2 id="org34def7e">Álgebras de Heyting</h2>
-<div class="outline-text-2" id="text-org34def7e">
+<div id="outline-container-orgaf394d0" class="outline-2">
+<h2 id="orgaf394d0">Álgebras de Heyting</h2>
+<div class="outline-text-2" id="text-orgaf394d0">
 <p>
 Un álgebra de Heyting es una retícula (pre-orden con todos los "meets" y "joins" finitos,
 es decir, máximas cotas inferiores y mínimas cotas superiores) que tiene exponenciales.
@@ -104,9 +115,9 @@ En un álgebra de Heyting podemos definir la negación de \(A\) como
 Es decir, la \(C\) más grande que es inconsistente con \(A\).
 </p>
 </div>
-<div id="outline-container-org7c13b6a" class="outline-3">
-<h3 id="org7c13b6a">Observaciones</h3>
-<div class="outline-text-3" id="text-org7c13b6a">
+<div id="outline-container-org63e920c" class="outline-3">
+<h3 id="org63e920c">Observaciones</h3>
+<div class="outline-text-3" id="text-org63e920c">
 <ul class="org-ul">
 <li>Toda álgebra de Heyting es distributiva.</li>
 <li>Toda álgebra Booleana tiene exponenciales
@@ -117,26 +128,26 @@ Es decir, la \(C\) más grande que es inconsistente con \(A\).
 </div>
 </div>
 </div>
-<div id="outline-container-org8d44d95" class="outline-2">
-<h2 id="org8d44d95">Álgebras Booleana</h2>
-<div class="outline-text-2" id="text-org8d44d95">
+<div id="outline-container-orgf5f4ec6" class="outline-2">
+<h2 id="orgf5f4ec6">Álgebras Booleana</h2>
+<div class="outline-text-2" id="text-orgf5f4ec6">
 <p>
 Un álgebra Booleana es una retícula complementada (\(\overline{A}\) es la \(C\) más pequeña
 tal que \(A \lor C \geq \top\)) y distributiva.
 </p>
 </div>
-<div id="outline-container-org25c979f" class="outline-3">
-<h3 id="org25c979f">Afirmación</h3>
-<div class="outline-text-3" id="text-org25c979f">
+<div id="outline-container-org7fb5e98" class="outline-3">
+<h3 id="org7fb5e98">Afirmación</h3>
+<div class="outline-text-3" id="text-org7fb5e98">
 <p>
 <em> En la lógica intuicionista no todas las instancias del tercio excluso son
 demostrables </em> <br>
 En general, no podemos esperar que para cada \( A \) que \( A \lor \lnot A ~ True \).
 </p>
 </div>
-<div id="outline-container-org8210c28" class="outline-4">
-<h4 id="org8210c28">Idea (Propiedad de la disyunción) </b> <br></h4>
-<div class="outline-text-4" id="text-org8210c28">
+<div id="outline-container-org5e46063" class="outline-4">
+<h4 id="org5e46063">Idea (Propiedad de la disyunción) </b> <br></h4>
+<div class="outline-text-4" id="text-org5e46063">
 <p>
 Si podemos mostrar que \( A \lor B ~ True\) entonces podemos mostrar \(A ~ True\) o
 \(B ~ True\).
@@ -144,9 +155,9 @@ Si podemos mostrar que \( A \lor B ~ True\) entonces podemos mostrar \(A ~ True\
 </div>
 </div>
 </div>
-<div id="outline-container-orgeffcc14" class="outline-3">
-<h3 id="orgeffcc14">Afirmación (Continuación)</h3>
-<div class="outline-text-3" id="text-orgeffcc14">
+<div id="outline-container-org6d4bd77" class="outline-3">
+<h3 id="org6d4bd77">Afirmación (Continuación)</h3>
+<div class="outline-text-3" id="text-org6d4bd77">
 <p>
 Por lo tanto, si eso fuera cierto, para cada \(A\) tendríamos \(A ~ True\) o
 \(A ~ False\), lo cual es refutable. Basta pensar en un problema abierto de la matemática.
@@ -154,13 +165,13 @@ Por lo tanto, si eso fuera cierto, para cada \(A\) tendríamos \(A ~ True\) o
 </div>
 </div>
 </div>
-<div id="outline-container-org6b99674" class="outline-2">
-<h2 id="org6b99674">IPL (Lógica Proposicional Intuicionista) desde la teoría de la demostración</h2>
-<div class="outline-text-2" id="text-org6b99674">
+<div id="outline-container-org27d0113" class="outline-2">
+<h2 id="org27d0113">IPL (Lógica Proposicional Intuicionista) desde la teoría de la demostración</h2>
+<div class="outline-text-2" id="text-org27d0113">
 </div>
-<div id="outline-container-orgdaea18f" class="outline-4">
-<h4 id="orgdaea18f">Afirmación</h4>
-<div class="outline-text-4" id="text-orgdaea18f">
+<div id="outline-container-org77a22f2" class="outline-4">
+<h4 id="org77a22f2">Afirmación</h4>
+<div class="outline-text-4" id="text-org77a22f2">
 <p>
 En la lógica proposicional intuicionista, no todas las instancias de la ley del tercio excluso son
 demostrables, es decir, no es cierto que para cada \(A\), \(A \lor \lnot A ~ True\).
@@ -174,16 +185,16 @@ dar una prueba o una refutación de \(A\), lo cual no siempre sucede, basta pens
 </p>
 </div>
 </div>
-<div id="outline-container-org9837132" class="outline-4">
-<h4 id="org9837132">Definición</h4>
-<div class="outline-text-4" id="text-org9837132">
+<div id="outline-container-orgd925ee3" class="outline-4">
+<h4 id="orgd925ee3">Definición</h4>
+<div class="outline-text-4" id="text-orgd925ee3">
 <p>
 \(A ~ Prop\) es decidible si \(A \lor \lnot A ~ True\)
 </p>
 </div>
-<div id="outline-container-orga46a6da" class="outline-5">
-<h5 id="orga46a6da">Ejemplos</h5>
-<div class="outline-text-5" id="text-orga46a6da">
+<div id="outline-container-orgbda426c" class="outline-5">
+<h5 id="orgbda426c">Ejemplos</h5>
+<div class="outline-text-5" id="text-orgbda426c">
 <ul class="org-ul">
 <li>Si \(A = \top\), entonces \(A\) es decidible.</li>
 <li>Si \(A = \bot\), entonces \(A\) es decidible.</li>
@@ -191,24 +202,24 @@ dar una prueba o una refutación de \(A\), lo cual no siempre sucede, basta pens
 </div>
 </div>
 </div>
-<div id="outline-container-org082f986" class="outline-4">
-<h4 id="org082f986">Definición</h4>
-<div class="outline-text-4" id="text-org082f986">
+<div id="outline-container-org4b79643" class="outline-4">
+<h4 id="org4b79643">Definición</h4>
+<div class="outline-text-4" id="text-org4b79643">
 <p>
 \(A ~ Prop\) es estable si y sólo si \(\lnot(\lnot A) \supset \top ~ True\)
 </p>
 </div>
 </div>
-<div id="outline-container-org6c927d2" class="outline-4">
-<h4 id="org6c927d2">Afirmación</h4>
-<div class="outline-text-4" id="text-org6c927d2">
+<div id="outline-container-org18b6133" class="outline-4">
+<h4 id="org18b6133">Afirmación</h4>
+<div class="outline-text-4" id="text-org18b6133">
 <p>
 Para cada \(A\), \(\lnot (\lnot (A \lor \lnot A))\), es decir, la ley del tercio excluso no es refutable.
 </p>
 </div>
-<div id="outline-container-orge409d42" class="outline-5">
-<h5 id="orge409d42">Demostración</h5>
-<div class="outline-text-5" id="text-orge409d42">
+<div id="outline-container-orgb0f6463" class="outline-5">
+<h5 id="orgb0f6463">Demostración</h5>
+<div class="outline-text-5" id="text-orgb0f6463">
 <p>
 Supongamos, en busca de una contradicción, que \(\lnot(A\lor\lnot A)\).
 Es suficiente probar \(A \lor \lnot A\) y, para esto, es suficiente que probemos \(\lnot A\).
@@ -218,24 +229,24 @@ supuesto.
 </div>
 </div>
 </div>
-<div id="outline-container-org5dfca43" class="outline-4">
-<h4 id="org5dfca43">Corolario</h4>
-<div class="outline-text-4" id="text-org5dfca43">
+<div id="outline-container-org43521a4" class="outline-4">
+<h4 id="org43521a4">Corolario</h4>
+<div class="outline-text-4" id="text-org43521a4">
 <p>
 No toda proposición es estable.
 </p>
 </div>
 </div>
-<div id="outline-container-org986aae3" class="outline-3">
-<h3 id="org986aae3">¿Cómo probamos la propiedad de la disyunción en IPL?</h3>
-<div class="outline-text-3" id="text-org986aae3">
+<div id="outline-container-orgd60a342" class="outline-3">
+<h3 id="orgd60a342">¿Cómo probamos la propiedad de la disyunción en IPL?</h3>
+<div class="outline-text-3" id="text-orgd60a342">
 <p>
 Interpretamos las reglas que habíamos dado de IPL como una definición inductiva de la implicación lógica.
 </p>
 </div>
-<div id="outline-container-org765babe" class="outline-4">
-<h4 id="org765babe">Teorema</h4>
-<div class="outline-text-4" id="text-org765babe">
+<div id="outline-container-orgb0b8857" class="outline-4">
+<h4 id="orgb0b8857">Teorema</h4>
+<div class="outline-text-4" id="text-orgb0b8857">
 <p>
 Si \( \emptyset \vdash A \lor B ~ True\), entonces \(\emptyset \vdash A ~ True\) o \(\emptyset \vdash B ~ True\).
 </p>
@@ -243,9 +254,9 @@ Si \( \emptyset \vdash A \lor B ~ True\), entonces \(\emptyset \vdash A ~ True\)
 </div>
 </div>
 </div>
-<div id="outline-container-org6698218" class="outline-2">
-<h2 id="org6698218">La idea de Gentzen (principio de inversión)</h2>
-<div class="outline-text-2" id="text-org6698218">
+<div id="outline-container-org9bb1520" class="outline-2">
+<h2 id="org9bb1520">La idea de Gentzen (principio de inversión)</h2>
+<div class="outline-text-2" id="text-org9bb1520">
 <p>
 <code>elim</code> es post-inverso a <code>intro</code>.
 </p>

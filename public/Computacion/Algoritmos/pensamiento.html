@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-02 Tue 19:43 -->
+<!-- 2025-09-14 Sun 12:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pensamiento algorítmico</title>
@@ -79,24 +79,35 @@
                                 <a href="/HoTT/index.html">📋 Resumen</a>
                                 <a href="/HoTT/introduccion.html">🚀 Introducción</a>
                                 <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="HoTT/transitividad.html">🔛 Transitividad </a>
+                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
                         </div>
                 </div>
-                <div class="navbar-item">
-                        <a href="/Emacs/index.html">⚙️ Emacs Config</a>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔤 Tipos</a>
+                        <div class="dropdown-content">
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/ProofsAndTypes/index.html">📋 Resumen </a>
+                                                <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
+                                        </div>
+                                </div>
+                        </div>
                 </div>
         </div>
   </nav>
 </div>
 <div id="content" class="content">
 <h1 class="title">Pensamiento algorítmico</h1>
-<div id="outline-container-org9e70fc3" class="outline-2">
-<h2 id="org9e70fc3">Peak finder</h2>
-<div class="outline-text-2" id="text-org9e70fc3">
+<div id="outline-container-orgbe60fac" class="outline-2">
+<h2 id="orgbe60fac">Peak finder</h2>
+<div class="outline-text-2" id="text-orgbe60fac">
 </div>
-<div id="outline-container-org4cded83" class="outline-3">
-<h3 id="org4cded83">Versión uni-dimensional</h3>
-<div class="outline-text-3" id="text-org4cded83">
+<div id="outline-container-org9e0b8cc" class="outline-3">
+<h3 id="org9e0b8cc">Versión uni-dimensional</h3>
+<div class="outline-text-3" id="text-org9e0b8cc">
 <p>
 Un "peak" en un arreglo uni-dimensional es un elemento que es mayor o igual que los dos
 elementos contiguos, en el caso de un borde, un "peak" es mayor o igual que el único número
@@ -107,9 +118,9 @@ contiguo.
 El problema consiste en encontrar un peak, si es que existe.
 </p>
 </div>
-<div id="outline-container-org4c3f9e5" class="outline-4">
-<h4 id="org4c3f9e5">Algoritmo inicial</h4>
-<div class="outline-text-4" id="text-org4c3f9e5">
+<div id="outline-container-org0ec6eae" class="outline-4">
+<h4 id="org0ec6eae">Algoritmo inicial</h4>
+<div class="outline-text-4" id="text-org0ec6eae">
 <p>
 El algoritmo más directo es empezar por la izquierda elemento por elemento y verificar
 si cada número es un "peak". Este algoritmo tendría una complejidad \(\theta(n)\) (en el
@@ -118,9 +129,9 @@ una cota superior y una cota inferior, a diferencia de \(O\) que es sólo una co
 </p>
 </div>
 </div>
-<div id="outline-container-org1204416" class="outline-4">
-<h4 id="org1204416">Algoritmo mejorado (divide and conquer)</h4>
-<div class="outline-text-4" id="text-org1204416">
+<div id="outline-container-org5930442" class="outline-4">
+<h4 id="org5930442">Algoritmo mejorado (divide and conquer)</h4>
+<div class="outline-text-4" id="text-org5930442">
 <p>
 Empezamos por el elemento de la mitad y repetimos los siguientes pasos en orden:
 </p>
@@ -159,17 +170,17 @@ Así, el algoritmo tiene una complejidad de \(\theta(\log_2(n))\).
 </div>
 </div>
 </div>
-<div id="outline-container-orgfa44dd5" class="outline-3">
-<h3 id="orgfa44dd5">Versión bi-dimensional</h3>
-<div class="outline-text-3" id="text-orgfa44dd5">
+<div id="outline-container-orgcd7d96a" class="outline-3">
+<h3 id="orgcd7d96a">Versión bi-dimensional</h3>
+<div class="outline-text-3" id="text-orgcd7d96a">
 <p>
 Un "peak" en un arreglo bi-dimensional de \(n \times m\) es una montaña, es un número que es mayor
 o igual a los números que están arriba, abajo a la izquierda y a la derecha.
 </p>
 </div>
-<div id="outline-container-orgad4823f" class="outline-4">
-<h4 id="orgad4823f">Algoritmo inicial (Algoritmo de ascenso codicioso)</h4>
-<div class="outline-text-4" id="text-orgad4823f">
+<div id="outline-container-org6970366" class="outline-4">
+<h4 id="org6970366">Algoritmo inicial (Algoritmo de ascenso codicioso)</h4>
+<div class="outline-text-4" id="text-org6970366">
 <p>
 Empezamos con una posición y dirección inicial (diagamos el centro y la izquierda). Si
 el número a la izquierda es mayor, nos empezamos a mover a la izquierda hasta encontrar
@@ -184,9 +195,9 @@ complejidad de peor escenario de \(\theta(n \cdot m)\) y, en el caso en que \(n 
 </p>
 </div>
 </div>
-<div id="outline-container-org24691b3" class="outline-4">
-<h4 id="org24691b3">Algoritmo mejorado (pero no funcional)</h4>
-<div class="outline-text-4" id="text-org24691b3">
+<div id="outline-container-org9bb6b40" class="outline-4">
+<h4 id="org9bb6b40">Algoritmo mejorado (pero no funcional)</h4>
+<div class="outline-text-4" id="text-org9bb6b40">
 <p>
 Escogemos la columna de la mitad \(j = m/2\) y encontramos un pico uni-dimensional en
 \((i,j)\). Luego usamos \((i,j)\) para encontrar un pico uni-dimensional en el renglón
@@ -196,9 +207,9 @@ bi-dimensional en el renglón \(i\)</b>.
 </p>
 </div>
 </div>
-<div id="outline-container-org8197a49" class="outline-4">
-<h4 id="org8197a49">Algoritmo mejorado (y funcional)</h4>
-<div class="outline-text-4" id="text-org8197a49">
+<div id="outline-container-orga6012a9" class="outline-4">
+<h4 id="orga6012a9">Algoritmo mejorado (y funcional)</h4>
+<div class="outline-text-4" id="text-orga6012a9">
 <p>
 Escogemos la columna \(j = m/2\) y encontramos el máximo global en la columna \(j\) en
 \((i,j)\). Comparamos \((i, j-1)\), \((i, j)\) y \((i, j+1)\) y esocgemos las columnas

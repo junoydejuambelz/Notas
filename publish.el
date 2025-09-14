@@ -107,11 +107,22 @@
                                 <a href=\"/HoTT/index.html\">📋 Resumen</a>
                                 <a href=\"/HoTT/introduccion.html\">🚀 Introducción</a>
                                 <a href=\"/HoTT/juicios.html\">⚖️ Juicios</a>
-                                <a href=\"HoTT/transitividad.html\">🔛 Transitividad </a>
+                                <a href=\"/HoTT/transitividad.html\">🔛 Transitividad </a>
+                                <a href=\"/HoTT/exponenciales.html\">🗼 Exponenciales</a>
+                                <a href=\"/HoTT/igualdad.html\">🟰 Igualdad</a>
                         </div>
                 </div>
-                <div class=\"navbar-item\">
-                        <a href=\"/Emacs/index.html\">⚙️ Emacs Config</a>
+                <div class=\"navbar-item dropdown\">
+                        <a href=\"#\" class=\"dropbtn\">🔤 Tipos</a>
+                        <div class=\"dropdown-content\">
+                                <div class=\"dropdown-submenu\">
+                                        <a href=\"#\" class=\"submenu-btn\">✍️ Pruebas y tipos</a>
+                                        <div class=\"submenu-content\">
+                                                <a href=\"/Tipos/ProofsAndTypes/index.html\">📋 Resumen </a>
+                                                <a href=\"/Tipos/ProofsAndTypes/sentido.html\">🧠 Sentido, denotación y semántica</a>
+                                        </div>
+                                </div>
+                        </div>
                 </div>
         </div>
   </nav>")
