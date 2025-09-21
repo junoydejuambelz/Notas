@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-20 Sat 22:52 -->
+<!-- 2025-09-21 Sun 07:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notas en Org-Mode</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
+<script defer src='/navbar.js'></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -53,19 +54,9 @@
                         </div>
                 </div>
                 <div class="navbar-item dropdown">
-                        <a href="#" class="dropbtn">🔬 HoTT</a>
-                        <div class="dropdown-content">
-                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
-                        </div>
-                </div>
-                <div class="navbar-item dropdown">
                         <a href="#" class="dropbtn">🔤 Tipos</a>
                         <div class="dropdown-content">
+
                                 <div class="dropdown-submenu">
                                         <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
                                         <div class="submenu-content">
@@ -73,10 +64,35 @@
                                                 <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
                                         </div>
                                 </div>
+
                                 <div class="dropdown-submenu">
-                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT</a>
+                                        <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
-                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                        </div>
+                                                </div>
+
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🖥️ Lean</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/Lean/index.html">📋 Resumen </a>
                                         </div>
                                 </div>
                         </div>
@@ -86,9 +102,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Notas en Org-Mode</h1>
-<div id="outline-container-org8f4e357" class="outline-2">
-<h2 id="org8f4e357">Descripción</h2>
-<div class="outline-text-2" id="text-org8f4e357">
+<div id="outline-container-orgea9b8cd" class="outline-2">
+<h2 id="orgea9b8cd">Descripción</h2>
+<div class="outline-text-2" id="text-orgea9b8cd">
 <p>
 Este directorio contiene la conversión de mis notas de Quarto a org-mode. Las notas incluyen:
 </p>
@@ -99,10 +115,10 @@ Este directorio contiene la conversión de mis notas de Quarto a org-mode. Las n
 </ul>
 </div>
 </div>
-<div id="outline-container-orge5c80d3" class="outline-2">
-<h2 id="orge5c80d3">Estructura del Proyecto</h2>
-<div class="outline-text-2" id="text-orge5c80d3">
-<pre class="example" id="org32c4ee0">
+<div id="outline-container-orgee6d474" class="outline-2">
+<h2 id="orgee6d474">Estructura del Proyecto</h2>
+<div class="outline-text-2" id="text-orgee6d474">
+<pre class="example" id="org13552fa">
 org-mode-notes/
 ├── index.org              # Página principal
 ├── AI/                    # Notas de IA
@@ -127,13 +143,13 @@ org-mode-notes/
 </pre>
 </div>
 </div>
-<div id="outline-container-org5ca5ab1" class="outline-2">
-<h2 id="org5ca5ab1">Uso</h2>
-<div class="outline-text-2" id="text-org5ca5ab1">
+<div id="outline-container-org1928af1" class="outline-2">
+<h2 id="org1928af1">Uso</h2>
+<div class="outline-text-2" id="text-org1928af1">
 </div>
-<div id="outline-container-org87cae72" class="outline-3">
-<h3 id="org87cae72">Generar el sitio web</h3>
-<div class="outline-text-3" id="text-org87cae72">
+<div id="outline-container-org0499c9e" class="outline-3">
+<h3 id="org0499c9e">Generar el sitio web</h3>
+<div class="outline-text-3" id="text-org0499c9e">
 <p>
 Para generar el sitio web desde los archivos org:
 </p>
@@ -144,9 +160,9 @@ Para generar el sitio web desde los archivos org:
 </div>
 </div>
 </div>
-<div id="outline-container-orgdef990d" class="outline-3">
-<h3 id="orgdef990d">Servir localmente</h3>
-<div class="outline-text-3" id="text-orgdef990d">
+<div id="outline-container-orga79009d" class="outline-3">
+<h3 id="orga79009d">Servir localmente</h3>
+<div class="outline-text-3" id="text-orga79009d">
 <p>
 Para generar y servir el sitio localmente:
 </p>
@@ -161,9 +177,9 @@ Esto iniciará un servidor HTTP en <a href="http://localhost:8080">http://localh
 </p>
 </div>
 </div>
-<div id="outline-container-org873a2cf" class="outline-3">
-<h3 id="org873a2cf">Limpiar archivos generados</h3>
-<div class="outline-text-3" id="text-org873a2cf">
+<div id="outline-container-org4bdf295" class="outline-3">
+<h3 id="org4bdf295">Limpiar archivos generados</h3>
+<div class="outline-text-3" id="text-org4bdf295">
 <div class="org-src-container">
 <pre class="src src-bash">make clean
 </pre>
@@ -171,9 +187,9 @@ Esto iniciará un servidor HTTP en <a href="http://localhost:8080">http://localh
 </div>
 </div>
 </div>
-<div id="outline-container-org5944ca7" class="outline-2">
-<h2 id="org5944ca7">Configuración de Emacs</h2>
-<div class="outline-text-2" id="text-org5944ca7">
+<div id="outline-container-orgfb5074e" class="outline-2">
+<h2 id="orgfb5074e">Configuración de Emacs</h2>
+<div class="outline-text-2" id="text-orgfb5074e">
 <p>
 Si quieres publicar desde Emacs, puedes usar:
 </p>
@@ -185,9 +201,9 @@ Si quieres publicar desde Emacs, puedes usar:
 </div>
 </div>
 </div>
-<div id="outline-container-orgb03c8e9" class="outline-2">
-<h2 id="orgb03c8e9">Características</h2>
-<div class="outline-text-2" id="text-orgb03c8e9">
+<div id="outline-container-org1f8e0fb" class="outline-2">
+<h2 id="org1f8e0fb">Características</h2>
+<div class="outline-text-2" id="text-org1f8e0fb">
 <ul class="org-ul">
 <li>Soporte completo para LaTeX/MathJax</li>
 <li>Navegación entre notas con enlaces org-mode</li>

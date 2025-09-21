@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-20 Sat 22:52 -->
+<!-- 2025-09-21 Sun 07:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Configuración de Emacs</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
+<script defer src='/navbar.js'></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -53,19 +54,9 @@
                         </div>
                 </div>
                 <div class="navbar-item dropdown">
-                        <a href="#" class="dropbtn">🔬 HoTT</a>
-                        <div class="dropdown-content">
-                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
-                        </div>
-                </div>
-                <div class="navbar-item dropdown">
                         <a href="#" class="dropbtn">🔤 Tipos</a>
                         <div class="dropdown-content">
+
                                 <div class="dropdown-submenu">
                                         <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
                                         <div class="submenu-content">
@@ -73,10 +64,35 @@
                                                 <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
                                         </div>
                                 </div>
+
                                 <div class="dropdown-submenu">
-                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT</a>
+                                        <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
-                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                        </div>
+                                                </div>
+
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🖥️ Lean</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/Lean/index.html">📋 Resumen </a>
                                         </div>
                                 </div>
                         </div>
@@ -86,20 +102,20 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Configuración de Emacs</h1>
-<div id="outline-container-org8b20bac" class="outline-2">
-<h2 id="org8b20bac">Configuración de Emacs con Spacemacs</h2>
-<div class="outline-text-2" id="text-org8b20bac">
+<div id="outline-container-orgef666b0" class="outline-2">
+<h2 id="orgef666b0">Configuración de Emacs con Spacemacs</h2>
+<div class="outline-text-2" id="text-orgef666b0">
 <p>
 Esta es mi configuración personal de Emacs utilizando la distribución Spacemacs, que combina lo mejor de Emacs y Vim en una experiencia integrada.
 </p>
 </div>
-<div id="outline-container-org64652ae" class="outline-3">
-<h3 id="org64652ae">Archivos de Configuración</h3>
-<div class="outline-text-3" id="text-org64652ae">
+<div id="outline-container-org6a82e1c" class="outline-3">
+<h3 id="org6a82e1c">Archivos de Configuración</h3>
+<div class="outline-text-3" id="text-org6a82e1c">
 </div>
-<div id="outline-container-orgd3df8a3" class="outline-4">
-<h4 id="orgd3df8a3"><a href="spacemacs.html">Archivo de configuración principal (.spacemacs)</a></h4>
-<div class="outline-text-4" id="text-orgd3df8a3">
+<div id="outline-container-orgb1727cb" class="outline-4">
+<h4 id="orgb1727cb"><a href="spacemacs.html">Archivo de configuración principal (.spacemacs)</a></h4>
+<div class="outline-text-4" id="text-orgb1727cb">
 <p>
 Mi archivo de configuración principal de Spacemacs que incluye:
 </p>
@@ -112,13 +128,13 @@ Mi archivo de configuración principal de Spacemacs que incluye:
 </div>
 </div>
 </div>
-<div id="outline-container-orgea9b598" class="outline-3">
-<h3 id="orgea9b598">Características Principales</h3>
-<div class="outline-text-3" id="text-orgea9b598">
+<div id="outline-container-org1c260bd" class="outline-3">
+<h3 id="org1c260bd">Características Principales</h3>
+<div class="outline-text-3" id="text-org1c260bd">
 </div>
-<div id="outline-container-org2fb8ff6" class="outline-4">
-<h4 id="org2fb8ff6">Capas Habilitadas</h4>
-<div class="outline-text-4" id="text-org2fb8ff6">
+<div id="outline-container-org47dd63c" class="outline-4">
+<h4 id="org47dd63c">Capas Habilitadas</h4>
+<div class="outline-text-4" id="text-org47dd63c">
 <p>
 Mi configuración incluye las siguientes capas:
 </p>
@@ -136,9 +152,9 @@ Mi configuración incluye las siguientes capas:
 </ul>
 </div>
 </div>
-<div id="outline-container-org3d486c4" class="outline-4">
-<h4 id="org3d486c4">Paquetes Adicionales</h4>
-<div class="outline-text-4" id="text-org3d486c4">
+<div id="outline-container-org7f8f486" class="outline-4">
+<h4 id="org7f8f486">Paquetes Adicionales</h4>
+<div class="outline-text-4" id="text-org7f8f486">
 <ul class="org-ul">
 <li><code>ob-d2</code> - Soporte para diagramas D2 en Org-mode</li>
 <li><code>simple-httpd</code> - Servidor HTTP simple para desarrollo</li>
@@ -146,13 +162,13 @@ Mi configuración incluye las siguientes capas:
 </div>
 </div>
 </div>
-<div id="outline-container-orgc25a641" class="outline-3">
-<h3 id="orgc25a641">Uso y Navegación</h3>
-<div class="outline-text-3" id="text-orgc25a641">
+<div id="outline-container-orga1b2a88" class="outline-3">
+<h3 id="orga1b2a88">Uso y Navegación</h3>
+<div class="outline-text-3" id="text-orga1b2a88">
 </div>
-<div id="outline-container-org36a6eca" class="outline-4">
-<h4 id="org36a6eca">Atajos Principales</h4>
-<div class="outline-text-4" id="text-org36a6eca">
+<div id="outline-container-org3ddfd32" class="outline-4">
+<h4 id="org3ddfd32">Atajos Principales</h4>
+<div class="outline-text-4" id="text-org3ddfd32">
 <ul class="org-ul">
 <li><code>SPC f f</code> - Buscar archivos</li>
 <li><code>SPC b b</code> - Cambiar entre buffers</li>
@@ -162,9 +178,9 @@ Mi configuración incluye las siguientes capas:
 </ul>
 </div>
 </div>
-<div id="outline-container-orga21ed81" class="outline-4">
-<h4 id="orga21ed81">Configuración de Shell</h4>
-<div class="outline-text-4" id="text-orga21ed81">
+<div id="outline-container-orgb5155a2" class="outline-4">
+<h4 id="orgb5155a2">Configuración de Shell</h4>
+<div class="outline-text-4" id="text-orgb5155a2">
 <p>
 Configurado para usar <code>vterm</code> como terminal por defecto:
 </p>

@@ -1,0 +1,12 @@
+#+TITLE: Notas HoTT
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+EXPORT_FILE_NAME: index
+#+STARTUP: overview
+
+* Bienvenido a mis notas
+Esta es una colección de mis notas de estudio sobre teoría homotópica de tipos
+
+** Notas
+- [[file:Rijke/index.org][Teoría homotópica de tipos (Rijke)]]
+- [[file:HoTT/index.org][Teoría homotópica de tipos (Carnegie Mellon University)]]

@@ -103,8 +103,12 @@ body {
   background: rgba(56, 139, 253, 0.1);
   color: #58a6ff !important;
 }
-.dropdown:hover .dropdown-content {
+.dropdown.open .dropdown-content {
   display: block;
+}
+.dropdown.open > .dropbtn {
+  background: rgba(56, 139, 253, 0.12);
+  color: #58a6ff !important;
 }
 .dropdown-submenu {
   position: relative;
@@ -124,7 +128,7 @@ body {
   transition: transform 0.2s ease;
 }
 
-.dropdown-submenu:hover .submenu-btn::after {
+.dropdown-submenu.open > .submenu-btn::after {
   transform: rotate(-90deg);
 }
 
@@ -164,8 +168,14 @@ body {
     text-overflow: ellipsis;
   }
 }
-.dropdown-submenu:hover .submenu-content {
+.dropdown-submenu.open > .submenu-content {
   display: block;
+}
+
+.dropdown-submenu.open > .submenu-btn,
+.dropdown-submenu.open > .dropbtn {
+  background: rgba(56, 139, 253, 0.08);
+  color: #58a6ff !important;
 }
 
 /* Tree-like styling for submenu items */

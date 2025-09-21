@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-20 Sat 22:52 -->
+<!-- 2025-09-21 Sun 07:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Introducción</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
+<script defer src='/navbar.js'></script>
 <script>
   window.MathJax = {
   tex: {
@@ -74,19 +75,9 @@
                         </div>
                 </div>
                 <div class="navbar-item dropdown">
-                        <a href="#" class="dropbtn">🔬 HoTT</a>
-                        <div class="dropdown-content">
-                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
-                        </div>
-                </div>
-                <div class="navbar-item dropdown">
                         <a href="#" class="dropbtn">🔤 Tipos</a>
                         <div class="dropdown-content">
+
                                 <div class="dropdown-submenu">
                                         <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
                                         <div class="submenu-content">
@@ -94,10 +85,35 @@
                                                 <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
                                         </div>
                                 </div>
+
                                 <div class="dropdown-submenu">
-                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT</a>
+                                        <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
-                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                        </div>
+                                                </div>
+
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🖥️ Lean</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/Lean/index.html">📋 Resumen </a>
                                         </div>
                                 </div>
                         </div>
@@ -107,13 +123,13 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Introducción</h1>
-<div id="outline-container-org6a7c78a" class="outline-2">
-<h2 id="org6a7c78a">Background</h2>
-<div class="outline-text-2" id="text-org6a7c78a">
+<div id="outline-container-org5b24e07" class="outline-2">
+<h2 id="org5b24e07">Background</h2>
+<div class="outline-text-2" id="text-org5b24e07">
 </div>
-<div id="outline-container-orgb5b0360" class="outline-3">
-<h3 id="orgb5b0360">Intuisionistic Type Theory</h3>
-<div class="outline-text-3" id="text-orgb5b0360">
+<div id="outline-container-orge0ebc5f" class="outline-3">
+<h3 id="orge0ebc5f">Intuisionistic Type Theory</h3>
+<div class="outline-text-3" id="text-orge0ebc5f">
 <ul class="org-ul">
 <li>Basado en el trabajo de Per Martin-Löf</li>
 <li>Análisis y expansión del programa de intuicionsimo de Brouwer</li>
@@ -135,9 +151,9 @@ espacios</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org56aa2c9" class="outline-3">
-<h3 id="org56aa2c9">El programa de Brouwer (Constructivismo)</h3>
-<div class="outline-text-3" id="text-org56aa2c9">
+<div id="outline-container-org9c0da6d" class="outline-3">
+<h3 id="org9c0da6d">El programa de Brouwer (Constructivismo)</h3>
+<div class="outline-text-3" id="text-org9c0da6d">
 <ul class="org-ul">
 <li>La matemática es una actividad humana (social)
 <ul class="org-ul">
@@ -165,9 +181,9 @@ que no es necesario afirmarlo.
 </p>
 </div>
 </div>
-<div id="outline-container-org52bf1d6" class="outline-3">
-<h3 id="org52bf1d6">Sintético vs. Analítico (Lawvere)</h3>
-<div class="outline-text-3" id="text-org52bf1d6">
+<div id="outline-container-orgc9a47b7" class="outline-3">
+<h3 id="orgc9a47b7">Sintético vs. Analítico (Lawvere)</h3>
+<div class="outline-text-3" id="text-orgc9a47b7">
 <p>
 En la teoría homotópica de tipos el acercamiento es sintético, a diferencia del camino 
 usual, que es analítico. Este acercamiento es lo que hace funcionar a la teoría 
@@ -176,9 +192,9 @@ homotópica de tipos.
 </div>
 </div>
 </div>
-<div id="outline-container-org1e5a2bf" class="outline-2">
-<h2 id="org1e5a2bf">¿Qué es la teoría de tipos?</h2>
-<div class="outline-text-2" id="text-org1e5a2bf">
+<div id="outline-container-org994ce72" class="outline-2">
+<h2 id="org994ce72">¿Qué es la teoría de tipos?</h2>
+<div class="outline-text-2" id="text-org994ce72">
 <p>
 La teoría de tipos es un análisis y codificación del programa de Brouwer. 
 Especialmente con insights en la teoría de la demostración.
@@ -216,9 +232,9 @@ de programación.
 </p>
 </div>
 </div>
-<div id="outline-container-org5d6f591" class="outline-2">
-<h2 id="org5d6f591">Lógica intuicionista (Lógica como si importaran las personas)</h2>
-<div class="outline-text-2" id="text-org5d6f591">
+<div id="outline-container-org458eb67" class="outline-2">
+<h2 id="org458eb67">Lógica intuicionista (Lógica como si importaran las personas)</h2>
+<div class="outline-text-2" id="text-org458eb67">
 <p>
 Hay dos juicios principales:
 </p>
@@ -232,13 +248,13 @@ Hay dos juicios principales:
 No esperamos que cada proposición pueda ser demostrada o refutada (hay problemas abiertos).
 </p>
 </div>
-<div id="outline-container-orgbf39ad2" class="outline-3">
-<h3 id="orgbf39ad2">Fragmento negativo</h3>
-<div class="outline-text-3" id="text-orgbf39ad2">
+<div id="outline-container-orge5bc5b6" class="outline-3">
+<h3 id="orge5bc5b6">Fragmento negativo</h3>
+<div class="outline-text-3" id="text-orge5bc5b6">
 </div>
-<div id="outline-container-org99db24d" class="outline-4">
-<h4 id="org99db24d">Proposición trivialmente verdadera</h4>
-<div class="outline-text-4" id="text-org99db24d">
+<div id="outline-container-orgf3906f2" class="outline-4">
+<h4 id="orgf3906f2">Proposición trivialmente verdadera</h4>
+<div class="outline-text-4" id="text-orgf3906f2">
 <p>
 \[\begin{align*}
   &\frac{}{\top ~ Prop} ~ (\top-Formation)\\\\
@@ -251,9 +267,9 @@ No hay regla de eliminación.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd1c1ec2" class="outline-4">
-<h4 id="orgd1c1ec2">Conjunción</h4>
-<div class="outline-text-4" id="text-orgd1c1ec2">
+<div id="outline-container-orgcf74a6e" class="outline-4">
+<h4 id="orgcf74a6e">Conjunción</h4>
+<div class="outline-text-4" id="text-orgcf74a6e">
 <p>
 \[\begin{align*}
   &\frac{A ~ Prop ~~~ B ~ Prop}{A \land B ~ Prop} ~ (\land-Formation)\\\\
@@ -271,9 +287,9 @@ Para \(\land\) sí hay reglas de eliminación
 </div>
 </div>
 </div>
-<div id="outline-container-org6b08a0a" class="outline-3">
-<h3 id="org6b08a0a">Implicación</h3>
-<div class="outline-text-3" id="text-org6b08a0a">
+<div id="outline-container-org64066c7" class="outline-3">
+<h3 id="org64066c7">Implicación</h3>
+<div class="outline-text-3" id="text-org64066c7">
 <p>
 \[\begin{align*}
   &\frac{A ~ Prop ~~~ B ~ Prop}{ A \supset B ~ Prop} ~ (\supset-Formation)\\\\

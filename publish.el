@@ -102,19 +102,9 @@
                         </div>
                 </div>
                 <div class=\"navbar-item dropdown\">
-                        <a href=\"#\" class=\"dropbtn\">🔬 HoTT</a>
-                        <div class=\"dropdown-content\">
-                                <a href=\"/HoTT/index.html\">📋 Resumen</a>
-                                <a href=\"/HoTT/introduccion.html\">🚀 Introducción</a>
-                                <a href=\"/HoTT/juicios.html\">⚖️ Juicios</a>
-                                <a href=\"/HoTT/transitividad.html\">🔛 Transitividad </a>
-                                <a href=\"/HoTT/exponenciales.html\">🗼 Exponenciales</a>
-                                <a href=\"/HoTT/igualdad.html\">🟰 Igualdad</a>
-                        </div>
-                </div>
-                <div class=\"navbar-item dropdown\">
                         <a href=\"#\" class=\"dropbtn\">🔤 Tipos</a>
                         <div class=\"dropdown-content\">
+
                                 <div class=\"dropdown-submenu\">
                                         <a href=\"#\" class=\"submenu-btn\">✍️ Pruebas y tipos</a>
                                         <div class=\"submenu-content\">
@@ -122,10 +112,35 @@
                                                 <a href=\"/Tipos/ProofsAndTypes/sentido.html\">🧠 Sentido, denotación y semántica</a>
                                         </div>
                                 </div>
+
                                 <div class=\"dropdown-submenu\">
-                                        <a href=\"#\" class=\"submenu-btn\">🔬 Introducción a HoTT</a>
+                                        <a href=\"#\" class=\"submenu-btn\">🔬 HoTT</a>
                                         <div class=\"submenu-content\">
-                                                <a href=\"/Tipos/Rijke/index.html\">📋 Resumen </a>
+                                                <div class=\"dropdown-submenu\">
+                                                        <a href=\"#\" class=\"submenu-btn\">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <div class=\"submenu-content\">
+                                                                <a href=\"/HoTT/index.html\">📋 Resumen</a>
+                                                                <a href=\"/HoTT/introduccion.html\">🚀 Introducción</a>
+                                                                <a href=\"/HoTT/juicios.html\">⚖️ Juicios</a>
+                                                                <a href=\"/HoTT/transitividad.html\">🔛 Transitividad </a>
+                                                                <a href=\"/HoTT/exponenciales.html\">🗼 Exponenciales</a>
+                                                                <a href=\"/HoTT/igualdad.html\">🟰 Igualdad</a>
+                                                        </div>
+                                                </div>
+
+                                                <div class=\"dropdown-submenu\">
+                                                        <a href=\"#\" class=\"submenu-btn\">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <div class=\"submenu-content\">
+                                                                <a href=\"/Tipos/Rijke/index.html\">📋 Resumen </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class=\"dropdown-submenu\">
+                                        <a href=\"#\" class=\"submenu-btn\">🖥️ Lean</a>
+                                        <div class=\"submenu-content\">
+                                                <a href=\"/Tipos/Lean/index.html\">📋 Resumen </a>
                                         </div>
                                 </div>
                         </div>
@@ -157,7 +172,7 @@
          :html-preamble my-org-html-preamble
          :html-postamble nil
          :babel-evaluate t
-         :html-head-extra "<link rel='stylesheet' href='/style.css' />")
+         :html-head-extra "<link rel='stylesheet' href='/style.css' />\n<script defer src='/navbar.js'></script>")
 
         ;; Static files (images, etc.)
         ("notes-static"

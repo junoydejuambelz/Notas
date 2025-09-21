@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-20 Sat 22:52 -->
+<!-- 2025-09-21 Sun 07:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Juicios</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
+<script defer src='/navbar.js'></script>
 <script>
   window.MathJax = {
   tex: {
@@ -74,19 +75,9 @@
                         </div>
                 </div>
                 <div class="navbar-item dropdown">
-                        <a href="#" class="dropbtn">🔬 HoTT</a>
-                        <div class="dropdown-content">
-                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
-                        </div>
-                </div>
-                <div class="navbar-item dropdown">
                         <a href="#" class="dropbtn">🔤 Tipos</a>
                         <div class="dropdown-content">
+
                                 <div class="dropdown-submenu">
                                         <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
                                         <div class="submenu-content">
@@ -94,10 +85,35 @@
                                                 <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
                                         </div>
                                 </div>
+
                                 <div class="dropdown-submenu">
-                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT</a>
+                                        <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
-                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                        </div>
+                                                </div>
+
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🖥️ Lean</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/Lean/index.html">📋 Resumen </a>
                                         </div>
                                 </div>
                         </div>
@@ -110,22 +126,22 @@
 <p>
 Tenemos los siguientes juicios
 </p>
-<div id="outline-container-org435ef53" class="outline-2">
-<h2 id="org435ef53">El fragmento negativo</h2>
-<div class="outline-text-2" id="text-org435ef53">
+<div id="outline-container-org05ce954" class="outline-2">
+<h2 id="org05ce954">El fragmento negativo</h2>
+<div class="outline-text-2" id="text-org05ce954">
 </div>
-<div id="outline-container-orgcf932e3" class="outline-3">
-<h3 id="orgcf932e3">Juicios atómicos</h3>
-<div class="outline-text-3" id="text-orgcf932e3">
+<div id="outline-container-org87b7332" class="outline-3">
+<h3 id="org87b7332">Juicios atómicos</h3>
+<div class="outline-text-3" id="text-org87b7332">
 <ul class="org-ul">
 <li><code>A Prop</code></li>
 <li><code>A True</code></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd8bb335" class="outline-3">
-<h3 id="orgd8bb335">Juicios compuestos (Juicios hipotéticos)</h3>
-<div class="outline-text-3" id="text-orgd8bb335">
+<div id="outline-container-org44f5086" class="outline-3">
+<h3 id="org44f5086">Juicios compuestos (Juicios hipotéticos)</h3>
+<div class="outline-text-3" id="text-org44f5086">
 <p>
 \[\underbrace{A_1 ~ True, \ldots A_n ~ True}_{Suposiciones} \vdash \underbrace{A ~ True}_{Conclusión}\]
 </p>
@@ -135,13 +151,13 @@ Es como un mapeo, las suposiciones son las entradas y la consecuencia la salida.
 </p>
 </div>
 </div>
-<div id="outline-container-org3990d7e" class="outline-3">
-<h3 id="org3990d7e">¿Qué es la vinculación lógica?</h3>
-<div class="outline-text-3" id="text-org3990d7e">
+<div id="outline-container-orgf0e30bb" class="outline-3">
+<h3 id="orgf0e30bb">¿Qué es la vinculación lógica?</h3>
+<div class="outline-text-3" id="text-orgf0e30bb">
 </div>
-<div id="outline-container-orgf0588e7" class="outline-4">
-<h4 id="orgf0588e7">Propiedades estructurales</h4>
-<div class="outline-text-4" id="text-orgf0588e7">
+<div id="outline-container-orge6f2ab6" class="outline-4">
+<h4 id="orge6f2ab6">Propiedades estructurales</h4>
+<div class="outline-text-4" id="text-orge6f2ab6">
 <ol class="org-ol">
 <li>\[A ~ True \vdash A ~ True ~~~ (Reflexividad)\]</li>
 <li>\[ \frac{\Gamma_1 \vdash A ~ True ~~~ \Gamma_2, A ~ True \vdash B ~ True}{\Gamma_1, \Gamma_2 \vdash B ~ True} ~~~ (Transitividad)\]</li>
@@ -151,9 +167,9 @@ Es como un mapeo, las suposiciones son las entradas y la consecuencia la salida.
 </ol>
 </div>
 </div>
-<div id="outline-container-org992ecd0" class="outline-4">
-<h4 id="org992ecd0">Formulación orientada al orden</h4>
-<div class="outline-text-4" id="text-org992ecd0">
+<div id="outline-container-orgabb67e8" class="outline-4">
+<h4 id="orgabb67e8">Formulación orientada al orden</h4>
+<div class="outline-text-4" id="text-orgabb67e8">
 <p>
 Definamos \(A \leq B\) donde \(A, B ~ Prop\) por \(A ~ True \vdash B ~ True\).
 </p>
@@ -175,17 +191,17 @@ En pocas palabras, tenemos una semi-retícula inferior.
 </div>
 </div>
 </div>
-<div id="outline-container-org6be889e" class="outline-2">
-<h2 id="org6be889e">Lógica proposicional intuicionista (IPL)</h2>
-<div class="outline-text-2" id="text-org6be889e">
+<div id="outline-container-org8a5d077" class="outline-2">
+<h2 id="org8a5d077">Lógica proposicional intuicionista (IPL)</h2>
+<div class="outline-text-2" id="text-org8a5d077">
 </div>
-<div id="outline-container-orgc88d68e" class="outline-3">
-<h3 id="orgc88d68e">Proposición trivialmente verdadera</h3>
-<div class="outline-text-3" id="text-orgc88d68e">
+<div id="outline-container-org9ef5122" class="outline-3">
+<h3 id="org9ef5122">Proposición trivialmente verdadera</h3>
+<div class="outline-text-3" id="text-org9ef5122">
 </div>
-<div id="outline-container-orgbfc5613" class="outline-4">
-<h4 id="orgbfc5613">Formación</h4>
-<div class="outline-text-4" id="text-orgbfc5613">
+<div id="outline-container-org50bb2bc" class="outline-4">
+<h4 id="org50bb2bc">Formación</h4>
+<div class="outline-text-4" id="text-org50bb2bc">
 <p>
 \[
   \frac{}{\top ~ Prop} ~ (\top-Formation)
@@ -193,9 +209,9 @@ En pocas palabras, tenemos una semi-retícula inferior.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfa3a131" class="outline-4">
-<h4 id="orgfa3a131">Introducción</h4>
-<div class="outline-text-4" id="text-orgfa3a131">
+<div id="outline-container-org03705a2" class="outline-4">
+<h4 id="org03705a2">Introducción</h4>
+<div class="outline-text-4" id="text-org03705a2">
 <p>
 \[
   \frac{}{\top ~ True} ~ (\top-Introduction)
@@ -204,13 +220,13 @@ En pocas palabras, tenemos una semi-retícula inferior.
 </div>
 </div>
 </div>
-<div id="outline-container-org6072f21" class="outline-3">
-<h3 id="org6072f21">Conjunción</h3>
-<div class="outline-text-3" id="text-org6072f21">
+<div id="outline-container-orga1de1c8" class="outline-3">
+<h3 id="orga1de1c8">Conjunción</h3>
+<div class="outline-text-3" id="text-orga1de1c8">
 </div>
-<div id="outline-container-org5481dbd" class="outline-4">
-<h4 id="org5481dbd">Formación</h4>
-<div class="outline-text-4" id="text-org5481dbd">
+<div id="outline-container-org2dae051" class="outline-4">
+<h4 id="org2dae051">Formación</h4>
+<div class="outline-text-4" id="text-org2dae051">
 <p>
 \[
   \frac{A ~ Prop ~~~ B ~ Prop}{A \land B ~ Prop} ~ (\land-Formation)
@@ -218,9 +234,9 @@ En pocas palabras, tenemos una semi-retícula inferior.
 </p>
 </div>
 </div>
-<div id="outline-container-orgdb60191" class="outline-4">
-<h4 id="orgdb60191">Introducción</h4>
-<div class="outline-text-4" id="text-orgdb60191">
+<div id="outline-container-org10327d9" class="outline-4">
+<h4 id="org10327d9">Introducción</h4>
+<div class="outline-text-4" id="text-org10327d9">
 <p>
 \[
   \frac{A ~ True ~~~ B True}{A \land B ~ True} ~ (\land-Introduction)
@@ -228,9 +244,9 @@ En pocas palabras, tenemos una semi-retícula inferior.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd6d11fb" class="outline-4">
-<h4 id="orgd6d11fb">Eliminación</h4>
-<div class="outline-text-4" id="text-orgd6d11fb">
+<div id="outline-container-orgcb253ef" class="outline-4">
+<h4 id="orgcb253ef">Eliminación</h4>
+<div class="outline-text-4" id="text-orgcb253ef">
 <p>
 \[
   \frac{A \land B ~ True}{A ~ True} ~ (\land-Elimination_1)
@@ -245,13 +261,13 @@ En pocas palabras, tenemos una semi-retícula inferior.
 </div>
 </div>
 </div>
-<div id="outline-container-org3e45412" class="outline-3">
-<h3 id="org3e45412">Implicación</h3>
-<div class="outline-text-3" id="text-org3e45412">
+<div id="outline-container-org6129c42" class="outline-3">
+<h3 id="org6129c42">Implicación</h3>
+<div class="outline-text-3" id="text-org6129c42">
 </div>
-<div id="outline-container-org74951c7" class="outline-4">
-<h4 id="org74951c7">Formación</h4>
-<div class="outline-text-4" id="text-org74951c7">
+<div id="outline-container-org4aa00d3" class="outline-4">
+<h4 id="org4aa00d3">Formación</h4>
+<div class="outline-text-4" id="text-org4aa00d3">
 <p>
 \[
   \frac{A ~ Prop ~~~ B ~ Prop}{A \supset B ~ Prop} ~ (\supset-Formation)
@@ -259,9 +275,9 @@ En pocas palabras, tenemos una semi-retícula inferior.
 </p>
 </div>
 </div>
-<div id="outline-container-org95ed9cb" class="outline-4">
-<h4 id="org95ed9cb">Introducción</h4>
-<div class="outline-text-4" id="text-org95ed9cb">
+<div id="outline-container-orge6e5b6f" class="outline-4">
+<h4 id="orge6e5b6f">Introducción</h4>
+<div class="outline-text-4" id="text-orge6e5b6f">
 <p>
 \[
   \frac{A ~ True \vdash B ~ True}{A \supset B} ~ (\supset-Introduction)
@@ -270,9 +286,9 @@ A esta regla se le llama deducción natural
 </p>
 </div>
 </div>
-<div id="outline-container-orgd97bc7e" class="outline-4">
-<h4 id="orgd97bc7e">Eliminación</h4>
-<div class="outline-text-4" id="text-orgd97bc7e">
+<div id="outline-container-org06d3b66" class="outline-4">
+<h4 id="org06d3b66">Eliminación</h4>
+<div class="outline-text-4" id="text-org06d3b66">
 <p>
 \[
   \frac{A \supset B ~ True ~~~ A ~ True}{\vdash B ~ True} ~ (\supset-Elimination)
@@ -282,17 +298,17 @@ A esta regla se le llama deducción natural
 </div>
 </div>
 </div>
-<div id="outline-container-orgfda68c9" class="outline-2">
-<h2 id="orgfda68c9">El fragmento positivo</h2>
-<div class="outline-text-2" id="text-orgfda68c9">
+<div id="outline-container-orgbb44445" class="outline-2">
+<h2 id="orgbb44445">El fragmento positivo</h2>
+<div class="outline-text-2" id="text-orgbb44445">
 </div>
-<div id="outline-container-org67a1a0e" class="outline-3">
-<h3 id="org67a1a0e">Proposición trivialmente false</h3>
-<div class="outline-text-3" id="text-org67a1a0e">
+<div id="outline-container-org7296116" class="outline-3">
+<h3 id="org7296116">Proposición trivialmente false</h3>
+<div class="outline-text-3" id="text-org7296116">
 </div>
-<div id="outline-container-org2ac651a" class="outline-4">
-<h4 id="org2ac651a">Formación</h4>
-<div class="outline-text-4" id="text-org2ac651a">
+<div id="outline-container-org5b3c93f" class="outline-4">
+<h4 id="org5b3c93f">Formación</h4>
+<div class="outline-text-4" id="text-org5b3c93f">
 <p>
 \[
   \frac{}{\bot ~ False}~ (\bot-Formation)
@@ -300,9 +316,9 @@ A esta regla se le llama deducción natural
 </p>
 </div>
 </div>
-<div id="outline-container-org03a7df6" class="outline-4">
-<h4 id="org03a7df6">Eliminación</h4>
-<div class="outline-text-4" id="text-org03a7df6">
+<div id="outline-container-orgda47462" class="outline-4">
+<h4 id="orgda47462">Eliminación</h4>
+<div class="outline-text-4" id="text-orgda47462">
 <p>
 \[
   \frac{\bot ~ True}{A ~ True}(\bot-Elimination)
@@ -311,13 +327,13 @@ A esta regla se le llama deducción natural
 </div>
 </div>
 </div>
-<div id="outline-container-org14b59cc" class="outline-3">
-<h3 id="org14b59cc">Disyunción</h3>
-<div class="outline-text-3" id="text-org14b59cc">
+<div id="outline-container-org10abb30" class="outline-3">
+<h3 id="org10abb30">Disyunción</h3>
+<div class="outline-text-3" id="text-org10abb30">
 </div>
-<div id="outline-container-org958adf9" class="outline-4">
-<h4 id="org958adf9">Formación</h4>
-<div class="outline-text-4" id="text-org958adf9">
+<div id="outline-container-org3da4443" class="outline-4">
+<h4 id="org3da4443">Formación</h4>
+<div class="outline-text-4" id="text-org3da4443">
 <p>
 \[
   \frac{A ~ Prop ~~~ B ~ Prop}{A \lor B ~ Prop} (\lor_Formation)
@@ -325,9 +341,9 @@ A esta regla se le llama deducción natural
 </p>
 </div>
 </div>
-<div id="outline-container-org4ebd7ee" class="outline-4">
-<h4 id="org4ebd7ee">Introducción</h4>
-<div class="outline-text-4" id="text-org4ebd7ee">
+<div id="outline-container-orgcdceae4" class="outline-4">
+<h4 id="orgcdceae4">Introducción</h4>
+<div class="outline-text-4" id="text-orgcdceae4">
 <p>
 \[
   \frac{A ~ True}{A \lor B ~ True} ~ (\lor-Introduction_1)
@@ -341,9 +357,9 @@ A esta regla se le llama deducción natural
 </p>
 </div>
 </div>
-<div id="outline-container-org77b53f0" class="outline-4">
-<h4 id="org77b53f0">Eliminación</h4>
-<div class="outline-text-4" id="text-org77b53f0">
+<div id="outline-container-orgb232853" class="outline-4">
+<h4 id="orgb232853">Eliminación</h4>
+<div class="outline-text-4" id="text-orgb232853">
 <p>
 \[
   \frac{A \lor B True ~~~ A True \vdash C ~ True ~~~ B ~ True \vdash C ~ True}{C ~ True} ~ (\lor-Elimination)
@@ -351,9 +367,9 @@ A esta regla se le llama deducción natural
 </p>
 </div>
 </div>
-<div id="outline-container-org48f64cb" class="outline-4">
-<h4 id="org48f64cb">Formulación orientada al orden</h4>
-<div class="outline-text-4" id="text-org48f64cb">
+<div id="outline-container-org62b5daa" class="outline-4">
+<h4 id="org62b5daa">Formulación orientada al orden</h4>
+<div class="outline-text-4" id="text-org62b5daa">
 <ol class="org-ol">
 <li>Hay un objeto inicial \(\bot \leq A\)</li>
 <li>Hay joins \(A \leq A \lor B\) y \(B \leq A \lor B\) y, además, si \(C \leq A\) y 
@@ -366,9 +382,9 @@ Esto, junto con lo que teníamos antes, nos da la estructura de un álgebra de H
 Definidas de esta forma, toda álgebra de Heyting es <b>distributiva</b>.
 </p>
 </div>
-<div id="outline-container-org5ee8662" class="outline-5">
-<h5 id="org5ee8662">Hints</h5>
-<div class="outline-text-5" id="text-org5ee8662">
+<div id="outline-container-org66225f8" class="outline-5">
+<h5 id="org66225f8">Hints</h5>
+<div class="outline-text-5" id="text-org66225f8">
 <ol class="org-ol">
 <li>Hay que usar exponenciales.</li>
 <li>Usar el lema de Yoneda \(a \leq b\) si y sólo si, para cada \(x\), \(x \leq a\) entonces 
@@ -377,25 +393,25 @@ Definidas de esta forma, toda álgebra de Heyting es <b>distributiva</b>.
 </div>
 </div>
 </div>
-<div id="outline-container-orgbdc0a4f" class="outline-4">
-<h4 id="orgbdc0a4f">Negación</h4>
-<div class="outline-text-4" id="text-orgbdc0a4f">
+<div id="outline-container-orga7c8bf2" class="outline-4">
+<h4 id="orga7c8bf2">Negación</h4>
+<div class="outline-text-4" id="text-orga7c8bf2">
 <p>
 Primero, definimos \(\lnot A := A \supset \bot\).
 </p>
 </div>
-<div id="outline-container-org53324f2" class="outline-5">
-<h5 id="org53324f2">Checar</h5>
-<div class="outline-text-5" id="text-org53324f2">
+<div id="outline-container-org7897d71" class="outline-5">
+<h5 id="org7897d71">Checar</h5>
+<div class="outline-text-5" id="text-org7897d71">
 <p>
 \(\lnot A\) es la \(C\) más grande inconsistente con \(A\), es decir, \(A \land \lnot A \leq \bot\) y, si \(A \land C \leq \bot\) entonces \(C \leq \lnot A\).
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb8cbe5d" class="outline-4">
-<h4 id="orgb8cbe5d">Complemento \(\left(\overline{A}\right)\)</h4>
-<div class="outline-text-4" id="text-orgb8cbe5d">
+<div id="outline-container-orgde9bc05" class="outline-4">
+<h4 id="orgde9bc05">Complemento \(\left(\overline{A}\right)\)</h4>
+<div class="outline-text-4" id="text-orgde9bc05">
 <p>
 \(A \lor \overline{A} \simeq \top\), i.e., \(\top \leq A \lor \overline{A}\) y, si 
 \(\top \leq A \lor C\) entonces \(\overline{A} \leq C\)

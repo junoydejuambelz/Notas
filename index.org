@@ -14,15 +14,11 @@ Esta es mi colección de notas sobre distintos temas.
 Notas sobre inteligencia artificial:
 - CS229 - Aprendizaje Automático de Stanford
 - DataCamp - Transformers con PyTorch
-
-*** [[file:HoTT/index.org][Homotopy Type Theory]]
-Notas de estudio sobre teoría homotópica de tipos:
-- Introducción a la teoría de tipos
-- Juicios y lógica intuicionista
-- Transitividad
-- Exponenciales
-- Igualdad
-*** [[file:./Tipos/index.org][Teoría de tipos]]
-- Sentido, denotación y semántica
+*** [[file:Tipos/index.org][Teoría de tipos]]
+Notas sobre teoría de tipos
+- HoTT - Teoría homotópica de tipos
+- Lean - Lenguaje de programación Lean4
+- Demostraciones y tipos - La mezcla entre los tipos y las pruebas
+*** [[file:Tipos/index.org][Teoría de tipos]]
 ** Navegación
 Usa los enlaces para acceder directamente a cada sección de notas.

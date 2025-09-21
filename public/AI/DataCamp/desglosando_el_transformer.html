@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-20 Sat 22:52 -->
+<!-- 2025-09-21 Sun 07:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Desglosando el Transformer</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
+<script defer src='/navbar.js'></script>
 <script>
   window.MathJax = {
   tex: {
@@ -74,19 +75,9 @@
                         </div>
                 </div>
                 <div class="navbar-item dropdown">
-                        <a href="#" class="dropbtn">🔬 HoTT</a>
-                        <div class="dropdown-content">
-                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
-                        </div>
-                </div>
-                <div class="navbar-item dropdown">
                         <a href="#" class="dropbtn">🔤 Tipos</a>
                         <div class="dropdown-content">
+
                                 <div class="dropdown-submenu">
                                         <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
                                         <div class="submenu-content">
@@ -94,10 +85,35 @@
                                                 <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
                                         </div>
                                 </div>
+
                                 <div class="dropdown-submenu">
-                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT</a>
+                                        <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
-                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                        </div>
+                                                </div>
+
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🖥️ Lean</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/Lean/index.html">📋 Resumen </a>
                                         </div>
                                 </div>
                         </div>
@@ -107,9 +123,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Desglosando el Transformer</h1>
-<div id="outline-container-orgf9d9494" class="outline-2">
-<h2 id="orgf9d9494">El artículo que lo cambió todo</h2>
-<div class="outline-text-2" id="text-orgf9d9494">
+<div id="outline-container-org4d00b4f" class="outline-2">
+<h2 id="org4d00b4f">El artículo que lo cambió todo</h2>
+<div class="outline-text-2" id="text-org4d00b4f">
 <ul class="org-ul">
 <li>Attention is all you need (Ashish Vaswani)
 <ul class="org-ul">
@@ -123,9 +139,9 @@ La arquitectura Transformer está formada por dos bloques, el bloque encoder y e
 decoder
 </p>
 </div>
-<div id="outline-container-org06fdc5f" class="outline-3">
-<h3 id="org06fdc5f">Bloque encoder</h3>
-<div class="outline-text-3" id="text-org06fdc5f">
+<div id="outline-container-org6950d5e" class="outline-3">
+<h3 id="org6950d5e">Bloque encoder</h3>
+<div class="outline-text-3" id="text-org6950d5e">
 <ul class="org-ul">
 <li>Multiples capas idénticas</li>
 <li><b>Lee</b> y <b>procesa</b> el input</li>
@@ -134,43 +150,43 @@ decoder
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd78f9ab" class="outline-3">
-<h3 id="orgd78f9ab">Bloque decoder</h3>
-<div class="outline-text-3" id="text-orgd78f9ab">
+<div id="outline-container-org2d1269e" class="outline-3">
+<h3 id="org2d1269e">Bloque decoder</h3>
+<div class="outline-text-3" id="text-org2d1269e">
 <ul class="org-ul">
 <li>Secuencia input codificada \(\rightarrow\) secuencia output</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgabc2a98" class="outline-3">
-<h3 id="orgabc2a98">Positional encoding</h3>
-<div class="outline-text-3" id="text-orgabc2a98">
+<div id="outline-container-org47eb905" class="outline-3">
+<h3 id="org47eb905">Positional encoding</h3>
+<div class="outline-text-3" id="text-org47eb905">
 <ul class="org-ul">
 <li>Codifica la posición de cada token en la secuencia</li>
 <li>El orden es crucial para modelar secuencias</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org148d183" class="outline-3">
-<h3 id="org148d183">Mecanismos de atención</h3>
-<div class="outline-text-3" id="text-org148d183">
+<div id="outline-container-org65b23a1" class="outline-3">
+<h3 id="org65b23a1">Mecanismos de atención</h3>
+<div class="outline-text-3" id="text-org65b23a1">
 <ul class="org-ul">
 <li>Presta atención a los tokens importantes y sus relaciones</li>
 <li>Mejora la generación de texto</li>
 </ul>
 </div>
-<div id="outline-container-org86d70a6" class="outline-4">
-<h4 id="org86d70a6">Self-attention</h4>
-<div class="outline-text-4" id="text-org86d70a6">
+<div id="outline-container-org2436699" class="outline-4">
+<h4 id="org2436699">Self-attention</h4>
+<div class="outline-text-4" id="text-org2436699">
 <ul class="org-ul">
 <li>Le asigna pesos a los tokens</li>
 <li>Captura dependencias a largo rango</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7f81064" class="outline-4">
-<h4 id="org7f81064">Multi-head attention</h4>
-<div class="outline-text-4" id="text-org7f81064">
+<div id="outline-container-org4f825af" class="outline-4">
+<h4 id="org4f825af">Multi-head attention</h4>
+<div class="outline-text-4" id="text-org4f825af">
 <ul class="org-ul">
 <li>Parte el input en múltiples <b>heads</b></li>
 <li>Las heads capturas patrones distintos, creando representaciones más ricas</li>
@@ -178,9 +194,9 @@ decoder
 </div>
 </div>
 </div>
-<div id="outline-container-orga1f7bc1" class="outline-3">
-<h3 id="orga1f7bc1">Position-wide feed-forward networks</h3>
-<div class="outline-text-3" id="text-orga1f7bc1">
+<div id="outline-container-org104a460" class="outline-3">
+<h3 id="org104a460">Position-wide feed-forward networks</h3>
+<div class="outline-text-3" id="text-org104a460">
 <ul class="org-ul">
 <li>Neural Networks (NNs) simples que aplican transformaciones</li>
 <li>Cada token es transformado de manera independiente</li>
@@ -189,9 +205,9 @@ decoder
 </div>
 </div>
 </div>
-<div id="outline-container-org4410788" class="outline-2">
-<h2 id="org4410788">Transformers en PyTorch</h2>
-<div class="outline-text-2" id="text-org4410788">
+<div id="outline-container-orga70d791" class="outline-2">
+<h2 id="orga70d791">Transformers en PyTorch</h2>
+<div class="outline-text-2" id="text-orga70d791">
 <p>
 PyTorch nos provee de una clase de alto nivel en <code>torch.nn</code> para definir arquitecturas. 
 Toma cuatro parámetros principales:

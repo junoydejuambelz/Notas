@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-20 Sat 22:52 -->
+<!-- 2025-09-21 Sun 07:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lógica proposicional intuicionista</title>
+<title>Igualdad</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
+<script defer src='/navbar.js'></script>
 <script>
   window.MathJax = {
   tex: {
@@ -74,19 +75,9 @@
                         </div>
                 </div>
                 <div class="navbar-item dropdown">
-                        <a href="#" class="dropbtn">🔬 HoTT</a>
-                        <div class="dropdown-content">
-                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
-                        </div>
-                </div>
-                <div class="navbar-item dropdown">
                         <a href="#" class="dropbtn">🔤 Tipos</a>
                         <div class="dropdown-content">
+
                                 <div class="dropdown-submenu">
                                         <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
                                         <div class="submenu-content">
@@ -94,10 +85,35 @@
                                                 <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
                                         </div>
                                 </div>
+
                                 <div class="dropdown-submenu">
-                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT</a>
+                                        <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
-                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                        </div>
+                                                </div>
+
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🖥️ Lean</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/Lean/index.html">📋 Resumen </a>
                                         </div>
                                 </div>
                         </div>
@@ -106,75 +122,95 @@
   </nav>
 </div>
 <div id="content" class="content">
-<h1 class="title">Lógica proposicional intuicionista</h1>
-<div id="outline-container-orgad7482c" class="outline-2">
-<h2 id="orgad7482c">Números naturales</h2>
-<div class="outline-text-2" id="text-orgad7482c">
-</div>
-<div id="outline-container-orgbc0d99e" class="outline-3">
-<h3 id="orgbc0d99e">Reglas de introducción</h3>
-<div class="outline-text-3" id="text-orgbc0d99e">
+<h1 class="title">Igualdad</h1>
+<div id="outline-container-org959d5ab" class="outline-2">
+<h2 id="org959d5ab">Principio de inversión de Gentzen (Reglas \(\beta\))</h2>
+<div class="outline-text-2" id="text-org959d5ab">
 <p>
-\[
-        \frac{}{\Gamma \vdash 0: Nat} ~~~ \frac{\Gamma \vdash M: Nat}{\Gamma \vdash s(M): Nat} (Nat-Introducci\acute{o}n)
-\]
+Nos dan la dinámica de las pruebas (las pruebas son programas)
 </p>
 </div>
-</div>
-<div id="outline-container-org72e3bca" class="outline-3">
-<h3 id="org72e3bca">Regla de eliminación</h3>
-<div class="outline-text-3" id="text-org72e3bca">
-<p>
-\[
-        \frac{\Gamma \vdash M: Nat ~~~ \Gamma \vdash P: A ~~~ \Gamma, x: A \vdash Q: A}{\Gamma \vdash \underline{rec}(P,x.Q)(M): A} ~~~ (Nat-Eliminaci\acute{o}n)
-\]
-</p>
-</div>
-</div>
-<div id="outline-container-org3a4f23f" class="outline-3">
-<h3 id="org3a4f23f">Reglas &beta;</h3>
-<div class="outline-text-3" id="text-org3a4f23f">
+<div id="outline-container-orgf2b34e5" class="outline-3">
+<h3 id="orgf2b34e5">Conjunción \((\land)\)</h3>
+<div class="outline-text-3" id="text-orgf2b34e5">
 <ul class="org-ul">
-<li>\[ rec(P,Q)(0) \equiv P \]</li>
-<li>\[ rec(P,Q)(s(M)) \equiv [rec(P,Q)(M)/x]Q \]</li>
+<li>\[ fst \langle M, N \rangle \equiv  M  \]</li>
+<li>\[ snd \langle M, N \rangle \equiv N \]</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgea9df41" class="outline-3">
-<h3 id="orgea9df41">Regla &eta;</h3>
-<div class="outline-text-3" id="text-orgea9df41">
+<div id="outline-container-org24afe0e" class="outline-3">
+<h3 id="org24afe0e">Implicación \((\supset)\)</h3>
+<div class="outline-text-3" id="text-org24afe0e">
 <p>
-\[
-        \dfrac{\begin{array}{ll}
-                \Gamma, z : Nat \vdash M: A & \Gamma, z : Nat \vdash [s(z)/z]M \equiv [M/x]Q \\
-                \Gamma \vdash [0/z]M \equiv P: A & ~~~
-        \end{array}}{\Gamma, z: Nat \vdash M \equiv rec(P,Q)(z)}
-\]
-</p>
-</div>
-<div id="outline-container-org56f7b3c" class="outline-4">
-<h4 id="org56f7b3c">Caso especial</h4>
-<div class="outline-text-4" id="text-org56f7b3c">
-<p>
-\[ z: Nat \vdash rec(0, y.s(y))(z) \equiv z: Nat \]
+\[ (\lambda x. M)(N) \equiv [N/x]M \]
 </p>
 </div>
 </div>
-<div id="outline-container-org4de3619" class="outline-4">
-<h4 id="org4de3619">Caso especial</h4>
-<div class="outline-text-4" id="text-org4de3619">
+<div id="outline-container-org6f40525" class="outline-3">
+<h3 id="org6f40525">Disyunción \((\lor)\)</h3>
+<div class="outline-text-3" id="text-org6f40525">
+<ul class="org-ul">
+<li>\[ \underline{case} ( inl(M), x. P, y. Q  ) \equiv [M/x]P \]</li>
+<li>\[ \underline{case}(inr(M), x.P, y.Q) \equiv [M/y]Q \]</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org8be9a62" class="outline-2">
+<h2 id="org8be9a62">Principio de unicidad de Gentzen (Reglas \( \eta \))</h2>
+<div class="outline-text-2" id="text-org8be9a62">
+</div>
+<div id="outline-container-org473046e" class="outline-3">
+<h3 id="org473046e">Proposición trivialmente verdadera</h3>
+<div class="outline-text-3" id="text-org473046e">
 <p>
-\[ \Gamma, z: Nat \vdash [rec(0, y.s(y))(z)/z]M \equiv rec([0/z]M, y.[s(y)/z]M)(z) \]
+\[ \frac{\Gamma \vdash M: \top}{\Gamma \vdash M \equiv \langle \rangle: \top} \]
 </p>
 </div>
 </div>
+<div id="outline-container-org5034f33" class="outline-3">
+<h3 id="org5034f33">Conjunción</h3>
+<div class="outline-text-3" id="text-org5034f33">
+<p>
+\[ \frac{\Gamma \vdash M : A \land B}{\Gamma \vdash M \equiv \langle fst(M), snd(M) \rangle: A \land B} \]
+</p>
 </div>
-<div id="outline-container-orgacfe231" class="outline-3">
-<h3 id="orgacfe231">Diagrama (Objeto números naturales)</h3>
-<div class="outline-text-3" id="text-orgacfe231">
+</div>
+<div id="outline-container-org2bc22d3" class="outline-3">
+<h3 id="org2bc22d3">Implicación</h3>
+<div class="outline-text-3" id="text-org2bc22d3">
+<p>
+\[ \frac{\Gamma \vdash M: A \supset B}{\Gamma \vdash M \equiv \lambda x. (M(x)): A \supset B} \]
+</p>
+</div>
+</div>
+<div id="outline-container-org0c6df83" class="outline-3">
+<h3 id="org0c6df83">Disyunción</h3>
+<div class="outline-text-3" id="text-org0c6df83">
+<p>
+\[ \frac{\Gamma \vdash M: A \lor B ~~~ \Gamma, z: A \lor B \vdash P: C }{ \Gamma \vdash [M/z]P \equiv \underline{case}(M,x.[inl(x)/z]P, y. [inr(y)/z]P) } \]
+</p>
+</div>
+<div id="outline-container-org0567453" class="outline-4">
+<h4 id="org0567453">Caso especial (\( P \) es solo \(z\))</h4>
+<div class="outline-text-4" id="text-org0567453">
+<p>
+\[ M \equiv \underline{case}(M, x.inl(x), y.inr(y)) \]
+</p>
+</div>
+</div>
+<div id="outline-container-org96bc169" class="outline-4">
+<h4 id="org96bc169">Diagrama</h4>
+<div class="outline-text-4" id="text-org96bc169">
 
-<div id="org6b47cd7" class="figure">
-<p><img src="./Categorías/recursor.png" alt="recursor.png" width="300px" />
+<div id="org8a678ea" class="figure">
+<p><img src="Categorías/swappy-20250912_100918.png" alt="swappy-20250912_100918.png" width="300px" />
+</p>
+</div>
+
+<p>
+Aquí, \( \{ P, Q \} \approx \underline{case}(\_, x.P, y.Q)\)
 </p>
 </div>
 </div>

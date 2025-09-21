@@ -1,0 +1,126 @@
+#+title: Exponenciales
+
+* Términos de pruebas
+** Reglas estructurales
+*** Regla de introducción de variables
+\[
+        \Gamma, x: A, \Gamma' \vdash x: A
+\]
+*** Relga de substitución
+\[
+        \frac{\Gamma, x: A, \Gamma' \vdash N: B ~~~ \Gamma \vdash M: A}{\Gamma, \Gamma' \vdash [M|_x]N: B}
+\]
+*** Regla de debilitamiento
+\[
+        \frac{\Gamma \vdash M: A}{\Gamma, \Gamma' \vdash M: A}
+\]
+*** Regla de contracción
+\[
+        \frac{\Gamma, x: A, y: A, \Gamma' \vdash N: B}{\Gamma, z: A, \Gamma' \vdash [z, z/x,y]N: B}
+\]
+*** Regla de intercambio
+\[
+        \frac{\Gamma, x: A, y: B, \Gamma' \vdash N: C}{\Gamma, y: B, x: A, \Gamma' \vdash N: C}
+\]
+
+** Conectivos lógicos
+*** Proposición trivialmente verdadera
+\[
+        \frac{~}{\Gamma \vdash <>: \top} ~ (\top-Introducci\acute{o}n)
+\]
+*** Conjunción
+**** Introducción
+\[
+        \frac{\Gamma  \vdash M: A ~~~ \Gamma \vdash N: B}{\Gamma \vdash \langle M, N \rangle: A \land B} ~ (\land-Introducci\acute{o}n)
+\]
+**** Eliminación
+\[
+        \frac{\Gamma \vdash M: A \land B}{\Gamma \vdash fst(M): A} ~ (\land-Eliminaci\acute{o}n_1) ~~~
+        \frac{\Gamma \vdash M: A \land B}{\Gamma \vdash snd(M): B} ~ (\land-Eliminaci\acute{o}n_2)
+\]
+*** Implicación
+**** Introducción
+\[
+        \frac{\Gamma, x: A \vdash M: B}{\Gamma \vdash \lambda x.M: A \supset B} ~ (\supset-Introducci\acute{o}n)
+\]
+**** Eliminación
+\[
+        \frac{\Gamma \vdash M: A \supset B ~~~ \Gamma \vdash N: A}{\Gamma \vdash M(N): B} ~ (\supset-Eliminaci\acute{o}n)
+\]
+
+* Igualdad definicional
+La igualdad definicional es la mínima congruencia (relación de equivalencia, que es compatible con los
+operadoes, i.e., se preserva la igualdad definicional) que es cerrada bajo las siguientes reglas
+(reglas \(\beta\)):
+
+- \[
+        \frac{\Gamma \vdash M: A ~~~ \Gamma \vdash N: B}{\Gamma \vdash fst(\langle M, N \rangle) \equiv M: A} ~ (\beta \land_1)
+  \]
+- \[
+        \frac{\Gamma \vdash M: A ~~~ \Gamma \vdash N: B}{\Gamma \vdash snd(\langle M, N \rangle) \equiv N: B} ~ (\beta \land_2)
+  \]
+- \[
+        \frac{\Gamma, x: A \Gamma \vdash M: B ~~~ \Gamma \vdash N: A}{\Gamma \vdash (\lambda x.M)(N) \equiv [N|_x]M: B} ~ (\beta \supset)
+  \]
+** Principios de unicidad de Gentzen (reglas \(\eta\))
+-
+  \[
+        \frac{\Gamma \vdash M: \top}{\Gamma \vdash M \equiv \langle \rangle: \top} ~ (\eta \top)
+  \]
+- \[
+        \frac{\Gamma \vdash M : A \land B}{\Gamma \vdash M \equiv \langle fst(M), snd(M) \rangle: A \land B} ~ (\eta \land)
+  \]
+- \[
+        \frac{\Gamma \vdash M: A \supset B}{\Gamma \vdash M \equiv \lambda x.M x: A \supset B} ~ (\eta \supset)
+  \]
+
+* Proposiciones como tipos (La gran correspondencia)
+| Proposición | Tipo        | Categorías     | Álgebras de Heyting |
+| \( \top \)  | 1           | Objeto final   | Meets               |
+| \( A \land B \) | \( A \times B \) | Producto       | Meets               |
+| \( A \supset B \) | \( A \to B\)  | Exponencial    | Exponencial         |
+| \( \bot \)  | \( 0 \)     | Objeto inicial | Joins               |
+| \( A \lor B \) | \( A + B\)  | Coproducto     | Joins               |
+
+
+* Categorías
+** Objeto terminal
+Un obejto terminal \(1\) es un objeto en una categoría tal que para cada otro objeto \(A\) existe un
+único morfismo \( \langle \rangle: A \to 1 \), siendo más claros:
+1. \(\langle \rangle: A \to 1\) (existe un morfismo)
+2. \( \frac{M: A \to 1}{M = \langle \rangle: 1} \) (el morfismo es único)
+** Productos
+:PROPERTIES:
+:ID:       6549c835-e22f-47ca-8b4d-a11e75382ee7
+:END:
+Un producto \(A \times B\) de dos objetos \(A\) y \(B\) es un objeto en una categoría con dos
+morfismos \(fst: A \times B \to A\) y \(snd: A \times B \to B\) tal que para cada otro objeto \(C\) con
+morfismos \( M: C \to A \) y \(N: C \to B\) existe un único morfismo \( \langle M, N \rangle : C \to A \times B\) tal
+que \(fst \circ \langle M, N \rangle = M: D \to A\) y \(snd \circ \langle M, N \rangle = N: D \to B \), es decir, que el siguiente diagrama
+conmute
+
+#+attr_html: :width 300px
+[[file:Categorías/_20250911_171757screenshot.png]]
+
+Y, la unicidad es lo mismo que lo siguiente:
+
+\[
+        \frac{P: D \to A \times B  ~~~ fst \circ P = M ~~~ snd \circ P = N}{P = \langle M, N \rangle : D \to A \times B}
+\]
+Otra manera de escribir esto es:
+- \(\langle fst, snd \rangle = id\)
+- \(\langle M, N \rangle \circ P = \langle M \circ P, N \circ P \rangle\)
+
+** Exponenciales
+Un objeto \(B^A\) y un morfismo \(ap: B^A \times A \to B\) en una categoría es una exponencial para
+\(B\) y \(A\) si, para cada objeto \(C\) y cada morfismo \(h: C \times A \to B\) existe un único morfismo
+\(\lambda(h): C \to B^A\) tal que \( ap \circ (\lambda(h) \times id_A) = \langle \lambda(h) \circ fst, snd \rangle = h \)
+es decir, el siguiente diagrama conmuta
+
+#+attr_html: :width 300px
+[[file:Categorías/swappy-20250911_180042.png]]
+
+Y, la unicidad es lo mismo que lo siguiente
+\[
+        \frac{ap \circ (g \times id_A) = h}{g = \lambda(h)}
+\]

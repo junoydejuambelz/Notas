@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-20 Sat 22:52 -->
+<!-- 2025-09-21 Sun 07:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Regresión lineal</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
+<script defer src='/navbar.js'></script>
 <script>
   window.MathJax = {
   tex: {
@@ -74,19 +75,9 @@
                         </div>
                 </div>
                 <div class="navbar-item dropdown">
-                        <a href="#" class="dropbtn">🔬 HoTT</a>
-                        <div class="dropdown-content">
-                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
-                        </div>
-                </div>
-                <div class="navbar-item dropdown">
                         <a href="#" class="dropbtn">🔤 Tipos</a>
                         <div class="dropdown-content">
+
                                 <div class="dropdown-submenu">
                                         <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
                                         <div class="submenu-content">
@@ -94,10 +85,35 @@
                                                 <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
                                         </div>
                                 </div>
+
                                 <div class="dropdown-submenu">
-                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT</a>
+                                        <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
-                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/HoTT/index.html">📋 Resumen</a>
+                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                        </div>
+                                                </div>
+
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🖥️ Lean</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/Lean/index.html">📋 Resumen </a>
                                         </div>
                                 </div>
                         </div>
@@ -107,9 +123,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Regresión lineal</h1>
-<div id="outline-container-orgc4bbade" class="outline-2">
-<h2 id="orgc4bbade">Regresión lineal</h2>
-<div class="outline-text-2" id="text-orgc4bbade">
+<div id="outline-container-org1c44c01" class="outline-2">
+<h2 id="org1c44c01">Regresión lineal</h2>
+<div class="outline-text-2" id="text-org1c44c01">
 <p>
 Para hacer más interesante nuestro ejemplo de las casas, consideremos un conjunto de datos
 más rico, en el que también conocemos el número de cuartos en cada casa:
@@ -205,9 +221,9 @@ A esta función de costo se le conoce como la función de costo de los mínimos 
 al modelo de regresión usual de <b>mínimos cuadrados</b>.
 </p>
 </div>
-<div id="outline-container-orgd28e525" class="outline-3">
-<h3 id="orgd28e525">El algoritmo LMS</h3>
-<div class="outline-text-3" id="text-orgd28e525">
+<div id="outline-container-orgee27614" class="outline-3">
+<h3 id="orgee27614">El algoritmo LMS</h3>
+<div class="outline-text-3" id="text-orgee27614">
 <p>
 Queremos escoger a \(\theta\) de tal manera que se minimice \(J(\theta)\). Para hacer esto, usaremos 
 un algoritmo de búsqueda que empieza con una suposición inicial para \(\theta\) y luego cambia 
@@ -283,9 +299,9 @@ Consideremos el siguiente algoritmo:
 </div>
 </div>
 </div>
-<div id="outline-container-orgcfe83e4" class="outline-2">
-<h2 id="orgcfe83e4">Las ecuaciones normales</h2>
-<div class="outline-text-2" id="text-orgcfe83e4">
+<div id="outline-container-org5791440" class="outline-2">
+<h2 id="org5791440">Las ecuaciones normales</h2>
+<div class="outline-text-2" id="text-org5791440">
 <p>
 El descenso gradiente nos da una forma de minimizar a \(J\). Veamos una segunda manera de
 hacer esto, esta vez haciendo la minimización de forma explícita, sin recurrir a un
@@ -295,9 +311,9 @@ que escribamos esto sin tener que escribir un montón de álgebra, introduzcamos
 notación.
 </p>
 </div>
-<div id="outline-container-org154a68e" class="outline-3">
-<h3 id="org154a68e">Derivadas matriciales</h3>
-<div class="outline-text-3" id="text-org154a68e">
+<div id="outline-container-org74ed7b7" class="outline-3">
+<h3 id="org74ed7b7">Derivadas matriciales</h3>
+<div class="outline-text-3" id="text-org74ed7b7">
 <p>
 Para una función \( f: \mathbb{R}^{n \times d} \to \mathbb{R} \) que mapea las matrices de
 \(n \times d\) a \(\mathbb{R}\)

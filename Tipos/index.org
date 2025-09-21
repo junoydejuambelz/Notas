@@ -1,0 +1,14 @@
+#+TITLE: Notas teoría de tipos
+#+AUTHOR: Mou
+#+DATE: [2025-08-28]
+#+EXPORT_FILE_NAME: index
+#+STARTUP: overview
+
+* Bienvenido a mis notas
+Esta es una colección de mis notas de estudio sobre teoría de tipos, desde el lenguaje Lean
+hasta teoría homotópica de tipos
+
+** Notas
+- [[file:HoTT/index.org][Teoría homotópica de tipos]]
+- [[file:Lean/index.org][Lean]]
+- [[file:ProofsAndTypes/index.org][Demostraciones y tipos]]
