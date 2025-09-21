@@ -1,0 +1,33 @@
+#+title: Lógica proposicional intuicionista
+#+author: mou
+#+date: <2025-09-20 Sat>
+#+export_file_name: ipl
+#+startup: overview
+
+* Números naturales
+** Reglas de introducción
+\[
+        \frac{}{\Gamma \vdash 0: Nat} ~~~ \frac{\Gamma \vdash M: Nat}{\Gamma \vdash s(M): Nat} (Nat-Introducci\acute{o}n)
+\]
+** Regla de eliminación
+\[
+        \frac{\Gamma \vdash M: Nat ~~~ \Gamma \vdash P: A ~~~ \Gamma, x: A \vdash Q: A}{\Gamma \vdash \underline{rec}(P,x.Q)(M): A} ~~~ (Nat-Eliminaci\acute{o}n)
+\]
+** Reglas \beta
+- \[ rec(P,Q)(0) \equiv P \]
+- \[ rec(P,Q)(s(M)) \equiv [rec(P,Q)(M)/x]Q \]
+** Regla \eta
+\[
+        \dfrac{\begin{array}{ll}
+                \Gamma, z : Nat \vdash M: A & \Gamma, z : Nat \vdash [s(z)/z]M \equiv [M/x]Q \\
+                \Gamma \vdash [0/z]M \equiv P: A & ~~~
+        \end{array}}{\Gamma, z: Nat \vdash M \equiv rec(P,Q)(z)}
+\]
+
+*** Caso especial
+\[ z: Nat \vdash rec(0, y.s(y))(z) \equiv z: Nat \]
+*** Caso especial
+\[ \Gamma, z: Nat \vdash [rec(0, y.s(y))(z)/z]M \equiv rec([0/z]M, y.[s(y)/z]M)(z) \]
+** Diagrama (Objeto números naturales)
+#+attr_html: :width 300px
+[[file:./Categorías/recursor.png]]

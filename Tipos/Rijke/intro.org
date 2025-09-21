@@ -1,0 +1,63 @@
+#+title: introducción
+#+author: mou
+#+date: <2025-09-20 Sat>
+#+export_file_name: intro
+#+startup: overview
+
+La teoría de tipos dependiente es un sistema formal para organizar todos los objetos matemáticos, estructuras
+y conocimientos. Hay muchas maneras de pensar la teoría de tipos. Los tipos se pueden interpretar como
+conjuntos, pero hay algunas diferencias importantes entre las dos teorías y la interpretación de los tipos
+como conjuntos tiene varias limitaciones. Una de las diferencias es que en la teoría de tipos cada elemento
+viene equipado con su tipo. Escribiremos \(a: A\) para el juicio de que \(a\) es un elemento de tipo \(A\).
+Esto nos lleva a una segunda diferencia importante. La teoría de tipos está axiomatizada dentro del sistema
+formal de la lógica de primer orden, mientras que la teoría de tipos es su propio sistema formal. Los tipos
+y sus elementos se construyen siguiendo las reglas de este sistema formal, y la única manera de construir
+un elemento es construyéndolo como un elemento de un tipo previamente construido. La expresión
+\(a: A\) no es considerada como una proposición, sino que es considerada un juicio, es decir, una evaluación
+que es parte de la construcción del elemento \(a: A\).
+
+En la teoría de tipos nos fijamos mucho más en la noción de igualdad entre elementos que en la teoría de
+conjuntos. Se dice que un tipo no está bien entendido hasta que:
+1. Uno entiende como construir un elemento de ese tipo.
+2. Uno entiende precisamente cómo mostrar que dos elementos de ese tipo son iguales.
+La igualdad es la teoría de tipos está gobernada por el tipo identidad. A diferencia de la teoría de conjuntos
+clásica, donde la igualdad es una proposición decidible de la lógica de primer orden, el tipo \(x = y\) de
+identificaciones de dos elementos  \(x, y: A\) es en sí mismo un tipo y, por tanto, puede poseer su propia
+estructura.
+
+La teoría de tipos dependiente se construye en varias etapas. En la primera, damos sus reglas estructurales,
+que expresan la teoría general de la dependencia de tipos. No hay un sistema deductivo de la lógica de primer
+orden como ambiente en la teoría de tipos. La teoría de tipos es su propio sistema deductivo, y las reglas
+estructurales están en el corazón de este sistema. Las operaciones básicas que están gobernadas por las
+reglas estructurales son las operaciones de substitución y debilitamiento. Una vez que se arma el sistema
+general de la teoría de tipos dependiente, introducimos las maneras en las que podemos formar tipos. La
+clase de tipos más fundamentales son los tipos funciones dependientes, o \(\Pi\)-tipos. Son usados
+para todo. Después, introducimos el tipos de los números naturales, donde usamos la dependencia de tipos
+para formular una versión de la teoría de tipos del principio de inducción. Se puede usar de dos maneras:
+1. Para construir las operaciones familiares sobre \(\mathbb{N}\), como la suma y el producto.
+2. Para demostrar propiedades de estas operaciones.
+
+La siguiente idea es considerar principios de inducción para muchos otros tipos. Esto nos lleva a la idea más
+general de tipos inductivos. Introduciremos el tipo unitario, el tipo vacío, los booleanos, co-productos,
+pares dependientes y productos cartesianos. Todos estos son ejemplos de tipos inductivos, y sus principios de
+inducción se pueden usar para construir las operaciones básicas sobre ellos, al igual que para probar
+propiedades sobre estas operaciones.
+
+Luego llegamos al ingrediente principal de la teoría de tipos dependiente de Martin Löf: el tipo identidad.
+El tipo identidad \(x =_A y\) es un ejemplo de tipo dependiente, pues está indizado por \(x,y: A\), y está generado
+inductivamente por el elemento reflexivo \(refl_x: x =_A x\). El chiste está en que el tipo identidad \(x =_A y\) es
+un tipo como cualquier otro y puede, en potencia, tener varios elementos.
+
+La última clase de tipos que introducimos son los universos. Los universos son familias de tipos que son
+cerradas bajo las operaciones de la teoría de tipos: \(\Pi\)-tipos, \(\Sigma\)-tipos, tipos identidad, entre otros.
+Los universos juegan un papel fundamental en la teoría. Una de las razones importantes para introducir los
+universos es que se pueden usar para definir familias de tipos sobre tipos inductivos mediante sus principios
+de inducción. Por ejemplo, podemos definir relaciones de orden \(\leq\) y \(<\) sobre los números naturales. También
+usaremos los universos para mostrar los axiomas de Peano, que aseguran que \(succ_{\mathbb{N}}_{}\) es inyectiva y que
+\(0_\mathbb{N}\) no es un sucesor.
+
+En las últimas secciones empezamos a desarrollar la matemática en la teoría de tipos. Estudiamos la
+correspondencia de Curry-Howard y la usamos para desarrollar aritmética modular en la teoría de tipos.
+Estudiamos el concepto de decidibilidad y lo usamos para obtener teoremas básicos de la teoría de números
+elemental, como el teorema del buen orden, la construcción del máximo común divisor y la infinidad de los
+primos.

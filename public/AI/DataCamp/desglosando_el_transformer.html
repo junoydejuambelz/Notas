@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-14 Sun 12:49 -->
+<!-- 2025-09-20 Sat 22:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Desglosando el Transformer</title>
@@ -94,6 +94,12 @@
                                                 <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
                                         </div>
                                 </div>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                        </div>
+                                </div>
                         </div>
                 </div>
         </div>
@@ -101,9 +107,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Desglosando el Transformer</h1>
-<div id="outline-container-orgd9d8709" class="outline-2">
-<h2 id="orgd9d8709">El artículo que lo cambió todo</h2>
-<div class="outline-text-2" id="text-orgd9d8709">
+<div id="outline-container-orgf9d9494" class="outline-2">
+<h2 id="orgf9d9494">El artículo que lo cambió todo</h2>
+<div class="outline-text-2" id="text-orgf9d9494">
 <ul class="org-ul">
 <li>Attention is all you need (Ashish Vaswani)
 <ul class="org-ul">
@@ -117,9 +123,9 @@ La arquitectura Transformer está formada por dos bloques, el bloque encoder y e
 decoder
 </p>
 </div>
-<div id="outline-container-org478a1a3" class="outline-3">
-<h3 id="org478a1a3">Bloque encoder</h3>
-<div class="outline-text-3" id="text-org478a1a3">
+<div id="outline-container-org06fdc5f" class="outline-3">
+<h3 id="org06fdc5f">Bloque encoder</h3>
+<div class="outline-text-3" id="text-org06fdc5f">
 <ul class="org-ul">
 <li>Multiples capas idénticas</li>
 <li><b>Lee</b> y <b>procesa</b> el input</li>
@@ -128,43 +134,43 @@ decoder
 </ul>
 </div>
 </div>
-<div id="outline-container-org5291370" class="outline-3">
-<h3 id="org5291370">Bloque decoder</h3>
-<div class="outline-text-3" id="text-org5291370">
+<div id="outline-container-orgd78f9ab" class="outline-3">
+<h3 id="orgd78f9ab">Bloque decoder</h3>
+<div class="outline-text-3" id="text-orgd78f9ab">
 <ul class="org-ul">
 <li>Secuencia input codificada \(\rightarrow\) secuencia output</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc182860" class="outline-3">
-<h3 id="orgc182860">Positional encoding</h3>
-<div class="outline-text-3" id="text-orgc182860">
+<div id="outline-container-orgabc2a98" class="outline-3">
+<h3 id="orgabc2a98">Positional encoding</h3>
+<div class="outline-text-3" id="text-orgabc2a98">
 <ul class="org-ul">
 <li>Codifica la posición de cada token en la secuencia</li>
 <li>El orden es crucial para modelar secuencias</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd701672" class="outline-3">
-<h3 id="orgd701672">Mecanismos de atención</h3>
-<div class="outline-text-3" id="text-orgd701672">
+<div id="outline-container-org148d183" class="outline-3">
+<h3 id="org148d183">Mecanismos de atención</h3>
+<div class="outline-text-3" id="text-org148d183">
 <ul class="org-ul">
 <li>Presta atención a los tokens importantes y sus relaciones</li>
 <li>Mejora la generación de texto</li>
 </ul>
 </div>
-<div id="outline-container-orgd4f826c" class="outline-4">
-<h4 id="orgd4f826c">Self-attention</h4>
-<div class="outline-text-4" id="text-orgd4f826c">
+<div id="outline-container-org86d70a6" class="outline-4">
+<h4 id="org86d70a6">Self-attention</h4>
+<div class="outline-text-4" id="text-org86d70a6">
 <ul class="org-ul">
 <li>Le asigna pesos a los tokens</li>
 <li>Captura dependencias a largo rango</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9ae015b" class="outline-4">
-<h4 id="org9ae015b">Multi-head attention</h4>
-<div class="outline-text-4" id="text-org9ae015b">
+<div id="outline-container-org7f81064" class="outline-4">
+<h4 id="org7f81064">Multi-head attention</h4>
+<div class="outline-text-4" id="text-org7f81064">
 <ul class="org-ul">
 <li>Parte el input en múltiples <b>heads</b></li>
 <li>Las heads capturas patrones distintos, creando representaciones más ricas</li>
@@ -172,9 +178,9 @@ decoder
 </div>
 </div>
 </div>
-<div id="outline-container-org72a2f6a" class="outline-3">
-<h3 id="org72a2f6a">Position-wide feed-forward networks</h3>
-<div class="outline-text-3" id="text-org72a2f6a">
+<div id="outline-container-orga1f7bc1" class="outline-3">
+<h3 id="orga1f7bc1">Position-wide feed-forward networks</h3>
+<div class="outline-text-3" id="text-orga1f7bc1">
 <ul class="org-ul">
 <li>Neural Networks (NNs) simples que aplican transformaciones</li>
 <li>Cada token es transformado de manera independiente</li>
@@ -183,9 +189,9 @@ decoder
 </div>
 </div>
 </div>
-<div id="outline-container-org9fac289" class="outline-2">
-<h2 id="org9fac289">Transformers en PyTorch</h2>
-<div class="outline-text-2" id="text-org9fac289">
+<div id="outline-container-org4410788" class="outline-2">
+<h2 id="org4410788">Transformers en PyTorch</h2>
+<div class="outline-text-2" id="text-org4410788">
 <p>
 PyTorch nos provee de una clase de alto nivel en <code>torch.nn</code> para definir arquitecturas. 
 Toma cuatro parámetros principales:

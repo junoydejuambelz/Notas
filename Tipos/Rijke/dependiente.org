@@ -1,0 +1,76 @@
+#+title: Teoría de tipos dependientes
+#+author: mou
+#+date: <2025-09-20 Sat>
+#+export_file_name: dependiente
+#+startup: overview
+
+La teoría de tipos dependiente es un sistema de reglas que se puede combinar para crear *derivaciones*. En
+estas derivaciones, la meta es frecuentemente construir un elemento de un cierto tipo. Un elemento así puede
+ser una función si el tipo del elemento a construir es un tipo función, una demostración de una propiedad
+si el tipo del elemento a construir es una proposición, pero también puede ser una identificación si el tipo
+del elemento a construir es un tipo identidad, etc. En cierto respecto, un tipo es sólo una colección de
+objetos matemáticos y la construcción de elementos de un cierto tipo es la tarea o desafío matemático del
+día a día. El sistema de reglas de inferencia al que llamamos teoría de tipos nos da una forma de
+participar en esta actividad.
+
+* Juicios y contextos en la teoría de tipos
+Un argumento matemático o construcción cosiste de una secuencia de pasos deductivos, cada uno con una
+cantidad finita de premisas para llegar a la siguiente etapa de la demostración o construcción. Estos
+pasos se pueden representar mediante *reglas de inferencia*, que se escriben de la siguiente forma:
+\[
+        \frac{\mathcal{H}_1 ~~~ \mathcal{H}_2 ~~~ \ldots ~~~ \mathcal{H}_n}{\mathcal{C}}.
+\]
+Las reglas de inferencia contienen, arriba de la línea horizontal, una lista finita \(\mathcal{H}_1,
+\mathcal{H}_2, \ldots, \mathcal{H}_n\)
+de juicios como las *premisas* y, debajo de la misa línea, un único juicio \(\mathcal{C}\) como la *conclusión*. El sistema
+de la teoría de tipos dependiente es un conjunto de este tipo de reglas de inferencia.
+
+Un ejemplo directo de una regla de inferencia con la que nos vamos a encontrar cuando introduzcamos los tipos
+función, es la regla de inferencia
+\[
+        \frac{\Gamma \vdash a: A ~~~ \Gamma \vdash f: A \to B}{\Gamma \vdash f(a): B}.
+\]
+Esta regla asegura que bajo cualquier contexto \(\Gamma\) podemos usar un elemento \(a: A\) y una función
+\(f: A \to B\) para obtener un elemento \(f(a): B\). Cada una de las expresiones
+- \(\Gamma \vdash a: A\)
+- \(\Gamma \vdash f: A \to B\)
+- \(\Gamma \vdash f(a): B\)
+son ejemplos de juicios.
+
+** Definición 1.1.1
+Hay cuatro tipos de *juicios* en la teoría de tipos dependiente de Martin-Löf:
+1. \(A\) es un *tipo* (bien formado) en el contexto \(\Gamma\). Expresamos este juicio como \[ \Gamma \vdash A ~~~ \text{type} \].
+2. \(A\) y \(B\) son *tipos juiciosamente iguales* en el contexto \(\Gamma\). Expresamos este juicio como
+   \[ \Gamma \vdash A \stackrel{\cdot}{=} B ~~~ \text{type}\].
+3. \(a\) es un *elemento* de tipo \(A\) en el contexto \(\Gamma\). Expresamos este juicio como
+   \[ \Gamma \vdash a: A \].
+4.  \(a\) y \(b\) son *elementos juiciosamente iguales* del tipo \(A\) en el contexto \(\Gamma\). Expresamos este
+   juicio como \[ \Gamma \vdash a \stackrel{\cdot}{=} b: A \].
+
+Vemos que todos los juicios son de la forma \(\Gamma \vdash \mathcal{J}\), consistiendo de un contexto \(\Gamma\)
+y una tesis de juicio \(\mathcal{J}\) que asegura ya sea que \(A\) es un tipo, que \(A\) y \(B\) son tipos
+iguales, que \(a\) es un elemento del tipo \(A\) o que \(a\) y \(b\) son elementos iguales del mismo tipo
+\(A\). El rol del contexto es declara qué *elementos hipotéticos* son asumidos, junto con sus tipos.
+Los elementos hipotéticos son comúnmente llamados *variables*.
+
+** Definición 1.1.2
+:PROPERTIES:
+:CUSTOM_ID: definicion-1-1-2
+:END:
+Un *contexto* es una lista finita de *declaraciones de variables*
+\[\tag{1.1.1}\label{eq:lista-contexto}
+  x_1: A_1, x_2: A_2(x_1), \ldots, x_n: A_n(x_1, \ldots, x_{n-1})
+\]
+que satisfacen la condición de que para cada \(1 \leq k \leq n\) podemos derivar el juicio
+\[ x_1: A_1, \ldots, x_{k-1}: A_{k-1}(x_1, \ldots, x_{k-2}) \vdash A_k (x_1, \ldots, x_{k-1} ~~~ \text{type})\]
+usando las reglas de inferencia de la teoría de tipos. Podemos usar nombres de variables que no sean
+\(x_1, \ldots, x_n\) siempre que no declaremos una misma variable más de una vez.
+
+La condición de la Definición [[#definicion-1-1-2][1.1.2]] de que cada uno de los elementos hipotéticos tiene asignado un tipo,
+es verificado recursivamente. En otras palabras, para verificar que una declaración de variables como
+en la ecuación \eqref{eq:lista-contexto} es un contexto, uno empieza por la izquierda y se va
+trabajando hacia la derecha, verificando que cada elemento hipotético \(x_k\) tenga un tipo asignado.
+
+Notemos que hay un contexto de longitud 0, el *contexto vacío*, en el que no se declara ninguna variable.
+Este contexto satisface la definición [[#definicion-1-1-2][1.1.2]] por vacuidad. Una lista de declaraciones de variables
+\(x_1: A_1\) es un contexto si y sólo si \(A_1\) es un tipo en el contexto vacío.

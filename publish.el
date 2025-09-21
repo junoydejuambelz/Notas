@@ -122,6 +122,12 @@
                                                 <a href=\"/Tipos/ProofsAndTypes/sentido.html\">🧠 Sentido, denotación y semántica</a>
                                         </div>
                                 </div>
+                                <div class=\"dropdown-submenu\">
+                                        <a href=\"#\" class=\"submenu-btn\">🔬 Introducción a HoTT</a>
+                                        <div class=\"submenu-content\">
+                                                <a href=\"/Tipos/Rijke/index.html\">📋 Resumen </a>
+                                        </div>
+                                </div>
                         </div>
                 </div>
         </div>

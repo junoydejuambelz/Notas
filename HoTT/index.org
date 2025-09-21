@@ -14,3 +14,4 @@ Esta es una colección de mis notas de estudio para el curso de Homotopy Type Th
 - [[./transitividad.org][Transitividad]]
 - [[./exponenciales.org][Exponenciales]]
 - [[./igualdad.org][Igualdad]]
+- [[file:./ipl.org][Lógica proposicional intuicionista]]

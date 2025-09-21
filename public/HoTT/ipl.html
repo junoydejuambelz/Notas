@@ -6,9 +6,30 @@
 <!-- 2025-09-20 Sat 22:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Notas Algoritmos</title>
+<title>Lógica proposicional intuicionista</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
+<script>
+  window.MathJax = {
+  tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']],
+  displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  processEscapes: true,
+  processEnvironments: true,
+  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
+  },
+  loader: {
+  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
+  },
+  options: {
+  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+  };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+  <script>
+  MathJax.startup.defaultReady();
+  </script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -85,20 +106,77 @@
   </nav>
 </div>
 <div id="content" class="content">
-<h1 class="title">Notas Algoritmos</h1>
-<div id="outline-container-org040d8b8" class="outline-2">
-<h2 id="org040d8b8">Bienvenido a mis notas</h2>
-<div class="outline-text-2" id="text-org040d8b8">
+<h1 class="title">Lógica proposicional intuicionista</h1>
+<div id="outline-container-orgad7482c" class="outline-2">
+<h2 id="orgad7482c">Números naturales</h2>
+<div class="outline-text-2" id="text-orgad7482c">
+</div>
+<div id="outline-container-orgbc0d99e" class="outline-3">
+<h3 id="orgbc0d99e">Reglas de introducción</h3>
+<div class="outline-text-3" id="text-orgbc0d99e">
 <p>
-Esta es una colección de mis notas de estudio sobre algoritmos
+\[
+        \frac{}{\Gamma \vdash 0: Nat} ~~~ \frac{\Gamma \vdash M: Nat}{\Gamma \vdash s(M): Nat} (Nat-Introducci\acute{o}n)
+\]
 </p>
 </div>
-<div id="outline-container-org2e7a1b5" class="outline-3">
-<h3 id="org2e7a1b5">Notas</h3>
-<div class="outline-text-3" id="text-org2e7a1b5">
+</div>
+<div id="outline-container-org72e3bca" class="outline-3">
+<h3 id="org72e3bca">Regla de eliminación</h3>
+<div class="outline-text-3" id="text-org72e3bca">
+<p>
+\[
+        \frac{\Gamma \vdash M: Nat ~~~ \Gamma \vdash P: A ~~~ \Gamma, x: A \vdash Q: A}{\Gamma \vdash \underline{rec}(P,x.Q)(M): A} ~~~ (Nat-Eliminaci\acute{o}n)
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-org3a4f23f" class="outline-3">
+<h3 id="org3a4f23f">Reglas &beta;</h3>
+<div class="outline-text-3" id="text-org3a4f23f">
 <ul class="org-ul">
-<li><a href="./pensamiento.html">Pensamiento algorítmico</a></li>
+<li>\[ rec(P,Q)(0) \equiv P \]</li>
+<li>\[ rec(P,Q)(s(M)) \equiv [rec(P,Q)(M)/x]Q \]</li>
 </ul>
+</div>
+</div>
+<div id="outline-container-orgea9df41" class="outline-3">
+<h3 id="orgea9df41">Regla &eta;</h3>
+<div class="outline-text-3" id="text-orgea9df41">
+<p>
+\[
+        \dfrac{\begin{array}{ll}
+                \Gamma, z : Nat \vdash M: A & \Gamma, z : Nat \vdash [s(z)/z]M \equiv [M/x]Q \\
+                \Gamma \vdash [0/z]M \equiv P: A & ~~~
+        \end{array}}{\Gamma, z: Nat \vdash M \equiv rec(P,Q)(z)}
+\]
+</p>
+</div>
+<div id="outline-container-org56f7b3c" class="outline-4">
+<h4 id="org56f7b3c">Caso especial</h4>
+<div class="outline-text-4" id="text-org56f7b3c">
+<p>
+\[ z: Nat \vdash rec(0, y.s(y))(z) \equiv z: Nat \]
+</p>
+</div>
+</div>
+<div id="outline-container-org4de3619" class="outline-4">
+<h4 id="org4de3619">Caso especial</h4>
+<div class="outline-text-4" id="text-org4de3619">
+<p>
+\[ \Gamma, z: Nat \vdash [rec(0, y.s(y))(z)/z]M \equiv rec([0/z]M, y.[s(y)/z]M)(z) \]
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgacfe231" class="outline-3">
+<h3 id="orgacfe231">Diagrama (Objeto números naturales)</h3>
+<div class="outline-text-3" id="text-orgacfe231">
+
+<div id="org6b47cd7" class="figure">
+<p><img src="./Categorías/recursor.png" alt="recursor.png" width="300px" />
+</p>
+</div>
 </div>
 </div>
 </div>
