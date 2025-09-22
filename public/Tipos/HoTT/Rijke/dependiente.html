@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-21 Sun 07:54 -->
+<!-- 2025-09-22 Mon 08:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Teoría de tipos dependientes</title>
@@ -90,21 +90,22 @@
                                         <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <a href="#" class="submenu-btn">🏫 HoTT (Carnegie Mellon)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                                <a href="/Tipos/HoTT/Curso/index.html">📋 Resumen</a>
+                                                                <a href="/Tipos/HoTT/Curso/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/Tipos/HoTT/Curso/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/Tipos/HoTT/Curso/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/Tipos/HoTT/Curso/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/Tipos/HoTT/Curso/igualdad.html">🟰 Igualdad</a>
                                                         </div>
                                                 </div>
 
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <a href="#" class="submenu-btn">📚 Introducción a HoTT (Rijke)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/intro.html">📖 Introducción </a>
                                                         </div>
                                                 </div>
                                         </div>
@@ -133,9 +134,9 @@ objetos matemáticos y la construcción de elementos de un cierto tipo es la tar
 día a día. El sistema de reglas de inferencia al que llamamos teoría de tipos nos da una forma de
 participar en esta actividad.
 </p>
-<div id="outline-container-org11ee69c" class="outline-2">
-<h2 id="org11ee69c">Juicios y contextos en la teoría de tipos</h2>
-<div class="outline-text-2" id="text-org11ee69c">
+<div id="outline-container-org50784d4" class="outline-2">
+<h2 id="org50784d4">Juicios y contextos en la teoría de tipos</h2>
+<div class="outline-text-2" id="text-org50784d4">
 <p>
 Un argumento matemático o construcción cosiste de una secuencia de pasos deductivos, cada uno con una
 cantidad finita de premisas para llegar a la siguiente etapa de la demostración o construcción. Estos
@@ -167,9 +168,9 @@ Esta regla asegura que bajo cualquier contexto \(\Gamma\) podemos usar un elemen
 son ejemplos de juicios.
 </p>
 </div>
-<div id="outline-container-org178374b" class="outline-3">
-<h3 id="org178374b">Definición 1.1.1</h3>
-<div class="outline-text-3" id="text-org178374b">
+<div id="outline-container-orge8059a0" class="outline-3">
+<h3 id="orge8059a0">Definición 1.1.1</h3>
+<div class="outline-text-3" id="text-orge8059a0">
 <p>
 Hay cuatro tipos de <b>juicios</b> en la teoría de tipos dependiente de Martin-Löf:
 </p>
@@ -217,6 +218,119 @@ trabajando hacia la derecha, verificando que cada elemento hipotético \(x_k\) t
 Notemos que hay un contexto de longitud 0, el <b>contexto vacío</b>, en el que no se declara ninguna variable.
 Este contexto satisface la definición <a href="#definicion-1-1-2">1.1.2</a> por vacuidad. Una lista de declaraciones de variables
 \(x_1: A_1\) es un contexto si y sólo si \(A_1\) es un tipo en el contexto vacío.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7296b50" class="outline-2">
+<h2 id="org7296b50">Familias de tipos</h2>
+<div class="outline-text-2" id="text-org7296b50">
+<p>
+Una característica de la teoría de tipos dependiente es que todos los juicios dependen del contexto e
+incluso los tipos de las variables en un contexto pueden depender de otras variables ya declaradas.
+Por ejemplo, si \(n\) es un número natural y sabemos del contexto que \(n\) es primo, entonces no tenemos
+suficiente información para afirmar que \(n\) es impar. Sin embargo, si sabemos del contexto que \(n + 2\)
+es primo, entonces podemos derivar del contexto que \(n\) debe ser impar.
+</p>
+</div>
+<div id="outline-container-org4cd8b2d" class="outline-3">
+<h3 id="org4cd8b2d">Definición 1.2.1</h3>
+<div class="outline-text-3" id="text-org4cd8b2d">
+<p>
+Consideremos un tipo \(A\) en un contexto \(\Gamma\). Una <b>familia</b> de tipos sobre \(A\) en un contexto \(\Gamma\) es un tipo
+\(B(x)\) en el contexto \(\Gamma, x: A\). En otras palabras, en la situación en la que
+\[ \Gamma, x: A \vdash B(x) ~~~ \text{type} \],
+decimos que \(B\) es una familia de tipos sobre \(A\) en el contexto \(\Gamma\). Alternativamente, decimos que
+\(B(x)\) es un tipo <b>indizado</b> por \(x: A\), en el contexto \(\Gamma\).
+</p>
+
+<p>
+Pensamos en una familia de tipos \(B\) sobre \(A\) en un contexto \(\Gamma\) como un tipo \(B(x)\) que varía a lo largo
+de \(x: A\). Un ejemplo básico de una familia de tipos ocurre cuando introducimos los <b>tipos identidad</b>.
+Se introducen como sigue:
+\[
+        \frac{\Gamma \vdash a: A}{\Gamma, x: A \vdash a = x ~~~ \text{type}}
+\]
+Esta regla afirma que dado un elemento \(a: A\) en el contexto \(\Gamma\), podemos formar el tipo \(a = x\) en el
+contexto \(\Gamma, x: A\). El tipo \(a = x\) en el contexto \(\Gamma, x: A\) es un ejemplo de familia de tipos sobre \(A\)
+en un contexto \(\Gamma\).
+</p>
+</div>
+</div>
+<div id="outline-container-org825005f" class="outline-3">
+<h3 id="org825005f">Definición 1.2.2</h3>
+<div class="outline-text-3" id="text-org825005f">
+<p>
+Consideremos una familia de tipos \(B\) sobre \(A\) en un contexto \(\Gamma\). Una <b>sección</b> de la familia \(B\) sobre \(A\)
+en el contexto \(\Gamma\) es un elemento de tipo \(B(x)\) en el contexto \(\Gamma, x: A\), i.e., en el juicio
+\[
+        \Gamma, x: A \vdash b(x): B(x)
+\]
+decimos que \(b\) es una sección de la familia \(B\) sobre \(A\) en el contexto \(\Gamma\). Alternativamente, decimos que
+\(b(x)\) es un elemento de tipo \(B(x)\) indizado por \(x: A\) en el contexto \(\Gamma\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbddd55e" class="outline-2">
+<h2 id="orgbddd55e">Reglas de inferencia</h2>
+<div class="outline-text-2" id="text-orgbddd55e">
+<p>
+Ahora estamos listos para presentar el sistema de reglas de inferencia que subyace a la teoría de tipos
+dependiente. Estas son conocidas como <b>reglas estructurales</b> de la teoría de tipos, pues establecen la
+estructura matemática para la dependencia de tipos. Hay seis conjuntos de reglas de inferencia:
+</p>
+<ol class="org-ol">
+<li>Reglas sobre la formación de contextos, tipos y sus elementos.</li>
+<li>Reglas que postulan que la igualdad juiciosa es una relación de equivalencia.</li>
+<li>Reglas de conversión de variables.</li>
+<li>Reglas de substitución.</li>
+<li>Reglas de debilitamiento.</li>
+<li>El elemento genérico.</li>
+</ol>
+</div>
+<div id="outline-container-org1b84299" class="outline-3">
+<h3 id="org1b84299">Reglas sobre la formación de contextos, tipos y sus elementos</h3>
+<div class="outline-text-3" id="text-org1b84299">
+<p>
+En la definición de contextos, tipos y elementos bien formados, especificamos que para que un tipo
+\(B(x)\) esté bien formado en un contexto \(\Gamma, x: A\), debe suceder que \(A\) sea un tipo bien formado en el
+contexto \(\Gamma\). Las siguientes reglas se siguen de las suposiciones sobre contextos, tipos y sus elementos
+y se pueden usar libremente en las derivaciones:
+</p>
+\begin{array}{ccc}
+        \dfrac{\Gamma, x: A \vdash B(x) ~~~ \text{type}}{\Gamma \vdash A ~~~ \text{type}} &
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} B ~~~ \text{type}}{\Gamma \vdash A ~~~ \text{type}} &
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} B ~~~ \text{type}}{\Gamma \vdash B ~~~ \text{type}} \\
+        \dfrac{\Gamma \vdash a: A}{\Gamma \vdash A ~~~ {type}} &
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} b: A}{\Gamma \vdash a: A} &
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} b}{\Gamma \vdash b: A}
+\end{array}
+</div>
+</div>
+<div id="outline-container-org7d4c0ee" class="outline-3">
+<h3 id="org7d4c0ee">La igualdad juiciosa es una relación de equivalencia</h3>
+<div class="outline-text-3" id="text-org7d4c0ee">
+<p>
+Las reglas que postulan que la igualdad sobre tipos y sus elementos es una relación de equivalencia
+simplemente postulan que es reflexiva, simétrica y transitiva:
+</p>
+\begin{array}{ccc}
+        \dfrac{\Gamma \vdash A ~~~ \text{type}}{\Gamma \vdash A \stackrel{\cdot}{=} A ~~~ \text{type}} &
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} B ~~~ \text{type}}{\Gamma \vdash B \stackrel{\cdot}{=} A ~~~ ~\text{type}} &
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} B ~~~ \text{type} ~~~ \Gamma \vdash B \stackrel{\cdot}{=} C ~~~ \text{type}}{\Gamma \vdash A \stackrel{\cdot}{=} C ~~~ \text{type}} \\
+        \dfrac{\Gamma \vdash a: A}{\Gamma \vdash a \stackrel{\cdot}{=} a: A} &
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} b: A}{\Gamma \vdash b \stackrel{\cdot}{=} a: A} &
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} b: A ~~~ \Gamma \vdash b \stackrel{\cdot}{=} c: A}{\Gamma \vdash a \stackrel{\cdot}{=} c: A}
+\end{array}
+</div>
+</div>
+<div id="outline-container-orgef1b301" class="outline-3">
+<h3 id="orgef1b301">Reglas de conversión de variables</h3>
+<div class="outline-text-3" id="text-orgef1b301">
+<p>
+Las <b>reglas de conversión de variables</b> postulan que podemos convertir el tipo de una variable
+a un tipo juiciosamente igual.
 </p>
 </div>
 </div>

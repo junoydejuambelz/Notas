@@ -53,7 +53,7 @@ cerradas bajo las operaciones de la teoría de tipos: \(\Pi\)-tipos, \(\Sigma\)-
 Los universos juegan un papel fundamental en la teoría. Una de las razones importantes para introducir los
 universos es que se pueden usar para definir familias de tipos sobre tipos inductivos mediante sus principios
 de inducción. Por ejemplo, podemos definir relaciones de orden \(\leq\) y \(<\) sobre los números naturales. También
-usaremos los universos para mostrar los axiomas de Peano, que aseguran que \(succ_{\mathbb{N}}_{}\) es inyectiva y que
+usaremos los universos para mostrar los axiomas de Peano, que aseguran que \(succ_{\mathbb{N}}\) es inyectiva y que
 \(0_\mathbb{N}\) no es un sucesor.
 
 En las últimas secciones empezamos a desarrollar la matemática en la teoría de tipos. Estudiamos la

@@ -10,6 +10,10 @@
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
 
+(let ((timestamp-dir (expand-file-name "./.org-timestamps/")))
+  (mkdir timestamp-dir t)
+  (setq org-publish-timestamp-directory timestamp-dir))
+
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -18,16 +22,71 @@
 
 (require 'ox-publish)
 (require 'ob-python)
+(require 'org-entities)
+
+(defvar my/org-entity-replacements nil
+  "Pairs of LaTeX-like entity strings and their UTF-8 replacements.")
+
+(defun my/org-build-entity-replacements ()
+  "Build `my/org-entity-replacements` from Org's entity tables."
+  (setq my/org-entity-replacements nil)
+  (dolist (entity (append org-entities-user org-entities))
+    (when (consp entity)
+      (let ((latex (nth 1 entity))
+            (utf8 (nth 6 entity)))
+        (when (and (stringp latex)
+                   (string-prefix-p "\\" latex)
+                   (stringp utf8)
+                   (> (length latex) 0)
+                   (> (length utf8) 0))
+          (push (cons latex utf8) my/org-entity-replacements)))))
+  (setq my/org-entity-replacements
+        (sort my/org-entity-replacements
+              (lambda (a b)
+                (> (length (car a)) (length (car b)))))))
+
+(unless my/org-entity-replacements
+  (my/org-build-entity-replacements))
+
+(defvar my/org-lean4-available nil
+  "Non-nil when Lean 4 Babel integration is available during publishing.")
+
+(setq my/org-lean4-available
+      (condition-case err
+          (progn
+            (unless (or (featurep 'ob-lean4)
+                        (locate-library "ob-lean4"))
+              (unless (package-installed-p 'lean4-mode)
+                (package-install 'lean4-mode)))
+            (if (require 'ob-lean4 nil t)
+                t
+              (progn
+                (message "Lean4 support unavailable: missing ob-lean4")
+                nil)))
+        (error
+         (message "Lean4 support unavailable: %s" (error-message-string err))
+         nil)))
+
+(unless my/org-lean4-available
+  (message "Skipping Lean 4 code blocks; install lean4-mode to enable evaluation."))
 
 ;; Enable org-babel for code execution during publishing
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t)
-   (emacs-lisp . t)
-   (shell . t)))
+(let ((babel-languages '((python . t)
+                         (emacs-lisp . t)
+                         (shell . t))))
+  (when my/org-lean4-available
+    (push '(lean4 . t) babel-languages))
+  (org-babel-do-load-languages 'org-babel-load-languages babel-languages))
 
 ;; Don't ask for confirmation when executing code blocks during publishing
 (setq org-confirm-babel-evaluate nil)
+
+;; Export source and result blocks by default so code output appears in HTML
+(dolist (pair '((:exports . "both")
+                (:results . "output replace")
+                (:eval . "yes")))
+  (setq org-babel-default-header-args
+        (cons pair (assoc-delete-all (car pair) org-babel-default-header-args))))
 
 ;; Set clean execution environment to avoid shell contamination
 (setq org-babel-python-command "python3")
@@ -35,13 +94,31 @@
 
 ;; Configure default header arguments to ensure results are exported
 (setq org-babel-default-header-args:python
-      '((:results . "output")
+      '((:results . "output replace")
         (:exports . "both")
+        (:eval . "yes")
         (:session . "default")
         (:cache . "no")))
 
+(setq org-babel-default-header-args:shell
+      '((:results . "output replace")
+        (:exports . "both")
+        (:eval . "yes")))
+
+(setq org-babel-default-header-args:emacs-lisp
+      '((:results . "output replace")
+        (:exports . "both")
+        (:eval . "yes")))
+
+(when my/org-lean4-available
+  (setq org-babel-default-header-args:lean4
+        '((:results . "output replace")
+          (:exports . "both")
+          (:eval . "yes"))))
+
 ;; Ensure org-babel evaluates code during export
 (setq org-export-babel-evaluate t)
+(setq org-export-use-babel t)
 
 ;; Hook to set clean environment before publishing
 (defun setup-clean-publish-environment (backend)
@@ -58,6 +135,26 @@
 
 ;; Simple approach: let org-babel handle evaluation during export naturally
 ;; This should work with the :exports both header arguments
+
+(defun my/org-html-replace-entities-in-code (text backend info)
+  "Render Org entities like \\alpha inside HTML code-ish elements."
+  (if (and text (org-export-derived-backend-p backend 'html))
+      (let ((result text))
+        (dolist (pair my/org-entity-replacements result)
+          (setq result
+                (replace-regexp-in-string (regexp-quote (car pair))
+                                          (cdr pair)
+                                          result t t))))
+    text))
+
+(add-to-list 'org-export-filter-src-block-functions
+             #'my/org-html-replace-entities-in-code)
+(add-to-list 'org-export-filter-inline-src-block-functions
+             #'my/org-html-replace-entities-in-code)
+(add-to-list 'org-export-filter-code-functions
+             #'my/org-html-replace-entities-in-code)
+(add-to-list 'org-export-filter-verbatim-functions
+             #'my/org-html-replace-entities-in-code)
 
 (defun my-org-html-preamble (plist)
   "Generate HTML preamble with navbar."
@@ -117,21 +214,22 @@
                                         <a href=\"#\" class=\"submenu-btn\">🔬 HoTT</a>
                                         <div class=\"submenu-content\">
                                                 <div class=\"dropdown-submenu\">
-                                                        <a href=\"#\" class=\"submenu-btn\">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <a href=\"#\" class=\"submenu-btn\">🏫 HoTT (Carnegie Mellon)</a>
                                                         <div class=\"submenu-content\">
-                                                                <a href=\"/HoTT/index.html\">📋 Resumen</a>
-                                                                <a href=\"/HoTT/introduccion.html\">🚀 Introducción</a>
-                                                                <a href=\"/HoTT/juicios.html\">⚖️ Juicios</a>
-                                                                <a href=\"/HoTT/transitividad.html\">🔛 Transitividad </a>
-                                                                <a href=\"/HoTT/exponenciales.html\">🗼 Exponenciales</a>
-                                                                <a href=\"/HoTT/igualdad.html\">🟰 Igualdad</a>
+                                                                <a href=\"/Tipos/HoTT/Curso/index.html\">📋 Resumen</a>
+                                                                <a href=\"/Tipos/HoTT/Curso/introduccion.html\">🚀 Introducción</a>
+                                                                <a href=\"/Tipos/HoTT/Curso/juicios.html\">⚖️ Juicios</a>
+                                                                <a href=\"/Tipos/HoTT/Curso/transitividad.html\">🔛 Transitividad </a>
+                                                                <a href=\"/Tipos/HoTT/Curso/exponenciales.html\">🗼 Exponenciales</a>
+                                                                <a href=\"/Tipos/HoTT/Curso/igualdad.html\">🟰 Igualdad</a>
                                                         </div>
                                                 </div>
 
                                                 <div class=\"dropdown-submenu\">
-                                                        <a href=\"#\" class=\"submenu-btn\">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <a href=\"#\" class=\"submenu-btn\">📚 Introducción a HoTT (Rijke)</a>
                                                         <div class=\"submenu-content\">
-                                                                <a href=\"/Tipos/Rijke/index.html\">📋 Resumen </a>
+                                                                <a href=\"/Tipos/HoTT/Rijke/index.html\">📋 Resumen </a>
+                                                                <a href=\"/Tipos/HoTT/Rijke/intro.html\">📖 Introducción </a>
                                                         </div>
                                                 </div>
                                         </div>

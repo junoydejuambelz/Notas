@@ -3,34 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-21 Sun 07:54 -->
+<!-- 2025-09-22 Mon 08:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lógica proposicional intuicionista</title>
+<title>Notas HoTT</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
 <script defer src='/navbar.js'></script>
-<script>
-  window.MathJax = {
-  tex: {
-  inlineMath: [['$', '$'], ['\\(', '\\)']],
-  displayMath: [['$$', '$$'], ['\\[', '\\]']],
-  processEscapes: true,
-  processEnvironments: true,
-  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
-  },
-  loader: {
-  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
-  },
-  options: {
-  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-  }
-  };
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-  <script>
-  MathJax.startup.defaultReady();
-  </script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -90,21 +69,22 @@
                                         <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <a href="#" class="submenu-btn">🏫 HoTT (Carnegie Mellon)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                                <a href="/Tipos/HoTT/Curso/index.html">📋 Resumen</a>
+                                                                <a href="/Tipos/HoTT/Curso/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/Tipos/HoTT/Curso/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/Tipos/HoTT/Curso/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/Tipos/HoTT/Curso/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/Tipos/HoTT/Curso/igualdad.html">🟰 Igualdad</a>
                                                         </div>
                                                 </div>
 
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <a href="#" class="submenu-btn">📚 Introducción a HoTT (Rijke)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/intro.html">📖 Introducción </a>
                                                         </div>
                                                 </div>
                                         </div>
@@ -122,77 +102,25 @@
   </nav>
 </div>
 <div id="content" class="content">
-<h1 class="title">Lógica proposicional intuicionista</h1>
-<div id="outline-container-orgbd3dd26" class="outline-2">
-<h2 id="orgbd3dd26">Números naturales</h2>
-<div class="outline-text-2" id="text-orgbd3dd26">
-</div>
-<div id="outline-container-org06b1def" class="outline-3">
-<h3 id="org06b1def">Reglas de introducción</h3>
-<div class="outline-text-3" id="text-org06b1def">
+<h1 class="title">Notas HoTT</h1>
+<div id="outline-container-org65294d7" class="outline-2">
+<h2 id="org65294d7">Bienvenido a mis notas</h2>
+<div class="outline-text-2" id="text-org65294d7">
 <p>
-\[
-        \frac{}{\Gamma \vdash 0: Nat} ~~~ \frac{\Gamma \vdash M: Nat}{\Gamma \vdash s(M): Nat} (Nat-Introducci\acute{o}n)
-\]
+Esta es una colección de mis notas de estudio para el curso de Homotopy Type Theory
 </p>
 </div>
-</div>
-<div id="outline-container-orgb13a331" class="outline-3">
-<h3 id="orgb13a331">Regla de eliminación</h3>
-<div class="outline-text-3" id="text-orgb13a331">
-<p>
-\[
-        \frac{\Gamma \vdash M: Nat ~~~ \Gamma \vdash P: A ~~~ \Gamma, x: A \vdash Q: A}{\Gamma \vdash \underline{rec}(P,x.Q)(M): A} ~~~ (Nat-Eliminaci\acute{o}n)
-\]
-</p>
-</div>
-</div>
-<div id="outline-container-org4b8f6f8" class="outline-3">
-<h3 id="org4b8f6f8">Reglas &beta;</h3>
-<div class="outline-text-3" id="text-org4b8f6f8">
+<div id="outline-container-orgc817726" class="outline-3">
+<h3 id="orgc817726">Notas</h3>
+<div class="outline-text-3" id="text-orgc817726">
 <ul class="org-ul">
-<li>\[ rec(P,Q)(0) \equiv P \]</li>
-<li>\[ rec(P,Q)(s(M)) \equiv [rec(P,Q)(M)/x]Q \]</li>
+<li><a href="./introduccion.html">Introducción</a></li>
+<li><a href="./juicios.html">Juicios</a></li>
+<li><a href="./transitividad.html">Transitividad</a></li>
+<li><a href="./exponenciales.html">Exponenciales</a></li>
+<li><a href="./igualdad.html">Igualdad</a></li>
+<li><a href="./ipl.html">Lógica proposicional intuicionista</a></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgbcd848d" class="outline-3">
-<h3 id="orgbcd848d">Regla &eta;</h3>
-<div class="outline-text-3" id="text-orgbcd848d">
-<p>
-\[
-        \dfrac{\begin{array}{ll}
-                \Gamma, z : Nat \vdash M: A & \Gamma, z : Nat \vdash [s(z)/z]M \equiv [M/x]Q \\
-                \Gamma \vdash [0/z]M \equiv P: A & ~~~
-        \end{array}}{\Gamma, z: Nat \vdash M \equiv rec(P,Q)(z)}
-\]
-</p>
-</div>
-<div id="outline-container-org61b0b28" class="outline-4">
-<h4 id="org61b0b28">Caso especial</h4>
-<div class="outline-text-4" id="text-org61b0b28">
-<p>
-\[ z: Nat \vdash rec(0, y.s(y))(z) \equiv z: Nat \]
-</p>
-</div>
-</div>
-<div id="outline-container-orgad4328d" class="outline-4">
-<h4 id="orgad4328d">Caso especial</h4>
-<div class="outline-text-4" id="text-orgad4328d">
-<p>
-\[ \Gamma, z: Nat \vdash [rec(0, y.s(y))(z)/z]M \equiv rec([0/z]M, y.[s(y)/z]M)(z) \]
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd532142" class="outline-3">
-<h3 id="orgd532142">Diagrama (Objeto números naturales)</h3>
-<div class="outline-text-3" id="text-orgd532142">
-
-<div id="orgcb44fdf" class="figure">
-<p><img src="./Categorías/recursor.png" alt="recursor.png" width="300px" />
-</p>
-</div>
 </div>
 </div>
 </div>

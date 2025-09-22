@@ -9,4 +9,4 @@ Esta es una colección de mis notas de estudio sobre teoría homotópica de tipo
 
 ** Notas
 - [[file:Rijke/index.org][Teoría homotópica de tipos (Rijke)]]
-- [[file:HoTT/index.org][Teoría homotópica de tipos (Carnegie Mellon University)]]
+- [[file:Curso/index.org][Teoría homotópica de tipos (Carnegie Mellon University)]]

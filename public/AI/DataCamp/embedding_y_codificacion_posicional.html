@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-21 Sun 07:54 -->
+<!-- 2025-09-22 Mon 08:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Embedding y Codificación Posicional</title>
@@ -90,21 +90,22 @@
                                         <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <a href="#" class="submenu-btn">🏫 HoTT (Carnegie Mellon)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                                <a href="/Tipos/HoTT/Curso/index.html">📋 Resumen</a>
+                                                                <a href="/Tipos/HoTT/Curso/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/Tipos/HoTT/Curso/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/Tipos/HoTT/Curso/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/Tipos/HoTT/Curso/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/Tipos/HoTT/Curso/igualdad.html">🟰 Igualdad</a>
                                                         </div>
                                                 </div>
 
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <a href="#" class="submenu-btn">📚 Introducción a HoTT (Rijke)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/intro.html">📖 Introducción </a>
                                                         </div>
                                                 </div>
                                         </div>
@@ -140,9 +141,9 @@ Cada token tiene un ID único en el vocabulario del modelo, cuando los embebemos
 capa de embedding obtenemos un embedding vector. A la longitud de este vector se le conoce 
 como el número de dimensiones o dimensionalidad.
 </p>
-<div id="outline-container-org70f4a9a" class="outline-2">
-<h2 id="org70f4a9a">Embeddings</h2>
-<div class="outline-text-2" id="text-org70f4a9a">
+<div id="outline-container-org15c734e" class="outline-2">
+<h2 id="org15c734e">Embeddings</h2>
+<div class="outline-text-2" id="text-org15c734e">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> torch 
 <span style="font-weight: bold;">import</span> math 
@@ -167,9 +168,9 @@ como el número de dimensiones o dimensionalidad.
 token embeddings no sobrecargan o son sobrecargado por los position embeddings.</li>
 </ul>
 </div>
-<div id="outline-container-org43ed782" class="outline-3">
-<h3 id="org43ed782">Creando embeddings</h3>
-<div class="outline-text-3" id="text-org43ed782">
+<div id="outline-container-orgeda4346" class="outline-3">
+<h3 id="orgeda4346">Creando embeddings</h3>
+<div class="outline-text-3" id="text-orgeda4346">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">embedding_layer</span> = InputEmbeddings(vocab_size=10_000, d_model=512)
 <span style="font-weight: bold; font-style: italic;">embedded_output</span> = embedding_layer(torch.tensor([[1, 2, 3, 4], [5, 6, 7, 8]]))
@@ -180,9 +181,9 @@ token embeddings no sobrecargan o son sobrecargado por los position embeddings.<
 </div>
 </div>
 </div>
-<div id="outline-container-orgba49043" class="outline-2">
-<h2 id="orgba49043">Positional encoding</h2>
-<div class="outline-text-2" id="text-orgba49043">
+<div id="outline-container-orgac17484" class="outline-2">
+<h2 id="orgac17484">Positional encoding</h2>
+<div class="outline-text-2" id="text-orgac17484">
 <p>
 Codifica la posición de cada token en la secuencia en un positional embedding y los añade 
 a los token embeddings para capturar la posición. Generalmente estos embeddings tienen las 
@@ -222,9 +223,9 @@ Donde \(i\) es el número de valor.
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb742fe9" class="outline-3">
-<h3 id="orgb742fe9">Creando positional encodings</h3>
-<div class="outline-text-3" id="text-orgb742fe9">
+<div id="outline-container-orgdcc10f2" class="outline-3">
+<h3 id="orgdcc10f2">Creando positional encodings</h3>
+<div class="outline-text-3" id="text-orgdcc10f2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">pos_encoding_layer</span> = PositionalEncoding(d_model=512, max_seq_length=4)
 <span style="font-weight: bold; font-style: italic;">pos_encoded_output</span> = pos_encoding_layer(embedded_output)

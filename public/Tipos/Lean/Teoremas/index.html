@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-21 Sun 07:54 -->
+<!-- 2025-09-22 Mon 08:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Notas en Org-Mode</title>
+<title>Index</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
 <script defer src='/navbar.js'></script>
@@ -69,21 +69,22 @@
                                         <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <a href="#" class="submenu-btn">🏫 HoTT (Carnegie Mellon)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                                <a href="/Tipos/HoTT/Curso/index.html">📋 Resumen</a>
+                                                                <a href="/Tipos/HoTT/Curso/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/Tipos/HoTT/Curso/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/Tipos/HoTT/Curso/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/Tipos/HoTT/Curso/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/Tipos/HoTT/Curso/igualdad.html">🟰 Igualdad</a>
                                                         </div>
                                                 </div>
 
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <a href="#" class="submenu-btn">📚 Introducción a HoTT (Rijke)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/intro.html">📖 Introducción </a>
                                                         </div>
                                                 </div>
                                         </div>
@@ -101,116 +102,21 @@
   </nav>
 </div>
 <div id="content" class="content">
-<h1 class="title">Notas en Org-Mode</h1>
-<div id="outline-container-orgea9b8cd" class="outline-2">
-<h2 id="orgea9b8cd">Descripción</h2>
-<div class="outline-text-2" id="text-orgea9b8cd">
+<h1 class="title">Index</h1>
+<div id="outline-container-org68add4b" class="outline-2">
+<h2 id="org68add4b">Bienvenido a mis notas</h2>
+<div class="outline-text-2" id="text-org68add4b">
 <p>
-Este directorio contiene la conversión de mis notas de Quarto a org-mode. Las notas incluyen:
+Esta es una colección de mis notas sobre Lean para demostración de teoremas
 </p>
-
+</div>
+<div id="outline-container-org302dc43" class="outline-3">
+<h3 id="org302dc43">Notas</h3>
+<div class="outline-text-3" id="text-org302dc43">
 <ul class="org-ul">
-<li><b>AI/</b>: Notas sobre Inteligencia Artificial (CS229, DataCamp Transformers)</li>
-<li><b>HoTT/</b>: Notas sobre Homotopy Type Theory</li>
+<li><a href="dependiente.html">Teoría de tipos dependiente</a></li>
 </ul>
 </div>
-</div>
-<div id="outline-container-orgee6d474" class="outline-2">
-<h2 id="orgee6d474">Estructura del Proyecto</h2>
-<div class="outline-text-2" id="text-orgee6d474">
-<pre class="example" id="org13552fa">
-org-mode-notes/
-├── index.org              # Página principal
-├── AI/                    # Notas de IA
-│   ├── index.org
-│   ├── CS229/
-│   │   ├── index.org
-│   │   └── AprendizajeSupervisado/
-│   │       ├── aprendizaje_supervisado.org
-│   │       ├── regresion_lineal.org
-│   │       └── Imagenes/
-│   └── DataCamp/
-│       ├── index.org
-│       ├── desglosando_el_transformer.org
-│       └── embedding_y_codificacion_posicional.org
-├── HoTT/                  # Notas de HoTT
-│   ├── index.org
-│   ├── introduccion.org
-│   └── juicios.org
-├── publish.el             # Configuración de publicación
-├── Makefile               # Automatización de tareas
-└── README.org             # Este archivo
-</pre>
-</div>
-</div>
-<div id="outline-container-org1928af1" class="outline-2">
-<h2 id="org1928af1">Uso</h2>
-<div class="outline-text-2" id="text-org1928af1">
-</div>
-<div id="outline-container-org0499c9e" class="outline-3">
-<h3 id="org0499c9e">Generar el sitio web</h3>
-<div class="outline-text-3" id="text-org0499c9e">
-<p>
-Para generar el sitio web desde los archivos org:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-bash">make publish
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orga79009d" class="outline-3">
-<h3 id="orga79009d">Servir localmente</h3>
-<div class="outline-text-3" id="text-orga79009d">
-<p>
-Para generar y servir el sitio localmente:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-bash">make serve
-</pre>
-</div>
-
-<p>
-Esto iniciará un servidor HTTP en <a href="http://localhost:8080">http://localhost:8080</a>
-</p>
-</div>
-</div>
-<div id="outline-container-org4bdf295" class="outline-3">
-<h3 id="org4bdf295">Limpiar archivos generados</h3>
-<div class="outline-text-3" id="text-org4bdf295">
-<div class="org-src-container">
-<pre class="src src-bash">make clean
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgfb5074e" class="outline-2">
-<h2 id="orgfb5074e">Configuración de Emacs</h2>
-<div class="outline-text-2" id="text-orgfb5074e">
-<p>
-Si quieres publicar desde Emacs, puedes usar:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-emacs-lisp">(load-file <span style="font-style: italic;">"publish.el"</span>)
-(org-publish-all)
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org1f8e0fb" class="outline-2">
-<h2 id="org1f8e0fb">Características</h2>
-<div class="outline-text-2" id="text-org1f8e0fb">
-<ul class="org-ul">
-<li>Soporte completo para LaTeX/MathJax</li>
-<li>Navegación entre notas con enlaces org-mode</li>
-<li>Generación automática de tabla de contenidos</li>
-<li>Estilo CSS responsivo</li>
-<li>Sitemap automático</li>
-</ul>
 </div>
 </div>
 </div>

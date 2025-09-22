@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-21 Sun 07:54 -->
+<!-- 2025-09-22 Mon 08:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Desglosando el Transformer</title>
@@ -90,21 +90,22 @@
                                         <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <a href="#" class="submenu-btn">🏫 HoTT (Carnegie Mellon)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                                <a href="/Tipos/HoTT/Curso/index.html">📋 Resumen</a>
+                                                                <a href="/Tipos/HoTT/Curso/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/Tipos/HoTT/Curso/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/Tipos/HoTT/Curso/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/Tipos/HoTT/Curso/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/Tipos/HoTT/Curso/igualdad.html">🟰 Igualdad</a>
                                                         </div>
                                                 </div>
 
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <a href="#" class="submenu-btn">📚 Introducción a HoTT (Rijke)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/intro.html">📖 Introducción </a>
                                                         </div>
                                                 </div>
                                         </div>
@@ -123,9 +124,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Desglosando el Transformer</h1>
-<div id="outline-container-org4d00b4f" class="outline-2">
-<h2 id="org4d00b4f">El artículo que lo cambió todo</h2>
-<div class="outline-text-2" id="text-org4d00b4f">
+<div id="outline-container-orga6b34c3" class="outline-2">
+<h2 id="orga6b34c3">El artículo que lo cambió todo</h2>
+<div class="outline-text-2" id="text-orga6b34c3">
 <ul class="org-ul">
 <li>Attention is all you need (Ashish Vaswani)
 <ul class="org-ul">
@@ -139,9 +140,9 @@ La arquitectura Transformer está formada por dos bloques, el bloque encoder y e
 decoder
 </p>
 </div>
-<div id="outline-container-org6950d5e" class="outline-3">
-<h3 id="org6950d5e">Bloque encoder</h3>
-<div class="outline-text-3" id="text-org6950d5e">
+<div id="outline-container-org2534c61" class="outline-3">
+<h3 id="org2534c61">Bloque encoder</h3>
+<div class="outline-text-3" id="text-org2534c61">
 <ul class="org-ul">
 <li>Multiples capas idénticas</li>
 <li><b>Lee</b> y <b>procesa</b> el input</li>
@@ -150,43 +151,43 @@ decoder
 </ul>
 </div>
 </div>
-<div id="outline-container-org2d1269e" class="outline-3">
-<h3 id="org2d1269e">Bloque decoder</h3>
-<div class="outline-text-3" id="text-org2d1269e">
+<div id="outline-container-org5a22e6b" class="outline-3">
+<h3 id="org5a22e6b">Bloque decoder</h3>
+<div class="outline-text-3" id="text-org5a22e6b">
 <ul class="org-ul">
 <li>Secuencia input codificada \(\rightarrow\) secuencia output</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org47eb905" class="outline-3">
-<h3 id="org47eb905">Positional encoding</h3>
-<div class="outline-text-3" id="text-org47eb905">
+<div id="outline-container-org88d1508" class="outline-3">
+<h3 id="org88d1508">Positional encoding</h3>
+<div class="outline-text-3" id="text-org88d1508">
 <ul class="org-ul">
 <li>Codifica la posición de cada token en la secuencia</li>
 <li>El orden es crucial para modelar secuencias</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org65b23a1" class="outline-3">
-<h3 id="org65b23a1">Mecanismos de atención</h3>
-<div class="outline-text-3" id="text-org65b23a1">
+<div id="outline-container-orgd3bf911" class="outline-3">
+<h3 id="orgd3bf911">Mecanismos de atención</h3>
+<div class="outline-text-3" id="text-orgd3bf911">
 <ul class="org-ul">
 <li>Presta atención a los tokens importantes y sus relaciones</li>
 <li>Mejora la generación de texto</li>
 </ul>
 </div>
-<div id="outline-container-org2436699" class="outline-4">
-<h4 id="org2436699">Self-attention</h4>
-<div class="outline-text-4" id="text-org2436699">
+<div id="outline-container-org17d3d39" class="outline-4">
+<h4 id="org17d3d39">Self-attention</h4>
+<div class="outline-text-4" id="text-org17d3d39">
 <ul class="org-ul">
 <li>Le asigna pesos a los tokens</li>
 <li>Captura dependencias a largo rango</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4f825af" class="outline-4">
-<h4 id="org4f825af">Multi-head attention</h4>
-<div class="outline-text-4" id="text-org4f825af">
+<div id="outline-container-orgafd5f7c" class="outline-4">
+<h4 id="orgafd5f7c">Multi-head attention</h4>
+<div class="outline-text-4" id="text-orgafd5f7c">
 <ul class="org-ul">
 <li>Parte el input en múltiples <b>heads</b></li>
 <li>Las heads capturas patrones distintos, creando representaciones más ricas</li>
@@ -194,9 +195,9 @@ decoder
 </div>
 </div>
 </div>
-<div id="outline-container-org104a460" class="outline-3">
-<h3 id="org104a460">Position-wide feed-forward networks</h3>
-<div class="outline-text-3" id="text-org104a460">
+<div id="outline-container-orga903a0e" class="outline-3">
+<h3 id="orga903a0e">Position-wide feed-forward networks</h3>
+<div class="outline-text-3" id="text-orga903a0e">
 <ul class="org-ul">
 <li>Neural Networks (NNs) simples que aplican transformaciones</li>
 <li>Cada token es transformado de manera independiente</li>
@@ -205,9 +206,9 @@ decoder
 </div>
 </div>
 </div>
-<div id="outline-container-orga70d791" class="outline-2">
-<h2 id="orga70d791">Transformers en PyTorch</h2>
-<div class="outline-text-2" id="text-orga70d791">
+<div id="outline-container-orga01d4db" class="outline-2">
+<h2 id="orga01d4db">Transformers en PyTorch</h2>
+<div class="outline-text-2" id="text-orga01d4db">
 <p>
 PyTorch nos provee de una clase de alto nivel en <code>torch.nn</code> para definir arquitecturas. 
 Toma cuatro parámetros principales:

@@ -8,3 +8,4 @@
 Esta es una colección de mis notas de estudio sobre el lenguaje de programación Lean
 
 ** Notas
+- [[file:./Teoremas/index.org][Resumen]]

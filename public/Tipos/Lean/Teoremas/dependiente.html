@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-09-22 Mon 08:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Teoría de tipos dependientes</title>
+<meta name="generator" content="Org Mode" />
+<link rel='stylesheet' href='/style.css' />
+<script defer src='/navbar.js'></script>
+<script>
+  window.MathJax = {
+  tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']],
+  displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  processEscapes: true,
+  processEnvironments: true,
+  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
+  },
+  loader: {
+  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
+  },
+  options: {
+  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+  };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+  <script>
+  MathJax.startup.defaultReady();
+  </script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/index.html">🏠 Home</a>
+        </div>
+        <div class="navbar-menu">
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🖥️ Computación</a>
+                        <div class="dropdown-content">
+                                <a href="/Computacion/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">⚙️ Algoritmos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Computacion/Algoritmos/index.html">📋 Resumen</a>
+                                                <a href="/Computacion/Algoritmos/pensamiento.html">🧠 Pensamiento algorítmico</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🤖 AI</a>
+                        <div class="dropdown-content">
+                                <a href="/AI/index.html">📋 Resumen</a>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">📚 CS229</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/CS229/index.html">📋 Resumen</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/aprendizaje_supervisado.html">🎯 Aprendizaje Supervisado</a>
+                                                <a href="/AI/CS229/AprendizajeSupervisado/regresion_lineal.html">📈 Regresión Lineal</a>
+                                        </div>
+                                </div>
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🏗️ DataCamp</a>
+                                        <div class="submenu-content">
+                                                <a href="/AI/DataCamp/index.html">📋 Resumen</a>
+                                                <a href="/AI/DataCamp/desglosando_el_transformer.html">🔍 Desglosando el Transformer</a>
+                                                <a href="/AI/DataCamp/embedding_y_codificacion_posicional.html">🔗 Embedding y Codificación Posicional</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="navbar-item dropdown">
+                        <a href="#" class="dropbtn">🔤 Tipos</a>
+                        <div class="dropdown-content">
+
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">✍️ Pruebas y tipos</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/ProofsAndTypes/index.html">📋 Resumen </a>
+                                                <a href="/Tipos/ProofsAndTypes/sentido.html">🧠 Sentido, denotación y semántica</a>
+                                        </div>
+                                </div>
+
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🔬 HoTT</a>
+                                        <div class="submenu-content">
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">🏫 HoTT (Carnegie Mellon)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/Tipos/HoTT/Curso/index.html">📋 Resumen</a>
+                                                                <a href="/Tipos/HoTT/Curso/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/Tipos/HoTT/Curso/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/Tipos/HoTT/Curso/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/Tipos/HoTT/Curso/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/Tipos/HoTT/Curso/igualdad.html">🟰 Igualdad</a>
+                                                        </div>
+                                                </div>
+
+                                                <div class="dropdown-submenu">
+                                                        <a href="#" class="submenu-btn">📚 Introducción a HoTT (Rijke)</a>
+                                                        <div class="submenu-content">
+                                                                <a href="/Tipos/HoTT/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/intro.html">📖 Introducción </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="dropdown-submenu">
+                                        <a href="#" class="submenu-btn">🖥️ Lean</a>
+                                        <div class="submenu-content">
+                                                <a href="/Tipos/Lean/index.html">📋 Resumen </a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+  </nav>
+</div>
+<div id="content" class="content">
+<h1 class="title">Teoría de tipos dependientes</h1>
+<p>
+La teoría de tipos dependiente es un lenguaje poderoso y expresivo, que permite expresar
+afirmaciones matemáticas complejas, escribir especificaciones de software y hardware y
+razonar sobre ambas de manera natural y uniforme. Lean se basa en una versión de la teoría
+de tipos dependiente llamada el <b>Cálculo de construcciones</b>, con una jerarquía numerable de
+universos y tipos inductivos.
+</p>
+<div id="outline-container-orgd3a0918" class="outline-2">
+<h2 id="orgd3a0918">Teoría de tipos simple</h2>
+<div class="outline-text-2" id="text-orgd3a0918">
+<p>
+La "teoría de tipos" adquiere su nombre del hecho de que cada expresión tiene un tipo asociado.
+Por ejemplo, en un contexto, <code>x + 0</code> puede denotar un número natural y <code>f</code> puede denotar una función
+sobre los números naturales. En Lean, un número natural es un entero sin signo con precisión
+arbitraria.
+Aquí hay unos ejemplos de objetos y cómo podemos checar sus tipos.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">def m: Nat := 1 -- m es un número natural
+def n: Nat := 0
+def b1: Bool := true -- b1 es un booleano
+def b2: Bool := false
+</pre>
+</div>
+
+<p>
+Podemos verificar sus tipos
+</p>
+<div class="org-src-container">
+<pre class="src src-lean4">#check m
+#check n
+#check n + 0
+#check b1
+#check b1 &amp;&amp; b2
+#check b1 || b2
+#check true
+</pre>
+</div>
+
+<pre class="example">
+m : Nat
+n : Nat
+n + 0 : Nat
+b1 : Bool
+b1 &amp;&amp; b2 : Bool
+b1 || b2 : Bool
+Bool.true : Bool
+</pre>
+
+
+
+<p>
+También podemos evaluar expresiones
+</p>
+<div class="org-src-container">
+<pre class="src src-lean4">#eval 5 +4
+#eval m + 2
+#eval b1 &amp;&amp; b2
+</pre>
+</div>
+
+<pre class="example">
+9
+3
+false
+</pre>
+
+
+
+<p>
+La palabra clave <code>def</code> declara nuevos símbolos constantes en el ambiente. En el ejemplo de arriba,
+<code>def m: Nat := 1</code> define una nueva constante <code>m</code> de tipo <code>Nat</code> cuyo valor es 1. El comando <code>#check</code>
+le pide a Lean que reporte sus tipos; en lean, los comandos auxiliares que hacen preguntas al
+sistema para obtener información generalmente comienzan con <code>#</code>. El comando <code>#eval</code> le pide a Lean
+que evalúe una expresión dada.
+</p>
+
+<p>
+Lo que hace que la teoría de tipos simple sea poderosa es que podemos crear nuevos tipos a
+partir de otros. Por ejemplo, si \(a\) y \(b\) son tipos, \(a \to b\) denota el tipo de funciones
+de \(a\) en \(b\), y \(a \times b\) denota el tipo de los pares que consisten de un elemento de
+\(a\) emparejado con un elemento de \(b\), también conocido como <b>producto Cartesiano</b>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check Nat → Nat
+#check Nat -&gt; Nat
+
+#check Nat \times Nat
+#check Prod Nat Nat
+
+#check Nat → Nat → Nat
+#check Nat → (Nat → Nat)
+
+#check Nat \times Nat → Nat
+#check (Nat → Nat) → Nat
+
+#check Nat.succ
+#check (0, 1)
+
+#check Nat.succ 2
+#check Nat.add 3
+
+#check Nat.add 5 2
+#check (5, 9).1
+#check (5, 9).2
+
+#eval Nat.succ 2
+#eval Nat.add 5 2
+#eval (5, 9).1
+#eval (5, 9).2
+</pre>
+</div>
+
+<pre class="example" id="orgc31ee95">
+Nat → Nat : Type
+Nat → Nat : Type
+Nat × Nat : Type
+Nat × Nat : Type
+Nat → Nat → Nat : Type
+Nat → Nat → Nat : Type
+Nat × Nat → Nat : Type
+(Nat → Nat) → Nat : Type
+Nat.succ (n : Nat) : Nat
+(0, 1) : Nat × Nat
+Nat.succ 2 : Nat
+Nat.add 3 : Nat → Nat
+Nat.add 5 2 : Nat
+(5, 9).fst : Nat
+(5, 9).snd : Nat
+3
+7
+5
+9
+</pre>
+</div>
+</div>
+<div id="outline-container-orgf88123e" class="outline-2">
+<h2 id="orgf88123e">Tipos como objetos</h2>
+<div class="outline-text-2" id="text-orgf88123e">
+<p>
+Una forma en la que la teoría de tipos de Lean extiende la teoría de tipos simple es que los
+tipos mismos -como <code>Nat</code> o <code>Bool</code>- son entidades de primera clase, es decir, son objetos. Para
+que esto sea posible, cada uno de ellos debe también tener un tipo.
+</p>
+<div class="org-src-container">
+<pre class="src src-lean4">#check Nat
+#check Bool
+#check Nat → Bool
+#check Nat \times Bool
+#check Nat → Nat
+#check Nat \times Nat → Nat
+</pre>
+</div>
+
+<pre class="example">
+Nat : Type
+Bool : Type
+Nat → Bool : Type
+Nat × Bool : Type
+Nat → Nat : Type
+Nat × Nat → Nat : Type
+</pre>
+
+
+<p>
+Podemos ver que cada una de estas expresiones son un objeto de tipos <code>Type</code>. También podemos
+declarar constantes para tipos
+</p>
+<div class="org-src-container">
+<pre class="src src-lean4">def α: Type := Nat
+def β: Type := Bool
+def F: Type → Type := List
+def G: Type → Type → Type := Prod
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check α
+#check F α
+#check F Nat
+#check G α
+#check G α β
+#check G α Nat
+</pre>
+</div>
+
+<pre class="example">
+α : Type
+F α : Type
+F Nat : Type
+G α : Type → Type
+G α β : Type
+G α Nat : Type
+</pre>
+
+
+<p>
+Como el ejemplo anterior sugiere, ya hemos visto una función de tipo <code>Type → Type → Type</code>, el
+producto cartesiano <code>Prod</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check Prod α β
+#check α \times β
+</pre>
+</div>
+
+<pre class="example">
+α × β : Type
+α × β : Type
+</pre>
+
+
+<p>
+Aquí hay otro ejemplo: dado un tipo <code>α</code>, el tipo <code>List α</code> denota el tipo de listas de elementos de
+tipo <code>α</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check List α
+#check List Nat
+</pre>
+</div>
+
+<pre class="example">
+List α : Type
+List Nat : Type
+</pre>
+
+
+<p>
+Dado que cada expresión en Lean tiene un tipo, es natural preguntarse: ¿qué tipo tiene
+<code>Type</code>?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check Type
+</pre>
+</div>
+
+<pre class="example">
+Type : Type 1
+</pre>
+
+
+<p>
+Lean tiene una jerarquía de tipos:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check Type
+#check Type 1
+#check Type 2
+#check Type 3
+#check Type 4
+</pre>
+</div>
+
+<pre class="example">
+Type : Type 1
+Type 1 : Type 2
+Type 2 : Type 3
+Type 3 : Type 4
+Type 4 : Type 5
+</pre>
+
+
+<p>
+Hay que pensar en  <code>Type 0</code> como un universo de tipos "pequeños" u ordinarios. <code>Type 1</code> es entonces
+un universo más grande de tipos, que contiene a <code>Type 0</code> como elemento. La lista es infinita,
+hay un <code>Type n</code> para cada número natural <code>n</code>. <code>Type</code> es una abreviatura para <code>Type 0</code>.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">sort</td>
+<td class="org-left">Prop (Sort 0)</td>
+<td class="org-left">Type (Sort 1)</td>
+<td class="org-left">Type 1 (Sort 2)</td>
+<td class="org-left">Type 2 (Sort 3)</td>
+<td class="org-left">&#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left">type</td>
+<td class="org-left">True</td>
+<td class="org-left">Bool</td>
+<td class="org-left">Nat &rarr; Type</td>
+<td class="org-left">Type &rarr; Type 1</td>
+<td class="org-left">&#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left">term</td>
+<td class="org-left">True.intro</td>
+<td class="org-left">true</td>
+<td class="org-left">fun n =&gt; Fin n</td>
+<td class="org-left">fun (_ : Type) =&gt; Type</td>
+<td class="org-left">&#x2026;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sin embargo, algunas operaciones deben ser polimorfas sobre universos de tipos. Por ejemplo, <code>List α</code> debe
+hacer sentido para cualquier tipo <code>α</code>, sin importar el universo de tipos en el que vive. Esto explica la
+signature de la función <code>List</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check List
+</pre>
+</div>
+
+<pre class="example">
+List.{u} (α : Type u) : Type u
+</pre>
+
+
+<p>
+Aquí <code>u</code> es una variable que varía sobre todos los niveles de tipos. La salida del comando <code>#check</code> significa
+que cuando <code>α</code> tiene tipo <code>Type u</code>, <code>List α</code> también tiene tipo <code>Type u</code>. La función <code>Prod</code> también es polimorfa.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check Prod
+</pre>
+</div>
+
+<pre class="example">
+Prod.{u, v} (α : Type u) (β : Type v) : Type (max u v)
+</pre>
+
+
+<p>
+Para definir constantes polimorfas, Lean permite declarar el universo de las variables explícitamente
+mediante el comando <code>universe</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">universe u
+
+def F (α: Type u): Type u := Prod α α
+
+#check F
+</pre>
+</div>
+
+<pre class="example">
+F.{u} (α : Type u) : Type u
+</pre>
+
+
+<p>
+Podemos esquivar el comando <code>universe</code> dando los parámetros de universo cuando definimos <code>F</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">def F.{u} (α: Type u): Type u := Prod α α
+
+#check F
+</pre>
+</div>
+
+<pre class="example">
+F.{u} (α : Type u) : Type u
+</pre>
+</div>
+</div>
+<div id="outline-container-orgc8017ec" class="outline-2">
+<h2 id="orgc8017ec">Abstracción de funciones y evaluación</h2>
+<div class="outline-text-2" id="text-orgc8017ec">
+<p>
+Lean da la palabra clave <code>fun</code> (o <code>λ</code>) para crear funciones a partir de una expresión como sigue:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check fun (x: Nat) =&gt; x + 5
+
+#check λ (x: Nat) =&gt; x + x
+</pre>
+</div>
+
+<pre class="example">
+fun x =&gt; x + 5 : Nat → Nat
+fun x =&gt; x + x : Nat → Nat
+</pre>
+
+
+<p>
+El tipo <code>Nat</code> se puede inferir en este ejemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check fun x =&gt; x + 5
+#check λ x =&gt; x + 5
+</pre>
+</div>
+
+<pre class="example">
+fun x =&gt; x + 5 : Nat → Nat
+fun x =&gt; x + 5 : Nat → Nat
+</pre>
+
+
+<p>
+Podemos evaluar una función lambda pasándole los parámetros que requiere
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#eval (λ x: Nat =&gt; x + 5) 10
+</pre>
+</div>
+
+<pre class="example">
+15
+</pre>
+
+
+<p>
+Crear una función a partir de otra expresión es conocido como <b>abstracción lambda</b>. Supongamos que tenemos una variable
+<code>x: α</code> y podemos construir una expresión <code>t: β</code>, entonces la expresión <code>fun (x: α) =&gt; t</code> o, equivalentemente, <code>λ x: α =&gt; t</code>,
+es un objeto de tipo <code>α → β</code>. Aquí hay algunos ejemplos
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check fun x: Nat =&gt; fun y: Bool =&gt; if not y then x + 1 else x +2
+</pre>
+</div>
+
+<pre class="example">
+fun x y =&gt; if (!y) = true then x + 1 else x + 2 : Nat → Bool → Nat
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check fun (x: Nat) (y: Bool) =&gt; if not y then x + 1 else x +2
+</pre>
+</div>
+
+<pre class="example">
+fun x y =&gt; if (!y) = true then x + 1 else x + 2 : Nat → Bool → Nat
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check fun x y =&gt; if not y then x + 1 else x + 2
+</pre>
+</div>
+
+<pre class="example">
+fun x y =&gt; if (!y) = true then x + 1 else x + 2 : Nat → Bool → Nat
+</pre>
+
+
+<p>
+Lean interpreta los últimos tres ejemplos como la misma expresión, en la última, Lean infiere el tipo de <code>x</code> y de <code>y</code>
+a partir de la expresión.
+</p>
+
+<p>
+Algunos ejemplos comunes de operaciones de funciones se pueden describir en términos de lambda abstracción:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">def f (n: Nat): String := toString n
+def g (s: String): Bool := s.length &gt; 0
+
+#check fun x: Nat =&gt; x
+#check fun x: Nat =&gt; true
+#check fun x: Nat =&gt; g (f x)
+#check fun x =&gt; g (f x)
+
+</pre>
+</div>
+
+<pre class="example" id="org61c5c71">
+fun x =&gt; x : Nat → Nat
+fun x =&gt; true : Nat → Bool
+fun x =&gt; g (f x) : Nat → Bool
+fun x =&gt; g (f x) : Nat → Bool
+fun x =&gt; x : Nat → Nat
+fun x =&gt; true : Nat → Bool
+fun x =&gt; g (f x) : Nat → Bool
+fun x =&gt; g (f x) : Nat → Bool
+</pre>
+</div>
+</div>
+</div>
+</body>
+</html>

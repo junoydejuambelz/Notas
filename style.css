@@ -385,20 +385,9 @@ tr:hover td {
   margin: 1.5rem 0;
 }
 
-/* Code results styling with orange bar */
+/* Code results border color */
 pre.example {
-  background: #161b22;
-  border: 1px solid #21262d;
-  color: #e6edf3;
-  padding: 1rem;
   border-left: 3px solid #f85149;
-  border-radius: 8px;
-  overflow-x: auto;
-  overflow-y: auto;
-  max-height: 400px;
-  margin: 1.5rem 0;
-  font-size: 0.875rem;
-  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 }
 
 /* Images */
@@ -561,11 +550,6 @@ mjx-container:not([display='true']) {
     font-size: 0.9rem;
   }
 
-  pre.example {
-    max-height: 500px;
-    font-size: 0.9rem;
-  }
-
   h1 { font-size: 2.25rem; }
   h2 { font-size: 1.75rem; }
   .title { font-size: 3rem; }
@@ -580,10 +564,6 @@ mjx-container:not([display='true']) {
   pre {
     max-height: 650px;
   }
-
-  pre.example {
-    max-height: 450px;
-  }
 }
 
 /* Tablets */
@@ -596,10 +576,6 @@ mjx-container:not([display='true']) {
   pre {
     max-height: 500px;
   }
-
-  pre.example {
-    max-height: 350px;
-  }
 }
 
 /* Mobile */
@@ -611,11 +587,6 @@ mjx-container:not([display='true']) {
 
   pre {
     max-height: 300px;
-    font-size: 0.8rem;
-  }
-
-  pre.example {
-    max-height: 250px;
     font-size: 0.8rem;
   }
 

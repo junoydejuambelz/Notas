@@ -1,0 +1,11 @@
+title: Index
+#+author: mou
+#+date: <2025-09-22 Mon>
+#+export_file_name: index
+#+startup: overview
+
+* Bienvenido a mis notas
+Esta es una colección de mis notas sobre Lean como lenguaje de programación
+
+** Notas
+- [[file:./conociendo.org][Conociendo a Lean]]

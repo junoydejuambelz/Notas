@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-21 Sun 07:54 -->
+<!-- 2025-09-22 Mon 08:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pensamiento algorítmico</title>
@@ -90,21 +90,22 @@
                                         <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <a href="#" class="submenu-btn">🏫 HoTT (Carnegie Mellon)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                                <a href="/Tipos/HoTT/Curso/index.html">📋 Resumen</a>
+                                                                <a href="/Tipos/HoTT/Curso/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/Tipos/HoTT/Curso/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/Tipos/HoTT/Curso/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/Tipos/HoTT/Curso/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/Tipos/HoTT/Curso/igualdad.html">🟰 Igualdad</a>
                                                         </div>
                                                 </div>
 
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <a href="#" class="submenu-btn">📚 Introducción a HoTT (Rijke)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/intro.html">📖 Introducción </a>
                                                         </div>
                                                 </div>
                                         </div>
@@ -123,13 +124,13 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Pensamiento algorítmico</h1>
-<div id="outline-container-org0ac5a75" class="outline-2">
-<h2 id="org0ac5a75">Peak finder</h2>
-<div class="outline-text-2" id="text-org0ac5a75">
+<div id="outline-container-org3aa6680" class="outline-2">
+<h2 id="org3aa6680">Peak finder</h2>
+<div class="outline-text-2" id="text-org3aa6680">
 </div>
-<div id="outline-container-orgb028715" class="outline-3">
-<h3 id="orgb028715">Versión uni-dimensional</h3>
-<div class="outline-text-3" id="text-orgb028715">
+<div id="outline-container-orgb537602" class="outline-3">
+<h3 id="orgb537602">Versión uni-dimensional</h3>
+<div class="outline-text-3" id="text-orgb537602">
 <p>
 Un "peak" en un arreglo uni-dimensional es un elemento que es mayor o igual que los dos
 elementos contiguos, en el caso de un borde, un "peak" es mayor o igual que el único número
@@ -140,9 +141,9 @@ contiguo.
 El problema consiste en encontrar un peak, si es que existe.
 </p>
 </div>
-<div id="outline-container-org677a927" class="outline-4">
-<h4 id="org677a927">Algoritmo inicial</h4>
-<div class="outline-text-4" id="text-org677a927">
+<div id="outline-container-org3efd825" class="outline-4">
+<h4 id="org3efd825">Algoritmo inicial</h4>
+<div class="outline-text-4" id="text-org3efd825">
 <p>
 El algoritmo más directo es empezar por la izquierda elemento por elemento y verificar
 si cada número es un "peak". Este algoritmo tendría una complejidad \(\theta(n)\) (en el
@@ -151,9 +152,9 @@ una cota superior y una cota inferior, a diferencia de \(O\) que es sólo una co
 </p>
 </div>
 </div>
-<div id="outline-container-org93b4427" class="outline-4">
-<h4 id="org93b4427">Algoritmo mejorado (divide and conquer)</h4>
-<div class="outline-text-4" id="text-org93b4427">
+<div id="outline-container-org6c22edc" class="outline-4">
+<h4 id="org6c22edc">Algoritmo mejorado (divide and conquer)</h4>
+<div class="outline-text-4" id="text-org6c22edc">
 <p>
 Empezamos por el elemento de la mitad y repetimos los siguientes pasos en orden:
 </p>
@@ -192,17 +193,17 @@ Así, el algoritmo tiene una complejidad de \(\theta(\log_2(n))\).
 </div>
 </div>
 </div>
-<div id="outline-container-org7006a2e" class="outline-3">
-<h3 id="org7006a2e">Versión bi-dimensional</h3>
-<div class="outline-text-3" id="text-org7006a2e">
+<div id="outline-container-orgb4cf097" class="outline-3">
+<h3 id="orgb4cf097">Versión bi-dimensional</h3>
+<div class="outline-text-3" id="text-orgb4cf097">
 <p>
 Un "peak" en un arreglo bi-dimensional de \(n \times m\) es una montaña, es un número que es mayor
 o igual a los números que están arriba, abajo a la izquierda y a la derecha.
 </p>
 </div>
-<div id="outline-container-org6f0d0b2" class="outline-4">
-<h4 id="org6f0d0b2">Algoritmo inicial (Algoritmo de ascenso codicioso)</h4>
-<div class="outline-text-4" id="text-org6f0d0b2">
+<div id="outline-container-org4852287" class="outline-4">
+<h4 id="org4852287">Algoritmo inicial (Algoritmo de ascenso codicioso)</h4>
+<div class="outline-text-4" id="text-org4852287">
 <p>
 Empezamos con una posición y dirección inicial (diagamos el centro y la izquierda). Si
 el número a la izquierda es mayor, nos empezamos a mover a la izquierda hasta encontrar
@@ -217,9 +218,9 @@ complejidad de peor escenario de \(\theta(n \cdot m)\) y, en el caso en que \(n 
 </p>
 </div>
 </div>
-<div id="outline-container-org237187a" class="outline-4">
-<h4 id="org237187a">Algoritmo mejorado (pero no funcional)</h4>
-<div class="outline-text-4" id="text-org237187a">
+<div id="outline-container-orgbe0e2c4" class="outline-4">
+<h4 id="orgbe0e2c4">Algoritmo mejorado (pero no funcional)</h4>
+<div class="outline-text-4" id="text-orgbe0e2c4">
 <p>
 Escogemos la columna de la mitad \(j = m/2\) y encontramos un pico uni-dimensional en
 \((i,j)\). Luego usamos \((i,j)\) para encontrar un pico uni-dimensional en el renglón
@@ -229,9 +230,9 @@ bi-dimensional en el renglón \(i\)</b>.
 </p>
 </div>
 </div>
-<div id="outline-container-org345ca36" class="outline-4">
-<h4 id="org345ca36">Algoritmo mejorado (y funcional)</h4>
-<div class="outline-text-4" id="text-org345ca36">
+<div id="outline-container-org2c6797a" class="outline-4">
+<h4 id="org2c6797a">Algoritmo mejorado (y funcional)</h4>
+<div class="outline-text-4" id="text-org2c6797a">
 <p>
 Escogemos la columna \(j = m/2\) y encontramos el máximo global en la columna \(j\) en
 \((i,j)\). Comparamos \((i, j-1)\), \((i, j)\) y \((i, j+1)\) y esocgemos las columnas

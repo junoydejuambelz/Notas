@@ -1,0 +1,474 @@
+#+title: Teoría de tipos dependientes
+#+author: mou
+#+date: <2025-09-21 Sun>
+#+export_file_name: dependiente
+#+startup: overview
+
+La teoría de tipos dependiente es un lenguaje poderoso y expresivo, que permite expresar
+afirmaciones matemáticas complejas, escribir especificaciones de software y hardware y
+razonar sobre ambas de manera natural y uniforme. Lean se basa en una versión de la teoría
+de tipos dependiente llamada el *Cálculo de construcciones*, con una jerarquía numerable de
+universos y tipos inductivos.
+
+* Teoría de tipos simple
+La "teoría de tipos" adquiere su nombre del hecho de que cada expresión tiene un tipo asociado.
+Por ejemplo, en un contexto, ~x + 0~ puede denotar un número natural y ~f~ puede denotar una función
+sobre los números naturales. En Lean, un número natural es un entero sin signo con precisión
+arbitraria.
+Aquí hay unos ejemplos de objetos y cómo podemos checar sus tipos.
+
+#+begin_src lean4 :session default
+def m: Nat := 1 -- m es un número natural
+def n: Nat := 0
+def b1: Bool := true -- b1 es un booleano
+def b2: Bool := false
+#+end_src
+
+#+RESULTS:
+
+
+Podemos verificar sus tipos
+#+begin_src lean4 :session default
+#check m
+#check n
+#check n + 0
+#check b1
+#check b1 && b2
+#check b1 || b2
+#check true
+#+end_src
+
+#+RESULTS:
+: m : Nat
+: n : Nat
+: n + 0 : Nat
+: b1 : Bool
+: b1 && b2 : Bool
+: b1 || b2 : Bool
+: Bool.true : Bool
+
+
+También podemos evaluar expresiones
+#+begin_src lean4 :session default
+#eval 5 +4
+#eval m + 2
+#eval b1 && b2
+#+end_src
+
+#+RESULTS:
+: 9
+: 3
+: false
+
+
+La palabra clave ~def~ declara nuevos símbolos constantes en el ambiente. En el ejemplo de arriba,
+~def m: Nat := 1~ define una nueva constante ~m~ de tipo ~Nat~ cuyo valor es 1. El comando ~#check~
+le pide a Lean que reporte sus tipos; en lean, los comandos auxiliares que hacen preguntas al
+sistema para obtener información generalmente comienzan con ~#~. El comando ~#eval~ le pide a Lean
+que evalúe una expresión dada.
+
+Lo que hace que la teoría de tipos simple sea poderosa es que podemos crear nuevos tipos a
+partir de otros. Por ejemplo, si \(a\) y \(b\) son tipos, \(a \to b\) denota el tipo de funciones
+de \(a\) en \(b\), y \(a \times b\) denota el tipo de los pares que consisten de un elemento de
+\(a\) emparejado con un elemento de \(b\), también conocido como *producto Cartesiano*.
+
+#+begin_src lean4 :session default
+#check Nat \to Nat
+#check Nat -> Nat
+
+#check Nat \times Nat
+#check Prod Nat Nat
+
+#check Nat \to Nat \to Nat
+#check Nat \to (Nat \to Nat)
+
+#check Nat \times Nat \to Nat
+#check (Nat \to Nat) \to Nat
+
+#check Nat.succ
+#check (0, 1)
+
+#check Nat.succ 2
+#check Nat.add 3
+
+#check Nat.add 5 2
+#check (5, 9).1
+#check (5, 9).2
+
+#eval Nat.succ 2
+#eval Nat.add 5 2
+#eval (5, 9).1
+#eval (5, 9).2
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Nat → Nat : Type
+Nat → Nat : Type
+Nat × Nat : Type
+Nat × Nat : Type
+Nat → Nat → Nat : Type
+Nat → Nat → Nat : Type
+Nat × Nat → Nat : Type
+(Nat → Nat) → Nat : Type
+Nat.succ (n : Nat) : Nat
+(0, 1) : Nat × Nat
+Nat.succ 2 : Nat
+Nat.add 3 : Nat → Nat
+Nat.add 5 2 : Nat
+(5, 9).fst : Nat
+(5, 9).snd : Nat
+3
+7
+5
+9
+#+end_example
+
+* Tipos como objetos
+Una forma en la que la teoría de tipos de Lean extiende la teoría de tipos simple es que los
+tipos mismos -como ~Nat~ o ~Bool~- son entidades de primera clase, es decir, son objetos. Para
+que esto sea posible, cada uno de ellos debe también tener un tipo.
+#+begin_src lean4 :session objetos
+#check Nat
+#check Bool
+#check Nat \to Bool
+#check Nat \times Bool
+#check Nat \to Nat
+#check Nat \times Nat \to Nat
+#+end_src
+
+#+RESULTS:
+: Nat : Type
+: Bool : Type
+: Nat → Bool : Type
+: Nat × Bool : Type
+: Nat → Nat : Type
+: Nat × Nat → Nat : Type
+
+Podemos ver que cada una de estas expresiones son un objeto de tipos ~Type~. También podemos
+declarar constantes para tipos
+#+begin_src lean4 :session objetos
+def \alpha: Type := Nat
+def \beta: Type := Bool
+def F: Type \to Type := List
+def G: Type \to Type \to Type := Prod
+#+end_src
+
+#+begin_src lean4 :session objetos
+#check \alpha
+#check F \alpha
+#check F Nat
+#check G \alpha
+#check G \alpha \beta
+#check G \alpha Nat
+#+end_src
+
+#+RESULTS:
+: α : Type
+: F α : Type
+: F Nat : Type
+: G α : Type → Type
+: G α β : Type
+: G α Nat : Type
+
+Como el ejemplo anterior sugiere, ya hemos visto una función de tipo ~Type \to Type \to Type~, el
+producto cartesiano ~Prod~:
+
+#+begin_src lean4 :session objetos
+#check Prod \alpha \beta
+#check \alpha \times \beta
+#+end_src
+
+#+RESULTS:
+: α × β : Type
+: α × β : Type
+
+Aquí hay otro ejemplo: dado un tipo ~\alpha~, el tipo ~List \alpha~ denota el tipo de listas de elementos de
+tipo ~\alpha~.
+
+#+begin_src lean4 :session objetos
+#check List \alpha
+#check List Nat
+#+end_src
+
+#+RESULTS:
+: List α : Type
+: List Nat : Type
+
+Dado que cada expresión en Lean tiene un tipo, es natural preguntarse: ¿qué tipo tiene
+~Type~?
+
+#+begin_src lean4 :session objetos
+#check Type
+#+end_src
+
+#+RESULTS:
+: Type : Type 1
+
+Lean tiene una jerarquía de tipos:
+
+#+begin_src lean4 :session objetos
+#check Type
+#check Type 1
+#check Type 2
+#check Type 3
+#check Type 4
+#+end_src
+
+#+RESULTS:
+: Type : Type 1
+: Type 1 : Type 2
+: Type 2 : Type 3
+: Type 3 : Type 4
+: Type 4 : Type 5
+
+Hay que pensar en  ~Type 0~ como un universo de tipos "pequeños" u ordinarios. ~Type 1~ es entonces
+un universo más grande de tipos, que contiene a ~Type 0~ como elemento. La lista es infinita,
+hay un ~Type n~ para cada número natural ~n~. ~Type~ es una abreviatura para ~Type 0~.
+
+| sort | Prop (Sort 0) | Type (Sort 1) | Type 1 (Sort 2) | Type 2 (Sort 3)        | ... |
+| type | True          | Bool          | Nat \to Type      | Type \to Type 1          | ... |
+| term | True.intro    | true          | fun n => Fin n  | fun (_ : Type) => Type | ... |
+
+Sin embargo, algunas operaciones deben ser polimorfas sobre universos de tipos. Por ejemplo, ~List \alpha~ debe
+hacer sentido para cualquier tipo ~\alpha~, sin importar el universo de tipos en el que vive. Esto explica la
+signature de la función ~List~:
+
+#+begin_src lean4 :session objetos
+#check List
+#+end_src
+
+#+RESULTS:
+: List.{u} (α : Type u) : Type u
+
+Aquí ~u~ es una variable que varía sobre todos los niveles de tipos. La salida del comando ~#check~ significa
+que cuando ~\alpha~ tiene tipo ~Type u~, ~List \alpha~ también tiene tipo ~Type u~. La función ~Prod~ también es polimorfa.
+
+#+begin_src lean4 :session objetos
+#check Prod
+#+end_src
+
+#+RESULTS:
+: Prod.{u, v} (α : Type u) (β : Type v) : Type (max u v)
+
+Para definir constantes polimorfas, Lean permite declarar el universo de las variables explícitamente
+mediante el comando ~universe~:
+
+#+begin_src lean4 :session objetos
+universe u
+
+def F (\alpha: Type u): Type u := Prod \alpha \alpha
+
+#check F
+#+end_src
+
+#+RESULTS:
+: F.{u} (α : Type u) : Type u
+
+Podemos esquivar el comando ~universe~ dando los parámetros de universo cuando definimos ~F~:
+
+#+begin_src lean4
+def F.{u} (\alpha: Type u): Type u := Prod \alpha \alpha
+
+#check F
+#+end_src
+
+#+RESULTS:
+: F.{u} (α : Type u) : Type u
+
+* Abstracción de funciones y evaluación
+Lean da la palabra clave ~fun~ (o ~\lambda~) para crear funciones a partir de una expresión como sigue:
+
+#+begin_src lean4 :session abstraccion
+#check fun (x: Nat) => x + 5
+
+#check \lambda (x: Nat) => x + x
+#+end_src
+
+#+RESULTS:
+: fun x => x + 5 : Nat → Nat
+: fun x => x + x : Nat → Nat
+
+El tipo ~Nat~ se puede inferir en este ejemplo:
+
+#+begin_src lean4 :session abstraccion
+#check fun x => x + 5
+#check \lambda x => x + 5
+#+end_src
+
+#+RESULTS:
+: fun x => x + 5 : Nat → Nat
+: fun x => x + 5 : Nat → Nat
+
+Podemos evaluar una función lambda pasándole los parámetros que requiere
+
+#+begin_src lean4 :session abstraccion
+#eval (\lambda x: Nat => x + 5) 10
+#+end_src
+
+#+RESULTS:
+: 15
+
+Crear una función a partir de otra expresión es conocido como *abstracción lambda*. Supongamos que tenemos una variable
+~x: \alpha~ y podemos construir una expresión ~t: \beta~, entonces la expresión ~fun (x: \alpha) => t~ o, equivalentemente, ~\lambda x: \alpha => t~,
+es un objeto de tipo ~\alpha \to \beta~. Aquí hay algunos ejemplos
+
+#+begin_src lean4 :session abstraccion
+#check fun x: Nat => fun y: Bool => if not y then x + 1 else x +2
+#+end_src
+
+#+RESULTS:
+: fun x y => if (!y) = true then x + 1 else x + 2 : Nat → Bool → Nat
+
+#+begin_src lean4 :session abstraccion
+#check fun (x: Nat) (y: Bool) => if not y then x + 1 else x +2
+#+end_src
+
+#+RESULTS:
+: fun x y => if (!y) = true then x + 1 else x + 2 : Nat → Bool → Nat
+
+#+begin_src lean4 :session abstraccion
+#check fun x y => if not y then x + 1 else x + 2
+#+end_src
+
+#+RESULTS:
+: fun x y => if (!y) = true then x + 1 else x + 2 : Nat → Bool → Nat
+
+Lean interpreta los últimos tres ejemplos como la misma expresión, en la última, Lean infiere el tipo de ~x~ y de ~y~
+a partir de la expresión.
+
+Algunos ejemplos comunes de operaciones de funciones se pueden describir en términos de lambda abstracción:
+
+#+begin_src lean4 :session abstraccion
+def f (n: Nat): String := toString n
+def g (s: String): Bool := s.length > 0
+
+#check fun x: Nat => x
+#check fun x: Nat => true
+#check fun x: Nat => g (f x)
+#check fun x => g (f x)
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+fun x => x : Nat → Nat
+fun x => true : Nat → Bool
+fun x => g (f x) : Nat → Bool
+fun x => g (f x) : Nat → Bool
+fun x => x : Nat → Nat
+fun x => true : Nat → Bool
+fun x => g (f x) : Nat → Bool
+fun x => g (f x) : Nat → Bool
+#+end_example
+
+Podemos pasar funciones como parámetros y, si les damos nombres ~f~ y ~g~ podemos usar esas
+funciones en la implementación:
+
+#+begin_src lean4 :session abstraccion
+#check fun (g: String \to Bool) (f: Nat \to String) (x: Nat) => g (f x)
+#+end_src
+
+#+RESULTS:
+: fun g f x => g (f x) : (String → Bool) → (Nat → String) → Nat → Bool
+
+También podemos pasar tipos como parámetros
+
+#+begin_src lean4 :session abstraccion
+#check fun (\alpha \beta \gamma: Type) (g: \beta \to \gamma) (f: \alpha \to \beta) (x: \alpha) => g (f x)
+#+end_src
+
+#+RESULTS:
+: fun α β γ g f x => g (f x) : (α β γ : Type) → (β → γ) → (α → β) → α → γ
+
+La forma general de una expresión lambda es ~fun (x: \alpha) => t~, donde la variable ~x~ es una
+"variable ligada": realmente es un placeholder, cuyo "alcance" no se extiende más allá de la
+expresión ~t~.
+
+Formalmente, las expresiones que son iguales salvo el nombre de las variables son llamadas
+*alpha equivalentes* y son consideradas como iguales.
+
+Notemos que aplicar un término ~t: \alpha \to \beta~ a un término ~t: \alpha~ da una expresión ~t: \beta~.
+
+* Definiciones
+Recordemos que la palabra clave ~def~ nos da una manera importante de definir objetos nombrados.
+
+#+begin_src lean4 :session definiciones
+def double (x: Nat): Nat :=
+    x + x
+#+end_src
+
+Podemos invocar esta función usando su nombre
+
+#+begin_src lean4 :session definiciones
+#eval double 3
+#+end_src
+
+#+RESULTS:
+: 6
+
+En este caso, podemos pensar a ~def~ como una ~fun~ con un nombre. Lo siguiente da el mismo
+resultado:
+
+#+begin_src lean4 :session definiciones-ejemplo
+def double: Nat \to Nat :=
+    fun x => x + x
+
+#eval double 3
+#+end_src
+
+#+RESULTS:
+: 6
+
+Podemos omitir las declaraciones de tipos si Lean tiene suficiente información para deducirlos.
+
+#+begin_src lean4 :session definiciones-ejemplo-2
+def double :=
+    fun (x: Nat) => x + x
+#+end_src
+
+La forma general de una definición es ~def foo: \alpha := bar~ donde ~\alpha~ es el tipo devuelto por la
+expresión ~bar~. El lado derecho ~bar~ puede ser cualquier expresión, no sólo una lambda:
+
+#+begin_src lean4 :session definiciones
+def pi := 3.1415926535
+#+end_src
+
+~def~ puede tomar varios parámetros de entrada.
+
+#+begin_src lean4 :session definiciones
+def add (x y: Nat): Nat :=
+    x + y
+
+#eval add 3 2
+#+end_src
+
+#+RESULTS:
+: 5
+
+La lista de parámetros puede separarse
+
+#+begin_src lean4 :session definiciones-add
+def add (x: Nat) (y: Nat): Nat :=
+    x + y
+
+#eval add 3 2
+#+end_src
+
+#+RESULTS:
+: 5
+
+Podemos usar expresiones más interesantes
+
+#+begin_src lean4 :session definiciones
+def greater (x y: Nat) :=
+    if x > y then x
+    else y
+
+#eval greater 3 2
+#eval greater 2 4
+#+end_src
+
+#+RESULTS:
+: 3
+: 4

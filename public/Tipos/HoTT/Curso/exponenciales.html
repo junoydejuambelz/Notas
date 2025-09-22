@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-21 Sun 07:54 -->
+<!-- 2025-09-22 Mon 08:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Exponenciales</title>
@@ -90,21 +90,22 @@
                                         <a href="#" class="submenu-btn">🔬 HoTT</a>
                                         <div class="submenu-content">
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 HoTT (Carnegie Mellon)</a>
+                                                        <a href="#" class="submenu-btn">🏫 HoTT (Carnegie Mellon)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/HoTT/index.html">📋 Resumen</a>
-                                                                <a href="/HoTT/introduccion.html">🚀 Introducción</a>
-                                                                <a href="/HoTT/juicios.html">⚖️ Juicios</a>
-                                                                <a href="/HoTT/transitividad.html">🔛 Transitividad </a>
-                                                                <a href="/HoTT/exponenciales.html">🗼 Exponenciales</a>
-                                                                <a href="/HoTT/igualdad.html">🟰 Igualdad</a>
+                                                                <a href="/Tipos/HoTT/Curso/index.html">📋 Resumen</a>
+                                                                <a href="/Tipos/HoTT/Curso/introduccion.html">🚀 Introducción</a>
+                                                                <a href="/Tipos/HoTT/Curso/juicios.html">⚖️ Juicios</a>
+                                                                <a href="/Tipos/HoTT/Curso/transitividad.html">🔛 Transitividad </a>
+                                                                <a href="/Tipos/HoTT/Curso/exponenciales.html">🗼 Exponenciales</a>
+                                                                <a href="/Tipos/HoTT/Curso/igualdad.html">🟰 Igualdad</a>
                                                         </div>
                                                 </div>
 
                                                 <div class="dropdown-submenu">
-                                                        <a href="#" class="submenu-btn">🔬 Introducción a HoTT (Rijke)</a>
+                                                        <a href="#" class="submenu-btn">📚 Introducción a HoTT (Rijke)</a>
                                                         <div class="submenu-content">
-                                                                <a href="/Tipos/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/index.html">📋 Resumen </a>
+                                                                <a href="/Tipos/HoTT/Rijke/intro.html">📖 Introducción </a>
                                                         </div>
                                                 </div>
                                         </div>
@@ -123,17 +124,17 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Exponenciales</h1>
-<div id="outline-container-org0425de3" class="outline-2">
-<h2 id="org0425de3">Términos de pruebas</h2>
-<div class="outline-text-2" id="text-org0425de3">
+<div id="outline-container-org4a80b4a" class="outline-2">
+<h2 id="org4a80b4a">Términos de pruebas</h2>
+<div class="outline-text-2" id="text-org4a80b4a">
 </div>
-<div id="outline-container-org134a3ab" class="outline-3">
-<h3 id="org134a3ab">Reglas estructurales</h3>
-<div class="outline-text-3" id="text-org134a3ab">
+<div id="outline-container-org1275662" class="outline-3">
+<h3 id="org1275662">Reglas estructurales</h3>
+<div class="outline-text-3" id="text-org1275662">
 </div>
-<div id="outline-container-org68e85ae" class="outline-4">
-<h4 id="org68e85ae">Regla de introducción de variables</h4>
-<div class="outline-text-4" id="text-org68e85ae">
+<div id="outline-container-orgad2e5e0" class="outline-4">
+<h4 id="orgad2e5e0">Regla de introducción de variables</h4>
+<div class="outline-text-4" id="text-orgad2e5e0">
 <p>
 \[
         \Gamma, x: A, \Gamma' \vdash x: A
@@ -141,9 +142,9 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org8163ccb" class="outline-4">
-<h4 id="org8163ccb">Relga de substitución</h4>
-<div class="outline-text-4" id="text-org8163ccb">
+<div id="outline-container-org84089a3" class="outline-4">
+<h4 id="org84089a3">Relga de substitución</h4>
+<div class="outline-text-4" id="text-org84089a3">
 <p>
 \[
         \frac{\Gamma, x: A, \Gamma' \vdash N: B ~~~ \Gamma \vdash M: A}{\Gamma, \Gamma' \vdash [M|_x]N: B}
@@ -151,9 +152,9 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org8354694" class="outline-4">
-<h4 id="org8354694">Regla de debilitamiento</h4>
-<div class="outline-text-4" id="text-org8354694">
+<div id="outline-container-org0734128" class="outline-4">
+<h4 id="org0734128">Regla de debilitamiento</h4>
+<div class="outline-text-4" id="text-org0734128">
 <p>
 \[
         \frac{\Gamma \vdash M: A}{\Gamma, \Gamma' \vdash M: A}
@@ -161,9 +162,9 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orga71c223" class="outline-4">
-<h4 id="orga71c223">Regla de contracción</h4>
-<div class="outline-text-4" id="text-orga71c223">
+<div id="outline-container-org98d73a6" class="outline-4">
+<h4 id="org98d73a6">Regla de contracción</h4>
+<div class="outline-text-4" id="text-org98d73a6">
 <p>
 \[
         \frac{\Gamma, x: A, y: A, \Gamma' \vdash N: B}{\Gamma, z: A, \Gamma' \vdash [z, z/x,y]N: B}
@@ -171,9 +172,9 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orgee83c2b" class="outline-4">
-<h4 id="orgee83c2b">Regla de intercambio</h4>
-<div class="outline-text-4" id="text-orgee83c2b">
+<div id="outline-container-org5fb9dfb" class="outline-4">
+<h4 id="org5fb9dfb">Regla de intercambio</h4>
+<div class="outline-text-4" id="text-org5fb9dfb">
 <p>
 \[
         \frac{\Gamma, x: A, y: B, \Gamma' \vdash N: C}{\Gamma, y: B, x: A, \Gamma' \vdash N: C}
@@ -182,13 +183,13 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org0a2a6c6" class="outline-3">
-<h3 id="org0a2a6c6">Conectivos lógicos</h3>
-<div class="outline-text-3" id="text-org0a2a6c6">
+<div id="outline-container-org028d820" class="outline-3">
+<h3 id="org028d820">Conectivos lógicos</h3>
+<div class="outline-text-3" id="text-org028d820">
 </div>
-<div id="outline-container-orged6a442" class="outline-4">
-<h4 id="orged6a442">Proposición trivialmente verdadera</h4>
-<div class="outline-text-4" id="text-orged6a442">
+<div id="outline-container-org3a8c8fc" class="outline-4">
+<h4 id="org3a8c8fc">Proposición trivialmente verdadera</h4>
+<div class="outline-text-4" id="text-org3a8c8fc">
 <p>
 \[
         \frac{~}{\Gamma \vdash <>: \top} ~ (\top-Introducci\acute{o}n)
@@ -196,13 +197,13 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org3a55616" class="outline-4">
-<h4 id="org3a55616">Conjunción</h4>
-<div class="outline-text-4" id="text-org3a55616">
+<div id="outline-container-orgeb5c814" class="outline-4">
+<h4 id="orgeb5c814">Conjunción</h4>
+<div class="outline-text-4" id="text-orgeb5c814">
 </div>
-<div id="outline-container-org1d92dee" class="outline-5">
-<h5 id="org1d92dee">Introducción</h5>
-<div class="outline-text-5" id="text-org1d92dee">
+<div id="outline-container-org1891577" class="outline-5">
+<h5 id="org1891577">Introducción</h5>
+<div class="outline-text-5" id="text-org1891577">
 <p>
 \[
         \frac{\Gamma  \vdash M: A ~~~ \Gamma \vdash N: B}{\Gamma \vdash \langle M, N \rangle: A \land B} ~ (\land-Introducci\acute{o}n)
@@ -210,9 +211,9 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org44aa0c0" class="outline-5">
-<h5 id="org44aa0c0">Eliminación</h5>
-<div class="outline-text-5" id="text-org44aa0c0">
+<div id="outline-container-orgeced0a8" class="outline-5">
+<h5 id="orgeced0a8">Eliminación</h5>
+<div class="outline-text-5" id="text-orgeced0a8">
 <p>
 \[
         \frac{\Gamma \vdash M: A \land B}{\Gamma \vdash fst(M): A} ~ (\land-Eliminaci\acute{o}n_1) ~~~
@@ -222,13 +223,13 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orga00cf12" class="outline-4">
-<h4 id="orga00cf12">Implicación</h4>
-<div class="outline-text-4" id="text-orga00cf12">
+<div id="outline-container-org6cb5548" class="outline-4">
+<h4 id="org6cb5548">Implicación</h4>
+<div class="outline-text-4" id="text-org6cb5548">
 </div>
-<div id="outline-container-org63c896b" class="outline-5">
-<h5 id="org63c896b">Introducción</h5>
-<div class="outline-text-5" id="text-org63c896b">
+<div id="outline-container-org80c3f23" class="outline-5">
+<h5 id="org80c3f23">Introducción</h5>
+<div class="outline-text-5" id="text-org80c3f23">
 <p>
 \[
         \frac{\Gamma, x: A \vdash M: B}{\Gamma \vdash \lambda x.M: A \supset B} ~ (\supset-Introducci\acute{o}n)
@@ -236,9 +237,9 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orgdb22371" class="outline-5">
-<h5 id="orgdb22371">Eliminación</h5>
-<div class="outline-text-5" id="text-orgdb22371">
+<div id="outline-container-org29e1dbd" class="outline-5">
+<h5 id="org29e1dbd">Eliminación</h5>
+<div class="outline-text-5" id="text-org29e1dbd">
 <p>
 \[
         \frac{\Gamma \vdash M: A \supset B ~~~ \Gamma \vdash N: A}{\Gamma \vdash M(N): B} ~ (\supset-Eliminaci\acute{o}n)
@@ -249,9 +250,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org971c0d3" class="outline-2">
-<h2 id="org971c0d3">Igualdad definicional</h2>
-<div class="outline-text-2" id="text-org971c0d3">
+<div id="outline-container-org1b69701" class="outline-2">
+<h2 id="org1b69701">Igualdad definicional</h2>
+<div class="outline-text-2" id="text-org1b69701">
 <p>
 La igualdad definicional es la mínima congruencia (relación de equivalencia, que es compatible con los
 operadoes, i.e., se preserva la igualdad definicional) que es cerrada bajo las siguientes reglas
@@ -270,9 +271,9 @@ operadoes, i.e., se preserva la igualdad definicional) que es cerrada bajo las s
   \]</li>
 </ul>
 </div>
-<div id="outline-container-orgadd263c" class="outline-3">
-<h3 id="orgadd263c">Principios de unicidad de Gentzen (reglas \(\eta\))</h3>
-<div class="outline-text-3" id="text-orgadd263c">
+<div id="outline-container-org9472dd3" class="outline-3">
+<h3 id="org9472dd3">Principios de unicidad de Gentzen (reglas \(\eta\))</h3>
+<div class="outline-text-3" id="text-org9472dd3">
 <ul class="org-ul">
 <li>\[
         \frac{\Gamma \vdash M: \top}{\Gamma \vdash M \equiv \langle \rangle: \top} ~ (\eta \top)
@@ -287,9 +288,9 @@ operadoes, i.e., se preserva la igualdad definicional) que es cerrada bajo las s
 </div>
 </div>
 </div>
-<div id="outline-container-orgf9e901d" class="outline-2">
-<h2 id="orgf9e901d">Proposiciones como tipos (La gran correspondencia)</h2>
-<div class="outline-text-2" id="text-orgf9e901d">
+<div id="outline-container-orgc234714" class="outline-2">
+<h2 id="orgc234714">Proposiciones como tipos (La gran correspondencia)</h2>
+<div class="outline-text-2" id="text-orgc234714">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -348,13 +349,13 @@ operadoes, i.e., se preserva la igualdad definicional) que es cerrada bajo las s
 </table>
 </div>
 </div>
-<div id="outline-container-orgd396f7f" class="outline-2">
-<h2 id="orgd396f7f">Categorías</h2>
-<div class="outline-text-2" id="text-orgd396f7f">
+<div id="outline-container-orgb1591ba" class="outline-2">
+<h2 id="orgb1591ba">Categorías</h2>
+<div class="outline-text-2" id="text-orgb1591ba">
 </div>
-<div id="outline-container-orgdd0a0d0" class="outline-3">
-<h3 id="orgdd0a0d0">Objeto terminal</h3>
-<div class="outline-text-3" id="text-orgdd0a0d0">
+<div id="outline-container-org8b04b21" class="outline-3">
+<h3 id="org8b04b21">Objeto terminal</h3>
+<div class="outline-text-3" id="text-org8b04b21">
 <p>
 Un obejto terminal \(1\) es un objeto en una categoría tal que para cada otro objeto \(A\) existe un
 único morfismo \( \langle \rangle: A \to 1 \), siendo más claros:
@@ -365,9 +366,9 @@ Un obejto terminal \(1\) es un objeto en una categoría tal que para cada otro o
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf68af6a" class="outline-3">
-<h3 id="orgf68af6a">Productos</h3>
-<div class="outline-text-3" id="text-orgf68af6a">
+<div id="outline-container-org4bbb6eb" class="outline-3">
+<h3 id="org4bbb6eb">Productos</h3>
+<div class="outline-text-3" id="text-org4bbb6eb">
 <p>
 Un producto \(A \times B\) de dos objetos \(A\) y \(B\) es un objeto en una categoría con dos
 morfismos \(fst: A \times B \to A\) y \(snd: A \times B \to B\) tal que para cada otro objeto \(C\) con
@@ -377,7 +378,7 @@ conmute
 </p>
 
 
-<div id="org678f702" class="figure">
+<div id="org103c732" class="figure">
 <p><img src="Categorías/_20250911_171757screenshot.png" alt="_20250911_171757screenshot.png" width="300px" />
 </p>
 </div>
@@ -398,9 +399,9 @@ Otra manera de escribir esto es:
 </ul>
 </div>
 </div>
-<div id="outline-container-org7b04a32" class="outline-3">
-<h3 id="org7b04a32">Exponenciales</h3>
-<div class="outline-text-3" id="text-org7b04a32">
+<div id="outline-container-org8f67b4f" class="outline-3">
+<h3 id="org8f67b4f">Exponenciales</h3>
+<div class="outline-text-3" id="text-org8f67b4f">
 <p>
 Un objeto \(B^A\) y un morfismo \(ap: B^A \times A \to B\) en una categoría es una exponencial para
 \(B\) y \(A\) si, para cada objeto \(C\) y cada morfismo \(h: C \times A \to B\) existe un único morfismo
@@ -409,7 +410,7 @@ es decir, el siguiente diagrama conmuta
 </p>
 
 
-<div id="org9f64cb4" class="figure">
+<div id="orgec6ae56" class="figure">
 <p><img src="Categorías/swappy-20250911_180042.png" alt="swappy-20250911_180042.png" width="300px" />
 </p>
 </div>

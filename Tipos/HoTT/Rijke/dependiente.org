@@ -74,3 +74,75 @@ trabajando hacia la derecha, verificando que cada elemento hipotético \(x_k\) t
 Notemos que hay un contexto de longitud 0, el *contexto vacío*, en el que no se declara ninguna variable.
 Este contexto satisface la definición [[#definicion-1-1-2][1.1.2]] por vacuidad. Una lista de declaraciones de variables
 \(x_1: A_1\) es un contexto si y sólo si \(A_1\) es un tipo en el contexto vacío.
+* Familias de tipos
+Una característica de la teoría de tipos dependiente es que todos los juicios dependen del contexto e
+incluso los tipos de las variables en un contexto pueden depender de otras variables ya declaradas.
+Por ejemplo, si \(n\) es un número natural y sabemos del contexto que \(n\) es primo, entonces no tenemos
+suficiente información para afirmar que \(n\) es impar. Sin embargo, si sabemos del contexto que \(n + 2\)
+es primo, entonces podemos derivar del contexto que \(n\) debe ser impar.
+
+** Definición 1.2.1
+Consideremos un tipo \(A\) en un contexto \(\Gamma\). Una *familia* de tipos sobre \(A\) en un contexto \(\Gamma\) es un tipo
+\(B(x)\) en el contexto \(\Gamma, x: A\). En otras palabras, en la situación en la que
+\[ \Gamma, x: A \vdash B(x) ~~~ \text{type} \],
+decimos que \(B\) es una familia de tipos sobre \(A\) en el contexto \(\Gamma\). Alternativamente, decimos que
+\(B(x)\) es un tipo *indizado* por \(x: A\), en el contexto \(\Gamma\).
+
+Pensamos en una familia de tipos \(B\) sobre \(A\) en un contexto \(\Gamma\) como un tipo \(B(x)\) que varía a lo largo
+de \(x: A\). Un ejemplo básico de una familia de tipos ocurre cuando introducimos los *tipos identidad*.
+Se introducen como sigue:
+\[
+        \frac{\Gamma \vdash a: A}{\Gamma, x: A \vdash a = x ~~~ \text{type}}
+\]
+Esta regla afirma que dado un elemento \(a: A\) en el contexto \(\Gamma\), podemos formar el tipo \(a = x\) en el
+contexto \(\Gamma, x: A\). El tipo \(a = x\) en el contexto \(\Gamma, x: A\) es un ejemplo de familia de tipos sobre \(A\)
+en un contexto \(\Gamma\).
+
+** Definición 1.2.2
+Consideremos una familia de tipos \(B\) sobre \(A\) en un contexto \(\Gamma\). Una *sección* de la familia \(B\) sobre \(A\)
+en el contexto \(\Gamma\) es un elemento de tipo \(B(x)\) en el contexto \(\Gamma, x: A\), i.e., en el juicio
+\[
+        \Gamma, x: A \vdash b(x): B(x)
+\]
+decimos que \(b\) es una sección de la familia \(B\) sobre \(A\) en el contexto \(\Gamma\). Alternativamente, decimos que
+\(b(x)\) es un elemento de tipo \(B(x)\) indizado por \(x: A\) en el contexto \(\Gamma\).
+* Reglas de inferencia
+Ahora estamos listos para presentar el sistema de reglas de inferencia que subyace a la teoría de tipos
+dependiente. Estas son conocidas como *reglas estructurales* de la teoría de tipos, pues establecen la
+estructura matemática para la dependencia de tipos. Hay seis conjuntos de reglas de inferencia:
+1. Reglas sobre la formación de contextos, tipos y sus elementos.
+2. Reglas que postulan que la igualdad juiciosa es una relación de equivalencia.
+3. Reglas de conversión de variables.
+4. Reglas de substitución.
+5. Reglas de debilitamiento.
+6. El elemento genérico.
+
+** Reglas sobre la formación de contextos, tipos y sus elementos
+En la definición de contextos, tipos y elementos bien formados, especificamos que para que un tipo
+\(B(x)\) esté bien formado en un contexto \(\Gamma, x: A\), debe suceder que \(A\) sea un tipo bien formado en el
+contexto \(\Gamma\). Las siguientes reglas se siguen de las suposiciones sobre contextos, tipos y sus elementos
+y se pueden usar libremente en las derivaciones:
+\begin{array}{ccc}
+        \dfrac{\Gamma, x: A \vdash B(x) ~~~ \text{type}}{\Gamma \vdash A ~~~ \text{type}} &
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} B ~~~ \text{type}}{\Gamma \vdash A ~~~ \text{type}} &
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} B ~~~ \text{type}}{\Gamma \vdash B ~~~ \text{type}} \\
+        \dfrac{\Gamma \vdash a: A}{\Gamma \vdash A ~~~ {type}} &
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} b: A}{\Gamma \vdash a: A} &
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} b}{\Gamma \vdash b: A}
+\end{array}
+
+** La igualdad juiciosa es una relación de equivalencia
+Las reglas que postulan que la igualdad sobre tipos y sus elementos es una relación de equivalencia
+simplemente postulan que es reflexiva, simétrica y transitiva:
+\begin{array}{ccc}
+        \dfrac{\Gamma \vdash A ~~~ \text{type}}{\Gamma \vdash A \stackrel{\cdot}{=} A ~~~ \text{type}} &
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} B ~~~ \text{type}}{\Gamma \vdash B \stackrel{\cdot}{=} A ~~~ ~\text{type}} &
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} B ~~~ \text{type} ~~~ \Gamma \vdash B \stackrel{\cdot}{=} C ~~~ \text{type}}{\Gamma \vdash A \stackrel{\cdot}{=} C ~~~ \text{type}} \\
+        \dfrac{\Gamma \vdash a: A}{\Gamma \vdash a \stackrel{\cdot}{=} a: A} &
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} b: A}{\Gamma \vdash b \stackrel{\cdot}{=} a: A} &
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} b: A ~~~ \Gamma \vdash b \stackrel{\cdot}{=} c: A}{\Gamma \vdash a \stackrel{\cdot}{=} c: A}
+\end{array}
+
+** Reglas de conversión de variables
+Las *reglas de conversión de variables* postulan que podemos convertir el tipo de una variable
+a un tipo juiciosamente igual.
