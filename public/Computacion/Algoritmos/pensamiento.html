@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-22 Mon 08:14 -->
+<!-- 2025-09-23 Tue 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pensamiento algorítmico</title>
@@ -124,13 +124,13 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Pensamiento algorítmico</h1>
-<div id="outline-container-org3aa6680" class="outline-2">
-<h2 id="org3aa6680">Peak finder</h2>
-<div class="outline-text-2" id="text-org3aa6680">
+<div id="outline-container-org55b4bff" class="outline-2">
+<h2 id="org55b4bff">Peak finder</h2>
+<div class="outline-text-2" id="text-org55b4bff">
 </div>
-<div id="outline-container-orgb537602" class="outline-3">
-<h3 id="orgb537602">Versión uni-dimensional</h3>
-<div class="outline-text-3" id="text-orgb537602">
+<div id="outline-container-orgb894b51" class="outline-3">
+<h3 id="orgb894b51">Versión uni-dimensional</h3>
+<div class="outline-text-3" id="text-orgb894b51">
 <p>
 Un "peak" en un arreglo uni-dimensional es un elemento que es mayor o igual que los dos
 elementos contiguos, en el caso de un borde, un "peak" es mayor o igual que el único número
@@ -141,9 +141,9 @@ contiguo.
 El problema consiste en encontrar un peak, si es que existe.
 </p>
 </div>
-<div id="outline-container-org3efd825" class="outline-4">
-<h4 id="org3efd825">Algoritmo inicial</h4>
-<div class="outline-text-4" id="text-org3efd825">
+<div id="outline-container-org5d7f747" class="outline-4">
+<h4 id="org5d7f747">Algoritmo inicial</h4>
+<div class="outline-text-4" id="text-org5d7f747">
 <p>
 El algoritmo más directo es empezar por la izquierda elemento por elemento y verificar
 si cada número es un "peak". Este algoritmo tendría una complejidad \(\theta(n)\) (en el
@@ -152,9 +152,9 @@ una cota superior y una cota inferior, a diferencia de \(O\) que es sólo una co
 </p>
 </div>
 </div>
-<div id="outline-container-org6c22edc" class="outline-4">
-<h4 id="org6c22edc">Algoritmo mejorado (divide and conquer)</h4>
-<div class="outline-text-4" id="text-org6c22edc">
+<div id="outline-container-orgf76a01a" class="outline-4">
+<h4 id="orgf76a01a">Algoritmo mejorado (divide and conquer)</h4>
+<div class="outline-text-4" id="text-orgf76a01a">
 <p>
 Empezamos por el elemento de la mitad y repetimos los siguientes pasos en orden:
 </p>
@@ -193,17 +193,17 @@ Así, el algoritmo tiene una complejidad de \(\theta(\log_2(n))\).
 </div>
 </div>
 </div>
-<div id="outline-container-orgb4cf097" class="outline-3">
-<h3 id="orgb4cf097">Versión bi-dimensional</h3>
-<div class="outline-text-3" id="text-orgb4cf097">
+<div id="outline-container-org88697bd" class="outline-3">
+<h3 id="org88697bd">Versión bi-dimensional</h3>
+<div class="outline-text-3" id="text-org88697bd">
 <p>
 Un "peak" en un arreglo bi-dimensional de \(n \times m\) es una montaña, es un número que es mayor
 o igual a los números que están arriba, abajo a la izquierda y a la derecha.
 </p>
 </div>
-<div id="outline-container-org4852287" class="outline-4">
-<h4 id="org4852287">Algoritmo inicial (Algoritmo de ascenso codicioso)</h4>
-<div class="outline-text-4" id="text-org4852287">
+<div id="outline-container-org878f367" class="outline-4">
+<h4 id="org878f367">Algoritmo inicial (Algoritmo de ascenso codicioso)</h4>
+<div class="outline-text-4" id="text-org878f367">
 <p>
 Empezamos con una posición y dirección inicial (diagamos el centro y la izquierda). Si
 el número a la izquierda es mayor, nos empezamos a mover a la izquierda hasta encontrar
@@ -218,9 +218,9 @@ complejidad de peor escenario de \(\theta(n \cdot m)\) y, en el caso en que \(n 
 </p>
 </div>
 </div>
-<div id="outline-container-orgbe0e2c4" class="outline-4">
-<h4 id="orgbe0e2c4">Algoritmo mejorado (pero no funcional)</h4>
-<div class="outline-text-4" id="text-orgbe0e2c4">
+<div id="outline-container-org637995d" class="outline-4">
+<h4 id="org637995d">Algoritmo mejorado (pero no funcional)</h4>
+<div class="outline-text-4" id="text-org637995d">
 <p>
 Escogemos la columna de la mitad \(j = m/2\) y encontramos un pico uni-dimensional en
 \((i,j)\). Luego usamos \((i,j)\) para encontrar un pico uni-dimensional en el renglón
@@ -230,9 +230,9 @@ bi-dimensional en el renglón \(i\)</b>.
 </p>
 </div>
 </div>
-<div id="outline-container-org2c6797a" class="outline-4">
-<h4 id="org2c6797a">Algoritmo mejorado (y funcional)</h4>
-<div class="outline-text-4" id="text-org2c6797a">
+<div id="outline-container-org2bd19c3" class="outline-4">
+<h4 id="org2bd19c3">Algoritmo mejorado (y funcional)</h4>
+<div class="outline-text-4" id="text-org2bd19c3">
 <p>
 Escogemos la columna \(j = m/2\) y encontramos el máximo global en la columna \(j\) en
 \((i,j)\). Comparamos \((i, j-1)\), \((i, j)\) y \((i, j+1)\) y esocgemos las columnas

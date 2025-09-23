@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-22 Mon 08:14 -->
+<!-- 2025-09-23 Tue 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Teoría de tipos dependientes</title>
@@ -134,9 +134,9 @@ objetos matemáticos y la construcción de elementos de un cierto tipo es la tar
 día a día. El sistema de reglas de inferencia al que llamamos teoría de tipos nos da una forma de
 participar en esta actividad.
 </p>
-<div id="outline-container-org50784d4" class="outline-2">
-<h2 id="org50784d4">Juicios y contextos en la teoría de tipos</h2>
-<div class="outline-text-2" id="text-org50784d4">
+<div id="outline-container-org42280e9" class="outline-2">
+<h2 id="org42280e9">Juicios y contextos en la teoría de tipos</h2>
+<div class="outline-text-2" id="text-org42280e9">
 <p>
 Un argumento matemático o construcción cosiste de una secuencia de pasos deductivos, cada uno con una
 cantidad finita de premisas para llegar a la siguiente etapa de la demostración o construcción. Estos
@@ -168,9 +168,9 @@ Esta regla asegura que bajo cualquier contexto \(\Gamma\) podemos usar un elemen
 son ejemplos de juicios.
 </p>
 </div>
-<div id="outline-container-orge8059a0" class="outline-3">
-<h3 id="orge8059a0">Definición 1.1.1</h3>
-<div class="outline-text-3" id="text-orge8059a0">
+<div id="outline-container-definicion-1-1-1" class="outline-3">
+<h3 id="definicion-1-1-1">Definición 1.1.1</h3>
+<div class="outline-text-3" id="text-definicion-1-1-1">
 <p>
 Hay cuatro tipos de <b>juicios</b> en la teoría de tipos dependiente de Martin-Löf:
 </p>
@@ -222,9 +222,9 @@ Este contexto satisface la definición <a href="#definicion-1-1-2">1.1.2</a> por
 </div>
 </div>
 </div>
-<div id="outline-container-org7296b50" class="outline-2">
-<h2 id="org7296b50">Familias de tipos</h2>
-<div class="outline-text-2" id="text-org7296b50">
+<div id="outline-container-org8132d66" class="outline-2">
+<h2 id="org8132d66">Familias de tipos</h2>
+<div class="outline-text-2" id="text-org8132d66">
 <p>
 Una característica de la teoría de tipos dependiente es que todos los juicios dependen del contexto e
 incluso los tipos de las variables en un contexto pueden depender de otras variables ya declaradas.
@@ -233,9 +233,9 @@ suficiente información para afirmar que \(n\) es impar. Sin embargo, si sabemos
 es primo, entonces podemos derivar del contexto que \(n\) debe ser impar.
 </p>
 </div>
-<div id="outline-container-org4cd8b2d" class="outline-3">
-<h3 id="org4cd8b2d">Definición 1.2.1</h3>
-<div class="outline-text-3" id="text-org4cd8b2d">
+<div id="outline-container-org4054590" class="outline-3">
+<h3 id="org4054590">Definición 1.2.1</h3>
+<div class="outline-text-3" id="text-org4054590">
 <p>
 Consideremos un tipo \(A\) en un contexto \(\Gamma\). Una <b>familia</b> de tipos sobre \(A\) en un contexto \(\Gamma\) es un tipo
 \(B(x)\) en el contexto \(\Gamma, x: A\). En otras palabras, en la situación en la que
@@ -257,9 +257,9 @@ en un contexto \(\Gamma\).
 </p>
 </div>
 </div>
-<div id="outline-container-org825005f" class="outline-3">
-<h3 id="org825005f">Definición 1.2.2</h3>
-<div class="outline-text-3" id="text-org825005f">
+<div id="outline-container-orgc4bd545" class="outline-3">
+<h3 id="orgc4bd545">Definición 1.2.2</h3>
+<div class="outline-text-3" id="text-orgc4bd545">
 <p>
 Consideremos una familia de tipos \(B\) sobre \(A\) en un contexto \(\Gamma\). Una <b>sección</b> de la familia \(B\) sobre \(A\)
 en el contexto \(\Gamma\) es un elemento de tipo \(B(x)\) en el contexto \(\Gamma, x: A\), i.e., en el juicio
@@ -272,9 +272,9 @@ decimos que \(b\) es una sección de la familia \(B\) sobre \(A\) en el contexto
 </div>
 </div>
 </div>
-<div id="outline-container-orgbddd55e" class="outline-2">
-<h2 id="orgbddd55e">Reglas de inferencia</h2>
-<div class="outline-text-2" id="text-orgbddd55e">
+<div id="outline-container-org58fa1b7" class="outline-2">
+<h2 id="org58fa1b7">Reglas de inferencia</h2>
+<div class="outline-text-2" id="text-org58fa1b7">
 <p>
 Ahora estamos listos para presentar el sistema de reglas de inferencia que subyace a la teoría de tipos
 dependiente. Estas son conocidas como <b>reglas estructurales</b> de la teoría de tipos, pues establecen la
@@ -289,9 +289,9 @@ estructura matemática para la dependencia de tipos. Hay seis conjuntos de regla
 <li>El elemento genérico.</li>
 </ol>
 </div>
-<div id="outline-container-org1b84299" class="outline-3">
-<h3 id="org1b84299">Reglas sobre la formación de contextos, tipos y sus elementos</h3>
-<div class="outline-text-3" id="text-org1b84299">
+<div id="outline-container-org9b5a19a" class="outline-3">
+<h3 id="org9b5a19a">Reglas sobre la formación de contextos, tipos y sus elementos</h3>
+<div class="outline-text-3" id="text-org9b5a19a">
 <p>
 En la definición de contextos, tipos y elementos bien formados, especificamos que para que un tipo
 \(B(x)\) esté bien formado en un contexto \(\Gamma, x: A\), debe suceder que \(A\) sea un tipo bien formado en el
@@ -308,9 +308,9 @@ y se pueden usar libremente en las derivaciones:
 \end{array}
 </div>
 </div>
-<div id="outline-container-org7d4c0ee" class="outline-3">
-<h3 id="org7d4c0ee">La igualdad juiciosa es una relación de equivalencia</h3>
-<div class="outline-text-3" id="text-org7d4c0ee">
+<div id="outline-container-orga1f1c83" class="outline-3">
+<h3 id="orga1f1c83">La igualdad juiciosa es una relación de equivalencia</h3>
+<div class="outline-text-3" id="text-orga1f1c83">
 <p>
 Las reglas que postulan que la igualdad sobre tipos y sus elementos es una relación de equivalencia
 simplemente postulan que es reflexiva, simétrica y transitiva:
@@ -325,12 +325,266 @@ simplemente postulan que es reflexiva, simétrica y transitiva:
 \end{array}
 </div>
 </div>
-<div id="outline-container-orgef1b301" class="outline-3">
-<h3 id="orgef1b301">Reglas de conversión de variables</h3>
-<div class="outline-text-3" id="text-orgef1b301">
+<div id="outline-container-org49ce631" class="outline-3">
+<h3 id="org49ce631">Reglas de conversión de variables</h3>
+<div class="outline-text-3" id="text-org49ce631">
 <p>
 Las <b>reglas de conversión de variables</b> postulan que podemos convertir el tipo de una variable
-a un tipo juiciosamente igual.
+a un tipo juiciosamente igual. La primera regla de conversión de variables dice que
+</p>
+
+<p>
+\[
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} A' ~~~ \text{type} ~~~ \Gamma, x: A, \Delta \vdash B(x) ~~~ \text{type}}{\Gamma, x: A', \Delta \vdash B(x) ~~~ \text{type}}.
+\]
+</p>
+
+<p>
+En esta regla de conversión, el contexto \(\Gamma, x: A, \Delta\) es simplemente cualquier extensión del contexto
+\(\Gamma, x: A\).
+Similarmente, hay reglas de conversión para igualdad juiciosa de tipos, elementos y para la igualdad
+juiciosa de elementos. Escribimos una única regla para estas con una <b>tesis de juicio genérico</b>
+\(\mathcal{J}\), que puede ser cualquiera de las definidas en la definición <a href="#definicion-1-1-1">1.1.1</a>:
+</p>
+
+<p>
+\[
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} A' ~~~ \text{type} ~~~ \Gamma, x: A, \Delta \vdash \mathcal{J}}{\Gamma, x: A', \Delta \vdash \mathcal{J}}.
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgb5f75a1" class="outline-3">
+<h3 id="orgb5f75a1">Substitución</h3>
+<div class="outline-text-3" id="text-orgb5f75a1">
+<p>
+Consideremos un elemento \(f(x): B(x)\) indizado por \(x: A\) en el contexto \(\Gamma\), y supongamos que tenemos un
+elemento \(a: A\). Entonces podemos substituir \(a\) por todas las ocurrencias de \(x\) en \(f(x)\) para obtener un
+nuevo elemento \(f[a/x]\), que tiene tipo \(B[a/x]\).
+Supongamos que tenemos un tipo
+</p>
+
+<p>
+\[
+        \Gamma, x: A, y_1: B_1, \ldots, y_n: B_n \vdash C ~~~ \text{type}
+\]
+</p>
+
+<p>
+y un elemento \(a: A\) en el contexto \(\Gamma\). Entonces podemos substituir simultáneamente \(a\) por todas las
+ocurrencias de \(x\) en los tipos \(B_1, \ldots, B_n\) y \(C\) para obtener
+</p>
+
+<p>
+\[
+        \Gamma, y_1: B_1[a/x], \ldots, y_n: B_n[a/x] \vdash C[a/x] ~~~ \text{type}.
+\]
+</p>
+
+<p>
+Notemos que a las variables \(y_1, \ldots, y_n\) se les asignan nuevos tipos después de realizar la substitución
+de \(a\) por \(x\). Similarmente, podemos substituir \(a\) por \(x\) en un elemento \(c: C\) para obtener un elemento
+\(c[a/x]: C[a/x]\), y podemos substituir \(a\) por \(x\) en una tesis de igualdad juiciosa ya sea de tipos o
+elementos, simplemente substituyendo en ambos lados de la ecuación. La <b>regla de substitución</b> es enunciada
+usando una tesis de juicio genérico \(\mathcal{J}\):
+</p>
+
+<p>
+\[
+        \dfrac{\Gamma \vdash a: A ~~~ \Gamma, x: A, \Delta \vdash \mathcal{J}}{\Gamma, \Delta[a/x] \vdash \mathcal{J}[a/x]}S.
+\]
+</p>
+
+<p>
+Más aún, añadimos dos "reglas de congruencia" para la substitución, que postulan que la substitución
+por elementos juiciosamente iguales resulta en tipos y elementos juiciosamente iguales:
+</p>
+
+\begin{array}{c}
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} a': A ~~~ \Gamma, x: A, \Delta \vdash B ~~~ \text{type}}{\Gamma, \Delta[a/x] \vdash B[a/x] \stackrel{\cdot}{=} B[a'/x] ~~~ \text{type} } \\
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} a': A ~~~ \Gamma, x: A, \Delta \vdash b: B}{\Gamma, \Delta[a/x] \vdash b[a/x] \stackrel{\cdot}{=} b[a'/x]: B[a/x]
+\end{array}
+</div>
+<div id="outline-container-orgbe168a3" class="outline-4">
+<h4 id="orgbe168a3">Definición 1.3.1</h4>
+<div class="outline-text-4" id="text-orgbe168a3">
+<p>
+Cuando \(B\) es una familia de tipos sobre \(A\) en un contexto \(\Gamma\) y si tenemos \(a: A\), entonces también decimos
+que \(B[a/x]\) es la <b>fibra</b> de \(B\) en \(a\). Usualmente escribimos \(B(a)\) para la fibra de \(B\) en \(a\).
+</p>
+
+<p>
+Cuando \(b\) es una sección de la familia \(B\) sobre \(A\) en el contexto \(\Gamma\), llamamos al elemento \(b[a/x]\)
+el <b>valor</b> de \(b\) en \(a\). Escribimos \(b(a)\) para el valor de \(b\) en \(a\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd67772b" class="outline-3">
+<h3 id="orgd67772b">Debilitamiento</h3>
+<div class="outline-text-3" id="text-orgd67772b">
+<p>
+Si se nos da un tipo \(A\) en un contexto \(\Gamma\), entonces cualquier juicio hecho en un contexto más grande
+\(\Gamma, \Delta\) también se puede hacer en el contexto \(\Gamma, x: A, \Delta\), para una variable fresca \(x\).
+La regla de <b>debilitamiento</b> nos dice que el debilitamiento por un tipo \(A\) en un contexto \(\Gamma\) preserva
+la buena formación y la igualdad juiciosa de tipos y elementos
+</p>
+
+<p>
+\[
+        \dfrac{\Gamma \vdash A ~~~ \text{type} ~~~ ~~~ \Gamma, \Delta \vdash \mathcal{J}}{\Gamma, x: A, \Delta \vdash \mathcal{J}}W.
+\]
+</p>
+
+<p>
+Este proceso de expandir el contexto por una nueva variable de tipo \(A\) es llamado <b>debilitamiento</b> por \(A\).
+</p>
+
+<p>
+En la situación más simple en la que el debilitamiento aplica, tenemos dos tipos \(A\) y \(B\) en un contexto
+\(\Gamma\). Entonces podemos debilitar \(B\) por \(A\) como sigue:
+</p>
+
+<p>
+\[
+        \dfrac{\Gamma \vdash A ~~~ \text{type} ~~~ ~~~ \Gamma \vdash B ~~~ \text{type}}{\Gamma, x: A \vdash B ~~~ \text{type}}
+\]
+</p>
+
+<p>
+para formar el tipo \(B\) en el contexto \(\Gamma, x: A\). El tipo \(B\) en el contexto \(\Gamma, x: A\) es llamado
+la <b>familia constante</b> \(B\), o la <b>familia trivial</b> \(B\).
+</p>
+</div>
+</div>
+<div id="outline-container-org50fba95" class="outline-3">
+<h3 id="org50fba95">Los elementos genéricos</h3>
+<div class="outline-text-3" id="text-org50fba95">
+<p>
+Si se nos da un tipo \(A\) en un contexto \(\Gamma\), entonces podemos debilitar a \(A\) por si mismo para
+obtener que \(A\) es un tipo en el contexto \(\Gamma, x: A\). La regla pala el <b>elemento genérico</b> asegura que
+cualquier elemento hipotético \(x: A\) en el contexto \(\Gamma, x: A\) también es un elemento de tipo \(A\)
+en el contexto \(\Gamma, x: A\).
+</p>
+
+<p>
+\[
+        \dfrac{\Gamma \vdash A ~~~ \text{type}}{\Gamma, x: A \vdash x: A} \delta.
+\]
+</p>
+
+<p>
+Esta regla también es conocida como <b>regla de variable</b>. Una de las razones para incluir el elemento
+genérico es asegurarnos de que las variables declaradas en un contexto son de hecho elementos. También
+da la <b>función identidad</b> sobre el tipo \(A\) en el contexto \(\Gamma\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge93aadb" class="outline-2">
+<h2 id="orge93aadb">Derivaciones</h2>
+<div class="outline-text-2" id="text-orge93aadb">
+<p>
+Una <b>derivación</b> en la teoría de tipos es un árbol finito en el que cada nodo es una regla de inferencia
+válida. En la raíz del árbol encontramos la conclusión y en las hojas encontramos las hipótesis. Damos
+dos ejemplos de derivaciones: una derivación mostrando que cualquier variable se puede cambiar por una
+variable nueva y una mostrando que dos variables que no dependen mutuamente de otra pueden ser cambiadas
+en su orden.
+</p>
+
+<p>
+Dada una derivación con hipótesis \(mathcal{H}_1, \ldots, \mathcal{H}_n\) y conclusión \(\mathcal{C}\),
+podemos formar una nueva regla de inferencia
+</p>
+
+<p>
+\[
+        \dfrac{\mathcal{H}_1 \cdots \mathcal{H}_n}{\mathcal{C}}
+\]
+</p>
+
+<p>
+Una regla así es llamada <b>derivable</b>, pues podemos dar una derivación para ella.
+</p>
+</div>
+<div id="outline-container-org506a057" class="outline-4">
+<h4 id="org506a057">Cambiando variables</h4>
+<div class="outline-text-4" id="text-org506a057">
+<p>
+Las variables se pueden cambiar por variables nuevas. Mostramos esto viendo que la regla de inferencia
+</p>
+
+<p>
+\[
+        \dfrac{\Gamma, x: A, \Delta \vdash \mathcal{J}}{\Gamma, x': A, \Delta[x'/x] \vdash \mathcal{J}[x'/x]}x'/x
+\]
+</p>
+
+<p>
+es derivable, donde \(x'\) es una variable que no ocurre en el contexto \(\Gamma, x: A, \Delta\).
+</p>
+
+<p>
+En efecto, tenemos la siguiente derivación usando substitución, debilitamiento y el elemento genérico:
+</p>
+
+<p>
+\[
+        \dfrac{
+                \dfrac{\Gamma \vdash A ~~~ \text{type}}{\Gamma, x': A \vdash x': A}\delta ~~~
+                \dfrac{\Gamma \vdash A ~~~ \text{type} ~~~ ~~~ \Gamma, x: A, \Delta \vdash \mathcal{J}}{\Gamma, x': A, x: A, \Delta \vdash \mathcal{J}}W
+        }{\Gamma, x': A, \Delta[x'/x] \vdash J[x'/x]}S.
+\]
+</p>
+
+<p>
+En esta derivación es en la regla de debilitamiento que debemos verificar que \(x'\) no ocurre en el
+contexto \(\Gamma, x: A, \Delta\).
+</p>
+</div>
+</div>
+<div id="outline-container-org0bc5e37" class="outline-4">
+<h4 id="org0bc5e37">Intercambiando variables</h4>
+<div class="outline-text-4" id="text-org0bc5e37">
+<p>
+La <b>regla de intercambio</b> dice que si tenemos dos tipos \(A\) y \(B\) en un contexto \(\Gamma\), y hacemos un
+juicio en el contexto \(\Gamma, x: A, y: B, \Delta\), entonces podemos hacer el mismo juicio en el contexto
+\(\Gamma, y: B, x: A, \Delta\) donde el orden de \(x: A\) y \(y: B\) es intercambiado. Más formalmente, la regla
+de intercambio es la siguiente regla de inferencia
+\[
+        \dfrac{\Gamma \vdash B ~~~ \text{type} ~~~ ~~~ \Gamma, x: A, y:B, \Delta \vdash \mathcal{J}}{\Gamma, y: B, x: A, \Delta \vdash \mathcal{J}}.
+\]
+</p>
+
+<p>
+Como en la regla de cambio de variables, afirmamos que la regla de intercambio es derivable: si tenemos
+un juicio
+\[
+        \Gamma, x: A, y: B, \Delta \vdash \mathcal{J},
+\]
+entonces podemos cambiar la variable \(y\) por una nueva variable \(y'\) y debilitar el juicio para
+obtener el juicio
+\[
+\Gamma, y: B, x: A, y': B, \Delta[y'/y] \vdash \mathcal{J}[y'/y].
+\]
+Ahora podemos substituir \(y\) por \(y'\) para obtener el juicio deseado
+\(\Gamma, y: B, x: A, \Delta \vdash \mathcal{J}\). La derivación formal es la siguiente:
+</p>
+
+<p>
+\[
+        \dfrac{
+                \dfrac{
+                        \dfrac{\Gamma \vdash B ~~~ \text{type}}{\Gamma, y: B \vdash y: B}
+                }{\Gamma, y: B, x: A \vdash y: B}
+                \dfrac{
+                        \Gamma \vdash B ~~~ \text{type} ~~~ ~~~
+                        \dfrac{
+                                \Gamma, x: A, y: B, \Delta \vdash \mathcal{J}
+                        }{\Gamma, x: A, y': B, \Delta[y'/y] \vdash \mathcal{J}[y'/y]}
+                }{\Gamma, y: B, x: A, y': B, \Delta[y'/y] \vdash \mathcal{J}[y'/y]}
+        }{\Gamma, y:B, x: A, \Delta \vdash \mathcal{J}}
+\]
 </p>
 </div>
 </div>

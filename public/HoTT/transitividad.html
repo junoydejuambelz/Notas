@@ -6,10 +6,31 @@
 <!-- 2025-09-23 Tue 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Index</title>
+<title>Transitividad</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
 <script defer src='/navbar.js'></script>
+<script>
+  window.MathJax = {
+  tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']],
+  displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  processEscapes: true,
+  processEnvironments: true,
+  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
+  },
+  loader: {
+  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
+  },
+  options: {
+  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+  };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+  <script>
+  MathJax.startup.defaultReady();
+  </script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -102,21 +123,166 @@
   </nav>
 </div>
 <div id="content" class="content">
-<h1 class="title">Index</h1>
-<div id="outline-container-org5e3fd96" class="outline-2">
-<h2 id="org5e3fd96">Bienvenido a mis notas</h2>
-<div class="outline-text-2" id="text-org5e3fd96">
+<h1 class="title">Transitividad</h1>
+<div id="outline-container-orgd93740b" class="outline-2">
+<h2 id="orgd93740b">Álgebras de Heyting</h2>
+<div class="outline-text-2" id="text-orgd93740b">
 <p>
-Esta es una colección de mis notas de estudio del libro Proofs and Types
+Un álgebra de Heyting es una retícula (pre-orden con todos los "meets" y "joins" finitos,
+es decir, máximas cotas inferiores y mínimas cotas superiores) que tiene exponenciales.
+</p>
+
+<p>
+En un álgebra de Heyting podemos definir la negación de \(A\) como
+\[ \lnot A := A \supset \bot = \bot^A \]
+Es decir, la \(C\) más grande que es inconsistente con \(A\).
 </p>
 </div>
-<div id="outline-container-orga550369" class="outline-3">
-<h3 id="orga550369">Notas</h3>
-<div class="outline-text-3" id="text-orga550369">
+<div id="outline-container-org6cb92db" class="outline-3">
+<h3 id="org6cb92db">Observaciones</h3>
+<div class="outline-text-3" id="text-org6cb92db">
 <ul class="org-ul">
-<li><a href="./sentido.html">Sentido, denotación y semántica</a></li>
+<li>Toda álgebra de Heyting es distributiva.</li>
+<li>Toda álgebra Booleana tiene exponenciales
+\[
+                B^A := \lnot A \lor B
+        \]</li>
 </ul>
 </div>
+</div>
+</div>
+<div id="outline-container-org5b7b767" class="outline-2">
+<h2 id="org5b7b767">Álgebras Booleana</h2>
+<div class="outline-text-2" id="text-org5b7b767">
+<p>
+Un álgebra Booleana es una retícula complementada (\(\overline{A}\) es la \(C\) más pequeña
+tal que \(A \lor C \geq \top\)) y distributiva.
+</p>
+</div>
+<div id="outline-container-org96d8a8a" class="outline-3">
+<h3 id="org96d8a8a">Afirmación</h3>
+<div class="outline-text-3" id="text-org96d8a8a">
+<p>
+<em> En la lógica intuicionista no todas las instancias del tercio excluso son
+demostrables </em> <br>
+En general, no podemos esperar que para cada \( A \) que \( A \lor \lnot A ~ True \).
+</p>
+</div>
+<div id="outline-container-org3e63444" class="outline-4">
+<h4 id="org3e63444">Idea (Propiedad de la disyunción) </b> <br></h4>
+<div class="outline-text-4" id="text-org3e63444">
+<p>
+Si podemos mostrar que \( A \lor B ~ True\) entonces podemos mostrar \(A ~ True\) o
+\(B ~ True\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge6f0ba3" class="outline-3">
+<h3 id="orge6f0ba3">Afirmación (Continuación)</h3>
+<div class="outline-text-3" id="text-orge6f0ba3">
+<p>
+Por lo tanto, si eso fuera cierto, para cada \(A\) tendríamos \(A ~ True\) o
+\(A ~ False\), lo cual es refutable. Basta pensar en un problema abierto de la matemática.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org37de410" class="outline-2">
+<h2 id="org37de410">IPL (Lógica Proposicional Intuicionista) desde la teoría de la demostración</h2>
+<div class="outline-text-2" id="text-org37de410">
+</div>
+<div id="outline-container-org0c04a6d" class="outline-4">
+<h4 id="org0c04a6d">Afirmación</h4>
+<div class="outline-text-4" id="text-org0c04a6d">
+<p>
+En la lógica proposicional intuicionista, no todas las instancias de la ley del tercio excluso son
+demostrables, es decir, no es cierto que para cada \(A\), \(A \lor \lnot A ~ True\).
+</p>
+
+<p>
+La idea de porqué esto no es cierto es la propiedad de la disyunción, que dice que si
+queremos mostrar que \(A \lor B ~ True\) entonces debemos probar que \(A~ True\) o \(B ~ True\).
+Aplicando esta idea a nuestro caso, vemos que para mostrar \(A \lor \lnot A ~ True\) deberíamos de ser capaces de
+dar una prueba o una refutación de \(A\), lo cual no siempre sucede, basta pensar en algún problema abierto.
+</p>
+</div>
+</div>
+<div id="outline-container-org7514e1b" class="outline-4">
+<h4 id="org7514e1b">Definición</h4>
+<div class="outline-text-4" id="text-org7514e1b">
+<p>
+\(A ~ Prop\) es decidible si \(A \lor \lnot A ~ True\)
+</p>
+</div>
+<div id="outline-container-org5fdb374" class="outline-5">
+<h5 id="org5fdb374">Ejemplos</h5>
+<div class="outline-text-5" id="text-org5fdb374">
+<ul class="org-ul">
+<li>Si \(A = \top\), entonces \(A\) es decidible.</li>
+<li>Si \(A = \bot\), entonces \(A\) es decidible.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org8cbad2f" class="outline-4">
+<h4 id="org8cbad2f">Definición</h4>
+<div class="outline-text-4" id="text-org8cbad2f">
+<p>
+\(A ~ Prop\) es estable si y sólo si \(\lnot(\lnot A) \supset \top ~ True\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgd13df27" class="outline-4">
+<h4 id="orgd13df27">Afirmación</h4>
+<div class="outline-text-4" id="text-orgd13df27">
+<p>
+Para cada \(A\), \(\lnot (\lnot (A \lor \lnot A))\), es decir, la ley del tercio excluso no es refutable.
+</p>
+</div>
+<div id="outline-container-orgef604e0" class="outline-5">
+<h5 id="orgef604e0">Demostración</h5>
+<div class="outline-text-5" id="text-orgef604e0">
+<p>
+Supongamos, en busca de una contradicción, que \(\lnot(A\lor\lnot A)\).
+Es suficiente probar \(A \lor \lnot A\) y, para esto, es suficiente que probemos \(\lnot A\).
+Para probar esto, supongamos \(A\), entonces \(A \lor \lnot A\), lo cual es una contradicción que lo que habíamos
+supuesto.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb31082a" class="outline-4">
+<h4 id="orgb31082a">Corolario</h4>
+<div class="outline-text-4" id="text-orgb31082a">
+<p>
+No toda proposición es estable.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd4d832d" class="outline-3">
+<h3 id="orgd4d832d">¿Cómo probamos la propiedad de la disyunción en IPL?</h3>
+<div class="outline-text-3" id="text-orgd4d832d">
+<p>
+Interpretamos las reglas que habíamos dado de IPL como una definición inductiva de la implicación lógica.
+</p>
+</div>
+<div id="outline-container-org2f18ed3" class="outline-4">
+<h4 id="org2f18ed3">Teorema</h4>
+<div class="outline-text-4" id="text-org2f18ed3">
+<p>
+Si \( \emptyset \vdash A \lor B ~ True\), entonces \(\emptyset \vdash A ~ True\) o \(\emptyset \vdash B ~ True\).
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaa943bb" class="outline-2">
+<h2 id="orgaa943bb">La idea de Gentzen (principio de inversión)</h2>
+<div class="outline-text-2" id="text-orgaa943bb">
+<p>
+<code>elim</code> es post-inverso a <code>intro</code>.
+</p>
 </div>
 </div>
 </div>

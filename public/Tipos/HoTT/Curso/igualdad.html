@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-22 Mon 08:14 -->
+<!-- 2025-09-23 Tue 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Igualdad</title>
@@ -124,33 +124,33 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Igualdad</h1>
-<div id="outline-container-orgd3e794b" class="outline-2">
-<h2 id="orgd3e794b">Principio de inversión de Gentzen (Reglas \(\beta\))</h2>
-<div class="outline-text-2" id="text-orgd3e794b">
+<div id="outline-container-orgf8b386c" class="outline-2">
+<h2 id="orgf8b386c">Principio de inversión de Gentzen (Reglas \(\beta\))</h2>
+<div class="outline-text-2" id="text-orgf8b386c">
 <p>
 Nos dan la dinámica de las pruebas (las pruebas son programas)
 </p>
 </div>
-<div id="outline-container-org82cfabb" class="outline-3">
-<h3 id="org82cfabb">Conjunción \((\land)\)</h3>
-<div class="outline-text-3" id="text-org82cfabb">
+<div id="outline-container-orge29ae69" class="outline-3">
+<h3 id="orge29ae69">Conjunción \((\land)\)</h3>
+<div class="outline-text-3" id="text-orge29ae69">
 <ul class="org-ul">
 <li>\[ fst \langle M, N \rangle \equiv  M  \]</li>
 <li>\[ snd \langle M, N \rangle \equiv N \]</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0a92abf" class="outline-3">
-<h3 id="org0a92abf">Implicación \((\supset)\)</h3>
-<div class="outline-text-3" id="text-org0a92abf">
+<div id="outline-container-orgd54af12" class="outline-3">
+<h3 id="orgd54af12">Implicación \((\supset)\)</h3>
+<div class="outline-text-3" id="text-orgd54af12">
 <p>
 \[ (\lambda x. M)(N) \equiv [N/x]M \]
 </p>
 </div>
 </div>
-<div id="outline-container-orge254c3e" class="outline-3">
-<h3 id="orge254c3e">Disyunción \((\lor)\)</h3>
-<div class="outline-text-3" id="text-orge254c3e">
+<div id="outline-container-orgb3a0781" class="outline-3">
+<h3 id="orgb3a0781">Disyunción \((\lor)\)</h3>
+<div class="outline-text-3" id="text-orgb3a0781">
 <ul class="org-ul">
 <li>\[ \underline{case} ( inl(M), x. P, y. Q  ) \equiv [M/x]P \]</li>
 <li>\[ \underline{case}(inr(M), x.P, y.Q) \equiv [M/y]Q \]</li>
@@ -158,54 +158,54 @@ Nos dan la dinámica de las pruebas (las pruebas son programas)
 </div>
 </div>
 </div>
-<div id="outline-container-orgf50890e" class="outline-2">
-<h2 id="orgf50890e">Principio de unicidad de Gentzen (Reglas \( \eta \))</h2>
-<div class="outline-text-2" id="text-orgf50890e">
+<div id="outline-container-org364cd02" class="outline-2">
+<h2 id="org364cd02">Principio de unicidad de Gentzen (Reglas \( \eta \))</h2>
+<div class="outline-text-2" id="text-org364cd02">
 </div>
-<div id="outline-container-org76cbc9a" class="outline-3">
-<h3 id="org76cbc9a">Proposición trivialmente verdadera</h3>
-<div class="outline-text-3" id="text-org76cbc9a">
+<div id="outline-container-orgf28dbc5" class="outline-3">
+<h3 id="orgf28dbc5">Proposición trivialmente verdadera</h3>
+<div class="outline-text-3" id="text-orgf28dbc5">
 <p>
 \[ \frac{\Gamma \vdash M: \top}{\Gamma \vdash M \equiv \langle \rangle: \top} \]
 </p>
 </div>
 </div>
-<div id="outline-container-orgc41f436" class="outline-3">
-<h3 id="orgc41f436">Conjunción</h3>
-<div class="outline-text-3" id="text-orgc41f436">
+<div id="outline-container-org509f38e" class="outline-3">
+<h3 id="org509f38e">Conjunción</h3>
+<div class="outline-text-3" id="text-org509f38e">
 <p>
 \[ \frac{\Gamma \vdash M : A \land B}{\Gamma \vdash M \equiv \langle fst(M), snd(M) \rangle: A \land B} \]
 </p>
 </div>
 </div>
-<div id="outline-container-orgc28e0ab" class="outline-3">
-<h3 id="orgc28e0ab">Implicación</h3>
-<div class="outline-text-3" id="text-orgc28e0ab">
+<div id="outline-container-org7c83db0" class="outline-3">
+<h3 id="org7c83db0">Implicación</h3>
+<div class="outline-text-3" id="text-org7c83db0">
 <p>
 \[ \frac{\Gamma \vdash M: A \supset B}{\Gamma \vdash M \equiv \lambda x. (M(x)): A \supset B} \]
 </p>
 </div>
 </div>
-<div id="outline-container-orge79d1a6" class="outline-3">
-<h3 id="orge79d1a6">Disyunción</h3>
-<div class="outline-text-3" id="text-orge79d1a6">
+<div id="outline-container-org6d84199" class="outline-3">
+<h3 id="org6d84199">Disyunción</h3>
+<div class="outline-text-3" id="text-org6d84199">
 <p>
 \[ \frac{\Gamma \vdash M: A \lor B ~~~ \Gamma, z: A \lor B \vdash P: C }{ \Gamma \vdash [M/z]P \equiv \underline{case}(M,x.[inl(x)/z]P, y. [inr(y)/z]P) } \]
 </p>
 </div>
-<div id="outline-container-orgb13d077" class="outline-4">
-<h4 id="orgb13d077">Caso especial (\( P \) es solo \(z\))</h4>
-<div class="outline-text-4" id="text-orgb13d077">
+<div id="outline-container-org958da8c" class="outline-4">
+<h4 id="org958da8c">Caso especial (\( P \) es solo \(z\))</h4>
+<div class="outline-text-4" id="text-org958da8c">
 <p>
 \[ M \equiv \underline{case}(M, x.inl(x), y.inr(y)) \]
 </p>
 </div>
 </div>
-<div id="outline-container-org4eb0a57" class="outline-4">
-<h4 id="org4eb0a57">Diagrama</h4>
-<div class="outline-text-4" id="text-org4eb0a57">
+<div id="outline-container-org7f1e8a5" class="outline-4">
+<h4 id="org7f1e8a5">Diagrama</h4>
+<div class="outline-text-4" id="text-org7f1e8a5">
 
-<div id="org8d1e40c" class="figure">
+<div id="orgb802171" class="figure">
 <p><img src="Categorías/swappy-20250912_100918.png" alt="swappy-20250912_100918.png" width="300px" />
 </p>
 </div>

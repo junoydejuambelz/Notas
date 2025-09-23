@@ -6,10 +6,31 @@
 <!-- 2025-09-23 Tue 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Index</title>
+<title>Igualdad</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
 <script defer src='/navbar.js'></script>
+<script>
+  window.MathJax = {
+  tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']],
+  displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  processEscapes: true,
+  processEnvironments: true,
+  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
+  },
+  loader: {
+  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
+  },
+  options: {
+  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+  };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+  <script>
+  MathJax.startup.defaultReady();
+  </script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -102,20 +123,97 @@
   </nav>
 </div>
 <div id="content" class="content">
-<h1 class="title">Index</h1>
-<div id="outline-container-org5e3fd96" class="outline-2">
-<h2 id="org5e3fd96">Bienvenido a mis notas</h2>
-<div class="outline-text-2" id="text-org5e3fd96">
+<h1 class="title">Igualdad</h1>
+<div id="outline-container-org29d6f8b" class="outline-2">
+<h2 id="org29d6f8b">Principio de inversión de Gentzen (Reglas \(\beta\))</h2>
+<div class="outline-text-2" id="text-org29d6f8b">
 <p>
-Esta es una colección de mis notas de estudio del libro Proofs and Types
+Nos dan la dinámica de las pruebas (las pruebas son programas)
 </p>
 </div>
-<div id="outline-container-orga550369" class="outline-3">
-<h3 id="orga550369">Notas</h3>
-<div class="outline-text-3" id="text-orga550369">
+<div id="outline-container-orgab0df3d" class="outline-3">
+<h3 id="orgab0df3d">Conjunción \((\land)\)</h3>
+<div class="outline-text-3" id="text-orgab0df3d">
 <ul class="org-ul">
-<li><a href="./sentido.html">Sentido, denotación y semántica</a></li>
+<li>\[ fst \langle M, N \rangle \equiv  M  \]</li>
+<li>\[ snd \langle M, N \rangle \equiv N \]</li>
 </ul>
+</div>
+</div>
+<div id="outline-container-orgba1cc4b" class="outline-3">
+<h3 id="orgba1cc4b">Implicación \((\supset)\)</h3>
+<div class="outline-text-3" id="text-orgba1cc4b">
+<p>
+\[ (\lambda x. M)(N) \equiv [N/x]M \]
+</p>
+</div>
+</div>
+<div id="outline-container-org4f852ae" class="outline-3">
+<h3 id="org4f852ae">Disyunción \((\lor)\)</h3>
+<div class="outline-text-3" id="text-org4f852ae">
+<ul class="org-ul">
+<li>\[ \underline{case} ( inl(M), x. P, y. Q  ) \equiv [M/x]P \]</li>
+<li>\[ \underline{case}(inr(M), x.P, y.Q) \equiv [M/y]Q \]</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3b50557" class="outline-2">
+<h2 id="org3b50557">Principio de unicidad de Gentzen (Reglas \( \eta \))</h2>
+<div class="outline-text-2" id="text-org3b50557">
+</div>
+<div id="outline-container-org1a7caa0" class="outline-3">
+<h3 id="org1a7caa0">Proposición trivialmente verdadera</h3>
+<div class="outline-text-3" id="text-org1a7caa0">
+<p>
+\[ \frac{\Gamma \vdash M: \top}{\Gamma \vdash M \equiv \langle \rangle: \top} \]
+</p>
+</div>
+</div>
+<div id="outline-container-orgb539929" class="outline-3">
+<h3 id="orgb539929">Conjunción</h3>
+<div class="outline-text-3" id="text-orgb539929">
+<p>
+\[ \frac{\Gamma \vdash M : A \land B}{\Gamma \vdash M \equiv \langle fst(M), snd(M) \rangle: A \land B} \]
+</p>
+</div>
+</div>
+<div id="outline-container-org4afd962" class="outline-3">
+<h3 id="org4afd962">Implicación</h3>
+<div class="outline-text-3" id="text-org4afd962">
+<p>
+\[ \frac{\Gamma \vdash M: A \supset B}{\Gamma \vdash M \equiv \lambda x. (M(x)): A \supset B} \]
+</p>
+</div>
+</div>
+<div id="outline-container-org05ee1f3" class="outline-3">
+<h3 id="org05ee1f3">Disyunción</h3>
+<div class="outline-text-3" id="text-org05ee1f3">
+<p>
+\[ \frac{\Gamma \vdash M: A \lor B ~~~ \Gamma, z: A \lor B \vdash P: C }{ \Gamma \vdash [M/z]P \equiv \underline{case}(M,x.[inl(x)/z]P, y. [inr(y)/z]P) } \]
+</p>
+</div>
+<div id="outline-container-org15073fb" class="outline-4">
+<h4 id="org15073fb">Caso especial (\( P \) es solo \(z\))</h4>
+<div class="outline-text-4" id="text-org15073fb">
+<p>
+\[ M \equiv \underline{case}(M, x.inl(x), y.inr(y)) \]
+</p>
+</div>
+</div>
+<div id="outline-container-org18ad0bd" class="outline-4">
+<h4 id="org18ad0bd">Diagrama</h4>
+<div class="outline-text-4" id="text-org18ad0bd">
+
+<div id="orgf13c58b" class="figure">
+<p><img src="Categorías/swappy-20250912_100918.png" alt="swappy-20250912_100918.png" width="300px" />
+</p>
+</div>
+
+<p>
+Aquí, \( \{ P, Q \} \approx \underline{case}(\_, x.P, y.Q)\)
+</p>
+</div>
 </div>
 </div>
 </div>

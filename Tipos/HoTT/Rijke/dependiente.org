@@ -38,6 +38,9 @@ Esta regla asegura que bajo cualquier contexto \(\Gamma\) podemos usar un elemen
 son ejemplos de juicios.
 
 ** Definición 1.1.1
+:PROPERTIES:
+:CUSTOM_ID: definicion-1-1-1
+:END:
 Hay cuatro tipos de *juicios* en la teoría de tipos dependiente de Martin-Löf:
 1. \(A\) es un *tipo* (bien formado) en el contexto \(\Gamma\). Expresamos este juicio como \[ \Gamma \vdash A ~~~ \text{type} \].
 2. \(A\) y \(B\) son *tipos juiciosamente iguales* en el contexto \(\Gamma\). Expresamos este juicio como
@@ -145,4 +148,170 @@ simplemente postulan que es reflexiva, simétrica y transitiva:
 
 ** Reglas de conversión de variables
 Las *reglas de conversión de variables* postulan que podemos convertir el tipo de una variable
-a un tipo juiciosamente igual.
+a un tipo juiciosamente igual. La primera regla de conversión de variables dice que
+
+\[
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} A' ~~~ \text{type} ~~~ \Gamma, x: A, \Delta \vdash B(x) ~~~ \text{type}}{\Gamma, x: A', \Delta \vdash B(x) ~~~ \text{type}}.
+\]
+
+En esta regla de conversión, el contexto \(\Gamma, x: A, \Delta\) es simplemente cualquier extensión del contexto
+\(\Gamma, x: A\).
+Similarmente, hay reglas de conversión para igualdad juiciosa de tipos, elementos y para la igualdad
+juiciosa de elementos. Escribimos una única regla para estas con una *tesis de juicio genérico*
+\(\mathcal{J}\), que puede ser cualquiera de las definidas en la definición [[#definicion-1-1-1][1.1.1]]:
+
+\[
+        \dfrac{\Gamma \vdash A \stackrel{\cdot}{=} A' ~~~ \text{type} ~~~ \Gamma, x: A, \Delta \vdash \mathcal{J}}{\Gamma, x: A', \Delta \vdash \mathcal{J}}.
+\]
+** Substitución
+Consideremos un elemento \(f(x): B(x)\) indizado por \(x: A\) en el contexto \(\Gamma\), y supongamos que tenemos un
+elemento \(a: A\). Entonces podemos substituir \(a\) por todas las ocurrencias de \(x\) en \(f(x)\) para obtener un
+nuevo elemento \(f[a/x]\), que tiene tipo \(B[a/x]\).
+Supongamos que tenemos un tipo
+
+\[
+        \Gamma, x: A, y_1: B_1, \ldots, y_n: B_n \vdash C ~~~ \text{type}
+\]
+
+y un elemento \(a: A\) en el contexto \(\Gamma\). Entonces podemos substituir simultáneamente \(a\) por todas las
+ocurrencias de \(x\) en los tipos \(B_1, \ldots, B_n\) y \(C\) para obtener
+
+\[
+        \Gamma, y_1: B_1[a/x], \ldots, y_n: B_n[a/x] \vdash C[a/x] ~~~ \text{type}.
+\]
+
+Notemos que a las variables \(y_1, \ldots, y_n\) se les asignan nuevos tipos después de realizar la substitución
+de \(a\) por \(x\). Similarmente, podemos substituir \(a\) por \(x\) en un elemento \(c: C\) para obtener un elemento
+\(c[a/x]: C[a/x]\), y podemos substituir \(a\) por \(x\) en una tesis de igualdad juiciosa ya sea de tipos o
+elementos, simplemente substituyendo en ambos lados de la ecuación. La *regla de substitución* es enunciada
+usando una tesis de juicio genérico \(\mathcal{J}\):
+
+\[
+        \dfrac{\Gamma \vdash a: A ~~~ \Gamma, x: A, \Delta \vdash \mathcal{J}}{\Gamma, \Delta[a/x] \vdash \mathcal{J}[a/x]}S.
+\]
+
+Más aún, añadimos dos "reglas de congruencia" para la substitución, que postulan que la substitución
+por elementos juiciosamente iguales resulta en tipos y elementos juiciosamente iguales:
+
+\begin{array}{c}
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} a': A ~~~ \Gamma, x: A, \Delta \vdash B ~~~ \text{type}}{\Gamma, \Delta[a/x] \vdash B[a/x] \stackrel{\cdot}{=} B[a'/x] ~~~ \text{type} } \\
+        \dfrac{\Gamma \vdash a \stackrel{\cdot}{=} a': A ~~~ \Gamma, x: A, \Delta \vdash b: B}{\Gamma, \Delta[a/x] \vdash b[a/x] \stackrel{\cdot}{=} b[a'/x]: B[a/x]
+\end{array}
+
+*** Definición 1.3.1
+Cuando \(B\) es una familia de tipos sobre \(A\) en un contexto \(\Gamma\) y si tenemos \(a: A\), entonces también decimos
+que \(B[a/x]\) es la *fibra* de \(B\) en \(a\). Usualmente escribimos \(B(a)\) para la fibra de \(B\) en \(a\).
+
+Cuando \(b\) es una sección de la familia \(B\) sobre \(A\) en el contexto \(\Gamma\), llamamos al elemento \(b[a/x]\)
+el *valor* de \(b\) en \(a\). Escribimos \(b(a)\) para el valor de \(b\) en \(a\).
+
+** Debilitamiento
+Si se nos da un tipo \(A\) en un contexto \(\Gamma\), entonces cualquier juicio hecho en un contexto más grande
+\(\Gamma, \Delta\) también se puede hacer en el contexto \(\Gamma, x: A, \Delta\), para una variable fresca \(x\).
+La regla de *debilitamiento* nos dice que el debilitamiento por un tipo \(A\) en un contexto \(\Gamma\) preserva
+la buena formación y la igualdad juiciosa de tipos y elementos
+
+\[
+        \dfrac{\Gamma \vdash A ~~~ \text{type} ~~~ ~~~ \Gamma, \Delta \vdash \mathcal{J}}{\Gamma, x: A, \Delta \vdash \mathcal{J}}W.
+\]
+
+Este proceso de expandir el contexto por una nueva variable de tipo \(A\) es llamado *debilitamiento* por \(A\).
+
+En la situación más simple en la que el debilitamiento aplica, tenemos dos tipos \(A\) y \(B\) en un contexto
+\(\Gamma\). Entonces podemos debilitar \(B\) por \(A\) como sigue:
+
+\[
+        \dfrac{\Gamma \vdash A ~~~ \text{type} ~~~ ~~~ \Gamma \vdash B ~~~ \text{type}}{\Gamma, x: A \vdash B ~~~ \text{type}}
+\]
+
+para formar el tipo \(B\) en el contexto \(\Gamma, x: A\). El tipo \(B\) en el contexto \(\Gamma, x: A\) es llamado
+la *familia constante* \(B\), o la *familia trivial* \(B\).
+
+
+** Los elementos genéricos
+Si se nos da un tipo \(A\) en un contexto \(\Gamma\), entonces podemos debilitar a \(A\) por si mismo para
+obtener que \(A\) es un tipo en el contexto \(\Gamma, x: A\). La regla pala el *elemento genérico* asegura que
+cualquier elemento hipotético \(x: A\) en el contexto \(\Gamma, x: A\) también es un elemento de tipo \(A\)
+en el contexto \(\Gamma, x: A\).
+
+\[
+        \dfrac{\Gamma \vdash A ~~~ \text{type}}{\Gamma, x: A \vdash x: A} \delta.
+\]
+
+Esta regla también es conocida como *regla de variable*. Una de las razones para incluir el elemento
+genérico es asegurarnos de que las variables declaradas en un contexto son de hecho elementos. También
+da la *función identidad* sobre el tipo \(A\) en el contexto \(\Gamma\).
+
+
+* Derivaciones
+Una *derivación* en la teoría de tipos es un árbol finito en el que cada nodo es una regla de inferencia
+válida. En la raíz del árbol encontramos la conclusión y en las hojas encontramos las hipótesis. Damos
+dos ejemplos de derivaciones: una derivación mostrando que cualquier variable se puede cambiar por una
+variable nueva y una mostrando que dos variables que no dependen mutuamente de otra pueden ser cambiadas
+en su orden.
+
+Dada una derivación con hipótesis \(mathcal{H}_1, \ldots, \mathcal{H}_n\) y conclusión \(\mathcal{C}\),
+podemos formar una nueva regla de inferencia
+
+\[
+        \dfrac{\mathcal{H}_1 \cdots \mathcal{H}_n}{\mathcal{C}}
+\]
+
+Una regla así es llamada *derivable*, pues podemos dar una derivación para ella.
+
+*** Cambiando variables
+Las variables se pueden cambiar por variables nuevas. Mostramos esto viendo que la regla de inferencia
+
+\[
+        \dfrac{\Gamma, x: A, \Delta \vdash \mathcal{J}}{\Gamma, x': A, \Delta[x'/x] \vdash \mathcal{J}[x'/x]}x'/x
+\]
+
+es derivable, donde \(x'\) es una variable que no ocurre en el contexto \(\Gamma, x: A, \Delta\).
+
+En efecto, tenemos la siguiente derivación usando substitución, debilitamiento y el elemento genérico:
+
+\[
+        \dfrac{
+                \dfrac{\Gamma \vdash A ~~~ \text{type}}{\Gamma, x': A \vdash x': A}\delta ~~~
+                \dfrac{\Gamma \vdash A ~~~ \text{type} ~~~ ~~~ \Gamma, x: A, \Delta \vdash \mathcal{J}}{\Gamma, x': A, x: A, \Delta \vdash \mathcal{J}}W
+        }{\Gamma, x': A, \Delta[x'/x] \vdash J[x'/x]}S.
+\]
+
+En esta derivación es en la regla de debilitamiento que debemos verificar que \(x'\) no ocurre en el
+contexto \(\Gamma, x: A, \Delta\).
+
+*** Intercambiando variables
+La *regla de intercambio* dice que si tenemos dos tipos \(A\) y \(B\) en un contexto \(\Gamma\), y hacemos un
+juicio en el contexto \(\Gamma, x: A, y: B, \Delta\), entonces podemos hacer el mismo juicio en el contexto
+\(\Gamma, y: B, x: A, \Delta\) donde el orden de \(x: A\) y \(y: B\) es intercambiado. Más formalmente, la regla
+de intercambio es la siguiente regla de inferencia
+\[
+        \dfrac{\Gamma \vdash B ~~~ \text{type} ~~~ ~~~ \Gamma, x: A, y:B, \Delta \vdash \mathcal{J}}{\Gamma, y: B, x: A, \Delta \vdash \mathcal{J}}.
+\]
+
+Como en la regla de cambio de variables, afirmamos que la regla de intercambio es derivable: si tenemos
+un juicio
+\[
+        \Gamma, x: A, y: B, \Delta \vdash \mathcal{J},
+\]
+entonces podemos cambiar la variable \(y\) por una nueva variable \(y'\) y debilitar el juicio para
+obtener el juicio
+\[
+\Gamma, y: B, x: A, y': B, \Delta[y'/y] \vdash \mathcal{J}[y'/y].
+\]
+Ahora podemos substituir \(y\) por \(y'\) para obtener el juicio deseado
+\(\Gamma, y: B, x: A, \Delta \vdash \mathcal{J}\). La derivación formal es la siguiente:
+
+\[
+        \dfrac{
+                \dfrac{
+                        \dfrac{\Gamma \vdash B ~~~ \text{type}}{\Gamma, y: B \vdash y: B}
+                }{\Gamma, y: B, x: A \vdash y: B}
+                \dfrac{
+                        \Gamma \vdash B ~~~ \text{type} ~~~ ~~~
+                        \dfrac{
+                                \Gamma, x: A, y: B, \Delta \vdash \mathcal{J}
+                        }{\Gamma, x: A, y': B, \Delta[y'/y] \vdash \mathcal{J}[y'/y]}
+                }{\Gamma, y: B, x: A, y': B, \Delta[y'/y] \vdash \mathcal{J}[y'/y]}
+        }{\Gamma, y:B, x: A, \Delta \vdash \mathcal{J}}
+\]

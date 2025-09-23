@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-22 Mon 08:14 -->
+<!-- 2025-09-23 Tue 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Embedding y Codificación Posicional</title>
@@ -141,9 +141,9 @@ Cada token tiene un ID único en el vocabulario del modelo, cuando los embebemos
 capa de embedding obtenemos un embedding vector. A la longitud de este vector se le conoce 
 como el número de dimensiones o dimensionalidad.
 </p>
-<div id="outline-container-org15c734e" class="outline-2">
-<h2 id="org15c734e">Embeddings</h2>
-<div class="outline-text-2" id="text-org15c734e">
+<div id="outline-container-org1baed96" class="outline-2">
+<h2 id="org1baed96">Embeddings</h2>
+<div class="outline-text-2" id="text-org1baed96">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> torch 
 <span style="font-weight: bold;">import</span> math 
@@ -168,9 +168,9 @@ como el número de dimensiones o dimensionalidad.
 token embeddings no sobrecargan o son sobrecargado por los position embeddings.</li>
 </ul>
 </div>
-<div id="outline-container-orgeda4346" class="outline-3">
-<h3 id="orgeda4346">Creando embeddings</h3>
-<div class="outline-text-3" id="text-orgeda4346">
+<div id="outline-container-orgd11fd04" class="outline-3">
+<h3 id="orgd11fd04">Creando embeddings</h3>
+<div class="outline-text-3" id="text-orgd11fd04">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">embedding_layer</span> = InputEmbeddings(vocab_size=10_000, d_model=512)
 <span style="font-weight: bold; font-style: italic;">embedded_output</span> = embedding_layer(torch.tensor([[1, 2, 3, 4], [5, 6, 7, 8]]))
@@ -181,9 +181,9 @@ token embeddings no sobrecargan o son sobrecargado por los position embeddings.<
 </div>
 </div>
 </div>
-<div id="outline-container-orgac17484" class="outline-2">
-<h2 id="orgac17484">Positional encoding</h2>
-<div class="outline-text-2" id="text-orgac17484">
+<div id="outline-container-org1f920a6" class="outline-2">
+<h2 id="org1f920a6">Positional encoding</h2>
+<div class="outline-text-2" id="text-org1f920a6">
 <p>
 Codifica la posición de cada token en la secuencia en un positional embedding y los añade 
 a los token embeddings para capturar la posición. Generalmente estos embeddings tienen las 
@@ -223,9 +223,9 @@ Donde \(i\) es el número de valor.
 </pre>
 </div>
 </div>
-<div id="outline-container-orgdcc10f2" class="outline-3">
-<h3 id="orgdcc10f2">Creando positional encodings</h3>
-<div class="outline-text-3" id="text-orgdcc10f2">
+<div id="outline-container-orgda4ec97" class="outline-3">
+<h3 id="orgda4ec97">Creando positional encodings</h3>
+<div class="outline-text-3" id="text-orgda4ec97">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">pos_encoding_layer</span> = PositionalEncoding(d_model=512, max_seq_length=4)
 <span style="font-weight: bold; font-style: italic;">pos_encoded_output</span> = pos_encoding_layer(embedded_output)

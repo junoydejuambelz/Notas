@@ -6,10 +6,31 @@
 <!-- 2025-09-23 Tue 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Index</title>
+<title>Lógica proposicional intuicionista</title>
 <meta name="generator" content="Org Mode" />
 <link rel='stylesheet' href='/style.css' />
 <script defer src='/navbar.js'></script>
+<script>
+  window.MathJax = {
+  tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']],
+  displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  processEscapes: true,
+  processEnvironments: true,
+  packages: {'[+]': ['ams', 'newcommand', 'configmacros', 'action', 'cancel', 'color', 'enclose', 'mhchem', 'unicode', 'verb']}
+  },
+  loader: {
+  load: ['[tex]/newcommand', '[tex]/configmacros', '[tex]/action', '[tex]/cancel', '[tex]/color', '[tex]/enclose', '[tex]/mhchem', '[tex]/unicode', '[tex]/verb']
+  },
+  options: {
+  skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+  };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+  <script>
+  MathJax.startup.defaultReady();
+  </script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -102,20 +123,77 @@
   </nav>
 </div>
 <div id="content" class="content">
-<h1 class="title">Index</h1>
-<div id="outline-container-org5e3fd96" class="outline-2">
-<h2 id="org5e3fd96">Bienvenido a mis notas</h2>
-<div class="outline-text-2" id="text-org5e3fd96">
+<h1 class="title">Lógica proposicional intuicionista</h1>
+<div id="outline-container-orge07ef25" class="outline-2">
+<h2 id="orge07ef25">Números naturales</h2>
+<div class="outline-text-2" id="text-orge07ef25">
+</div>
+<div id="outline-container-orga53028d" class="outline-3">
+<h3 id="orga53028d">Reglas de introducción</h3>
+<div class="outline-text-3" id="text-orga53028d">
 <p>
-Esta es una colección de mis notas de estudio del libro Proofs and Types
+\[
+        \frac{}{\Gamma \vdash 0: Nat} ~~~ \frac{\Gamma \vdash M: Nat}{\Gamma \vdash s(M): Nat} (Nat-Introducci\acute{o}n)
+\]
 </p>
 </div>
-<div id="outline-container-orga550369" class="outline-3">
-<h3 id="orga550369">Notas</h3>
-<div class="outline-text-3" id="text-orga550369">
+</div>
+<div id="outline-container-org3bc9d1b" class="outline-3">
+<h3 id="org3bc9d1b">Regla de eliminación</h3>
+<div class="outline-text-3" id="text-org3bc9d1b">
+<p>
+\[
+        \frac{\Gamma \vdash M: Nat ~~~ \Gamma \vdash P: A ~~~ \Gamma, x: A \vdash Q: A}{\Gamma \vdash \underline{rec}(P,x.Q)(M): A} ~~~ (Nat-Eliminaci\acute{o}n)
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-org3ef3436" class="outline-3">
+<h3 id="org3ef3436">Reglas &beta;</h3>
+<div class="outline-text-3" id="text-org3ef3436">
 <ul class="org-ul">
-<li><a href="./sentido.html">Sentido, denotación y semántica</a></li>
+<li>\[ rec(P,Q)(0) \equiv P \]</li>
+<li>\[ rec(P,Q)(s(M)) \equiv [rec(P,Q)(M)/x]Q \]</li>
 </ul>
+</div>
+</div>
+<div id="outline-container-org2e3d887" class="outline-3">
+<h3 id="org2e3d887">Regla &eta;</h3>
+<div class="outline-text-3" id="text-org2e3d887">
+<p>
+\[
+        \dfrac{\begin{array}{ll}
+                \Gamma, z : Nat \vdash M: A & \Gamma, z : Nat \vdash [s(z)/z]M \equiv [M/x]Q \\
+                \Gamma \vdash [0/z]M \equiv P: A & ~~~
+        \end{array}}{\Gamma, z: Nat \vdash M \equiv rec(P,Q)(z)}
+\]
+</p>
+</div>
+<div id="outline-container-org161939f" class="outline-4">
+<h4 id="org161939f">Caso especial</h4>
+<div class="outline-text-4" id="text-org161939f">
+<p>
+\[ z: Nat \vdash rec(0, y.s(y))(z) \equiv z: Nat \]
+</p>
+</div>
+</div>
+<div id="outline-container-org9c5e224" class="outline-4">
+<h4 id="org9c5e224">Caso especial</h4>
+<div class="outline-text-4" id="text-org9c5e224">
+<p>
+\[ \Gamma, z: Nat \vdash [rec(0, y.s(y))(z)/z]M \equiv rec([0/z]M, y.[s(y)/z]M)(z) \]
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8be961c" class="outline-3">
+<h3 id="org8be961c">Diagrama (Objeto números naturales)</h3>
+<div class="outline-text-3" id="text-org8be961c">
+
+<div id="org1af8602" class="figure">
+<p><img src="./Categorías/recursor.png" alt="recursor.png" width="300px" />
+</p>
+</div>
 </div>
 </div>
 </div>

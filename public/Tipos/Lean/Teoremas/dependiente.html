@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-09-22 Mon 08:14 -->
+<!-- 2025-09-23 Tue 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Teoría de tipos dependientes</title>
@@ -131,9 +131,9 @@ razonar sobre ambas de manera natural y uniforme. Lean se basa en una versión d
 de tipos dependiente llamada el <b>Cálculo de construcciones</b>, con una jerarquía numerable de
 universos y tipos inductivos.
 </p>
-<div id="outline-container-orgd3a0918" class="outline-2">
-<h2 id="orgd3a0918">Teoría de tipos simple</h2>
-<div class="outline-text-2" id="text-orgd3a0918">
+<div id="outline-container-org19f9496" class="outline-2">
+<h2 id="org19f9496">Teoría de tipos simple</h2>
+<div class="outline-text-2" id="text-org19f9496">
 <p>
 La "teoría de tipos" adquiere su nombre del hecho de que cada expresión tiene un tipo asociado.
 Por ejemplo, en un contexto, <code>x + 0</code> puede denotar un número natural y <code>f</code> puede denotar una función
@@ -239,7 +239,7 @@ de \(a\) en \(b\), y \(a \times b\) denota el tipo de los pares que consisten de
 </pre>
 </div>
 
-<pre class="example" id="orgc31ee95">
+<pre class="example" id="org14044e8">
 Nat → Nat : Type
 Nat → Nat : Type
 Nat × Nat : Type
@@ -262,9 +262,9 @@ Nat.add 5 2 : Nat
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf88123e" class="outline-2">
-<h2 id="orgf88123e">Tipos como objetos</h2>
-<div class="outline-text-2" id="text-orgf88123e">
+<div id="outline-container-org81a9893" class="outline-2">
+<h2 id="org81a9893">Tipos como objetos</h2>
+<div class="outline-text-2" id="text-org81a9893">
 <p>
 Una forma en la que la teoría de tipos de Lean extiende la teoría de tipos simple es que los
 tipos mismos -como <code>Nat</code> o <code>Bool</code>- son entidades de primera clase, es decir, son objetos. Para
@@ -511,9 +511,9 @@ F.{u} (α : Type u) : Type u
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc8017ec" class="outline-2">
-<h2 id="orgc8017ec">Abstracción de funciones y evaluación</h2>
-<div class="outline-text-2" id="text-orgc8017ec">
+<div id="outline-container-org3ce0ac2" class="outline-2">
+<h2 id="org3ce0ac2">Abstracción de funciones y evaluación</h2>
+<div class="outline-text-2" id="text-org3ce0ac2">
 <p>
 Lean da la palabra clave <code>fun</code> (o <code>λ</code>) para crear funciones a partir de una expresión como sigue:
 </p>
@@ -618,7 +618,7 @@ def g (s: String): Bool := s.length &gt; 0
 </pre>
 </div>
 
-<pre class="example" id="org61c5c71">
+<pre class="example" id="org916b815">
 fun x =&gt; x : Nat → Nat
 fun x =&gt; true : Nat → Bool
 fun x =&gt; g (f x) : Nat → Bool
@@ -627,6 +627,169 @@ fun x =&gt; x : Nat → Nat
 fun x =&gt; true : Nat → Bool
 fun x =&gt; g (f x) : Nat → Bool
 fun x =&gt; g (f x) : Nat → Bool
+</pre>
+
+<p>
+Podemos pasar funciones como parámetros y, si les damos nombres <code>f</code> y <code>g</code> podemos usar esas
+funciones en la implementación:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check fun (g: String → Bool) (f: Nat → String) (x: Nat) =&gt; g (f x)
+</pre>
+</div>
+
+<pre class="example">
+fun g f x =&gt; g (f x) : (String → Bool) → (Nat → String) → Nat → Bool
+</pre>
+
+
+<p>
+También podemos pasar tipos como parámetros
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#check fun (α β γ: Type) (g: β → γ) (f: α → β) (x: α) =&gt; g (f x)
+</pre>
+</div>
+
+<pre class="example">
+fun α β γ g f x =&gt; g (f x) : (α β γ : Type) → (β → γ) → (α → β) → α → γ
+</pre>
+
+
+<p>
+La forma general de una expresión lambda es <code>fun (x: α) =&gt; t</code>, donde la variable <code>x</code> es una
+"variable ligada": realmente es un placeholder, cuyo "alcance" no se extiende más allá de la
+expresión <code>t</code>.
+</p>
+
+<p>
+Formalmente, las expresiones que son iguales salvo el nombre de las variables son llamadas
+<b>alpha equivalentes</b> y son consideradas como iguales.
+</p>
+
+<p>
+Notemos que aplicar un término <code>t: α → β</code> a un término <code>t: α</code> da una expresión <code>t: β</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-org3b64856" class="outline-2">
+<h2 id="org3b64856">Definiciones</h2>
+<div class="outline-text-2" id="text-org3b64856">
+<p>
+Recordemos que la palabra clave <code>def</code> nos da una manera importante de definir objetos nombrados.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">def double (x: Nat): Nat :=
+    x + x
+</pre>
+</div>
+
+<p>
+Podemos invocar esta función usando su nombre
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">#eval double 3
+</pre>
+</div>
+
+<pre class="example">
+6
+</pre>
+
+
+<p>
+En este caso, podemos pensar a <code>def</code> como una <code>fun</code> con un nombre. Lo siguiente da el mismo
+resultado:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">def double: Nat → Nat :=
+    fun x =&gt; x + x
+
+#eval double 3
+</pre>
+</div>
+
+<pre class="example">
+6
+</pre>
+
+
+<p>
+Podemos omitir las declaraciones de tipos si Lean tiene suficiente información para deducirlos.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">def double :=
+    fun (x: Nat) =&gt; x + x
+</pre>
+</div>
+
+<p>
+La forma general de una definición es <code>def foo: α := bar</code> donde <code>α</code> es el tipo devuelto por la
+expresión <code>bar</code>. El lado derecho <code>bar</code> puede ser cualquier expresión, no sólo una lambda:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">def pi := 3.1415926535
+</pre>
+</div>
+
+<p>
+<code>def</code> puede tomar varios parámetros de entrada.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">def add (x y: Nat): Nat :=
+    x + y
+
+#eval add 3 2
+</pre>
+</div>
+
+<pre class="example">
+5
+</pre>
+
+
+<p>
+La lista de parámetros puede separarse
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">def add (x: Nat) (y: Nat): Nat :=
+    x + y
+
+#eval add 3 2
+</pre>
+</div>
+
+<pre class="example">
+5
+</pre>
+
+
+<p>
+Podemos usar expresiones más interesantes
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4">def greater (x y: Nat) :=
+    if x &gt; y then x
+    else y
+
+#eval greater 3 2
+#eval greater 2 4
+</pre>
+</div>
+
+<pre class="example">
+3
+4
 </pre>
 </div>
 </div>
